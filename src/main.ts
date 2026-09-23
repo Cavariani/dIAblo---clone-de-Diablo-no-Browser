@@ -1,5 +1,6 @@
 // Bootstrap. (Temporary quick-start until the menu flow lands: starts a Berserker in the crypt.)
 import { InputManager } from './core/input';
+import './game/modules';
 import { Game } from './game/Game';
 import type { AudioAPI } from './game/api';
 import { defaultAppearance, defaultSettings, emptyStash, newCharacter } from './game/save/defaults';

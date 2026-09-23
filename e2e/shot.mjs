@@ -21,12 +21,12 @@ if (act.includes('fight')) {
     if (m) { p.pos.x = m.pos.x - 1.2; p.pos.y = m.pos.y - 1.2; }
   });
   await page.waitForTimeout(1500);
-  for (let i = 0; i < 12; i++) {
+  for (let i = 0; i < (act.includes("long") ? 45 : 12); i++) {
     const target = await page.evaluate(() => { const g = window.__game; const p = g.player; const m = g.world.actors.filter(a => a.kind === 'monster' && a.alive).sort((a,b)=>Math.hypot(a.pos.x-p.pos.x,a.pos.y-p.pos.y)-Math.hypot(b.pos.x-p.pos.x,b.pos.y-p.pos.y))[0]; return m ? g.renderer.worldToScreen(m.pos.x, m.pos.y) : null; });
     if (target) { await page.mouse.move(target.x, target.y - 40); await page.mouse.down(); await page.waitForTimeout(350); await page.mouse.up(); }
   }
 }
-const info = await page.evaluate(() => { const g = window.__game; if (!g) return null; return { fps: g.renderer.stats.fps, actors: g.world.actors.length, life: g.player.life, max: g.player.maxLife, lvl: g.character.level, xp: g.character.xp, pos: g.player.pos }; });
+const info = await page.evaluate(() => { const g = window.__game; if (!g) return null; return { kills: g.character.stats.kills, gold: g.character.gold, items: g.world.groundItems.length, inv: g.character.inventory.length, fps: g.renderer.stats.fps, actors: g.world.actors.length, life: g.player.life, max: g.player.maxLife, lvl: g.character.level, xp: g.character.xp, pos: g.player.pos }; });
 await page.screenshot({ path: out });
 console.log(JSON.stringify(info));
 console.log(logs.slice(0, 20).join('\n'));
