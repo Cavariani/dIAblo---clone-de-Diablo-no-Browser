@@ -1,0 +1,1 @@
+{"id":"loot/steel_armor","pages":["sheets/loot__steel_armor.webp"],"animations":{"power":{"frames":6,"duration":600,"type":"play_once","dirs":1,"rects":[[0,172,0,117,178,38,192],[0,157,278,135,216,32,240],[0,0,0,172,242,46,279],[0,0,242,157,190,49,220],[0,172,178,115,100,49,102],[0,0,432,90,52,52,33]]}},"sourceScale":1,"height":279}

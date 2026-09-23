@@ -1,0 +1,1 @@
+{"id":"loot/longsword","pages":["sheets/loot__longsword.webp"],"animations":{"power":{"frames":6,"duration":600,"type":"play_once","dirs":1,"rects":[[0,157,0,133,180,32,223],[0,0,242,163,188,35,248],[0,0,0,157,242,29,301],[0,163,180,98,202,10,241],[0,163,382,109,87,45,103],[0,0,430,100,22,57,14]]}},"sourceScale":1,"height":301}

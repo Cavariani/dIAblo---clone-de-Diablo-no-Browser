@@ -1,0 +1,1 @@
+{"id":"loot/hp_potion","pages":["sheets/loot__hp_potion.webp"],"animations":{"power":{"frames":6,"duration":600,"type":"play_once","dirs":1,"rects":[[0,0,192,71,123,12,154],[0,121,158,86,158,13,201],[0,0,0,104,192,15,247],[0,104,0,89,158,18,202],[0,71,192,50,83,15,98],[0,71,275,28,30,12,25]]}},"sourceScale":1,"height":247}

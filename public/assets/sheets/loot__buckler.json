@@ -1,0 +1,1 @@
+{"id":"loot/buckler","pages":["sheets/loot__buckler.webp"],"animations":{"power":{"frames":6,"duration":600,"type":"play_once","dirs":1,"rects":[[0,129,0,69,163,11,193],[0,0,221,106,189,20,225],[0,0,0,129,221,23,262],[0,106,255,98,177,17,212],[0,129,163,73,92,21,97],[0,0,410,55,30,27,17]]}},"sourceScale":1,"height":262}

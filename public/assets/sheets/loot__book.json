@@ -1,0 +1,1 @@
+{"id":"loot/book","pages":["sheets/loot__book.webp"],"animations":{"power":{"frames":6,"duration":600,"type":"play_once","dirs":1,"rects":[[0,115,259,93,152,24,179],[0,0,211,115,178,20,213],[0,0,0,109,211,12,259],[0,109,0,116,163,24,199],[0,166,163,54,96,21,99],[0,109,163,57,37,28,23]]}},"sourceScale":1,"height":259}

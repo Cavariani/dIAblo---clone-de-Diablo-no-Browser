@@ -1,0 +1,1 @@
+{"id":"loot/leather_armor","pages":["sheets/loot__leather_armor.webp"],"animations":{"power":{"frames":6,"duration":600,"type":"play_once","dirs":1,"rects":[[0,150,0,124,165,29,185],[0,0,229,145,193,29,229],[0,0,0,150,229,24,281],[0,145,281,130,198,24,237],[0,150,165,86,116,28,116],[0,0,422,70,44,29,26]]}},"sourceScale":1,"height":281}

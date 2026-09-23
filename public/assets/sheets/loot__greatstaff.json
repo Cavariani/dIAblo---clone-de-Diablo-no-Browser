@@ -1,0 +1,1 @@
+{"id":"loot/greatstaff","pages":["sheets/loot__greatstaff.webp"],"animations":{"power":{"frames":6,"duration":600,"type":"play_once","dirs":1,"rects":[[0,0,282,129,260,33,258],[0,0,0,160,282,38,290],[0,0,542,210,249,82,294],[0,0,791,213,197,85,218],[0,129,282,76,132,33,112],[0,129,414,85,99,55,53]]}},"sourceScale":1,"height":294}

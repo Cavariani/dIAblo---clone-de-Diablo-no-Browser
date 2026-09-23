@@ -1,0 +1,1 @@
+{"id":"loot/greatbow","pages":["sheets/loot__greatbow.webp"],"animations":{"power":{"frames":6,"duration":600,"type":"play_once","dirs":1,"rects":[[0,143,286,115,163,22,193],[0,197,0,180,230,52,259],[0,0,182,143,295,29,319],[0,0,0,197,182,69,219],[0,258,286,128,132,41,124],[0,143,230,146,56,78,37]]}},"sourceScale":1,"height":319}

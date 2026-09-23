@@ -1,0 +1,1 @@
+{"id":"loot/longbow","pages":["sheets/loot__longbow.webp"],"animations":{"power":{"frames":6,"duration":600,"type":"play_once","dirs":1,"rects":[[0,148,213,86,209,33,220],[0,164,0,148,213,64,253],[0,0,204,148,245,22,277],[0,0,0,164,204,67,237],[0,234,213,117,123,66,127],[0,234,336,90,58,39,37]]}},"sourceScale":1,"height":277}

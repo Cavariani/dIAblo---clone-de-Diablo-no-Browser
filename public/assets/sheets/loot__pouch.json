@@ -1,0 +1,1 @@
+{"id":"loot/pouch","pages":["sheets/loot__pouch.webp"],"animations":{"power":{"frames":6,"duration":600,"type":"play_once","dirs":1,"rects":[[0,128,163,100,147,30,169],[0,0,202,109,174,21,205],[0,0,0,128,202,9,253],[0,128,0,100,163,22,187],[0,109,310,72,83,32,86],[0,181,310,40,45,19,34]]}},"sourceScale":1,"height":253}

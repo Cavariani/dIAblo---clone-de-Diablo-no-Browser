@@ -1,0 +1,1 @@
+{"id":"loot/scroll","pages":["sheets/loot__scroll.webp"],"animations":{"power":{"frames":6,"duration":600,"type":"play_once","dirs":1,"rects":[[0,116,161,116,161,39,183],[0,0,0,158,161,44,202],[0,0,161,116,213,13,260],[0,158,0,141,161,44,191],[0,232,161,82,110,31,102],[0,232,271,77,44,38,26]]}},"sourceScale":1,"height":260}

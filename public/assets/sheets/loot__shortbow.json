@@ -1,0 +1,1 @@
+{"id":"loot/shortbow","pages":["sheets/loot__shortbow.webp"],"animations":{"power":{"frames":6,"duration":600,"type":"play_once","dirs":1,"rects":[[0,0,199,112,137,53,173],[0,184,195,70,171,22,208],[0,0,0,154,199,29,247],[0,154,0,101,195,9,216],[0,112,199,72,100,14,105],[0,0,336,90,21,42,16]]}},"sourceScale":1,"height":247}

@@ -1,0 +1,1 @@
+{"id":"loot/zweihander","pages":["sheets/loot__zweihander.webp"],"animations":{"power":{"frames":6,"duration":600,"type":"play_once","dirs":1,"rects":[[0,153,173,151,143,24,166],[0,153,0,158,173,30,211],[0,0,0,153,285,25,304],[0,311,0,60,230,6,240],[0,304,230,77,117,29,96],[0,0,285,81,60,40,28]]}},"sourceScale":1,"height":304}

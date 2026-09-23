@@ -1,0 +1,1 @@
+{"id":"loot/war_hammer","pages":["sheets/loot__war_hammer.webp"],"animations":{"power":{"frames":6,"duration":600,"type":"play_once","dirs":1,"rects":[[0,104,330,115,136,21,159],[0,0,268,104,175,16,224],[0,0,0,141,268,13,307],[0,141,0,87,220,13,245],[0,141,220,46,110,17,98],[0,0,443,72,41,50,17]]}},"sourceScale":1,"height":307}

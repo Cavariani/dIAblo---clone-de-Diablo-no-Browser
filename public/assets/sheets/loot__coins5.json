@@ -1,0 +1,1 @@
+{"id":"loot/coins5","pages":["sheets/loot__coins5.webp"],"animations":{"power":{"frames":6,"duration":600,"type":"play_once","dirs":1,"rects":[[0,144,0,118,171,24,201],[0,0,209,137,209,27,246],[0,0,0,144,209,29,250],[0,137,306,136,194,32,214],[0,144,171,105,135,35,121],[0,0,418,66,29,36,15]]}},"sourceScale":1,"height":250}

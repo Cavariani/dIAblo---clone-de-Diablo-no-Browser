@@ -1,0 +1,97 @@
+/* =============================================================================
+   dIAblo design tokens (see docs/research/ui-art-direction.md §2-4).
+   The whole UI is sized in rem; 1rem = 16px at 1080p and scales with the viewport
+   height (clamped for 720p..1440p+). A UI scale option can multiply --ui-scale.
+   ============================================================================= */
+
+@property --cd { syntax: '<number>'; inherits: true; initial-value: 0; }
+@property --fill { syntax: '<number>'; inherits: true; initial-value: 1; }
+@property --rg { syntax: '<color>'; inherits: true; initial-value: transparent; }
+@property --a { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
+@property --shine { syntax: '<percentage>'; inherits: false; initial-value: -30%; }
+
+:root {
+  --ui-scale: 1;
+
+  /* Stone & metal */
+  --c-void: #070606;
+  --c-bg-0: #0d0b0a;
+  --c-bg-1: #16120f;
+  --c-bg-2: #221b16;
+  --c-stone-1: #2e2722;
+  --c-stone-2: #3d342d;
+  --c-stone-3: #574b41;
+  --c-iron-1: #2a2b2e;
+  --c-iron-2: #4a4c52;
+  --c-iron-3: #8b8e96;
+
+  /* Metals & accents */
+  --c-gold-0: #6b4a1a;
+  --c-gold-1: #a67c2e;
+  --c-gold-2: #d4a64a;
+  --c-gold-3: #f3d58a;
+  --c-blood-0: #3a0508;
+  --c-blood-1: #7a0a10;
+  --c-blood-2: #b3121b;
+  --c-blood-3: #e0343c;
+  --c-danger-txt: #ff5c52;
+  --c-ember-1: #c2410c;
+  --c-ember-2: #ff6a1a;
+  --c-ember-3: #ffb36b;
+
+  /* Text */
+  --c-text: #e6dcc6;
+  --c-text-muted: #a89f8e;
+  --c-text-dim: #8c8374;
+  --c-positive: #5fe07a;
+  --c-negative: #ff5c52;
+
+  /* Rarity */
+  --r-junk: #8a8580;
+  --r-common: #c8c4bc;
+  --r-magic: #6c8cff;
+  --r-rare: #ffd84a;
+  --r-legendary: #ff8a1c;
+  --r-set: #3fdc5a;
+  --r-unique: #c7a26b;
+
+  /* Motion */
+  --ease-out: cubic-bezier(.16, 1, .3, 1);
+  --ease-in-out: cubic-bezier(.65, 0, .35, 1);
+  --ease-back: cubic-bezier(.34, 1.56, .64, 1);
+  --t-fast: 120ms;
+  --t-med: 220ms;
+  --t-slow: 420ms;
+
+  /* Geometry (rem: 1rem = 16px @1080p) */
+  --radius-0: .125rem;
+  --radius-1: .25rem;
+  --slot: 3.5rem;
+  --slot-sm: 2.75rem;
+  --shadow-deep: 0 .75rem 2.5rem rgba(0, 0, 0, .75), 0 .125rem .375rem rgba(0, 0, 0, .9);
+
+  /* Fonts */
+  --f-display: 'Cinzel Decorative', 'Cinzel', serif;
+  --f-title: 'Cinzel', 'Times New Roman', serif;
+  --f-ui: 'Alegreya Sans', system-ui, sans-serif;
+  --f-sc: 'Alegreya Sans SC', 'Alegreya Sans', system-ui, sans-serif;
+  --f-lore: 'Spectral', Georgia, serif;
+  --f-flavor: 'EB Garamond', Georgia, serif;
+  --fs-xs: .75rem;
+  --fs-sm: .8125rem;
+  --fs-md: .9375rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.5rem;
+  --fs-xxl: 2.5rem;
+
+  /* Textures (inline SVG, no raster assets) */
+  --noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .45 0 0 0 0 .4 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --stone: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='s'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.018 .03' numOctaves='5' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .5 0 0 0 0 .45 0 0 0 .7 -.1'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23s)'/%3E%3C/svg%3E");
+  --corner: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M1.5 39V11L11 1.5h28' fill='none' stroke='%23d4a64a' stroke-width='1.6'/%3E%3Cpath d='M6 34V13l7-7h21' fill='none' stroke='%236b4a1a' stroke-width='1.1'/%3E%3Cpath d='M1.5 11h6M11 1.5v6' stroke='%23f3d58a' stroke-width='1.1'/%3E%3Ccircle cx='7.5' cy='7.5' r='2.6' fill='%23d4a64a' stroke='%23000' stroke-width='.6'/%3E%3Cpath d='M7.5 3l1.1 3.4 3.4 1.1-3.4 1.1-1.1 3.4-1.1-3.4L3 7.5l3.4-1.1z' fill='%23f3d58a'/%3E%3Cpath d='M16 6c3 2 5 2 8 0M6 16c2 3 2 5 0 8' fill='none' stroke='%23a67c2e' stroke-width='.9'/%3E%3C/svg%3E");
+  --corner-r: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg transform='matrix(-1 0 0 1 40 0)'%3E%3Cpath d='M1.5 39V11L11 1.5h28' fill='none' stroke='%23d4a64a' stroke-width='1.6'/%3E%3Cpath d='M6 34V13l7-7h21' fill='none' stroke='%236b4a1a' stroke-width='1.1'/%3E%3Cpath d='M1.5 11h6M11 1.5v6' stroke='%23f3d58a' stroke-width='1.1'/%3E%3Ccircle cx='7.5' cy='7.5' r='2.6' fill='%23d4a64a' stroke='%23000' stroke-width='.6'/%3E%3Cpath d='M7.5 3l1.1 3.4 3.4 1.1-3.4 1.1-1.1 3.4-1.1-3.4L3 7.5l3.4-1.1z' fill='%23f3d58a'/%3E%3Cpath d='M16 6c3 2 5 2 8 0M6 16c2 3 2 5 0 8' fill='none' stroke='%23a67c2e' stroke-width='.9'/%3E%3C/g%3E%3C/svg%3E");
+  --rule: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 10'%3E%3Cpath d='M0 5h84M116 5h84' stroke='%23a67c2e' stroke-width='.8'/%3E%3Cpath d='M0 5h60M140 5h60' stroke='%23f3d58a' stroke-opacity='.25' stroke-width='.5'/%3E%3Cpath d='M100 .5l5 4.5-5 4.5-5-4.5z' fill='%23d4a64a' stroke='%23000' stroke-width='.5'/%3E%3Ccircle cx='88' cy='5' r='1.4' fill='%23d4a64a'/%3E%3Ccircle cx='112' cy='5' r='1.4' fill='%23d4a64a'/%3E%3C/svg%3E");
+}
+
+html {
+  font-size: calc(clamp(9px, min(100vh / 67.5, 100vw / 120), 24px) * var(--ui-scale));
+}

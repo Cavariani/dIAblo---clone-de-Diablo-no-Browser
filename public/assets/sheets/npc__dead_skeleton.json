@@ -1,0 +1,1 @@
+{"id":"npc/dead_skeleton","pages":["sheets/npc__dead_skeleton.webp"],"animations":{"stance":{"frames":1,"duration":66,"type":"looped","dirs":8,"rects":[[0,0,0,151,53,92,35],[0,0,0,151,53,92,35],[0,0,0,151,53,92,35],[0,0,0,151,53,92,35],[0,0,0,151,53,92,35],[0,0,0,151,53,92,35],[0,0,0,151,53,92,35],[0,0,0,151,53,92,35]]}},"sourceScale":0.8,"height":35}

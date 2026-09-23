@@ -593,6 +593,12 @@ export interface EnemyDef {
   light?: LightDef;
   /** Minimum area level to appear. */
   minLevel?: number;
+  /** One-shot animation played when the monster enters the world (e.g. 'spawn': zombies rise, antlions burrow out). */
+  spawnAnim?: string;
+  /** Grammatical gender of the creature noun (pt-BR article for rare names: 'o' / 'a'). Default 'm'. */
+  gender?: 'm' | 'f';
+  /** Designer note describing the intended behaviour (not shown in game). */
+  notes?: string;
 }
 
 export interface BossPhaseDef {
@@ -630,6 +636,16 @@ export interface EliteModDef {
   incompatible?: string[];
   minLevel?: number;
   weight: number;
+  /** Ranks that may roll this mod (default: champion + rare). */
+  ranks?: MonsterRank[];
+  /** "Control" affix (pull/root/fear/walls/knockback): max 1 per pack below Tormento III. */
+  control?: boolean;
+  /** Rare-pack minions also get this mod (passive/defensive mods). */
+  inheritToMinions?: boolean;
+  /** Minimum DifficultyDef.order required (e.g. 3 = Tormento II+). */
+  minDifficulty?: number;
+  /** Free-form tunables for the implementation (radius, duration, count, cooldown...). Tiles / seconds / fractions. */
+  params?: Record<string, number>;
 }
 
 // ---------------------------------------------------------------------------
@@ -659,6 +675,8 @@ export interface BiomeDef {
 export interface ZoneDef {
   id: string;
   name: string; // pt-BR
+  /** Optional pt-BR subtitle for the zone-enter banner (e.g. 'Ato I'). */
+  subtitle?: string;
   biome: BiomeId;
   kind: 'town' | 'dungeon';
   /** Number of floors (levels) in this zone. */

@@ -1,0 +1,1 @@
+{"id":"loot/reinforced_club","pages":["sheets/loot__reinforced_club.webp"],"animations":{"power":{"frames":6,"duration":600,"type":"play_once","dirs":1,"rects":[[0,0,256,98,114,16,148],[0,137,0,101,183,14,218],[0,0,0,137,256,12,301],[0,137,183,98,216,21,261],[0,98,256,29,77,5,89],[0,1,370,49,34,33,16]]}},"sourceScale":1,"height":301}

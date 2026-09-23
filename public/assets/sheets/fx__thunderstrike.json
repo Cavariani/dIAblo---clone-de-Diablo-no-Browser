@@ -1,0 +1,1 @@
+{"id":"fx/thunderstrike","pages":["sheets/fx__thunderstrike.webp"],"animations":{"power":{"frames":6,"duration":200,"type":"play_once","dirs":1,"rects":[[0,0,0,229,664,115,569],[0,229,0,226,600,113,514],[0,455,0,216,458,109,383],[0,455,458,196,286,99,224],[0,229,600,113,138,54,104],[0,0,664,37,51,18,47]],"activeFrame":2}},"sourceScale":1,"height":569}

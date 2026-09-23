@@ -1,0 +1,1 @@
+{"id":"loot/wand","pages":["sheets/loot__wand.webp"],"animations":{"power":{"frames":6,"duration":600,"type":"play_once","dirs":1,"rects":[[0,136,0,56,151,21,189],[0,73,215,70,163,15,221],[0,0,0,136,215,32,277],[0,0,215,73,180,18,222],[0,143,166,40,88,13,96],[0,136,151,42,15,17,7]]}},"sourceScale":1,"height":277}

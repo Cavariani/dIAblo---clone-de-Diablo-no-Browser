@@ -1,0 +1,1 @@
+{"id":"loot/boots","pages":["sheets/loot__boots.webp"],"animations":{"power":{"frames":6,"duration":600,"type":"play_once","dirs":1,"rects":[[0,111,0,79,149,27,160],[0,0,171,92,155,29,177],[0,0,0,111,171,28,204],[0,92,221,100,126,35,149],[0,111,149,61,72,34,67],[0,0,326,37,40,25,22]]}},"sourceScale":1,"height":204}

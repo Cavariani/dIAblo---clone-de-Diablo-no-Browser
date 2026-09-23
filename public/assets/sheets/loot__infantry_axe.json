@@ -1,0 +1,1 @@
+{"id":"loot/infantry_axe","pages":["sheets/loot__infantry_axe.webp"],"animations":{"power":{"frames":6,"duration":600,"type":"play_once","dirs":1,"rects":[[0,0,256,118,124,30,154],[0,186,158,134,190,37,231],[0,0,0,151,256,32,300],[0,151,0,158,158,40,209],[0,118,256,68,119,32,115],[0,186,348,90,29,41,15]]}},"sourceScale":1,"height":300}

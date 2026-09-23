@@ -1,0 +1,1 @@
+{"id":"loot/shortsword","pages":["sheets/loot__shortsword.webp"],"animations":{"power":{"frames":6,"duration":600,"type":"play_once","dirs":1,"rects":[[0,122,0,83,184,12,214],[0,161,184,55,212,6,253],[0,0,0,122,218,37,275],[0,0,218,119,139,48,191],[0,119,218,42,87,13,79],[0,0,357,43,37,7,11]]}},"sourceScale":1,"height":275}

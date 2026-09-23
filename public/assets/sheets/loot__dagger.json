@@ -1,0 +1,1 @@
+{"id":"loot/dagger","pages":["sheets/loot__dagger.webp"],"animations":{"power":{"frames":6,"duration":600,"type":"play_once","dirs":1,"rects":[[0,129,193,53,143,14,178],[0,129,0,54,193,6,239],[0,0,0,129,227,5,284],[0,0,227,94,151,4,208],[0,94,227,35,82,0,91],[0,94,336,43,11,22,8]]}},"sourceScale":1,"height":284}

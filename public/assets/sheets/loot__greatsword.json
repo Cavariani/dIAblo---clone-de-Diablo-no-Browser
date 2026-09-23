@@ -1,0 +1,1 @@
+{"id":"loot/greatsword","pages":["sheets/loot__greatsword.webp"],"animations":{"power":{"frames":6,"duration":600,"type":"play_once","dirs":1,"rects":[[0,0,0,169,190,52,222],[0,169,0,164,228,36,271],[0,0,190,129,257,7,305],[0,129,228,104,185,21,230],[0,233,228,129,103,49,133],[0,233,331,109,93,41,95]]}},"sourceScale":1,"height":305}

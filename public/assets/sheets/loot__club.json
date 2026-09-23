@@ -1,0 +1,1 @@
+{"id":"loot/club","pages":["sheets/loot__club.webp"],"animations":{"power":{"frames":6,"duration":600,"type":"play_once","dirs":1,"rects":[[0,200,167,99,110,17,143],[0,200,0,121,167,19,213],[0,0,0,126,256,9,302],[0,126,0,74,197,12,231],[0,126,197,71,76,32,80],[0,0,256,58,22,38,11]]}},"sourceScale":1,"height":302}

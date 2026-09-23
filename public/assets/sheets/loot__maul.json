@@ -1,0 +1,1 @@
+{"id":"loot/maul","pages":["sheets/loot__maul.webp"],"animations":{"power":{"frames":6,"duration":600,"type":"play_once","dirs":1,"rects":[[0,0,281,139,147,37,176],[0,151,0,164,183,36,209],[0,0,0,151,281,23,292],[0,151,183,91,229,9,231],[0,242,183,80,113,37,94],[0,242,296,78,57,43,29]]}},"sourceScale":1,"height":292}

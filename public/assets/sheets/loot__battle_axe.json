@@ -1,0 +1,1 @@
+{"id":"loot/battle_axe","pages":["sheets/loot__battle_axe.webp"],"animations":{"power":{"frames":6,"duration":600,"type":"play_once","dirs":1,"rects":[[0,0,272,142,135,45,153],[0,167,0,171,189,48,222],[0,0,0,167,272,39,315],[0,235,189,107,225,12,251],[0,142,272,84,111,33,100],[0,142,383,93,50,50,25]]}},"sourceScale":1,"height":315}

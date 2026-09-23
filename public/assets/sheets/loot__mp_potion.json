@@ -1,0 +1,1 @@
+{"id":"loot/mp_potion","pages":["sheets/loot__mp_potion.webp"],"animations":{"power":{"frames":6,"duration":600,"type":"play_once","dirs":1,"rects":[[0,0,194,70,143,5,176],[0,124,169,78,165,13,213],[0,0,0,105,194,16,250],[0,105,0,81,169,12,213],[0,70,194,54,92,9,108],[0,70,286,29,35,12,31]]}},"sourceScale":1,"height":250}

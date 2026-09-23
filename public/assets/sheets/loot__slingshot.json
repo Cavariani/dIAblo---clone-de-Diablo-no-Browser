@@ -1,0 +1,1 @@
+{"id":"loot/slingshot","pages":["sheets/loot__slingshot.webp"],"animations":{"power":{"frames":6,"duration":600,"type":"play_once","dirs":1,"rects":[[0,106,0,69,144,22,176],[0,0,201,93,163,27,214],[0,0,0,106,201,15,248],[0,93,220,92,159,16,198],[0,106,144,58,76,13,88],[0,0,364,26,25,9,15]]}},"sourceScale":1,"height":248}

@@ -1,0 +1,1 @@
+{"id":"loot/hand_axe","pages":["sheets/loot__hand_axe.webp"],"animations":{"power":{"frames":6,"duration":600,"type":"play_once","dirs":1,"rects":[[0,200,175,97,125,16,147],[0,200,0,117,175,17,212],[0,0,0,136,255,10,301],[0,136,0,64,204,4,232],[0,136,204,55,88,28,84],[0,0,255,47,36,36,15]]}},"sourceScale":1,"height":301}

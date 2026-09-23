@@ -1,0 +1,1 @@
+{"id":"loot/belt","pages":["sheets/loot__belt.webp"],"animations":{"power":{"frames":6,"duration":600,"type":"play_once","dirs":1,"rects":[[0,99,161,79,141,19,173],[0,0,203,99,165,17,208],[0,0,0,99,203,9,253],[0,99,0,98,161,20,200],[0,99,302,46,85,15,92],[0,145,302,40,25,20,14]]}},"sourceScale":1,"height":253}

@@ -1,0 +1,1 @@
+{"id":"loot/ring","pages":["sheets/loot__ring.webp"],"animations":{"power":{"frames":6,"duration":600,"type":"play_once","dirs":1,"rects":[[0,0,184,62,127,9,165],[0,97,0,66,158,8,208],[0,0,0,97,184,7,247],[0,101,158,69,147,8,195],[0,62,184,39,65,9,81],[0,62,249,18,13,9,8]]}},"sourceScale":1,"height":247}

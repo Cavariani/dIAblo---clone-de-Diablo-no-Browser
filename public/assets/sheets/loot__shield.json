@@ -1,0 +1,1 @@
+{"id":"loot/shield","pages":["sheets/loot__shield.webp"],"animations":{"power":{"frames":6,"duration":600,"type":"play_once","dirs":1,"rects":[[0,153,0,115,180,37,193],[0,210,180,88,197,20,241],[0,0,0,153,239,32,275],[0,0,239,142,172,37,216],[0,142,239,68,108,28,117],[0,153,180,51,50,31,28]]}},"sourceScale":1,"height":275}
