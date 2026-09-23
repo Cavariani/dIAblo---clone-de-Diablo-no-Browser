@@ -7,7 +7,12 @@ import { defaultAppearance, defaultSettings, emptyStash, newCharacter } from './
 import { assets } from './render/assets/AssetManager';
 import { Renderer } from './render/Renderer';
 import { UIRoot } from './ui/UIRoot';
+import './ui/panels';
 import { Data } from './data';
+import type { Rarity } from './data/schema';
+import { createItem } from './game/items/generate';
+import { addToGrid } from './game/items/inventory';
+import { dropItem } from './game/systems/LootSystem';
 
 
 async function boot(): Promise<void> {
@@ -34,6 +39,18 @@ async function boot(): Promise<void> {
   document.getElementById('boot')?.remove();
   (window as unknown as { __game: Game }).__game = game;
   (window as unknown as { __classSkills: string[] }).__classSkills = Data.classDef(classId).skills;
+  (window as unknown as { __dbg: unknown }).__dbg = {
+    give(rarity: Rarity, n = 1) {
+      for (let i = 0; i < n; i++) addToGrid(game.character.inventory, createItem(game.rng, { ilvl: Math.max(1, game.character.level), rarity, classId: game.character.classId }));
+      game.events.emit('inventoryChanged', {});
+    },
+    drop(rarity: Rarity) {
+      dropItem(game, game.player.pos, createItem(game.rng, { ilvl: game.character.level, rarity, classId: game.character.classId }));
+    },
+    open(id: string) {
+      ui.openPanel(id as never);
+    },
+  };
   let last = performance.now();
   const frame = (now: number) => {
     const dt = Math.min(0.1, (now - last) / 1000);

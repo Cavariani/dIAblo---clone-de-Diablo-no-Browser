@@ -114,6 +114,10 @@ export class Renderer implements RendererAPI {
     for (const fx of ['fx/arrows', 'fx/fireball', 'fx/icicle', 'fx/spit', 'npc/return_obelisk1', 'npc/return_obelisk2']) need.add(fx);
     await assets.loadSheets([...need].filter((id) => assets.hasSheet(id)), onProgress);
     this.tiles.build(world.map, ts, this.objects, biome.tint);
+    const decor = world.level.decor ?? [];
+    for (const id of new Set(decor.map((d) => d.tileset))) await assets.loadTileset(id);
+    this.tiles.addDecor(decor.map((d) => ({ ts: assets.getTileset(d.tileset), tile: d.tile, x: d.x, y: d.y })), this.objects);
+    if (world.interactables.some((i) => i.kind === 'stash')) await assets.loadTileset('dungeon');
     this.lighting.ambient = biome.ambient.color;
     this.lighting.darkness = biome.ambient.darkness;
     this.fx.getActor = (id) => world.getActor(id);

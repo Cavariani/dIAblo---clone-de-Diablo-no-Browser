@@ -14,6 +14,7 @@ interface Look {
   tile?: number;
   tileOpen?: number;
   sheet?: string;
+  tileset?: string;
   light?: LightDef;
   swirl?: number; // swirl color (portals/waypoints)
   scale?: number;
@@ -35,7 +36,9 @@ function lookFor(o: Interactable, tileset: string): Look {
     case 'shrine':
       return { sheet: 'npc/return_obelisk1', light: { radius: 3, color: 0xffd060, intensity: 1, flicker: 0.1 } };
     case 'stash':
-      return dungeon ? { tile: 145 } : { sheet: 'loot/pouch', light: { radius: 2, color: 0xffd8a0, intensity: 0.5 } };
+      return { tile: 145, tileset: 'dungeon', light: { radius: 2.2, color: 0xffd8a0, intensity: 0.6 } };
+    case 'dungeonEntrance':
+      return { swirl: 0x3a1a0a, light: { radius: 3, color: 0xff7a30, intensity: 0.9 } };
     case 'riftObelisk':
       return { sheet: 'npc/return_obelisk1', swirl: 0xc02060, light: { radius: 4, color: 0xff3080, intensity: 1.3, flicker: 0.2 } };
     case 'difficultyAltar':
@@ -67,12 +70,13 @@ export class InteractableView {
     objects.addChild(this.root);
     if (this.look.swirl !== undefined) {
       this.swirl = new Graphics();
-      this.swirl.blendMode = obj.kind === 'stairsDown' || obj.kind === 'stairsUp' ? 'normal' : 'add';
+      const pit = obj.kind === 'stairsDown' || obj.kind === 'stairsUp' || obj.kind === 'dungeonEntrance';
+      this.swirl.blendMode = pit ? 'normal' : 'add';
       high.addChild(this.swirl);
       this.halo = new Sprite({ texture: tex().soft, anchor: 0.5 });
       this.halo.blendMode = 'add';
       this.halo.tint = this.look.swirl;
-      if (obj.kind !== 'stairsDown' && obj.kind !== 'stairsUp') high.addChild(this.halo);
+      if (!pit) high.addChild(this.halo);
     }
     this.label = new Text({ text: obj.name, style: { fontFamily: 'Cinzel, Georgia, serif', fontSize: 16, fill: 0xf0e0b0, fontWeight: '600', stroke: { color: 0x000000, width: 4 } }, resolution: 2 });
     this.label.anchor.set(0.5, 1);
@@ -97,7 +101,7 @@ export class InteractableView {
     const open = o.state === 'open' || o.state === 'used';
     const L = this.look;
     if (L.tile !== undefined) {
-      const ts = assets.getTileset(this.tileset);
+      const ts = assets.getTileset(L.tileset ?? this.tileset);
       const t = ts?.tile(open && L.tileOpen !== undefined ? L.tileOpen : L.tile);
       if (t) {
         this.sprite.texture = t.texture;
@@ -121,7 +125,7 @@ export class InteractableView {
       const g = this.swirl;
       g.clear();
       const c = L.swirl!;
-      const stairs = o.kind === 'stairsDown' || o.kind === 'stairsUp';
+      const stairs = o.kind === 'stairsDown' || o.kind === 'stairsUp' || o.kind === 'dungeonEntrance';
       if (stairs) {
         // dark descending pit with ember glow ring
         for (let i = 5; i >= 1; i--) g.ellipse(p.x, p.y, 20 * i + 8, 10 * i + 4).fill({ color: i === 5 ? 0x2a1810 : 0x000000, alpha: i === 5 ? 0.9 : 0.25 + (5 - i) * 0.15 });

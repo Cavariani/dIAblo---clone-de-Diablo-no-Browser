@@ -24,6 +24,22 @@ export class TileLayer {
   private faded = new Set<Sprite>();
   private map: TileMap | null = null;
 
+  /** Extra object sprites from other tilesets (decor). */
+  addDecor(list: { ts: LoadedTileset | undefined; tile: number; x: number; y: number }[], objects: Container): void {
+    for (const d of list) {
+      const t = d.ts?.tile(d.tile);
+      if (!t) continue;
+      const center = worldToScreen(d.x + 0.5, d.y + 0.5);
+      const s = new Sprite(t.texture);
+      s.position.set(center.x - t.ox, center.y - t.oy);
+      s.zIndex = d.x + d.y + 1 + d.x * 1e-4;
+      objects.addChild(s);
+      this.decorSprites.push(s);
+    }
+  }
+
+  private decorSprites: Sprite[] = [];
+
   build(map: TileMap, ts: LoadedTileset, objects: Container, tint?: number): void {
     this.clear(objects);
     this.map = map;
@@ -140,6 +156,11 @@ export class TileLayer {
       ch.c.destroy({ children: true });
     }
     this.chunks = [];
+    for (const s of this.decorSprites) {
+      objects.removeChild(s);
+      s.destroy();
+    }
+    this.decorSprites = [];
     this.objectAt.clear();
     this.faded.clear();
     this.map = null;

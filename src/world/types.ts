@@ -107,6 +107,8 @@ export interface GeneratedLevel {
   bossArena?: { center: Vec2; radius: number };
   /** Named NPC spawns (town). */
   npcs?: { npcId: string; pos: Vec2; facing?: number }[];
+  /** Extra decorative tiles from another tileset (e.g. dungeon braziers in town), depth-sorted with objects. */
+  decor?: { tileset: string; tile: number; x: number; y: number }[];
   seed: number;
 }
 

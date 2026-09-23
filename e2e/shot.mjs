@@ -48,6 +48,17 @@ if (act.includes('skills')) {
     await page.screenshot({ path: out.replace('.png', `-r${round}.png`) });
   }
 }
+if (act.includes('panels')) {
+  await page.evaluate(() => { const d = window.__dbg; d.give('magic', 3); d.give('rare', 3); d.give('common', 2); d.drop('rare'); d.drop('magic'); d.open('inventory'); d.open('character'); });
+  await page.waitForTimeout(800);
+  const slot = await page.$('.inv-item');
+  if (slot) { const b = await slot.boundingBox(); await page.mouse.move(b.x + b.width / 2, b.y + b.height / 2); }
+  await page.waitForTimeout(600);
+}
+if (act.includes('legend')) {
+  await page.evaluate(() => { const d = window.__dbg; d.drop('legendary'); d.drop('set'); d.drop('rare'); });
+  await page.waitForTimeout(1600);
+}
 const info = await page.evaluate(() => { const g = window.__game; if (!g) return null; return { kills: g.character.stats.kills, gold: g.character.gold, items: g.world.groundItems.length, inv: g.character.inventory.length, fps: g.renderer.stats.fps, actors: g.world.actors.length, life: g.player.life, max: g.player.maxLife, lvl: g.character.level, xp: g.character.xp, pos: g.player.pos }; });
 await page.screenshot({ path: out });
 console.log(JSON.stringify(info));
