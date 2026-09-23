@@ -6,7 +6,8 @@ import type { GameCtx } from '../api';
 import type { Actor, DamageSpec } from '../types';
 
 function dmg(ctx: GameCtx, a: Actor, ab: EnemyAbilityDef, extra: Partial<DamageSpec> = {}): DamageSpec {
-  return { amount: ctx.combat.monsterDamage(a, ab.damageMult), type: ab.damageType, sourceId: a.id, status: ab.status, ...extra };
+  const amount = a.minion ? ctx.combat.skillDamage(a, (a.minion.coef ?? 0.6) * ab.damageMult, ab.damageType) : ctx.combat.monsterDamage(a, ab.damageMult);
+  return { amount, type: ab.damageType, sourceId: a.id, status: ab.status, ...extra };
 }
 
 const ELEMENT_COLOR: Record<string, number> = { fire: 0xff5a1a, cold: 0x6ac8ff, lightning: 0xb8b0ff, poison: 0x7ad030, arcane: 0xd070ff, physical: 0xff2a1a };

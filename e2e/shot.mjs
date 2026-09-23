@@ -26,6 +26,28 @@ if (act.includes('fight')) {
     if (target) { await page.mouse.move(target.x, target.y - 40); await page.mouse.down(); await page.waitForTimeout(350); await page.mouse.up(); }
   }
 }
+if (act.includes('skills')) {
+  // unlock every class skill, bind 4 at a time and cast them at the nearest monster
+  const ids = await page.evaluate(() => { const g = window.__game; const c = g.character; const list = g.constructor && window.__skills ? [] : []; void list; return Object.keys(window.__allSkills ? {} : {}); });
+  void ids;
+  for (let round = 0; round < 2; round++) {
+    await page.evaluate((round) => {
+      const g = window.__game; const c = g.character;
+      const skills = window.__classSkills;
+      const pick = skills.slice(round * 4, round * 4 + 4);
+      c.hotbar.k1 = pick[0]; c.hotbar.k2 = pick[1]; c.hotbar.k3 = pick[2]; c.hotbar.k4 = pick[3];
+      for (const s of skills) c.skillRanks[s] = 5;
+      g.player.resource = g.player.maxResource;
+      g.player.cooldowns = {};
+    }, round);
+    for (const key of ['Digit1', 'Digit2', 'Digit3', 'Digit4']) {
+      const target = await page.evaluate(() => { const g = window.__game; const p = g.player; const m = g.world.actors.filter(a => a.kind === 'monster' && a.alive).sort((a,b)=>Math.hypot(a.pos.x-p.pos.x,a.pos.y-p.pos.y)-Math.hypot(b.pos.x-p.pos.x,b.pos.y-p.pos.y))[0]; g.player.resource = g.player.maxResource; return m ? g.renderer.worldToScreen(m.pos.x, m.pos.y) : null; });
+      if (target) await page.mouse.move(target.x, target.y - 30);
+      await page.keyboard.down(key); await page.waitForTimeout(700); await page.keyboard.up(key); await page.waitForTimeout(300);
+    }
+    await page.screenshot({ path: out.replace('.png', `-r${round}.png`) });
+  }
+}
 const info = await page.evaluate(() => { const g = window.__game; if (!g) return null; return { kills: g.character.stats.kills, gold: g.character.gold, items: g.world.groundItems.length, inv: g.character.inventory.length, fps: g.renderer.stats.fps, actors: g.world.actors.length, life: g.player.life, max: g.player.maxLife, lvl: g.character.level, xp: g.character.xp, pos: g.player.pos }; });
 await page.screenshot({ path: out });
 console.log(JSON.stringify(info));

@@ -218,7 +218,7 @@ export interface Actor {
   character?: CharacterState;
   monster?: MonsterData;
   npc?: { defId: string };
-  minion?: { ownerId: number; skillId: string; expiresAt: number | null };
+  minion?: { ownerId: number; skillId: string; expiresAt: number | null; /** Weapon-damage coefficient of the minion's hits. */ coef?: number };
   ai?: AIState;
   /** Player weapon (derived from gear). */
   weapon?: { min: number; max: number; aps: number; range: number; ranged: boolean };

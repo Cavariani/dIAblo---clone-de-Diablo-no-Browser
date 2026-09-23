@@ -31,6 +31,57 @@ const arrow = (over: Partial<EnemyAbilityDef> = {}): EnemyAbilityDef => ({
 });
 
 export const ENEMIES: EnemyDef[] = [
+  // ---------------------------------------------------------------- player minions (Ossomante)
+  {
+    id: 'minion_skeleton',
+    name: 'Guerreiro Esqueleto',
+    sprite: { sheet: 'enemy/skeleton', scale: 0.95, tint: 0xb8d8ff },
+    archetype: 'swarm',
+    ai: 'minion',
+    lifeMult: 1.2,
+    damageMult: 1,
+    speed: 2.8,
+    radius: 0.25,
+    mass: 1,
+    xpMult: 0,
+    aggroRange: 8,
+    abilities: [melee({ windup: 0.25, cooldown: 1.0, range: 0.8 })],
+    flags: { undead: true },
+    bloodColor: 0xd8d0b8,
+    deathParticles: 'bone',
+  },
+  {
+    id: 'minion_skeleton_mage',
+    name: 'Mago Esqueleto',
+    sprite: { sheet: 'enemy/skeleton_mage_ice', tint: 0xb8e8ff },
+    archetype: 'caster',
+    ai: 'minion',
+    lifeMult: 0.8,
+    damageMult: 1,
+    speed: 2.6,
+    radius: 0.25,
+    mass: 1,
+    xpMult: 0,
+    aggroRange: 9,
+    abilities: [
+      {
+        id: 'icebolt',
+        kind: 'projectile',
+        damageMult: 1,
+        damageType: 'cold',
+        range: 6,
+        cooldown: 1.6,
+        windup: 0.35,
+        recovery: 0.25,
+        anim: 'cast',
+        projectile: { visual: 'fx/icicle', speed: 9, radius: 0.2, range: 8, light: { radius: 1.5, color: 0x7ac8ff, intensity: 0.7 } },
+        status: { id: 'chill', duration: 2, magnitude: 0.3 },
+      },
+    ],
+    flags: { undead: true },
+    bloodColor: 0xd8e8ff,
+    deathParticles: 'bone',
+  },
   // ---------------------------------------------------------------- swarm melee
   {
     id: 'skeleton_weak',

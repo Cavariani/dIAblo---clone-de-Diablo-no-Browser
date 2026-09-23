@@ -50,7 +50,10 @@ export class StatusSystem implements System {
             break;
           }
         }
-        if (s.remaining <= 0) a.statuses.splice(i, 1);
+        if (s.remaining <= 0) {
+          if (s.id === 'shielded') a.shield = 0;
+          a.statuses.splice(i, 1);
+        }
       }
       if (!a.alive) continue;
       if (stunned) {

@@ -83,8 +83,18 @@ export class PlayerControlSystem implements System {
       }
     }
 
-    // --- channel release
+    // --- channel release / move while channeling (whirlwind)
     if (p.cast?.channel && p.cast.slot && !input.isDown(SLOT_ACTION[p.cast.slot])) endChannel(ctx, p);
+    if (p.cast?.channel) {
+      const d = skillDef(p.cast.skillId);
+      if (d?.movingCast) {
+        const m = input.mouseWorld;
+        if (Math.hypot(m.x - p.pos.x, m.y - p.pos.y) > 0.3) this.walkTo(ctx, m.x, m.y, dt);
+      }
+      p.cast.target.x = input.mouseWorld.x;
+      p.cast.target.y = input.mouseWorld.y;
+      return;
+    }
 
     const hover = input.hover;
     const mouse = input.mouseWorld;

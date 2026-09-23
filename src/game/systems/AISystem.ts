@@ -20,6 +20,16 @@ export class AISystem implements System {
           continue;
         }
       }
+      // fear: run away from the player, no actions
+      if (a.statuses.some((s) => s.id === 'fear')) {
+        a.cast = null;
+        const dx = a.pos.x - p.x;
+        const dy = a.pos.y - p.y;
+        const l = Math.hypot(dx, dy) || 1;
+        a.vel.x = (dx / l) * a.moveSpeed;
+        a.vel.y = (dy / l) * a.moveSpeed;
+        continue;
+      }
       const b = getBehavior(a.kind === 'minion' ? 'minion' : a.ai.behavior) ?? getBehavior('melee');
       b?.update(ctx, a, dt);
     }

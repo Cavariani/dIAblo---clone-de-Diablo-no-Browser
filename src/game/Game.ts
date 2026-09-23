@@ -25,6 +25,7 @@ import { PlayerControlSystem, registerInteractHandler } from './systems/PlayerCo
 import { StatusSystem } from './systems/StatusSystem';
 import type { Actor, CharacterState, Interactable, Settings, StashState } from './types';
 import { World } from './World';
+import { extraSystems, gameHooks, worldHooks } from './hooks';
 
 export interface GameOptions {
   character: CharacterState;
@@ -37,21 +38,7 @@ export interface GameOptions {
   save: SaveAPI | null;
 }
 
-/** Extra systems registered by feature modules (loot, fog, spawn/boss, rift, quests...). */
-const extraSystems: { order: number; make: () => System }[] = [];
-export const registerSystem = (order: number, make: () => System): void => {
-  extraSystems.push({ order, make });
-};
-/** Hooks called whenever a new world is entered (feature modules subscribe). */
-const worldHooks: ((game: Game) => void)[] = [];
-export const onWorldEntered = (fn: (game: Game) => void): void => {
-  worldHooks.push(fn);
-};
-/** Called once when a Game is created (feature modules subscribe to events here). */
-const gameHooks: ((game: Game) => void)[] = [];
-export const onGameCreated = (fn: (game: Game) => void): void => {
-  gameHooks.push(fn);
-};
+export { registerSystem, onWorldEntered, onGameCreated } from './hooks';
 
 const INTERACT_NAMES: Partial<Record<Interactable['kind'], string>> = {
   chest: 'Baú',

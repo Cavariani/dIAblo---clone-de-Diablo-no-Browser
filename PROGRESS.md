@@ -46,6 +46,12 @@ cd ../.. && npm run assets
 9. [ ] Áudio, iluminação, polimento de UI, menus, criação de personagem
 10. [ ] QA Playwright, balanceamento, README/CREDITS, deploy
 
+## Feito na sessão 3 (lean)
+- Passo 2/3/4 parciais: UI HUD (src/ui/UIRoot.ts, hud/Hud.ts, styles/hud.css), áudio (src/audio + scripts/assets/build-audio.mjs → public/assets/audio, 29 MB), itens (data/items/*, game/items/generate.ts + inventory.ts, systems/LootSystem.ts), skills das 4 classes (data/skills/*.ts + game/skills/impl/*.ts + helpers.ts + buffs.ts).
+- Hooks de módulos em src/game/hooks.ts (registerSystem/onGameCreated) — NÃO importar Game.ts em módulos de feature (ciclo).
+- Módulos de feature precisam ser importados em src/game/modules.ts.
+- DICA de tokens: editar arquivos com a ferramenta Edit (não com node/sed), senão o harness despeja o arquivo inteiro no contexto.
+
 ## Próximo passo
 - Passo 2 CONCLUÍDO: jogo roda (npm run dev -- --port 5288; outra app usa 5173). main.ts é quick-start temporário (Berserker nu na cripta; ?class=&zone=&floor=). Screenshot: node e2e/shot.mjs http://localhost:5288/ e2e-results/x.png [walk|fight].
 - Passo 3 agora: UI (UIRoot + HUD orbes/hotbar/xp/boss bar/toasts/banners em src/ui, reaproveitar src/ui/styles/*.css), áudio (AudioManager + sons Flare), dados de itens mínimos (bases com visual/ícone para starter gear) + LootSystem básico (ouro/itens caindo).

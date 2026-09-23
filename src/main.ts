@@ -7,6 +7,7 @@ import { defaultAppearance, defaultSettings, emptyStash, newCharacter } from './
 import { assets } from './render/assets/AssetManager';
 import { Renderer } from './render/Renderer';
 import { UIRoot } from './ui/UIRoot';
+import { Data } from './data';
 
 
 async function boot(): Promise<void> {
@@ -32,6 +33,7 @@ async function boot(): Promise<void> {
   await game.start();
   document.getElementById('boot')?.remove();
   (window as unknown as { __game: Game }).__game = game;
+  (window as unknown as { __classSkills: string[] }).__classSkills = Data.classDef(classId).skills;
   let last = performance.now();
   const frame = (now: number) => {
     const dt = Math.min(0.1, (now - last) / 1000);
