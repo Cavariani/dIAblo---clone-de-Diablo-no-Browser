@@ -47,7 +47,7 @@ cd ../.. && npm run assets
 10. [ ] QA Playwright, balanceamento, README/CREDITS, deploy
 
 ## Próximo passo
-- Passo 2: escrever `src/render/assets/AssetManager.ts`, depois renderer mínimo.
+- Passo 2 em andamento. Feito: AssetManager, gerador cripta (world/gen/rooms.ts + paint/dungeon.ts), input, loop, World (A*, flow field), fórmulas scaling/damage, stats/aggregate, actors.ts, dados classes/enemies/zones/difficulties. FALTA: combat/Combat.ts, systems (control, movement, cast, ai basic, projectile, groundEffect, status, death), Game.ts, render/Renderer.ts, main.ts + index.html.
 
 ## Pendências / notas
 - Tamanho total de assets ~97 MB: se o deploy Vercel reclamar, remover tileset snowplains e reduzir avatar female/male não usados.

@@ -220,6 +220,10 @@ export interface Actor {
   npc?: { defId: string };
   minion?: { ownerId: number; skillId: string; expiresAt: number | null };
   ai?: AIState;
+  /** Player weapon (derived from gear). */
+  weapon?: { min: number; max: number; aps: number; range: number; ranged: boolean };
+  /** Player main attribute value (damage scaling). */
+  mainStat?: number;
   /** Arbitrary flags (e.g. 'boss', 'elite', 'flying'). */
   tags: Set<string>;
 }
