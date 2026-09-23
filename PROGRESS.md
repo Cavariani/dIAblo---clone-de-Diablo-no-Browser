@@ -64,3 +64,9 @@ cd ../.. && npm run assets
 
 ## Pendências / notas
 - Tamanho total de assets ~97 MB: se o deploy Vercel reclamar, remover tileset snowplains e reduzir avatar female/male não usados.
+
+## Status (sessão 4, 2026-09-23)
+- FEITO desde a sessão 3: chefes + elites (390e7cc), fog/minimapa/mapa TAB (fb4275f), cave/forest/hell (df71886), 18 lendários + 4 sets (af89f60), **fendas** normal/maior (src/game/rift.ts, painel 'rift' no Obelisco, barra no HUD; teste `node e2e/rift.mjs`), **redesign das telas** menu/criação/seleção (fundo pintado Flare `public/assets/ui/menu_bg.webp`, retratos por classe `public/assets/ui/portraits/*`, gerados por `node scripts/assets/build-ui.mjs`; scrollbars góticas globais em base.css), **game feel de movimento** (interpolação render prevPos→pos, câmera travada no herói sem look-ahead, giro suave TURN_RATE, histerese de direção 8-dir, STOP_GRACE run/stance).
+- Pedidos do usuário nesta sessão: UI de menu/criação mais polida (feito), scrollbars estilizadas (feito), animação de andar/câmera (feito — pedir feedback em GPU real).
+- Screenshots de UI: `VW=1887 VH=852 node e2e/ui-check.mjs` (resolução do usuário). NÃO editar CSS durante um teste Playwright (HMR recarrega a página).
+- FALTA (ordem): passivas + paragon UI; balanceamento (nível 1 → 1º chefe em 5–10 min); testes vitest de fórmulas; `npm run build` + `npm run lint` limpos; README/CREDITS/DECISIONS; vercel.json; smoke Playwright.
