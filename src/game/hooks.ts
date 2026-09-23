@@ -11,7 +11,6 @@ export const registerSystem = (order: number, make: () => System): void => {
   extraSystems.push({ order, make });
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type GameHook = (game: any) => void;
 export const worldHooks: GameHook[] = [];
 /** Called whenever a new world is entered. */

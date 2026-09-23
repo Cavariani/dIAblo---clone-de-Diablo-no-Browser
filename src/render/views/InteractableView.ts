@@ -21,7 +21,6 @@ interface Look {
 }
 
 function lookFor(o: Interactable, tileset: string): Look {
-  const dungeon = tileset === 'dungeon';
   switch (o.kind) {
     case 'chest':
       return tileset === 'cave' ? { tile: 160, tileOpen: 176 } : { tile: 144, tileOpen: 160, tileset: 'dungeon' };

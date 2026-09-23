@@ -141,7 +141,7 @@ function onBossDeath(game: GameCtx, a: Actor): void {
     name: next ? `Descer: ${Data.zone(next).name}` : 'Portal para Brasaluz',
     data: next ? { zoneId: next, floor: 1 } : { back: false, town: true },
   });
-  if (next) game.character.waypoints.includes(`${next}:1`) || game.character.waypoints.push(`${next}:1`);
+  if (next && !game.character.waypoints.includes(`${next}:1`)) game.character.waypoints.push(`${next}:1`);
 }
 
 onGameCreated((game: GameCtx) => {
