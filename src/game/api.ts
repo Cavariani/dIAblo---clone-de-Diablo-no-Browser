@@ -32,7 +32,9 @@ import type {
   GroundShape,
   Interactable,
   Projectile,
+  SaveFile,
   Settings,
+  StashState,
   StatusApplySpec,
 } from './types';
 import type { GeneratedLevel, StaticLight, TileMap } from '../world/types';
@@ -330,6 +332,69 @@ export interface UIAPI {
 }
 
 // -----------------------------------------------------------------------------
+// Save
+// -----------------------------------------------------------------------------
+
+export interface SaveAPI {
+  /** Current save file in memory (loaded by init()). */
+  readonly file: SaveFile;
+  init(): Promise<SaveFile>;
+  /** Upsert a character and persist (debounced/serialized internally). */
+  saveCharacter(c: CharacterState): Promise<void>;
+  deleteCharacter(id: string): Promise<void>;
+  saveStash(stash: StashState): Promise<void>;
+  saveSettings(settings: Settings): Promise<void>;
+  /** Full JSON export (pretty). */
+  exportJson(): string;
+  /** Validates, migrates and replaces the save. Throws with a pt-BR message when invalid. */
+  importJson(json: string): Promise<SaveFile>;
+}
+
+// -----------------------------------------------------------------------------
+// Input (implemented by src/core/input.ts)
+// -----------------------------------------------------------------------------
+
+export type InputAction =
+  | 'skill_lmb'
+  | 'skill_rmb'
+  | 'skill_k1'
+  | 'skill_k2'
+  | 'skill_k3'
+  | 'skill_k4'
+  | 'potion'
+  | 'portal'
+  | 'forceStand' // Shift: attack in place without moving
+  | 'showLabels' // Alt: show all ground item labels
+  | 'moveUp'
+  | 'moveDown'
+  | 'moveLeft'
+  | 'moveRight'
+  | 'inventory'
+  | 'character'
+  | 'skills'
+  | 'paragon'
+  | 'quests'
+  | 'map'
+  | 'pause';
+
+export interface InputAPI {
+  /** Mouse position in CSS pixels relative to the game canvas. */
+  readonly mouse: Vec2;
+  /** Mouse position in world tiles (updated every frame by the game using the renderer camera). */
+  readonly mouseWorld: Vec2;
+  /** Hover info from renderer picking (updated every frame). */
+  readonly hover: { actorId: number | null; groundItemId: number | null; interactableId: number | null };
+  isDown(action: InputAction): boolean;
+  /** Pressed since last poll (edge). */
+  wasPressed(action: InputAction): boolean;
+  wasReleased(action: InputAction): boolean;
+  /** Mouse wheel delta accumulated since last poll. */
+  readonly wheel: number;
+  /** Called once per simulation step to roll edge state. */
+  poll(): void;
+}
+
+// -----------------------------------------------------------------------------
 // Game context handed to systems, skills, AI, powers
 // -----------------------------------------------------------------------------
 
@@ -346,7 +411,12 @@ export interface GameCtx {
   readonly fx: FxAPI;
   readonly audio: AudioAPI;
   readonly ui: UIAPI;
+  readonly input: InputAPI;
   readonly settings: Settings;
+  /** Shared stash (account-wide). */
+  readonly stash: StashState;
+  /** Is the simulation paused (menus)? */
+  readonly paused: boolean;
   /** Recompute player stats (after gear/skill/paragon/buff changes). */
   refreshPlayerStats(): void;
   /** Travel to another zone/floor (autosaves). */
