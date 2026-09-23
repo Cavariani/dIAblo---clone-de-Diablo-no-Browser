@@ -1,0 +1,1516 @@
+{
+ "generatedBy": ".assets-src/scratch/fx-icons-audio/gen.cjs (contact sheets: sheets.cjs, all viewed)",
+ "license": "Flare art CC-BY-SA 3.0 (see docs/research/flare-fx-icons-audio.md for attribution)",
+ "conventions": {
+  "directions": "0=W(screen left),1=NW,2=N(up),3=NE,4=E(right),5=SE,6=S(down),7=SW — same convention as characters.json",
+  "anchor": "draw frame top-left at (anchorX - ox, anchorY - oy); anchor = projectile/ground point",
+  "frameLine": "frame=index,direction,x,y,w,h,ox,oy (1x1 frames = intentionally blank)",
+  "durationMs": "whole animation (all frames)",
+  "parse": "scripts/assets/parse-flare-anim.mjs handles these .txt files"
+ },
+ "counts": {
+  "total": 42,
+  "directional8": 17
+ },
+ "effects": [
+  {
+   "id": "arrows",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/arrows.txt",
+   "image": "mods/fantasycore/images/powers/arrows.png",
+   "imageSize": [
+    203,
+    369
+   ],
+   "frames": 3,
+   "durationMs": 200,
+   "playback": "looped",
+   "activeFrame": "all",
+   "directional": true,
+   "rows": 8,
+   "rowSemantics": "direction",
+   "maxFrameSize": [
+    135,
+    69
+   ],
+   "bboxAroundAnchor": {
+    "x": -90,
+    "y": -142,
+    "w": 180,
+    "h": 92
+   },
+   "looksLike": "Wooden arrow with orange fletching and faint white motion trail; 3-frame shimmer loop.",
+   "suggestedUse": [
+    "projectile"
+   ],
+   "suggestedForDiablo": "Archer basic/rapid/multi shot, Rain of Arrows (use dir 6 = falling down).",
+   "usedByFlarePowers": [
+    "Shoot",
+    "Piercing Shot",
+    "Rapid Fire",
+    "Multishot",
+    "Charged Shot",
+    "Poison Shot"
+   ],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/arrows.png"
+  },
+  {
+   "id": "arrow_stuck",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/arrow_stuck.txt",
+   "image": "mods/fantasycore/images/powers/arrow_stuck.png",
+   "imageSize": [
+    126,
+    117
+   ],
+   "frames": 1,
+   "durationMs": 3000,
+   "playback": "play_once",
+   "activeFrame": null,
+   "directional": true,
+   "rows": 8,
+   "rowSemantics": "direction",
+   "maxFrameSize": [
+    86,
+    45
+   ],
+   "bboxAroundAnchor": {
+    "x": -60,
+    "y": -127,
+    "w": 120,
+    "h": 62
+   },
+   "looksLike": "Single arrow embedded (static pose) — the arrow left in a wall/ground after hitting.",
+   "suggestedUse": [
+    "impact-decal"
+   ],
+   "suggestedForDiablo": "Leftover arrows after Rain of Arrows / wall hits (fade after 3s).",
+   "usedByFlarePowers": [],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/arrow_stuck.png"
+  },
+  {
+   "id": "bear_trap",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/bear_trap.txt",
+   "image": "mods/fantasycore/images/powers/bear_trap.png",
+   "imageSize": [
+    475,
+    512
+   ],
+   "frames": 4,
+   "durationMs": 400,
+   "playback": "play_once",
+   "activeFrame": "all",
+   "directional": true,
+   "rows": 8,
+   "rowSemantics": "direction",
+   "maxFrameSize": [
+    122,
+    78
+   ],
+   "bboxAroundAnchor": {
+    "x": -60,
+    "y": -52,
+    "w": 122,
+    "h": 84
+   },
+   "looksLike": "Steel toothed jaw trap unfolding: f0 closed (seen edge-on) -> f3 fully open ring of teeth. play_once = arming/placement.",
+   "suggestedUse": [
+    "ground-trap"
+   ],
+   "suggestedForDiablo": "Archer Bear Trap placement.",
+   "usedByFlarePowers": [
+    "Bear Trap"
+   ],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/bear_trap.png"
+  },
+  {
+   "id": "bear_trap_trigger",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/bear_trap_trigger.txt",
+   "image": "mods/fantasycore/images/powers/bear_trap.png",
+   "imageSize": [
+    475,
+    512
+   ],
+   "frames": 4,
+   "durationMs": 133,
+   "playback": "play_once",
+   "activeFrame": "all",
+   "directional": true,
+   "rows": 8,
+   "rowSemantics": "direction",
+   "maxFrameSize": [
+    122,
+    78
+   ],
+   "bboxAroundAnchor": {
+    "x": -60,
+    "y": -52,
+    "w": 122,
+    "h": 84
+   },
+   "looksLike": "Same frames as bear_trap in reverse (open -> snapped shut), 133ms: trap trigger.",
+   "suggestedUse": [
+    "ground-trap",
+    "impact"
+   ],
+   "suggestedForDiablo": "Archer Bear Trap trigger (root).",
+   "usedByFlarePowers": [],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/bear_trap_trigger.png"
+  },
+  {
+   "id": "blast",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/blast.txt",
+   "image": "mods/fantasycore/images/powers/blast.png",
+   "imageSize": [
+    706,
+    1958
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "activeFrame": "all",
+   "directional": false,
+   "rows": 1,
+   "rowSemantics": "none",
+   "maxFrameSize": [
+    688,
+    447
+   ],
+   "bboxAroundAnchor": {
+    "x": -355,
+    "y": -240,
+    "w": 699,
+    "h": 452
+   },
+   "looksLike": "Big fire explosion: bright white-yellow disc that expands into a ring of fire and dissipates (688x447 at max). Isometric ellipse.",
+   "suggestedUse": [
+    "ground-aoe",
+    "impact"
+   ],
+   "suggestedForDiablo": "Fire nova / Meteor impact / Explosive Arrow (scale 0.35-0.5) / Corpse Explosion (tint red).",
+   "usedByFlarePowers": [
+    "Burn"
+   ],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/blast.png"
+  },
+  {
+   "id": "bolas",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/bolas.txt",
+   "image": "mods/fantasycore/images/powers/bolas.png",
+   "imageSize": [
+    382,
+    404
+   ],
+   "frames": 3,
+   "durationMs": 300,
+   "playback": "looped",
+   "activeFrame": "all",
+   "directional": true,
+   "rows": 8,
+   "rowSemantics": "direction",
+   "maxFrameSize": [
+    150,
+    150
+   ],
+   "bboxAroundAnchor": {
+    "x": -75,
+    "y": -171,
+    "w": 150,
+    "h": 150
+   },
+   "looksLike": "Two weighted steel balls joined by a cord, spinning (3 frames).",
+   "suggestedUse": [
+    "projectile"
+   ],
+   "suggestedForDiablo": "Archer snare shot / slow projectile.",
+   "usedByFlarePowers": [],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/bolas.png"
+  },
+  {
+   "id": "caltrops",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/caltrops.txt",
+   "image": "mods/fantasycore/images/powers/caltrops.png",
+   "imageSize": [
+    459,
+    447
+   ],
+   "frames": 4,
+   "durationMs": 133,
+   "playback": "play_once",
+   "activeFrame": "all",
+   "directional": true,
+   "rows": 8,
+   "rowSemantics": "direction",
+   "maxFrameSize": [
+    107,
+    105
+   ],
+   "bboxAroundAnchor": {
+    "x": -94,
+    "y": -144,
+    "w": 190,
+    "h": 177
+   },
+   "looksLike": "Three small 4-pointed metal caltrops tossed forward and scattering apart, with shadows (play_once, 133ms).",
+   "suggestedUse": [
+    "ground-trap"
+   ],
+   "suggestedForDiablo": "Archer Caltrops (hold last frame on ground).",
+   "usedByFlarePowers": [
+    "Caltrops"
+   ],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/caltrops.png"
+  },
+  {
+   "id": "channel",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/channel.txt",
+   "image": "mods/fantasycore/images/powers/channel.png",
+   "imageSize": [
+    289,
+    337
+   ],
+   "frames": 4,
+   "durationMs": 266,
+   "playback": "play_once",
+   "activeFrame": "all",
+   "directional": true,
+   "rows": 8,
+   "rowSemantics": "direction",
+   "maxFrameSize": [
+    83,
+    61
+   ],
+   "bboxAroundAnchor": {
+    "x": -87,
+    "y": -105,
+    "w": 175,
+    "h": 106
+   },
+   "looksLike": "Magenta/pink arcane plasma blob with sparkles that shrinks and dissipates in 4 frames.",
+   "suggestedUse": [
+    "projectile",
+    "beam-segment"
+   ],
+   "suggestedForDiablo": "Caster basic arcane attack / beam segment for channelled beams.",
+   "usedByFlarePowers": [
+    "Channel"
+   ],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/channel.png"
+  },
+  {
+   "id": "cleave",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/cleave.txt",
+   "image": "mods/fantasycore/images/powers/cleave.png",
+   "imageSize": [
+    814,
+    481
+   ],
+   "frames": 6,
+   "durationMs": 400,
+   "playback": "play_once",
+   "activeFrame": "all",
+   "directional": true,
+   "rows": 8,
+   "rowSemantics": "direction",
+   "maxFrameSize": [
+    212,
+    109
+   ],
+   "bboxAroundAnchor": {
+    "x": -140,
+    "y": -71,
+    "w": 280,
+    "h": 143
+   },
+   "looksLike": "White crescent slash arc sweeping outward (frames 0-4 grow, f5 tiny remnant), 212x109.",
+   "suggestedUse": [
+    "melee-arc"
+   ],
+   "suggestedForDiablo": "Warrior Cleave, basic swings, Whirlwind (cycle dirs 0..7).",
+   "usedByFlarePowers": [
+    "Cleave"
+   ],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/cleave.png"
+  },
+  {
+   "id": "dark_mist",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/dark_mist.txt",
+   "image": "mods/fantasycore/images/powers/dark_mist.png",
+   "imageSize": [
+    1033,
+    962
+   ],
+   "frames": 10,
+   "durationMs": 1000,
+   "playback": "play_once",
+   "activeFrame": "all",
+   "directional": false,
+   "rows": 1,
+   "rowSemantics": "none",
+   "maxFrameSize": [
+    384,
+    322
+   ],
+   "bboxAroundAnchor": {
+    "x": -192,
+    "y": -288,
+    "w": 384,
+    "h": 333
+   },
+   "looksLike": "Black smoky cloud with magenta specks: grows from small ball to large mushroom-shaped cloud then fades (10 frames).",
+   "suggestedUse": [
+    "ground-aoe"
+   ],
+   "suggestedForDiablo": "Poison/shadow cloud, Curse cast, Corpse Explosion smoke, Necro blood/shadow nova (tint).",
+   "usedByFlarePowers": [],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/dark_mist.png"
+  },
+  {
+   "id": "ember",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/ember.txt",
+   "image": "mods/fantasycore/images/powers/ember.png",
+   "imageSize": [
+    52,
+    23
+   ],
+   "frames": 1,
+   "durationMs": 33,
+   "playback": "looped",
+   "activeFrame": "all",
+   "directional": true,
+   "rows": 8,
+   "rowSemantics": "direction",
+   "maxFrameSize": [
+    22,
+    13
+   ],
+   "bboxAroundAnchor": {
+    "x": -12,
+    "y": -102,
+    "w": 24,
+    "h": 14
+   },
+   "looksLike": "Tiny 22x13 glowing ember/bullet streak (1 frame).",
+   "suggestedUse": [
+    "projectile"
+   ],
+   "suggestedForDiablo": "Small fire bolt particles; Explosive Arrow trail; enemy fire spit.",
+   "usedByFlarePowers": [
+    "Ember Shot"
+   ],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/ember.png"
+  },
+  {
+   "id": "fireball",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/fireball.txt",
+   "image": "mods/fantasycore/images/powers/fireball.png",
+   "imageSize": [
+    482,
+    787
+   ],
+   "frames": 4,
+   "durationMs": 266,
+   "playback": "looped",
+   "activeFrame": "all",
+   "directional": true,
+   "rows": 8,
+   "rowSemantics": "direction",
+   "maxFrameSize": [
+    166,
+    120
+   ],
+   "bboxAroundAnchor": {
+    "x": -96,
+    "y": -175,
+    "w": 192,
+    "h": 161
+   },
+   "looksLike": "Bright white-yellow core with orange flame tail streaming behind (166x120), 4-frame flicker loop.",
+   "suggestedUse": [
+    "projectile"
+   ],
+   "suggestedForDiablo": "Caster Fire Bolt; Meteor (scale x2, dir 6 falling).",
+   "usedByFlarePowers": [
+    "Fireball",
+    "Fireball Scroll"
+   ],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/fireball.png"
+  },
+  {
+   "id": "freeze",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/freeze.txt",
+   "image": "mods/fantasycore/images/powers/freeze.png",
+   "imageSize": [
+    348,
+    375
+   ],
+   "frames": 4,
+   "durationMs": 400,
+   "playback": "play_once",
+   "activeFrame": null,
+   "directional": false,
+   "rows": 3,
+   "rowSemantics": "random visual variant (not direction)",
+   "maxFrameSize": [
+    127,
+    133
+   ],
+   "bboxAroundAnchor": {
+    "x": -69,
+    "y": -111,
+    "w": 137,
+    "h": 145
+   },
+   "looksLike": "Cluster of pale-blue ice crystals erupting from ground and shrinking/melting over 4 frames; 3 random variants (row 0-2 = visual_random, not directions).",
+   "suggestedUse": [
+    "ground-aoe"
+   ],
+   "suggestedForDiablo": "Frost Nova ring (spawn 8-12 around caster), Blizzard ground hits, Freeze path (repeater).",
+   "usedByFlarePowers": [
+    "Freeze"
+   ],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/freeze.png"
+  },
+  {
+   "id": "freeze_2",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/freeze_2.txt",
+   "image": "mods/fantasycore/images/powers/freeze.png",
+   "imageSize": [
+    348,
+    375
+   ],
+   "frames": 4,
+   "durationMs": 400,
+   "playback": "play_once",
+   "activeFrame": null,
+   "directional": false,
+   "rows": 3,
+   "rowSemantics": "random visual variant (not direction)",
+   "maxFrameSize": [
+    127,
+    133
+   ],
+   "bboxAroundAnchor": {
+    "x": -69,
+    "y": -111,
+    "w": 137,
+    "h": 145
+   },
+   "looksLike": "INCLUDE of freeze.txt — identical to freeze (kept for empyrean compat).",
+   "suggestedUse": [
+    "ground-aoe"
+   ],
+   "suggestedForDiablo": "Duplicate of freeze — ignore.",
+   "usedByFlarePowers": [],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/freeze_2.png"
+  },
+  {
+   "id": "heal",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/heal.txt",
+   "image": "mods/fantasycore/images/powers/heal.png",
+   "imageSize": [
+    368,
+    439
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "activeFrame": null,
+   "directional": false,
+   "rows": 1,
+   "rowSemantics": "none",
+   "maxFrameSize": [
+    184,
+    180
+   ],
+   "bboxAroundAnchor": {
+    "x": -88,
+    "y": -192,
+    "w": 184,
+    "h": 192
+   },
+   "looksLike": "Green 4-point sparkles and small streaks rising and fading (184x180).",
+   "suggestedUse": [
+    "buff-aura",
+    "impact"
+   ],
+   "suggestedForDiablo": "Health potion / heal / life steal proc; tint for other buffs.",
+   "usedByFlarePowers": [],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/heal.png"
+  },
+  {
+   "id": "icicle",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/icicle.txt",
+   "image": "mods/fantasycore/images/powers/icicle.png",
+   "imageSize": [
+    489,
+    505
+   ],
+   "frames": 4,
+   "durationMs": 400,
+   "playback": "looped",
+   "activeFrame": "all",
+   "directional": true,
+   "rows": 8,
+   "rowSemantics": "direction",
+   "maxFrameSize": [
+    180,
+    111
+   ],
+   "bboxAroundAnchor": {
+    "x": -96,
+    "y": -143,
+    "w": 192,
+    "h": 113
+   },
+   "looksLike": "Long white-blue ice shard with a trail of frost particles (180x111), 4-frame loop.",
+   "suggestedUse": [
+    "projectile"
+   ],
+   "suggestedForDiablo": "Ice bolt; Bone Spear (desaturate to ivory); Blizzard shards (dir 6).",
+   "usedByFlarePowers": [
+    "Ice Bolt",
+    "Ice Bolt Scroll"
+   ],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/icicle.png"
+  },
+  {
+   "id": "immunity",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/immunity.txt",
+   "image": "mods/fantasycore/images/powers/immunity.png",
+   "imageSize": [
+    455,
+    1012
+   ],
+   "frames": 8,
+   "durationMs": 800,
+   "playback": "looped",
+   "activeFrame": null,
+   "directional": false,
+   "rows": 1,
+   "rowSemantics": "none",
+   "maxFrameSize": [
+    230,
+    263
+   ],
+   "bboxAroundAnchor": {
+    "x": -115,
+    "y": -206,
+    "w": 230,
+    "h": 263
+   },
+   "looksLike": "Translucent white swirling bubble/sphere around the target (230x263), 8-frame loop.",
+   "suggestedUse": [
+    "buff-aura"
+   ],
+   "suggestedForDiablo": "Immunity / unstoppable / Bone Armor (tint ivory) / Mana Shield alt.",
+   "usedByFlarePowers": [
+    "Immunity"
+   ],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/immunity.png"
+  },
+  {
+   "id": "lightning",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/lightning.txt",
+   "image": "mods/fantasycore/images/powers/lightning.png",
+   "imageSize": [
+    287,
+    193
+   ],
+   "frames": 6,
+   "durationMs": 200,
+   "playback": "looped",
+   "activeFrame": "all",
+   "directional": false,
+   "rows": 1,
+   "rowSemantics": "none",
+   "maxFrameSize": [
+    100,
+    103
+   ],
+   "bboxAroundAnchor": {
+    "x": -53,
+    "y": -172,
+    "w": 101,
+    "h": 104
+   },
+   "looksLike": "Blue-violet electric ball with crackling tendrils (100x103), 6-frame loop.",
+   "suggestedUse": [
+    "projectile",
+    "impact"
+   ],
+   "suggestedForDiablo": "Chain Lightning hit nodes & projectile; Charged bolt.",
+   "usedByFlarePowers": [
+    "Shock"
+   ],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/lightning.png"
+  },
+  {
+   "id": "plasmaball",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/plasmaball.txt",
+   "image": "mods/fantasycore/images/powers/plasmaball.png",
+   "imageSize": [
+    188,
+    191
+   ],
+   "frames": 4,
+   "durationMs": 400,
+   "playback": "looped",
+   "activeFrame": "all",
+   "directional": false,
+   "rows": 1,
+   "rowSemantics": "none",
+   "maxFrameSize": [
+    94,
+    95
+   ],
+   "bboxAroundAnchor": {
+    "x": -47,
+    "y": -143,
+    "w": 94,
+    "h": 95
+   },
+   "looksLike": "Plasma-globe sphere: pink/violet tendrils radiating from white core inside faint sphere (94x95).",
+   "suggestedUse": [
+    "projectile"
+   ],
+   "suggestedForDiablo": "Arcane Orb; enemy dark mage bolts; Necro essence orb (tint).",
+   "usedByFlarePowers": [
+    "Mystic Blast"
+   ],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/plasmaball.png"
+  },
+  {
+   "id": "quake",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/quake.txt",
+   "image": "mods/fantasycore/images/powers/quake.png",
+   "imageSize": [
+    868,
+    809
+   ],
+   "frames": 4,
+   "durationMs": 400,
+   "playback": "play_once",
+   "activeFrame": "all",
+   "directional": false,
+   "rows": 3,
+   "rowSemantics": "random visual variant (not direction)",
+   "maxFrameSize": [
+    401,
+    219
+   ],
+   "bboxAroundAnchor": {
+    "x": -207,
+    "y": -128,
+    "w": 401,
+    "h": 219
+   },
+   "looksLike": "Expanding elliptical ring of dust and rock debris (401x219); variants: row0 grey/white dust, row1 orange-tinted embers, row2 blue ice debris.",
+   "suggestedUse": [
+    "ground-aoe"
+   ],
+   "suggestedForDiablo": "Leap Slam landing / Ground Stomp (row0), Meteor ring (row1), Frost Nova ring (row2).",
+   "usedByFlarePowers": [
+    "Quake"
+   ],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/quake.png"
+  },
+  {
+   "id": "runes",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/runes.txt",
+   "image": "mods/fantasycore/images/powers/runes.png",
+   "imageSize": [
+    458,
+    436
+   ],
+   "frames": 4,
+   "durationMs": 533,
+   "playback": "play_once",
+   "activeFrame": null,
+   "directional": false,
+   "rows": 3,
+   "rowSemantics": "random visual variant (not direction)",
+   "maxFrameSize": [
+    192,
+    94
+   ],
+   "bboxAroundAnchor": {
+    "x": -96,
+    "y": -47,
+    "w": 192,
+    "h": 95
+   },
+   "looksLike": "row0: glowing green concentric rune circle on the ground (spawn/teleport); row1: orange triangles floating/converging; row2: cyan triangles.",
+   "suggestedUse": [
+    "ground-circle",
+    "debuff-marker"
+   ],
+   "suggestedForDiablo": "Teleport/summon circle (row0, tint violet for necro), debuff markers.",
+   "usedByFlarePowers": [],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/runes.png"
+  },
+  {
+   "id": "runes_blue",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/runes_blue.txt",
+   "image": "mods/fantasycore/images/powers/runes.png",
+   "imageSize": [
+    458,
+    436
+   ],
+   "frames": 4,
+   "durationMs": 533,
+   "playback": "looped",
+   "activeFrame": null,
+   "directional": false,
+   "rows": 1,
+   "rowSemantics": "none",
+   "maxFrameSize": [
+    176,
+    87
+   ],
+   "bboxAroundAnchor": {
+    "x": -91,
+    "y": -46,
+    "w": 181,
+    "h": 90
+   },
+   "looksLike": "Looped cyan triangles floating over target (row2 of runes).",
+   "suggestedUse": [
+    "debuff-marker"
+   ],
+   "suggestedForDiablo": "Chill / ice vulnerability marker.",
+   "usedByFlarePowers": [
+    "Weakness to Ice"
+   ],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/runes_blue.png"
+  },
+  {
+   "id": "runes_orange",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/runes_orange.txt",
+   "image": "mods/fantasycore/images/powers/runes.png",
+   "imageSize": [
+    458,
+    436
+   ],
+   "frames": 4,
+   "durationMs": 533,
+   "playback": "looped",
+   "activeFrame": null,
+   "directional": false,
+   "rows": 1,
+   "rowSemantics": "none",
+   "maxFrameSize": [
+    176,
+    87
+   ],
+   "bboxAroundAnchor": {
+    "x": -91,
+    "y": -46,
+    "w": 181,
+    "h": 90
+   },
+   "looksLike": "Looped orange triangles floating over target (row1 of runes).",
+   "suggestedUse": [
+    "debuff-marker"
+   ],
+   "suggestedForDiablo": "Burn / fire vulnerability; Curse (tint purple).",
+   "usedByFlarePowers": [
+    "Weakness to Fire"
+   ],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/runes_orange.png"
+  },
+  {
+   "id": "rupture",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/rupture.txt",
+   "image": "mods/fantasycore/images/powers/rupture.png",
+   "imageSize": [
+    675,
+    428
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "activeFrame": null,
+   "directional": false,
+   "rows": 3,
+   "rowSemantics": "random visual variant (not direction)",
+   "maxFrameSize": [
+    178,
+    154
+   ],
+   "bboxAroundAnchor": {
+    "x": -90,
+    "y": -114,
+    "w": 178,
+    "h": 162
+   },
+   "looksLike": "Ground cracks open with red-hot lava glow, a rock spike thrusts up and pebbles fly (178x154); 3 variants.",
+   "suggestedUse": [
+    "ground-aoe",
+    "impact"
+   ],
+   "suggestedForDiablo": "Ground Stomp / Fissure (repeater in a line), Meteor crater.",
+   "usedByFlarePowers": [
+    "Rupture"
+   ],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/rupture.png"
+  },
+  {
+   "id": "shield",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/shield.txt",
+   "image": "mods/fantasycore/images/powers/shield.png",
+   "imageSize": [
+    534,
+    607
+   ],
+   "frames": 4,
+   "durationMs": 400,
+   "playback": "looped",
+   "activeFrame": null,
+   "directional": false,
+   "rows": 1,
+   "rowSemantics": "none",
+   "maxFrameSize": [
+    269,
+    307
+   ],
+   "bboxAroundAnchor": {
+    "x": -135,
+    "y": -234,
+    "w": 271,
+    "h": 307
+   },
+   "looksLike": "Ring (circle) of blue sparkly particles around the character (269x307), 4-frame loop.",
+   "suggestedUse": [
+    "buff-aura"
+   ],
+   "suggestedForDiablo": "Mana Shield / Bone Armor ring (tint ivory).",
+   "usedByFlarePowers": [
+    "Shield"
+   ],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/shield.png"
+  },
+  {
+   "id": "shield_orange",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/shield_orange.txt",
+   "image": "mods/fantasycore/images/powers/shield_orange.png",
+   "imageSize": [
+    534,
+    607
+   ],
+   "frames": 4,
+   "durationMs": 400,
+   "playback": "looped",
+   "activeFrame": null,
+   "directional": false,
+   "rows": 1,
+   "rowSemantics": "none",
+   "maxFrameSize": [
+    269,
+    307
+   ],
+   "bboxAroundAnchor": {
+    "x": -135,
+    "y": -234,
+    "w": 271,
+    "h": 307
+   },
+   "looksLike": "Same ring as shield, orange/amber particles.",
+   "suggestedUse": [
+    "buff-aura"
+   ],
+   "suggestedForDiablo": "War Cry buff, Reflect.",
+   "usedByFlarePowers": [
+    "Reflect"
+   ],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/shield_orange.png"
+  },
+  {
+   "id": "sparkle",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/sparkle.txt",
+   "image": "mods/fantasycore/images/powers/sparkle.png",
+   "imageSize": [
+    721,
+    456
+   ],
+   "frames": 20,
+   "durationMs": 1000,
+   "playback": "looped",
+   "activeFrame": null,
+   "directional": false,
+   "rows": 1,
+   "rowSemantics": "none",
+   "maxFrameSize": [
+    164,
+    153
+   ],
+   "bboxAroundAnchor": {
+    "x": -89,
+    "y": -127,
+    "w": 173,
+    "h": 158
+   },
+   "looksLike": "White 4-point twinkling stars appearing/disappearing (20 frames, 164x153).",
+   "suggestedUse": [
+    "ambient",
+    "buff-aura"
+   ],
+   "suggestedForDiablo": "Legendary/set item ground sparkle, shrine/waypoint glitter, level-up.",
+   "usedByFlarePowers": [],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/sparkle.png"
+  },
+  {
+   "id": "spark_blue",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/spark_blue.txt",
+   "image": "mods/fantasycore/images/powers/spark_blue.png",
+   "imageSize": [
+    293,
+    454
+   ],
+   "frames": 4,
+   "durationMs": 400,
+   "playback": "play_once",
+   "activeFrame": null,
+   "directional": false,
+   "rows": 2,
+   "rowSemantics": "random visual variant (not direction)",
+   "maxFrameSize": [
+    190,
+    171
+   ],
+   "bboxAroundAnchor": {
+    "x": -94,
+    "y": -184,
+    "w": 190,
+    "h": 184
+   },
+   "looksLike": "Burst of small pale-blue particles flying outward from a point (190x171); 2 variants.",
+   "suggestedUse": [
+    "impact"
+   ],
+   "suggestedForDiablo": "Ice/lightning hit spark.",
+   "usedByFlarePowers": [],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/spark_blue.png"
+  },
+  {
+   "id": "spark_green",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/spark_green.txt",
+   "image": "mods/fantasycore/images/powers/spark_green.png",
+   "imageSize": [
+    293,
+    454
+   ],
+   "frames": 4,
+   "durationMs": 400,
+   "playback": "play_once",
+   "activeFrame": null,
+   "directional": false,
+   "rows": 2,
+   "rowSemantics": "random visual variant (not direction)",
+   "maxFrameSize": [
+    190,
+    171
+   ],
+   "bboxAroundAnchor": {
+    "x": -94,
+    "y": -184,
+    "w": 190,
+    "h": 184
+   },
+   "looksLike": "Same particle burst in green.",
+   "suggestedUse": [
+    "impact"
+   ],
+   "suggestedForDiablo": "Poison hit.",
+   "usedByFlarePowers": [],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/spark_green.png"
+  },
+  {
+   "id": "spark_green_loop",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/spark_green_loop.txt",
+   "image": "mods/fantasycore/images/powers/spark_green.png",
+   "imageSize": [
+    293,
+    454
+   ],
+   "frames": 10,
+   "durationMs": 1000,
+   "playback": "looped",
+   "activeFrame": null,
+   "directional": false,
+   "rows": 2,
+   "rowSemantics": "random visual variant (not direction)",
+   "maxFrameSize": [
+    190,
+    171
+   ],
+   "bboxAroundAnchor": {
+    "x": -94,
+    "y": -184,
+    "w": 190,
+    "h": 184
+   },
+   "looksLike": "spark_green burst (4 frames) + 6 blank frames looped over 1s = periodic puff.",
+   "suggestedUse": [
+    "status-dot"
+   ],
+   "suggestedForDiablo": "Poisoned status overlay.",
+   "usedByFlarePowers": [
+    "Poison"
+   ],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/spark_green_loop.png"
+  },
+  {
+   "id": "spark_orange",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/spark_orange.txt",
+   "image": "mods/fantasycore/images/powers/spark_orange.png",
+   "imageSize": [
+    293,
+    454
+   ],
+   "frames": 4,
+   "durationMs": 400,
+   "playback": "play_once",
+   "activeFrame": null,
+   "directional": false,
+   "rows": 2,
+   "rowSemantics": "random visual variant (not direction)",
+   "maxFrameSize": [
+    190,
+    171
+   ],
+   "bboxAroundAnchor": {
+    "x": -94,
+    "y": -184,
+    "w": 190,
+    "h": 184
+   },
+   "looksLike": "Same particle burst in orange.",
+   "suggestedUse": [
+    "impact"
+   ],
+   "suggestedForDiablo": "Fire / physical hit spark (default arrow/fireball wall hit).",
+   "usedByFlarePowers": [],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/spark_orange.png"
+  },
+  {
+   "id": "spark_red",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/spark_red.txt",
+   "image": "mods/fantasycore/images/powers/spark_red.png",
+   "imageSize": [
+    293,
+    454
+   ],
+   "frames": 4,
+   "durationMs": 400,
+   "playback": "play_once",
+   "activeFrame": null,
+   "directional": false,
+   "rows": 2,
+   "rowSemantics": "random visual variant (not direction)",
+   "maxFrameSize": [
+    190,
+    171
+   ],
+   "bboxAroundAnchor": {
+    "x": -94,
+    "y": -184,
+    "w": 190,
+    "h": 184
+   },
+   "looksLike": "Same particle burst in red.",
+   "suggestedUse": [
+    "impact"
+   ],
+   "suggestedForDiablo": "Blood hit / crit.",
+   "usedByFlarePowers": [],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/spark_red.png"
+  },
+  {
+   "id": "spark_red_loop",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/spark_red_loop.txt",
+   "image": "mods/fantasycore/images/powers/spark_red.png",
+   "imageSize": [
+    293,
+    454
+   ],
+   "frames": 10,
+   "durationMs": 1000,
+   "playback": "looped",
+   "activeFrame": null,
+   "directional": false,
+   "rows": 2,
+   "rowSemantics": "random visual variant (not direction)",
+   "maxFrameSize": [
+    190,
+    171
+   ],
+   "bboxAroundAnchor": {
+    "x": -94,
+    "y": -184,
+    "w": 190,
+    "h": 184
+   },
+   "looksLike": "spark_red burst + 6 blank frames looped (1s).",
+   "suggestedUse": [
+    "status-dot"
+   ],
+   "suggestedForDiablo": "Bleeding status overlay (Rend, Blood Nova).",
+   "usedByFlarePowers": [
+    "Bleeding"
+   ],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/spark_red_loop.png"
+  },
+  {
+   "id": "spear",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/spear.txt",
+   "image": "mods/fantasycore/images/powers/spear.png",
+   "imageSize": [
+    557,
+    420
+   ],
+   "frames": 4,
+   "durationMs": 666,
+   "playback": "play_once",
+   "activeFrame": "all",
+   "directional": true,
+   "rows": 8,
+   "rowSemantics": "direction",
+   "maxFrameSize": [
+    192,
+    140
+   ],
+   "bboxAroundAnchor": {
+    "x": -96,
+    "y": -192,
+    "w": 192,
+    "h": 165
+   },
+   "looksLike": "Wooden spear with steel head thrown in a lob (4 frames, apparent pitch changes).",
+   "suggestedUse": [
+    "projectile"
+   ],
+   "suggestedForDiablo": "Enemy spear throw; Bone Spear alt (tint).",
+   "usedByFlarePowers": [],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/spear.png"
+  },
+  {
+   "id": "spikes",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/spikes.txt",
+   "image": "mods/fantasycore/images/powers/spikes.png",
+   "imageSize": [
+    893,
+    594
+   ],
+   "frames": 4,
+   "durationMs": 266,
+   "playback": "back_forth",
+   "activeFrame": "1",
+   "directional": false,
+   "rows": 4,
+   "rowSemantics": "random visual variant (not direction)",
+   "maxFrameSize": [
+    156,
+    292
+   ],
+   "bboxAroundAnchor": {
+    "x": -60,
+    "y": -261,
+    "w": 156,
+    "h": 292
+   },
+   "looksLike": "Cluster of dark red-brown thorny/stone spikes rising out of the ground (156x292), back_forth (rise then retract); 4 variants.",
+   "suggestedUse": [
+    "ground-trap",
+    "ground-aoe"
+   ],
+   "suggestedForDiablo": "Bone Spikes / Bone Prison (desaturate+ivory tint), floor trap.",
+   "usedByFlarePowers": [],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/spikes.png"
+  },
+  {
+   "id": "spit",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/spit.txt",
+   "image": "mods/fantasycore/images/powers/spit.png",
+   "imageSize": [
+    728,
+    808
+   ],
+   "frames": 8,
+   "durationMs": 400,
+   "playback": "looped",
+   "activeFrame": "all",
+   "directional": true,
+   "rows": 8,
+   "rowSemantics": "direction",
+   "maxFrameSize": [
+    112,
+    114
+   ],
+   "bboxAroundAnchor": {
+    "x": -46,
+    "y": -116,
+    "w": 125,
+    "h": 121
+   },
+   "looksLike": "Olive-green slimy glob tumbling with a soft shadow (112x114), 8-frame loop.",
+   "suggestedUse": [
+    "projectile"
+   ],
+   "suggestedForDiablo": "Enemy acid/poison spit; Poison bolt.",
+   "usedByFlarePowers": [],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/spit.png"
+  },
+  {
+   "id": "status_freeze",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/status_freeze.txt",
+   "image": "mods/fantasycore/images/powers/freeze.png",
+   "imageSize": [
+    348,
+    375
+   ],
+   "frames": 3,
+   "durationMs": 900,
+   "playback": "looped",
+   "activeFrame": null,
+   "directional": false,
+   "rows": 1,
+   "rowSemantics": "none",
+   "maxFrameSize": [
+    127,
+    133
+   ],
+   "bboxAroundAnchor": {
+    "x": -69,
+    "y": -111,
+    "w": 137,
+    "h": 141
+   },
+   "looksLike": "Ice crystal frames of freeze.png held/looped over the target (900ms).",
+   "suggestedUse": [
+    "status"
+   ],
+   "suggestedForDiablo": "Frozen / chilled overlay.",
+   "usedByFlarePowers": [
+    "Slow"
+   ],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/status_freeze.png"
+  },
+  {
+   "id": "stone",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/stone.txt",
+   "image": "mods/fantasycore/images/powers/stone.png",
+   "imageSize": [
+    378,
+    163
+   ],
+   "frames": 3,
+   "durationMs": 200,
+   "playback": "looped",
+   "activeFrame": "all",
+   "directional": true,
+   "rows": 8,
+   "rowSemantics": "direction",
+   "maxFrameSize": [
+    108,
+    62
+   ],
+   "bboxAroundAnchor": {
+    "x": -96,
+    "y": -150,
+    "w": 192,
+    "h": 108
+   },
+   "looksLike": "Small grey pebble with white motion streak.",
+   "suggestedUse": [
+    "projectile"
+   ],
+   "suggestedForDiablo": "Sling / thrown rock (enemy).",
+   "usedByFlarePowers": [
+    "Shoot",
+    "Piercing Shot",
+    "Rapid Fire",
+    "Multishot",
+    "Charged Shot",
+    "Poison Shot"
+   ],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/stone.png"
+  },
+  {
+   "id": "throw_axe",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/throw_axe.txt",
+   "image": "mods/fantasycore/images/powers/throw_axe.png",
+   "imageSize": [
+    771,
+    824
+   ],
+   "frames": 8,
+   "durationMs": 266,
+   "playback": "looped",
+   "activeFrame": "all",
+   "directional": true,
+   "rows": 8,
+   "rowSemantics": "direction",
+   "maxFrameSize": [
+    118,
+    145
+   ],
+   "bboxAroundAnchor": {
+    "x": -61,
+    "y": -107,
+    "w": 157,
+    "h": 168
+   },
+   "looksLike": "Spinning hand axe with ground shadow (8 frames per dir).",
+   "suggestedUse": [
+    "projectile"
+   ],
+   "suggestedForDiablo": "Warrior Throwing Axe.",
+   "usedByFlarePowers": [
+    "Throw Axe",
+    "Shoot",
+    "Piercing Shot",
+    "Rapid Fire",
+    "Multishot",
+    "Charged Shot",
+    "Poison Shot"
+   ],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/throw_axe.png"
+  },
+  {
+   "id": "throw_knife",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/throw_knife.txt",
+   "image": "mods/fantasycore/images/powers/throw_knife.png",
+   "imageSize": [
+    997,
+    535
+   ],
+   "frames": 8,
+   "durationMs": 266,
+   "playback": "looped",
+   "activeFrame": "all",
+   "directional": true,
+   "rows": 8,
+   "rowSemantics": "direction",
+   "maxFrameSize": [
+    118,
+    136
+   ],
+   "bboxAroundAnchor": {
+    "x": -47,
+    "y": -139,
+    "w": 126,
+    "h": 141
+   },
+   "looksLike": "Spinning dagger with ground shadow (8 frames per dir).",
+   "suggestedUse": [
+    "projectile"
+   ],
+   "suggestedForDiablo": "Archer/rogue knife fan; Warrior throw.",
+   "usedByFlarePowers": [
+    "Throw Knife"
+   ],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/throw_knife.png"
+  },
+  {
+   "id": "thunderstrike",
+   "mod": "fantasycore",
+   "animFile": "mods/fantasycore/animations/powers/thunderstrike.txt",
+   "image": "mods/fantasycore/images/powers/thunderstrike.png",
+   "imageSize": [
+    671,
+    744
+   ],
+   "frames": 6,
+   "durationMs": 200,
+   "playback": "play_once",
+   "activeFrame": "2",
+   "directional": false,
+   "rows": 1,
+   "rowSemantics": "none",
+   "maxFrameSize": [
+    229,
+    664
+   ],
+   "bboxAroundAnchor": {
+    "x": -115,
+    "y": -569,
+    "w": 229,
+    "h": 664
+   },
+   "looksLike": "Tall vertical lightning bolt from sky striking ground with bright white-violet flash at base (229x664), 200ms.",
+   "suggestedUse": [
+    "sky-strike",
+    "impact"
+   ],
+   "suggestedForDiablo": "Caster lightning strike / Chain Lightning finisher / storm.",
+   "usedByFlarePowers": [
+    "Thunderstrike"
+   ],
+   "contactSheet": ".assets-src/scratch/fx-icons-audio/fx/thunderstrike.png"
+  },
+  {
+   "id": "minecart",
+   "mod": "empyrean_campaign",
+   "animFile": "mods/empyrean_campaign/animations/powers/minecart.txt",
+   "image": "mods/empyrean_campaign/images/powers/minecart.png",
+   "frames": 1,
+   "durationMs": 66,
+   "playback": "looped",
+   "directional": true,
+   "rows": 8,
+   "rowSemantics": "direction",
+   "maxFrameSize": [
+    94,
+    81
+   ],
+   "looksLike": "Rolling mine cart (environment hazard missile, 1 frame x 8 dirs).",
+   "suggestedUse": [
+    "projectile",
+    "environment-hazard"
+   ],
+   "suggestedForDiablo": "Mine level hazard only.",
+   "usedByFlarePowers": [
+    "power#199 (environment)"
+   ]
+  }
+ ]
+}

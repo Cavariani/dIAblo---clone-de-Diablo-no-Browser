@@ -30,8 +30,8 @@ Registro das decisões tomadas de forma autônoma, sempre buscando a opção mai
 - Complementos gerados por código: partículas, luzes, glow, telegraphs, feixes de loot, UI inteira (CSS/SVG), sons procedurais (Web Audio).
 - Não usamos assets da Blizzard (apesar de permitido pelo usuário) para manter o repositório público livre de problemas de copyright.
 
-### D-011 — Tiles 64×32 e escala 1:1 com a arte do Flare
-- A arte do Flare foi feita para tiles 64×32; mantemos a escala nativa para nitidez. Zoom da câmera limitado (0.8×–1.3×).
+### D-011 — Tiles 192×96 (arte HD do Flare) em escala 1:1
+- O fantasycore atual do Flare usa tiles HD 192×96 (`engine/tileset_config.txt`); personagens têm ~125 px. Mantemos a escala nativa para nitidez; a câmera usa zoom padrão ~0.85 (faixa 0.6×–1.2×) para mostrar área parecida com Diablo 3.
 
 ## Game design
 

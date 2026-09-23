@@ -1,0 +1,9853 @@
+{
+ "tileset": "ruins",
+ "license": "Flare RPG assets, CC-BY-SA 3.0 (flare-game). Attribute Flare contributors; derivative sheets must stay CC-BY-SA.",
+ "source": {
+  "def": ".assets-src/flare-game/mods/empyrean_campaign/tilesetdefs/tileset_ruins.txt",
+  "image": ".assets-src/flare-game/mods/empyrean_campaign/images/tilesets/tileset_ruins.png",
+  "tiledTilesheets": [
+   "tiled/tilesheets/ruins.png (192x384 grid, 16 cols, firstgid 24: id = 24 + row*16 + col)",
+   "ruins_door_left.png (376,377; offset -48,-24)",
+   "ruins_door_right.png (378,379; offset 48,-24)",
+   "ruins_2x2.png (380..383)",
+   "boss_chest.png (384..387)"
+  ],
+  "mapsAnalysed": 40
+ },
+ "tileSize": {
+  "w": 192,
+  "h": 96,
+  "note": "Flare HD: engine/tileset_config.txt tile_size=192,96 (NOT 64x32). Scale factor 1/3 gives classic 64x32."
+ },
+ "anchor": "offset (ox,oy) is the pixel of the sprite that lands on the CENTER of the ground diamond of its cell. screen(cell) = ((x-y)*96, (x+y)*48 + 48) relative to the top vertex of cell (0,0); draw sprite at screen - (ox,oy).",
+ "collisionCodes": {
+  "0": "none (walkable)",
+  "1": "BLOCKS_ALL (walls; blocks movement + projectiles + LOS)",
+  "2": "BLOCKS_MOVEMENT (props, pits; projectiles pass)",
+  "3": "BLOCKS_ALL_HIDDEN (void outside map; hidden in minimap)",
+  "4": "BLOCKS_MOVEMENT_HIDDEN"
+ },
+ "orientationConvention": {
+  "axes": "+x = screen down-right, +y = screen down-left, -x = up-left, -y = up-right. Camera looks from +x+y (south). Cell (minX-1,minY-1) is the top of a room on screen.",
+  "wall_y_front": "wall cell whose walkable floor is at +x (west wall of a room, runs along y). Textured face visible. Tall.",
+  "wall_x_front": "wall cell whose walkable floor is at +y (north wall of a room, runs along x). Textured face visible. Tall.",
+  "wall_y_back": "wall cell whose floor is at -x (east wall; camera sees its back/top). Dungeon: use the SHORT variant (82) so it does not hide the room.",
+  "wall_x_back": "wall cell whose floor is at -y (south wall). Dungeon: SHORT variant (83).",
+  "corner_inner": "concave room corner, only a diagonal neighbour is floor. Named by that diagonal: top=+x+y, left=+x-y, right=-x+y, bottom=-x-y.",
+  "corner_outer": "convex corner / wall end: two orthogonal neighbours are floor, e.g. \"+x,+y\".",
+  "edges": "floor edge tiles: side(s) where the neighbour is void."
+ },
+ "groups": {
+  "floor": [
+   24,
+   25,
+   26,
+   27,
+   28,
+   29,
+   30,
+   31,
+   38,
+   39,
+   40,
+   41,
+   42,
+   43,
+   74,
+   75,
+   76,
+   77,
+   78,
+   79
+  ],
+  "floor_transition": [
+   32,
+   33,
+   34,
+   35,
+   36,
+   37,
+   44,
+   45,
+   46,
+   47,
+   64,
+   65,
+   66,
+   67,
+   68,
+   69,
+   70,
+   71,
+   72,
+   73,
+   83,
+   84,
+   85,
+   86
+  ],
+  "fringe_curb": [
+   48,
+   49,
+   50,
+   51,
+   52,
+   53,
+   54,
+   55,
+   56,
+   57,
+   58,
+   59,
+   60,
+   61,
+   62,
+   63
+  ],
+  "floor_dirt": [
+   80,
+   81,
+   82,
+   104,
+   105,
+   106,
+   107,
+   108,
+   109,
+   110,
+   111,
+   112,
+   113,
+   114,
+   115,
+   116,
+   117,
+   118,
+   119
+  ],
+  "floor_edge": [
+   88,
+   89,
+   90,
+   91,
+   92,
+   93,
+   94,
+   95,
+   96,
+   97,
+   98,
+   99,
+   100,
+   101,
+   102,
+   103
+  ],
+  "floor_special": [
+   120,
+   121,
+   380,
+   381
+  ],
+  "pit_edge": [
+   122,
+   123,
+   124
+  ],
+  "wall_y_front": [
+   136,
+   140,
+   168,
+   170,
+   174,
+   176,
+   178,
+   195,
+   199,
+   213,
+   215,
+   235,
+   238,
+   240,
+   248
+  ],
+  "wall_x_front": [
+   137,
+   141,
+   169,
+   171,
+   175,
+   177,
+   179,
+   196,
+   200,
+   214,
+   216,
+   236,
+   237,
+   239,
+   249
+  ],
+  "wall_y_back": [
+   138,
+   142,
+   172,
+   180,
+   197,
+   217
+  ],
+  "wall_x_back": [
+   139,
+   143,
+   173,
+   181,
+   198,
+   218
+  ],
+  "corner_outer": [
+   144,
+   145,
+   146,
+   147,
+   182,
+   183,
+   184,
+   201,
+   202,
+   203,
+   204,
+   205,
+   206,
+   207,
+   208,
+   209,
+   210,
+   211,
+   212,
+   219,
+   220,
+   221,
+   222
+  ],
+  "corner_inner": [
+   148,
+   149,
+   150,
+   151
+  ],
+  "pillar": [
+   152,
+   185,
+   186,
+   223,
+   224,
+   225,
+   226,
+   227,
+   228,
+   229,
+   230,
+   231,
+   232,
+   233,
+   234
+  ],
+  "void_top": [
+   153,
+   154,
+   155,
+   156,
+   157,
+   158,
+   159,
+   160,
+   161,
+   162,
+   163,
+   164,
+   165,
+   166
+  ],
+  "rubble": [
+   187,
+   188,
+   189,
+   190,
+   191,
+   192,
+   193,
+   194
+  ],
+  "statue": [
+   241,
+   242,
+   243,
+   244,
+   245,
+   246
+  ],
+  "marker": [
+   247
+  ],
+  "portcullis": [
+   250,
+   251,
+   252,
+   253
+  ],
+  "chest": [
+   264,
+   265,
+   266,
+   267,
+   384,
+   385,
+   386,
+   387
+  ],
+  "container": [
+   268,
+   269,
+   285,
+   286,
+   287,
+   288
+  ],
+  "lever": [
+   270,
+   271,
+   272,
+   273
+  ],
+  "prop": [
+   274,
+   275,
+   276,
+   277,
+   279,
+   280,
+   281,
+   282,
+   283,
+   284,
+   289,
+   290
+  ],
+  "light": [
+   278,
+   295,
+   296
+  ],
+  "altar": [
+   291,
+   292,
+   293,
+   294
+  ],
+  "plant": [
+   312,
+   313,
+   314,
+   315,
+   316,
+   317
+  ],
+  "stairs": [
+   328,
+   329,
+   330,
+   331,
+   332,
+   333,
+   334,
+   335,
+   336,
+   337,
+   344,
+   345,
+   346,
+   347,
+   348,
+   349,
+   350,
+   351,
+   352,
+   353
+  ],
+  "fence": [
+   360,
+   361,
+   362,
+   363,
+   364,
+   365,
+   366,
+   367,
+   368,
+   369,
+   370,
+   371
+  ],
+  "door": [
+   376,
+   377,
+   378,
+   379
+  ]
+ },
+ "tiles": {
+  "24": {
+   "id": 24,
+   "rect": {
+    "x": 1152,
+    "y": 596,
+    "w": 192,
+    "h": 104
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 56
+   },
+   "layer": "background",
+   "group": "floor",
+   "tag": "floor_slab",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 1485,
+    "maps": 37
+   },
+   "weight": 1485
+  },
+  "25": {
+   "id": 25,
+   "rect": {
+    "x": 1344,
+    "y": 596,
+    "w": 192,
+    "h": 104
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 56
+   },
+   "layer": "background",
+   "group": "floor",
+   "tag": "floor_slab",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 1217,
+    "maps": 37
+   },
+   "weight": 1217
+  },
+  "26": {
+   "id": 26,
+   "rect": {
+    "x": 1536,
+    "y": 627,
+    "w": 192,
+    "h": 104
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 56
+   },
+   "layer": "background",
+   "group": "floor",
+   "tag": "floor_slab",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 1213,
+    "maps": 37
+   },
+   "weight": 1213
+  },
+  "27": {
+   "id": 27,
+   "rect": {
+    "x": 576,
+    "y": 806,
+    "w": 192,
+    "h": 102
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 54
+   },
+   "layer": "background",
+   "group": "floor",
+   "tag": "floor_slab",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 1479,
+    "maps": 37
+   },
+   "weight": 1479
+  },
+  "28": {
+   "id": 28,
+   "rect": {
+    "x": 1152,
+    "y": 700,
+    "w": 192,
+    "h": 104
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 56
+   },
+   "layer": "background",
+   "group": "floor",
+   "tag": "floor_slab",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 1481,
+    "maps": 37
+   },
+   "weight": 1481
+  },
+  "29": {
+   "id": 29,
+   "rect": {
+    "x": 960,
+    "y": 701,
+    "w": 192,
+    "h": 104
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 56
+   },
+   "layer": "background",
+   "group": "floor",
+   "tag": "floor_slab",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 1217,
+    "maps": 37
+   },
+   "weight": 1217
+  },
+  "30": {
+   "id": 30,
+   "rect": {
+    "x": 384,
+    "y": 810,
+    "w": 192,
+    "h": 102
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 54
+   },
+   "layer": "background",
+   "group": "floor",
+   "tag": "floor_slab",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 1219,
+    "maps": 37
+   },
+   "weight": 1219
+  },
+  "31": {
+   "id": 31,
+   "rect": {
+    "x": 960,
+    "y": 491,
+    "w": 192,
+    "h": 105
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 57
+   },
+   "layer": "background",
+   "group": "floor",
+   "tag": "floor_slab",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 1478,
+    "maps": 37
+   },
+   "weight": 1478
+  },
+  "32": {
+   "id": 32,
+   "rect": {
+    "x": 960,
+    "y": 909,
+    "w": 192,
+    "h": 97
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "floor_transition",
+   "tag": "slab_on_dirt_partial",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "dirt with 1-3 loose slabs; slab<->dirt transition",
+   "usage": {
+    "count": 6,
+    "maps": 6
+   }
+  },
+  "33": {
+   "id": 33,
+   "rect": {
+    "x": 1344,
+    "y": 384,
+    "w": 192,
+    "h": 106
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 58
+   },
+   "layer": "background",
+   "group": "floor_transition",
+   "tag": "slab_on_dirt_partial",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "dirt with 1-3 loose slabs; slab<->dirt transition",
+   "usage": {
+    "count": 4,
+    "maps": 3
+   }
+  },
+  "34": {
+   "id": 34,
+   "rect": {
+    "x": 960,
+    "y": 1006,
+    "w": 192,
+    "h": 97
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "floor_transition",
+   "tag": "slab_on_dirt_partial",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "dirt with 1-3 loose slabs; slab<->dirt transition",
+   "usage": {
+    "count": 2,
+    "maps": 2
+   }
+  },
+  "35": {
+   "id": 35,
+   "rect": {
+    "x": 768,
+    "y": 1008,
+    "w": 192,
+    "h": 97
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "floor_transition",
+   "tag": "slab_on_dirt_partial",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "dirt with 1-3 loose slabs; slab<->dirt transition",
+   "usage": {
+    "count": 5,
+    "maps": 4
+   }
+  },
+  "36": {
+   "id": 36,
+   "rect": {
+    "x": 576,
+    "y": 1009,
+    "w": 192,
+    "h": 97
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "floor_transition",
+   "tag": "slab_on_dirt_partial",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "dirt with 1-3 loose slabs; slab<->dirt transition",
+   "usage": {
+    "count": 2,
+    "maps": 2
+   }
+  },
+  "37": {
+   "id": 37,
+   "rect": {
+    "x": 1152,
+    "y": 491,
+    "w": 192,
+    "h": 105
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 57
+   },
+   "layer": "background",
+   "group": "floor_transition",
+   "tag": "slab_on_dirt_partial",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "dirt with 1-3 loose slabs; slab<->dirt transition",
+   "usage": {
+    "count": 1,
+    "maps": 1
+   }
+  },
+  "38": {
+   "id": 38,
+   "rect": {
+    "x": 960,
+    "y": 596,
+    "w": 192,
+    "h": 105
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 57
+   },
+   "layer": "background",
+   "group": "floor",
+   "tag": "floor_slab_inlay",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "slab with lighter centre square",
+   "usage": {
+    "count": 557,
+    "maps": 37
+   },
+   "weight": 557
+  },
+  "39": {
+   "id": 39,
+   "rect": {
+    "x": 576,
+    "y": 597,
+    "w": 192,
+    "h": 105
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 57
+   },
+   "layer": "background",
+   "group": "floor",
+   "tag": "floor_slab_inlay",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "slab with lighter centre square",
+   "usage": {
+    "count": 619,
+    "maps": 37
+   },
+   "weight": 619
+  },
+  "40": {
+   "id": 40,
+   "rect": {
+    "x": 1344,
+    "y": 700,
+    "w": 192,
+    "h": 104
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 56
+   },
+   "layer": "background",
+   "group": "floor",
+   "tag": "floor_slab_inlay",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "slab with lighter centre square",
+   "usage": {
+    "count": 433,
+    "maps": 37
+   },
+   "weight": 433
+  },
+  "41": {
+   "id": 41,
+   "rect": {
+    "x": 1344,
+    "y": 490,
+    "w": 192,
+    "h": 106
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 58
+   },
+   "layer": "background",
+   "group": "floor",
+   "tag": "floor_slab_inlay",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "slab with lighter centre square",
+   "usage": {
+    "count": 549,
+    "maps": 37
+   },
+   "weight": 549
+  },
+  "42": {
+   "id": 42,
+   "rect": {
+    "x": 1536,
+    "y": 731,
+    "w": 192,
+    "h": 104
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 56
+   },
+   "layer": "background",
+   "group": "floor",
+   "tag": "floor_slab_inlay",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "slab with lighter centre square",
+   "usage": {
+    "count": 432,
+    "maps": 37
+   },
+   "weight": 432
+  },
+  "43": {
+   "id": 43,
+   "rect": {
+    "x": 1782,
+    "y": 943,
+    "w": 192,
+    "h": 104
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 56
+   },
+   "layer": "background",
+   "group": "floor",
+   "tag": "floor_slab_inlay",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "slab with lighter centre square",
+   "usage": {
+    "count": 487,
+    "maps": 37
+   },
+   "weight": 487
+  },
+  "44": {
+   "id": 44,
+   "rect": {
+    "x": 384,
+    "y": 1013,
+    "w": 192,
+    "h": 97
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "floor_transition",
+   "tag": "slab_on_dirt_partial",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "dirt with 1-3 loose slabs; slab<->dirt transition",
+   "usage": {
+    "count": 7,
+    "maps": 4
+   }
+  },
+  "45": {
+   "id": 45,
+   "rect": {
+    "x": 192,
+    "y": 1094,
+    "w": 192,
+    "h": 97
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "floor_transition",
+   "tag": "slab_on_dirt_partial",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "dirt with 1-3 loose slabs; slab<->dirt transition",
+   "usage": {
+    "count": 2,
+    "maps": 2
+   }
+  },
+  "46": {
+   "id": 46,
+   "rect": {
+    "x": 0,
+    "y": 1099,
+    "w": 192,
+    "h": 97
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "floor_transition",
+   "tag": "slab_on_dirt_partial",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "dirt with 1-3 loose slabs; slab<->dirt transition",
+   "usage": {
+    "count": 8,
+    "maps": 5
+   }
+  },
+  "47": {
+   "id": 47,
+   "rect": {
+    "x": 1152,
+    "y": 804,
+    "w": 192,
+    "h": 104
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 56
+   },
+   "layer": "background",
+   "group": "floor_transition",
+   "tag": "slab_on_dirt_partial",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "dirt with 1-3 loose slabs; slab<->dirt transition",
+   "usage": {
+    "count": 5,
+    "maps": 4
+   }
+  },
+  "48": {
+   "id": 48,
+   "rect": {
+    "x": 1692,
+    "y": 2457,
+    "w": 112,
+    "h": 68
+   },
+   "offset": {
+    "ox": 16,
+    "oy": 20
+   },
+   "layer": "background_fringe",
+   "group": "fringe_curb",
+   "tag": "curb_overlay",
+   "orientation": {
+    "edges": [
+     "+x"
+    ]
+   },
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "layer background_fringe: thin stone curb drawn over the base floor along the listed edge(s)",
+   "usage": {
+    "count": 167,
+    "maps": 15
+   }
+  },
+  "49": {
+   "id": 49,
+   "rect": {
+    "x": 2374,
+    "y": 1380,
+    "w": 111,
+    "h": 66
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 18
+   },
+   "layer": "background_fringe",
+   "group": "fringe_curb",
+   "tag": "curb_overlay",
+   "orientation": {
+    "edges": [
+     "+y"
+    ]
+   },
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "layer background_fringe: thin stone curb drawn over the base floor along the listed edge(s)",
+   "usage": {
+    "count": 199,
+    "maps": 15
+   }
+  },
+  "50": {
+   "id": 50,
+   "rect": {
+    "x": 2374,
+    "y": 2942,
+    "w": 111,
+    "h": 65
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 58
+   },
+   "layer": "background_fringe",
+   "group": "fringe_curb",
+   "tag": "curb_overlay",
+   "orientation": {
+    "edges": [
+     "-x"
+    ]
+   },
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "layer background_fringe: thin stone curb drawn over the base floor along the listed edge(s)",
+   "usage": {
+    "count": 173,
+    "maps": 15
+   }
+  },
+  "51": {
+   "id": 51,
+   "rect": {
+    "x": 184,
+    "y": 3363,
+    "w": 111,
+    "h": 66
+   },
+   "offset": {
+    "ox": 15,
+    "oy": 59
+   },
+   "layer": "background_fringe",
+   "group": "fringe_curb",
+   "tag": "curb_overlay",
+   "orientation": {
+    "edges": [
+     "-y"
+    ]
+   },
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "layer background_fringe: thin stone curb drawn over the base floor along the listed edge(s)",
+   "usage": {
+    "count": 194,
+    "maps": 14
+   }
+  },
+  "52": {
+   "id": 52,
+   "rect": {
+    "x": 2374,
+    "y": 3007,
+    "w": 110,
+    "h": 67
+   },
+   "offset": {
+    "ox": 14,
+    "oy": 19
+   },
+   "layer": "background_fringe",
+   "group": "fringe_curb",
+   "tag": "curb_overlay",
+   "orientation": {
+    "edges": [
+     "+x"
+    ]
+   },
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "layer background_fringe: thin stone curb drawn over the base floor along the listed edge(s)",
+   "usage": {
+    "count": 78,
+    "maps": 9
+   }
+  },
+  "53": {
+   "id": 53,
+   "rect": {
+    "x": 1954,
+    "y": 3622,
+    "w": 110,
+    "h": 66
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 18
+   },
+   "layer": "background_fringe",
+   "group": "fringe_curb",
+   "tag": "curb_overlay",
+   "orientation": {
+    "edges": [
+     "+y"
+    ]
+   },
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "layer background_fringe: thin stone curb drawn over the base floor along the listed edge(s)",
+   "usage": {
+    "count": 67,
+    "maps": 10
+   }
+  },
+  "54": {
+   "id": 54,
+   "rect": {
+    "x": 2203,
+    "y": 3664,
+    "w": 109,
+    "h": 62
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 58
+   },
+   "layer": "background_fringe",
+   "group": "fringe_curb",
+   "tag": "curb_overlay",
+   "orientation": {
+    "edges": [
+     "-x"
+    ]
+   },
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "layer background_fringe: thin stone curb drawn over the base floor along the listed edge(s)",
+   "usage": {
+    "count": 79,
+    "maps": 11
+   }
+  },
+  "55": {
+   "id": 55,
+   "rect": {
+    "x": 2064,
+    "y": 3603,
+    "w": 110,
+    "h": 64
+   },
+   "offset": {
+    "ox": 14,
+    "oy": 59
+   },
+   "layer": "background_fringe",
+   "group": "fringe_curb",
+   "tag": "curb_overlay",
+   "orientation": {
+    "edges": [
+     "-y"
+    ]
+   },
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "layer background_fringe: thin stone curb drawn over the base floor along the listed edge(s)",
+   "usage": {
+    "count": 81,
+    "maps": 10
+   }
+  },
+  "56": {
+   "id": 56,
+   "rect": {
+    "x": 1152,
+    "y": 1303,
+    "w": 192,
+    "h": 68
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 20
+   },
+   "layer": "background_fringe",
+   "group": "fringe_curb",
+   "tag": "curb_overlay",
+   "orientation": {
+    "edges": [
+     "+x",
+     "+y"
+    ]
+   },
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "layer background_fringe: thin stone curb drawn over the base floor along the listed edge(s)",
+   "usage": {
+    "count": 45,
+    "maps": 14
+   }
+  },
+  "57": {
+   "id": 57,
+   "rect": {
+    "x": 2374,
+    "y": 1274,
+    "w": 111,
+    "h": 106
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 58
+   },
+   "layer": "background_fringe",
+   "group": "fringe_curb",
+   "tag": "curb_overlay",
+   "orientation": {
+    "edges": [
+     "-x",
+     "+y"
+    ]
+   },
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "layer background_fringe: thin stone curb drawn over the base floor along the listed edge(s)",
+   "usage": {
+    "count": 48,
+    "maps": 15
+   }
+  },
+  "58": {
+   "id": 58,
+   "rect": {
+    "x": 1344,
+    "y": 1303,
+    "w": 192,
+    "h": 66
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 59
+   },
+   "layer": "background_fringe",
+   "group": "fringe_curb",
+   "tag": "curb_overlay",
+   "orientation": {
+    "edges": [
+     "-x",
+     "-y"
+    ]
+   },
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "layer background_fringe: thin stone curb drawn over the base floor along the listed edge(s)",
+   "usage": {
+    "count": 58,
+    "maps": 15
+   }
+  },
+  "59": {
+   "id": 59,
+   "rect": {
+    "x": 2374,
+    "y": 1167,
+    "w": 111,
+    "h": 107
+   },
+   "offset": {
+    "ox": 15,
+    "oy": 59
+   },
+   "layer": "background_fringe",
+   "group": "fringe_curb",
+   "tag": "curb_overlay",
+   "orientation": {
+    "edges": [
+     "-y",
+     "+x"
+    ]
+   },
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "layer background_fringe: thin stone curb drawn over the base floor along the listed edge(s)",
+   "usage": {
+    "count": 49,
+    "maps": 15
+   }
+  },
+  "60": {
+   "id": 60,
+   "rect": {
+    "x": 1728,
+    "y": 786,
+    "w": 29,
+    "h": 24
+   },
+   "offset": {
+    "ox": 15,
+    "oy": -20
+   },
+   "layer": "background_fringe",
+   "group": "fringe_curb",
+   "tag": "curb_overlay",
+   "orientation": {
+    "nub": "+x+y"
+   },
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "layer background_fringe: thin stone curb drawn over the base floor along the listed edge(s)",
+   "usage": {
+    "count": 54,
+    "maps": 12
+   }
+  },
+  "61": {
+   "id": 61,
+   "rect": {
+    "x": 1728,
+    "y": 810,
+    "w": 28,
+    "h": 24
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 21
+   },
+   "layer": "background_fringe",
+   "group": "fringe_curb",
+   "tag": "curb_overlay",
+   "orientation": {
+    "nub": "-x+y"
+   },
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "layer background_fringe: thin stone curb drawn over the base floor along the listed edge(s)",
+   "usage": {
+    "count": 57,
+    "maps": 12
+   }
+  },
+  "62": {
+   "id": 62,
+   "rect": {
+    "x": 1756,
+    "y": 811,
+    "w": 28,
+    "h": 21
+   },
+   "offset": {
+    "ox": 14,
+    "oy": 63
+   },
+   "layer": "background_fringe",
+   "group": "fringe_curb",
+   "tag": "curb_overlay",
+   "orientation": {
+    "nub": "-x-y"
+   },
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "layer background_fringe: thin stone curb drawn over the base floor along the listed edge(s)",
+   "usage": {
+    "count": 48,
+    "maps": 12
+   }
+  },
+  "63": {
+   "id": 63,
+   "rect": {
+    "x": 1757,
+    "y": 786,
+    "w": 28,
+    "h": 25
+   },
+   "offset": {
+    "ox": -68,
+    "oy": 21
+   },
+   "layer": "background_fringe",
+   "group": "fringe_curb",
+   "tag": "curb_overlay",
+   "orientation": {
+    "nub": "+x-y"
+   },
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "layer background_fringe: thin stone curb drawn over the base floor along the listed edge(s)",
+   "usage": {
+    "count": 57,
+    "maps": 12
+   }
+  },
+  "64": {
+   "id": 64,
+   "rect": {
+    "x": 1344,
+    "y": 804,
+    "w": 192,
+    "h": 104
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 56
+   },
+   "layer": "background",
+   "group": "floor_transition",
+   "tag": "broken_slabs_on_dirt",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 13,
+    "maps": 9
+   }
+  },
+  "65": {
+   "id": 65,
+   "rect": {
+    "x": 384,
+    "y": 601,
+    "w": 192,
+    "h": 105
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 57
+   },
+   "layer": "background",
+   "group": "floor_transition",
+   "tag": "broken_slabs_on_dirt",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 12,
+    "maps": 9
+   }
+  },
+  "66": {
+   "id": 66,
+   "rect": {
+    "x": 192,
+    "y": 891,
+    "w": 192,
+    "h": 102
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 54
+   },
+   "layer": "background",
+   "group": "floor_transition",
+   "tag": "broken_slabs_on_dirt",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 11,
+    "maps": 7
+   }
+  },
+  "67": {
+   "id": 67,
+   "rect": {
+    "x": 1152,
+    "y": 1012,
+    "w": 192,
+    "h": 97
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "floor_transition",
+   "tag": "broken_slabs_on_dirt",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 17,
+    "maps": 9
+   }
+  },
+  "68": {
+   "id": 68,
+   "rect": {
+    "x": 0,
+    "y": 896,
+    "w": 192,
+    "h": 102
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 54
+   },
+   "layer": "background",
+   "group": "floor_transition",
+   "tag": "broken_slabs_on_dirt",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 14,
+    "maps": 9
+   }
+  },
+  "69": {
+   "id": 69,
+   "rect": {
+    "x": 576,
+    "y": 908,
+    "w": 192,
+    "h": 101
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 53
+   },
+   "layer": "background",
+   "group": "floor_transition",
+   "tag": "broken_slabs_on_dirt",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 3,
+    "maps": 2
+   }
+  },
+  "70": {
+   "id": 70,
+   "rect": {
+    "x": 960,
+    "y": 1103,
+    "w": 192,
+    "h": 97
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "floor_transition",
+   "tag": "broken_slabs_on_dirt",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 8,
+    "maps": 5
+   }
+  },
+  "71": {
+   "id": 71,
+   "rect": {
+    "x": 1536,
+    "y": 835,
+    "w": 192,
+    "h": 104
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 56
+   },
+   "layer": "background",
+   "group": "floor_transition",
+   "tag": "broken_slabs_on_dirt",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 3,
+    "maps": 3
+   }
+  },
+  "72": {
+   "id": 72,
+   "rect": {
+    "x": 1536,
+    "y": 521,
+    "w": 192,
+    "h": 106
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 58
+   },
+   "layer": "background",
+   "group": "floor_transition",
+   "tag": "broken_slabs_on_dirt",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 6,
+    "maps": 4
+   }
+  },
+  "73": {
+   "id": 73,
+   "rect": {
+    "x": 576,
+    "y": 491,
+    "w": 192,
+    "h": 106
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 58
+   },
+   "layer": "background",
+   "group": "floor_transition",
+   "tag": "broken_slabs_on_dirt",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 6,
+    "maps": 5
+   }
+  },
+  "74": {
+   "id": 74,
+   "rect": {
+    "x": 192,
+    "y": 682,
+    "w": 192,
+    "h": 105
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 57
+   },
+   "layer": "background",
+   "group": "floor",
+   "tag": "floor_slab_grass",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 0,
+    "maps": 0
+   },
+   "weight": 1
+  },
+  "75": {
+   "id": 75,
+   "rect": {
+    "x": 0,
+    "y": 687,
+    "w": 192,
+    "h": 105
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 57
+   },
+   "layer": "background",
+   "group": "floor",
+   "tag": "floor_slab_grass",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 0,
+    "maps": 0
+   },
+   "weight": 1
+  },
+  "76": {
+   "id": 76,
+   "rect": {
+    "x": 576,
+    "y": 702,
+    "w": 192,
+    "h": 104
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 56
+   },
+   "layer": "background",
+   "group": "floor",
+   "tag": "floor_slab_grass",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 0,
+    "maps": 0
+   },
+   "weight": 1
+  },
+  "77": {
+   "id": 77,
+   "rect": {
+    "x": 384,
+    "y": 495,
+    "w": 192,
+    "h": 106
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 58
+   },
+   "layer": "background",
+   "group": "floor",
+   "tag": "floor_slab_inlay_grass",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 1,
+    "maps": 1
+   },
+   "weight": 1
+  },
+  "78": {
+   "id": 78,
+   "rect": {
+    "x": 384,
+    "y": 706,
+    "w": 192,
+    "h": 104
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 56
+   },
+   "layer": "background",
+   "group": "floor",
+   "tag": "floor_slab_inlay_grass",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 3,
+    "maps": 3
+   },
+   "weight": 3
+  },
+  "79": {
+   "id": 79,
+   "rect": {
+    "x": 0,
+    "y": 452,
+    "w": 192,
+    "h": 129
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 81
+   },
+   "layer": "background",
+   "group": "floor",
+   "tag": "floor_slab_inlay_grass",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 3,
+    "maps": 3
+   },
+   "weight": 3
+  },
+  "80": {
+   "id": 80,
+   "rect": {
+    "x": 768,
+    "y": 1105,
+    "w": 192,
+    "h": 97
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "floor_dirt",
+   "tag": "floor_dirt_moss",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 1,
+    "maps": 1
+   },
+   "weight": 1
+  },
+  "81": {
+   "id": 81,
+   "rect": {
+    "x": 576,
+    "y": 1106,
+    "w": 192,
+    "h": 97
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "floor_dirt",
+   "tag": "floor_dirt_moss",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 0,
+    "maps": 0
+   },
+   "weight": 1
+  },
+  "82": {
+   "id": 82,
+   "rect": {
+    "x": 384,
+    "y": 1110,
+    "w": 192,
+    "h": 97
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "floor_dirt",
+   "tag": "floor_dirt_moss",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 4,
+    "maps": 4
+   },
+   "weight": 4
+  },
+  "83": {
+   "id": 83,
+   "rect": {
+    "x": 192,
+    "y": 1191,
+    "w": 192,
+    "h": 97
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "floor_transition",
+   "tag": "broken_slabs_on_dirt",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 9,
+    "maps": 8
+   }
+  },
+  "84": {
+   "id": 84,
+   "rect": {
+    "x": 192,
+    "y": 787,
+    "w": 192,
+    "h": 104
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 56
+   },
+   "layer": "background",
+   "group": "floor_transition",
+   "tag": "broken_slabs_on_dirt",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 17,
+    "maps": 12
+   }
+  },
+  "85": {
+   "id": 85,
+   "rect": {
+    "x": 0,
+    "y": 1196,
+    "w": 192,
+    "h": 97
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "floor_transition",
+   "tag": "broken_slabs_on_dirt",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 9,
+    "maps": 7
+   }
+  },
+  "86": {
+   "id": 86,
+   "rect": {
+    "x": 1344,
+    "y": 1012,
+    "w": 192,
+    "h": 97
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "floor_transition",
+   "tag": "broken_slabs_on_dirt",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 11,
+    "maps": 9
+   }
+  },
+  "88": {
+   "id": 88,
+   "rect": {
+    "x": 192,
+    "y": 576,
+    "w": 192,
+    "h": 106
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 58
+   },
+   "layer": "background",
+   "group": "floor_edge",
+   "tag": "dirt_with_curb",
+   "orientation": {
+    "edges": [
+     "-x"
+    ]
+   },
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "dirt cell with a stone curb on the listed side(s) (edge toward a slab area). Orientation read from the image.",
+   "usage": {
+    "count": 22,
+    "maps": 4
+   }
+  },
+  "89": {
+   "id": 89,
+   "rect": {
+    "x": 576,
+    "y": 384,
+    "w": 192,
+    "h": 107
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 59
+   },
+   "layer": "background",
+   "group": "floor_edge",
+   "tag": "dirt_with_curb",
+   "orientation": {
+    "edges": [
+     "-y"
+    ]
+   },
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "dirt cell with a stone curb on the listed side(s) (edge toward a slab area). Orientation read from the image.",
+   "usage": {
+    "count": 18,
+    "maps": 5
+   }
+  },
+  "90": {
+   "id": 90,
+   "rect": {
+    "x": 1536,
+    "y": 1042,
+    "w": 192,
+    "h": 97
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "floor_edge",
+   "tag": "dirt_with_curb",
+   "orientation": {
+    "edges": [
+     "+x"
+    ]
+   },
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "dirt cell with a stone curb on the listed side(s) (edge toward a slab area). Orientation read from the image.",
+   "usage": {
+    "count": 23,
+    "maps": 6
+   }
+  },
+  "91": {
+   "id": 91,
+   "rect": {
+    "x": 1728,
+    "y": 1047,
+    "w": 192,
+    "h": 97
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "floor_edge",
+   "tag": "dirt_with_curb",
+   "orientation": {
+    "edges": [
+     "+y"
+    ]
+   },
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "dirt cell with a stone curb on the listed side(s) (edge toward a slab area). Orientation read from the image.",
+   "usage": {
+    "count": 18,
+    "maps": 5
+   }
+  },
+  "92": {
+   "id": 92,
+   "rect": {
+    "x": 0,
+    "y": 581,
+    "w": 192,
+    "h": 106
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 58
+   },
+   "layer": "background",
+   "group": "floor_edge",
+   "tag": "dirt_with_curb",
+   "orientation": {
+    "edges": [
+     "-x"
+    ]
+   },
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "dirt cell with a stone curb on the listed side(s) (edge toward a slab area). Orientation read from the image.",
+   "usage": {
+    "count": 22,
+    "maps": 7
+   }
+  },
+  "93": {
+   "id": 93,
+   "rect": {
+    "x": 768,
+    "y": 384,
+    "w": 192,
+    "h": 107
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 59
+   },
+   "layer": "background",
+   "group": "floor_edge",
+   "tag": "dirt_with_curb",
+   "orientation": {
+    "edges": [
+     "-y"
+    ]
+   },
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "dirt cell with a stone curb on the listed side(s) (edge toward a slab area). Orientation read from the image.",
+   "usage": {
+    "count": 18,
+    "maps": 6
+   }
+  },
+  "94": {
+   "id": 94,
+   "rect": {
+    "x": 1152,
+    "y": 1109,
+    "w": 192,
+    "h": 97
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "floor_edge",
+   "tag": "dirt_with_curb",
+   "orientation": {
+    "edges": [
+     "+x"
+    ]
+   },
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "dirt cell with a stone curb on the listed side(s) (edge toward a slab area). Orientation read from the image.",
+   "usage": {
+    "count": 17,
+    "maps": 4
+   }
+  },
+  "95": {
+   "id": 95,
+   "rect": {
+    "x": 960,
+    "y": 1200,
+    "w": 192,
+    "h": 97
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "floor_edge",
+   "tag": "dirt_with_curb",
+   "orientation": {
+    "edges": [
+     "+y"
+    ]
+   },
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "dirt cell with a stone curb on the listed side(s) (edge toward a slab area). Orientation read from the image.",
+   "usage": {
+    "count": 14,
+    "maps": 4
+   }
+  },
+  "96": {
+   "id": 96,
+   "rect": {
+    "x": 960,
+    "y": 384,
+    "w": 192,
+    "h": 107
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 59
+   },
+   "layer": "background",
+   "group": "floor_edge",
+   "tag": "dirt_with_curb",
+   "orientation": {
+    "edges": [
+     "-y",
+     "+x"
+    ]
+   },
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "dirt cell with a stone curb on the listed side(s) (edge toward a slab area). Orientation read from the image.",
+   "usage": {
+    "count": 28,
+    "maps": 8
+   }
+  },
+  "97": {
+   "id": 97,
+   "rect": {
+    "x": 1152,
+    "y": 384,
+    "w": 192,
+    "h": 107
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 59
+   },
+   "layer": "background",
+   "group": "floor_edge",
+   "tag": "dirt_with_curb",
+   "orientation": {
+    "edges": [
+     "-x",
+     "-y"
+    ]
+   },
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "dirt cell with a stone curb on the listed side(s) (edge toward a slab area). Orientation read from the image.",
+   "usage": {
+    "count": 26,
+    "maps": 7
+   }
+  },
+  "98": {
+   "id": 98,
+   "rect": {
+    "x": 768,
+    "y": 491,
+    "w": 192,
+    "h": 106
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 58
+   },
+   "layer": "background",
+   "group": "floor_edge",
+   "tag": "dirt_with_curb",
+   "orientation": {
+    "edges": [
+     "-x",
+     "+y"
+    ]
+   },
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "dirt cell with a stone curb on the listed side(s) (edge toward a slab area). Orientation read from the image.",
+   "usage": {
+    "count": 28,
+    "maps": 8
+   }
+  },
+  "99": {
+   "id": 99,
+   "rect": {
+    "x": 768,
+    "y": 1202,
+    "w": 192,
+    "h": 97
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "floor_edge",
+   "tag": "dirt_with_curb",
+   "orientation": {
+    "edges": [
+     "+y",
+     "+x"
+    ]
+   },
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "dirt cell with a stone curb on the listed side(s) (edge toward a slab area). Orientation read from the image.",
+   "usage": {
+    "count": 32,
+    "maps": 8
+   }
+  },
+  "100": {
+   "id": 100,
+   "rect": {
+    "x": 576,
+    "y": 1203,
+    "w": 192,
+    "h": 97
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "floor_edge",
+   "tag": "dirt_with_curb",
+   "orientation": {
+    "nub": "+x-y (right vertex)"
+   },
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "dirt cell with a stone curb on the listed side(s) (edge toward a slab area). Orientation read from the image.",
+   "usage": {
+    "count": 14,
+    "maps": 3
+   }
+  },
+  "101": {
+   "id": 101,
+   "rect": {
+    "x": 384,
+    "y": 384,
+    "w": 192,
+    "h": 111
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 63
+   },
+   "layer": "background",
+   "group": "floor_edge",
+   "tag": "dirt_with_curb",
+   "orientation": {
+    "nub": "-x-y (top vertex)"
+   },
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "dirt cell with a stone curb on the listed side(s) (edge toward a slab area). Orientation read from the image.",
+   "usage": {
+    "count": 13,
+    "maps": 3
+   }
+  },
+  "102": {
+   "id": 102,
+   "rect": {
+    "x": 384,
+    "y": 1207,
+    "w": 192,
+    "h": 97
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "floor_edge",
+   "tag": "dirt_with_curb",
+   "orientation": {
+    "nub": "-x+y (left vertex)"
+   },
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "dirt cell with a stone curb on the listed side(s) (edge toward a slab area). Orientation read from the image.",
+   "usage": {
+    "count": 14,
+    "maps": 3
+   }
+  },
+  "103": {
+   "id": 103,
+   "rect": {
+    "x": 192,
+    "y": 1288,
+    "w": 192,
+    "h": 97
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "floor_edge",
+   "tag": "dirt_with_curb",
+   "orientation": {
+    "nub": "+x+y (bottom vertex)"
+   },
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "dirt cell with a stone curb on the listed side(s) (edge toward a slab area). Orientation read from the image.",
+   "usage": {
+    "count": 17,
+    "maps": 3
+   }
+  },
+  "104": {
+   "id": 104,
+   "rect": {
+    "x": 0,
+    "y": 1293,
+    "w": 192,
+    "h": 97
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "floor_dirt",
+   "tag": "floor_dirt",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 22,
+    "maps": 7
+   },
+   "weight": 22
+  },
+  "105": {
+   "id": 105,
+   "rect": {
+    "x": 1344,
+    "y": 1109,
+    "w": 192,
+    "h": 97
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "floor_dirt",
+   "tag": "floor_dirt",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 24,
+    "maps": 6
+   },
+   "weight": 24
+  },
+  "106": {
+   "id": 106,
+   "rect": {
+    "x": 1536,
+    "y": 1139,
+    "w": 192,
+    "h": 97
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "floor_dirt",
+   "tag": "floor_dirt",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 13,
+    "maps": 4
+   },
+   "weight": 13
+  },
+  "107": {
+   "id": 107,
+   "rect": {
+    "x": 1728,
+    "y": 1144,
+    "w": 192,
+    "h": 97
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "floor_dirt",
+   "tag": "floor_dirt",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 11,
+    "maps": 4
+   },
+   "weight": 11
+  },
+  "108": {
+   "id": 108,
+   "rect": {
+    "x": 1920,
+    "y": 1214,
+    "w": 192,
+    "h": 97
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "floor_dirt",
+   "tag": "floor_dirt",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 22,
+    "maps": 6
+   },
+   "weight": 22
+  },
+  "109": {
+   "id": 109,
+   "rect": {
+    "x": 1152,
+    "y": 1206,
+    "w": 192,
+    "h": 97
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "floor_dirt",
+   "tag": "floor_dirt",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 26,
+    "maps": 7
+   },
+   "weight": 26
+  },
+  "110": {
+   "id": 110,
+   "rect": {
+    "x": 960,
+    "y": 1297,
+    "w": 192,
+    "h": 97
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "floor_dirt",
+   "tag": "floor_dirt",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 15,
+    "maps": 4
+   },
+   "weight": 15
+  },
+  "111": {
+   "id": 111,
+   "rect": {
+    "x": 768,
+    "y": 1299,
+    "w": 192,
+    "h": 97
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "floor_dirt",
+   "tag": "floor_dirt",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 11,
+    "maps": 4
+   },
+   "weight": 11
+  },
+  "112": {
+   "id": 112,
+   "rect": {
+    "x": 576,
+    "y": 1300,
+    "w": 192,
+    "h": 97
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "floor_dirt",
+   "tag": "floor_dirt",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 11,
+    "maps": 4
+   },
+   "weight": 11
+  },
+  "113": {
+   "id": 113,
+   "rect": {
+    "x": 384,
+    "y": 1304,
+    "w": 192,
+    "h": 97
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "floor_dirt",
+   "tag": "floor_dirt",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 16,
+    "maps": 4
+   },
+   "weight": 16
+  },
+  "114": {
+   "id": 114,
+   "rect": {
+    "x": 192,
+    "y": 1385,
+    "w": 192,
+    "h": 97
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "floor_dirt",
+   "tag": "floor_dirt",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 12,
+    "maps": 3
+   },
+   "weight": 12
+  },
+  "115": {
+   "id": 115,
+   "rect": {
+    "x": 0,
+    "y": 1390,
+    "w": 192,
+    "h": 97
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "floor_dirt",
+   "tag": "floor_dirt",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 12,
+    "maps": 3
+   },
+   "weight": 12
+  },
+  "116": {
+   "id": 116,
+   "rect": {
+    "x": 1344,
+    "y": 1206,
+    "w": 192,
+    "h": 97
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "floor_dirt",
+   "tag": "floor_dirt",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 13,
+    "maps": 4
+   },
+   "weight": 13
+  },
+  "117": {
+   "id": 117,
+   "rect": {
+    "x": 1536,
+    "y": 1236,
+    "w": 192,
+    "h": 97
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "floor_dirt",
+   "tag": "floor_dirt",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 15,
+    "maps": 4
+   },
+   "weight": 15
+  },
+  "118": {
+   "id": 118,
+   "rect": {
+    "x": 1728,
+    "y": 1241,
+    "w": 192,
+    "h": 97
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "floor_dirt",
+   "tag": "floor_dirt",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 10,
+    "maps": 3
+   },
+   "weight": 10
+  },
+  "119": {
+   "id": 119,
+   "rect": {
+    "x": 1920,
+    "y": 1311,
+    "w": 192,
+    "h": 97
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "floor_dirt",
+   "tag": "floor_dirt",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 10,
+    "maps": 3
+   },
+   "weight": 10
+  },
+  "120": {
+   "id": 120,
+   "rect": {
+    "x": 2214,
+    "y": 2555,
+    "w": 176,
+    "h": 94
+   },
+   "offset": {
+    "ox": 88,
+    "oy": 46
+   },
+   "layer": "background",
+   "group": "floor_special",
+   "tag": "floor_grate",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 54,
+    "maps": 6
+   }
+  },
+  "121": {
+   "id": 121,
+   "rect": {
+    "x": 2214,
+    "y": 2649,
+    "w": 176,
+    "h": 94
+   },
+   "offset": {
+    "ox": 88,
+    "oy": 46
+   },
+   "layer": "background",
+   "group": "floor_special",
+   "tag": "floor_grate_glow",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "light": {
+    "color": "#ff3020",
+    "radius": 1.5,
+    "intensity": 0.4
+   },
+   "hell": true,
+   "usage": {
+    "count": 30,
+    "maps": 2
+   }
+  },
+  "122": {
+   "id": 122,
+   "rect": {
+    "x": 2002,
+    "y": 0,
+    "w": 192,
+    "h": 367
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 48
+   },
+   "layer": "background",
+   "group": "pit_edge",
+   "tag": "cliff_face",
+   "orientation": {
+    "face": "+x+y",
+    "placeAt": "void cell with floor at -x AND -y"
+   },
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 55,
+    "maps": 11
+   }
+  },
+  "123": {
+   "id": 123,
+   "rect": {
+    "x": 2386,
+    "y": 0,
+    "w": 96,
+    "h": 367
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 48
+   },
+   "layer": "background",
+   "group": "pit_edge",
+   "tag": "cliff_face",
+   "orientation": {
+    "face": "+x",
+    "placeAt": "void cell at floor+(1,0)"
+   },
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 230,
+    "maps": 11
+   }
+  },
+  "124": {
+   "id": 124,
+   "rect": {
+    "x": 2386,
+    "y": 367,
+    "w": 96,
+    "h": 367
+   },
+   "offset": {
+    "ox": 0,
+    "oy": 48
+   },
+   "layer": "background",
+   "group": "pit_edge",
+   "tag": "cliff_face",
+   "orientation": {
+    "face": "+y",
+    "placeAt": "void cell at floor+(0,1)"
+   },
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 251,
+    "maps": 11
+   }
+  },
+  "136": {
+   "id": 136,
+   "rect": {
+    "x": 192,
+    "y": 1482,
+    "w": 190,
+    "h": 283
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 237
+   },
+   "layer": "object",
+   "group": "wall_y_front",
+   "tag": "wall_plain",
+   "orientation": {
+    "axis": "y",
+    "face": "+x",
+    "height": "tall"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 105,
+    "maps": 32,
+    "walkableSides": [
+     "+x"
+    ]
+   }
+  },
+  "137": {
+   "id": 137,
+   "rect": {
+    "x": 1334,
+    "y": 1936,
+    "w": 190,
+    "h": 280
+   },
+   "offset": {
+    "ox": 94,
+    "oy": 234
+   },
+   "layer": "object",
+   "group": "wall_x_front",
+   "tag": "wall_plain",
+   "orientation": {
+    "axis": "x",
+    "face": "+y",
+    "height": "tall"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 118,
+    "maps": 31,
+    "walkableSides": [
+     "+y"
+    ]
+   }
+  },
+  "138": {
+   "id": 138,
+   "rect": {
+    "x": 2103,
+    "y": 1976,
+    "w": 190,
+    "h": 275
+   },
+   "offset": {
+    "ox": 94,
+    "oy": 227
+   },
+   "layer": "object",
+   "group": "wall_y_back",
+   "tag": "wall_back",
+   "orientation": {
+    "axis": "y",
+    "face": "-x",
+    "height": "tall (top only, black body)"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "main east wall (832 uses)",
+   "usage": {
+    "count": 832,
+    "maps": 37,
+    "walkableSides": [
+     "-x"
+    ]
+   }
+  },
+  "139": {
+   "id": 139,
+   "rect": {
+    "x": 2293,
+    "y": 2005,
+    "w": 190,
+    "h": 275
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 227
+   },
+   "layer": "object",
+   "group": "wall_x_back",
+   "tag": "wall_back",
+   "orientation": {
+    "axis": "x",
+    "face": "-y",
+    "height": "tall (top only, black body)"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "main south wall (831 uses)",
+   "usage": {
+    "count": 831,
+    "maps": 37,
+    "walkableSides": [
+     "-y"
+    ]
+   }
+  },
+  "140": {
+   "id": 140,
+   "rect": {
+    "x": 0,
+    "y": 2052,
+    "w": 190,
+    "h": 281
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 235
+   },
+   "layer": "object",
+   "group": "wall_y_front",
+   "tag": "wall_plain",
+   "orientation": {
+    "axis": "y",
+    "face": "+x",
+    "height": "tall"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 41,
+    "maps": 24,
+    "walkableSides": [
+     "+x"
+    ]
+   }
+  },
+  "141": {
+   "id": 141,
+   "rect": {
+    "x": 190,
+    "y": 1765,
+    "w": 190,
+    "h": 282
+   },
+   "offset": {
+    "ox": 94,
+    "oy": 236
+   },
+   "layer": "object",
+   "group": "wall_x_front",
+   "tag": "wall_plain",
+   "orientation": {
+    "axis": "x",
+    "face": "+y",
+    "height": "tall"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 32,
+    "maps": 19,
+    "walkableSides": [
+     "+y"
+    ]
+   }
+  },
+  "142": {
+   "id": 142,
+   "rect": {
+    "x": 1524,
+    "y": 2181,
+    "w": 190,
+    "h": 275
+   },
+   "offset": {
+    "ox": 94,
+    "oy": 227
+   },
+   "layer": "object",
+   "group": "wall_y_back",
+   "tag": "wall_back",
+   "orientation": {
+    "axis": "y",
+    "face": "-x",
+    "height": "tall (top only, black body)"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 8,
+    "maps": 3,
+    "walkableSides": [
+     "-x"
+    ]
+   }
+  },
+  "143": {
+   "id": 143,
+   "rect": {
+    "x": 1714,
+    "y": 2182,
+    "w": 190,
+    "h": 275
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 227
+   },
+   "layer": "object",
+   "group": "wall_x_back",
+   "tag": "wall_back",
+   "orientation": {
+    "axis": "x",
+    "face": "-y",
+    "height": "tall (top only, black body)"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 3,
+    "maps": 2,
+    "walkableSides": [
+     "-y"
+    ]
+   }
+  },
+  "144": {
+   "id": 144,
+   "rect": {
+    "x": 570,
+    "y": 2523,
+    "w": 188,
+    "h": 275
+   },
+   "offset": {
+    "ox": 94,
+    "oy": 238
+   },
+   "layer": "object",
+   "group": "corner_outer",
+   "tag": "wall_corner_outer",
+   "orientation": {
+    "outerCorner": [
+     "+x",
+     "+y"
+    ]
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 55,
+    "maps": 27,
+    "walkableSides": [
+     "+x",
+     "+y"
+    ]
+   }
+  },
+  "145": {
+   "id": 145,
+   "rect": {
+    "x": 1319,
+    "y": 2507,
+    "w": 178,
+    "h": 273
+   },
+   "offset": {
+    "ox": 82,
+    "oy": 227
+   },
+   "layer": "object",
+   "group": "corner_outer",
+   "tag": "wall_corner_outer",
+   "orientation": {
+    "outerCorner": [
+     "-x",
+     "+y"
+    ]
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 45,
+    "maps": 17,
+    "walkableSides": [
+     "-x",
+     "+y"
+    ]
+   }
+  },
+  "146": {
+   "id": 146,
+   "rect": {
+    "x": 1141,
+    "y": 2216,
+    "w": 188,
+    "h": 262
+   },
+   "offset": {
+    "ox": 94,
+    "oy": 214
+   },
+   "layer": "object",
+   "group": "corner_outer",
+   "tag": "wall_corner_outer",
+   "orientation": {
+    "outerCorner": [
+     "-x",
+     "-y"
+    ]
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 78,
+    "maps": 28,
+    "walkableSides": [
+     "-x",
+     "-y"
+    ]
+   }
+  },
+  "147": {
+   "id": 147,
+   "rect": {
+    "x": 1128,
+    "y": 2746,
+    "w": 178,
+    "h": 273
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 227
+   },
+   "layer": "object",
+   "group": "corner_outer",
+   "tag": "wall_corner_outer",
+   "orientation": {
+    "outerCorner": [
+     "+x",
+     "-y"
+    ]
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 54,
+    "maps": 23,
+    "walkableSides": [
+     "+x",
+     "-y"
+    ]
+   }
+  },
+  "148": {
+   "id": 148,
+   "rect": {
+    "x": 1798,
+    "y": 662,
+    "w": 192,
+    "h": 281
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 235
+   },
+   "layer": "object",
+   "group": "corner_inner",
+   "tag": "wall_corner_inner",
+   "orientation": {
+    "innerCorner": "+x+y",
+    "screen": "top"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 79,
+    "maps": 37
+   }
+  },
+  "149": {
+   "id": 149,
+   "rect": {
+    "x": 576,
+    "y": 1397,
+    "w": 190,
+    "h": 286
+   },
+   "offset": {
+    "ox": 94,
+    "oy": 238
+   },
+   "layer": "object",
+   "group": "corner_inner",
+   "tag": "wall_corner_inner",
+   "orientation": {
+    "innerCorner": "-x+y",
+    "screen": "right"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 79,
+    "maps": 37
+   }
+  },
+  "150": {
+   "id": 150,
+   "rect": {
+    "x": 1990,
+    "y": 939,
+    "w": 192,
+    "h": 275
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 227
+   },
+   "layer": "object",
+   "group": "corner_inner",
+   "tag": "wall_corner_inner",
+   "orientation": {
+    "innerCorner": "-x-y",
+    "screen": "bottom"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 70,
+    "maps": 37
+   }
+  },
+  "151": {
+   "id": 151,
+   "rect": {
+    "x": 384,
+    "y": 1401,
+    "w": 190,
+    "h": 284
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 236
+   },
+   "layer": "object",
+   "group": "corner_inner",
+   "tag": "wall_corner_inner",
+   "orientation": {
+    "innerCorner": "+x-y",
+    "screen": "left"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 79,
+    "maps": 37
+   }
+  },
+  "152": {
+   "id": 152,
+   "rect": {
+    "x": 1018,
+    "y": 3331,
+    "w": 174,
+    "h": 255
+   },
+   "offset": {
+    "ox": 83,
+    "oy": 216
+   },
+   "layer": "object",
+   "group": "pillar",
+   "tag": "pillar",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "free-standing square pillar",
+   "usage": {
+    "count": 8,
+    "maps": 8,
+    "walkableSides": [
+     "-x",
+     "+y",
+     "-y",
+     "+x"
+    ]
+   }
+  },
+  "153": {
+   "id": 153,
+   "rect": {
+    "x": 384,
+    "y": 912,
+    "w": 192,
+    "h": 101
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 235
+   },
+   "layer": "object",
+   "group": "void_top",
+   "tag": "wall_top_fill",
+   "blocks": "all",
+   "collision": 3,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "masonry top at wall height; fills EVERY non-room cell (object layer, collision 3). ~12k uses each.",
+   "usage": {
+    "count": 12192,
+    "maps": 40
+   },
+   "weight": 12192
+  },
+  "154": {
+   "id": 154,
+   "rect": {
+    "x": 0,
+    "y": 792,
+    "w": 192,
+    "h": 104
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 238
+   },
+   "layer": "object",
+   "group": "void_top",
+   "tag": "wall_top_fill",
+   "blocks": "all",
+   "collision": 3,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "masonry top at wall height; fills EVERY non-room cell (object layer, collision 3). ~12k uses each.",
+   "usage": {
+    "count": 11818,
+    "maps": 40
+   },
+   "weight": 11818
+  },
+  "155": {
+   "id": 155,
+   "rect": {
+    "x": 768,
+    "y": 702,
+    "w": 192,
+    "h": 104
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 237
+   },
+   "layer": "object",
+   "group": "void_top",
+   "tag": "wall_top_fill",
+   "blocks": "all",
+   "collision": 3,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "masonry top at wall height; fills EVERY non-room cell (object layer, collision 3). ~12k uses each.",
+   "usage": {
+    "count": 11826,
+    "maps": 40
+   },
+   "weight": 11826
+  },
+  "156": {
+   "id": 156,
+   "rect": {
+    "x": 768,
+    "y": 908,
+    "w": 192,
+    "h": 100
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 235
+   },
+   "layer": "object",
+   "group": "void_top",
+   "tag": "wall_top_fill",
+   "blocks": "all",
+   "collision": 3,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "masonry top at wall height; fills EVERY non-room cell (object layer, collision 3). ~12k uses each.",
+   "usage": {
+    "count": 12206,
+    "maps": 40
+   },
+   "weight": 12206
+  },
+  "157": {
+   "id": 157,
+   "rect": {
+    "x": 960,
+    "y": 1394,
+    "w": 191,
+    "h": 103
+   },
+   "offset": {
+    "ox": 95,
+    "oy": 237
+   },
+   "layer": "object",
+   "group": "void_top",
+   "tag": "wall_top_fill",
+   "blocks": "all",
+   "collision": 3,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "masonry top at wall height; fills EVERY non-room cell (object layer, collision 3). ~12k uses each.",
+   "usage": {
+    "count": 12193,
+    "maps": 40
+   },
+   "weight": 12193
+  },
+  "158": {
+   "id": 158,
+   "rect": {
+    "x": 768,
+    "y": 1396,
+    "w": 191,
+    "h": 99
+   },
+   "offset": {
+    "ox": 95,
+    "oy": 234
+   },
+   "layer": "object",
+   "group": "void_top",
+   "tag": "wall_top_fill",
+   "blocks": "all",
+   "collision": 3,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "masonry top at wall height; fills EVERY non-room cell (object layer, collision 3). ~12k uses each.",
+   "usage": {
+    "count": 11818,
+    "maps": 40
+   },
+   "weight": 11818
+  },
+  "159": {
+   "id": 159,
+   "rect": {
+    "x": 192,
+    "y": 993,
+    "w": 192,
+    "h": 101
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 236
+   },
+   "layer": "object",
+   "group": "void_top",
+   "tag": "wall_top_fill",
+   "blocks": "all",
+   "collision": 3,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "masonry top at wall height; fills EVERY non-room cell (object layer, collision 3). ~12k uses each.",
+   "usage": {
+    "count": 11830,
+    "maps": 40
+   },
+   "weight": 11830
+  },
+  "160": {
+   "id": 160,
+   "rect": {
+    "x": 960,
+    "y": 805,
+    "w": 192,
+    "h": 104
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 237
+   },
+   "layer": "object",
+   "group": "void_top",
+   "tag": "wall_top_fill",
+   "blocks": "all",
+   "collision": 3,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "masonry top at wall height; fills EVERY non-room cell (object layer, collision 3). ~12k uses each.",
+   "usage": {
+    "count": 12208,
+    "maps": 40
+   },
+   "weight": 12208
+  },
+  "161": {
+   "id": 161,
+   "rect": {
+    "x": 1152,
+    "y": 908,
+    "w": 192,
+    "h": 104
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 238
+   },
+   "layer": "object",
+   "group": "void_top",
+   "tag": "wall_top_fill_inlay",
+   "blocks": "all",
+   "collision": 3,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "rarer variant with a lighter square",
+   "usage": {
+    "count": 463,
+    "maps": 37
+   },
+   "weight": 60
+  },
+  "162": {
+   "id": 162,
+   "rect": {
+    "x": 1536,
+    "y": 939,
+    "w": 192,
+    "h": 103
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 236
+   },
+   "layer": "object",
+   "group": "void_top",
+   "tag": "wall_top_fill_inlay",
+   "blocks": "all",
+   "collision": 3,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "rarer variant with a lighter square",
+   "usage": {
+    "count": 759,
+    "maps": 37
+   },
+   "weight": 60
+  },
+  "163": {
+   "id": 163,
+   "rect": {
+    "x": 768,
+    "y": 597,
+    "w": 192,
+    "h": 105
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 237
+   },
+   "layer": "object",
+   "group": "void_top",
+   "tag": "wall_top_fill_inlay",
+   "blocks": "all",
+   "collision": 3,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "rarer variant with a lighter square",
+   "usage": {
+    "count": 415,
+    "maps": 37
+   },
+   "weight": 60
+  },
+  "164": {
+   "id": 164,
+   "rect": {
+    "x": 1344,
+    "y": 908,
+    "w": 192,
+    "h": 104
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 239
+   },
+   "layer": "object",
+   "group": "void_top",
+   "tag": "wall_top_fill_inlay",
+   "blocks": "all",
+   "collision": 3,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "rarer variant with a lighter square",
+   "usage": {
+    "count": 726,
+    "maps": 37
+   },
+   "weight": 60
+  },
+  "165": {
+   "id": 165,
+   "rect": {
+    "x": 0,
+    "y": 998,
+    "w": 192,
+    "h": 101
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 235
+   },
+   "layer": "object",
+   "group": "void_top",
+   "tag": "wall_top_fill_inlay",
+   "blocks": "all",
+   "collision": 3,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "rarer variant with a lighter square",
+   "usage": {
+    "count": 475,
+    "maps": 37
+   },
+   "weight": 60
+  },
+  "166": {
+   "id": 166,
+   "rect": {
+    "x": 768,
+    "y": 806,
+    "w": 192,
+    "h": 102
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 235
+   },
+   "layer": "object",
+   "group": "void_top",
+   "tag": "wall_top_fill_inlay",
+   "blocks": "all",
+   "collision": 3,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "rarer variant with a lighter square",
+   "usage": {
+    "count": 690,
+    "maps": 37
+   },
+   "weight": 60
+  },
+  "168": {
+   "id": 168,
+   "rect": {
+    "x": 0,
+    "y": 1487,
+    "w": 190,
+    "h": 283
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 237
+   },
+   "layer": "object",
+   "group": "wall_y_front",
+   "tag": "wall_mossy",
+   "orientation": {
+    "axis": "y",
+    "face": "+x",
+    "height": "tall"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 53,
+    "maps": 28,
+    "walkableSides": [
+     "+x"
+    ]
+   }
+  },
+  "169": {
+   "id": 169,
+   "rect": {
+    "x": 2107,
+    "y": 1416,
+    "w": 190,
+    "h": 280
+   },
+   "offset": {
+    "ox": 94,
+    "oy": 234
+   },
+   "layer": "object",
+   "group": "wall_x_front",
+   "tag": "wall_mossy",
+   "orientation": {
+    "axis": "x",
+    "face": "+y",
+    "height": "tall"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 51,
+    "maps": 27,
+    "walkableSides": [
+     "+y"
+    ]
+   }
+  },
+  "170": {
+   "id": 170,
+   "rect": {
+    "x": 1146,
+    "y": 1654,
+    "w": 190,
+    "h": 281
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 235
+   },
+   "layer": "object",
+   "group": "wall_y_front",
+   "tag": "wall_mossy",
+   "orientation": {
+    "axis": "y",
+    "face": "+x",
+    "height": "tall"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 79,
+    "maps": 33,
+    "walkableSides": [
+     "+x"
+    ]
+   }
+  },
+  "171": {
+   "id": 171,
+   "rect": {
+    "x": 0,
+    "y": 1770,
+    "w": 190,
+    "h": 282
+   },
+   "offset": {
+    "ox": 94,
+    "oy": 236
+   },
+   "layer": "object",
+   "group": "wall_x_front",
+   "tag": "wall_mossy",
+   "orientation": {
+    "axis": "x",
+    "face": "+y",
+    "height": "tall"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 72,
+    "maps": 34,
+    "walkableSides": [
+     "+y"
+    ]
+   }
+  },
+  "172": {
+   "id": 172,
+   "rect": {
+    "x": 1904,
+    "y": 2248,
+    "w": 190,
+    "h": 275
+   },
+   "offset": {
+    "ox": 94,
+    "oy": 227
+   },
+   "layer": "object",
+   "group": "wall_y_back",
+   "tag": "wall_back",
+   "orientation": {
+    "axis": "y",
+    "face": "-x",
+    "height": "tall (top only, black body)"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 4,
+    "maps": 2,
+    "walkableSides": [
+     "-x"
+    ]
+   }
+  },
+  "173": {
+   "id": 173,
+   "rect": {
+    "x": 2094,
+    "y": 2251,
+    "w": 190,
+    "h": 275
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 227
+   },
+   "layer": "object",
+   "group": "wall_x_back",
+   "tag": "wall_back",
+   "orientation": {
+    "axis": "x",
+    "face": "-y",
+    "height": "tall (top only, black body)"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 3,
+    "maps": 2,
+    "walkableSides": [
+     "-y"
+    ]
+   }
+  },
+  "174": {
+   "id": 174,
+   "rect": {
+    "x": 1727,
+    "y": 1338,
+    "w": 190,
+    "h": 283
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 237
+   },
+   "layer": "object",
+   "group": "wall_y_front",
+   "tag": "wall_mossy",
+   "orientation": {
+    "axis": "y",
+    "face": "+x",
+    "height": "tall"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 70,
+    "maps": 28,
+    "walkableSides": [
+     "+x"
+    ]
+   }
+  },
+  "175": {
+   "id": 175,
+   "rect": {
+    "x": 1915,
+    "y": 1689,
+    "w": 190,
+    "h": 280
+   },
+   "offset": {
+    "ox": 94,
+    "oy": 234
+   },
+   "layer": "object",
+   "group": "wall_x_front",
+   "tag": "wall_mossy",
+   "orientation": {
+    "axis": "x",
+    "face": "+y",
+    "height": "tall"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 72,
+    "maps": 30,
+    "walkableSides": [
+     "+y"
+    ]
+   }
+  },
+  "176": {
+   "id": 176,
+   "rect": {
+    "x": 2185,
+    "y": 874,
+    "w": 192,
+    "h": 281
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 235
+   },
+   "layer": "object",
+   "group": "wall_y_front",
+   "tag": "wall_mossy",
+   "orientation": {
+    "axis": "y",
+    "face": "+x",
+    "height": "tall"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 63,
+    "maps": 28,
+    "walkableSides": [
+     "+x"
+    ]
+   }
+  },
+  "177": {
+   "id": 177,
+   "rect": {
+    "x": 956,
+    "y": 1497,
+    "w": 190,
+    "h": 282
+   },
+   "offset": {
+    "ox": 94,
+    "oy": 236
+   },
+   "layer": "object",
+   "group": "wall_x_front",
+   "tag": "wall_mossy",
+   "orientation": {
+    "axis": "x",
+    "face": "+y",
+    "height": "tall"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 68,
+    "maps": 32,
+    "walkableSides": [
+     "+y"
+    ]
+   }
+  },
+  "178": {
+   "id": 178,
+   "rect": {
+    "x": 954,
+    "y": 1779,
+    "w": 190,
+    "h": 281
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 235
+   },
+   "layer": "object",
+   "group": "wall_y_front",
+   "tag": "wall_broken",
+   "orientation": {
+    "axis": "y",
+    "face": "+x",
+    "height": "tall"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 53,
+    "maps": 30,
+    "walkableSides": [
+     "+x"
+    ]
+   }
+  },
+  "179": {
+   "id": 179,
+   "rect": {
+    "x": 1535,
+    "y": 1617,
+    "w": 190,
+    "h": 283
+   },
+   "offset": {
+    "ox": 94,
+    "oy": 237
+   },
+   "layer": "object",
+   "group": "wall_x_front",
+   "tag": "wall_broken",
+   "orientation": {
+    "axis": "x",
+    "face": "+y",
+    "height": "tall"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 28,
+    "maps": 20,
+    "walkableSides": [
+     "+y"
+    ]
+   }
+  },
+  "180": {
+   "id": 180,
+   "rect": {
+    "x": 2284,
+    "y": 2280,
+    "w": 190,
+    "h": 275
+   },
+   "offset": {
+    "ox": 94,
+    "oy": 227
+   },
+   "layer": "object",
+   "group": "wall_y_back",
+   "tag": "wall_back",
+   "orientation": {
+    "axis": "y",
+    "face": "-x",
+    "height": "tall (top only, black body)"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 2,
+    "maps": 2,
+    "walkableSides": [
+     "-x"
+    ]
+   }
+  },
+  "181": {
+   "id": 181,
+   "rect": {
+    "x": 762,
+    "y": 2060,
+    "w": 190,
+    "h": 275
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 227
+   },
+   "layer": "object",
+   "group": "wall_x_back",
+   "tag": "wall_back",
+   "orientation": {
+    "axis": "x",
+    "face": "-y",
+    "height": "tall (top only, black body)"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 3,
+    "maps": 2,
+    "walkableSides": [
+     "-y"
+    ]
+   }
+  },
+  "182": {
+   "id": 182,
+   "rect": {
+    "x": 2297,
+    "y": 1446,
+    "w": 188,
+    "h": 279
+   },
+   "offset": {
+    "ox": 94,
+    "oy": 237
+   },
+   "layer": "object",
+   "group": "corner_outer",
+   "tag": "wall_end_ruined",
+   "orientation": {
+    "outerCorner": [
+     "+x",
+     "+y"
+    ]
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 9,
+    "maps": 9,
+    "walkableSides": [
+     "+x"
+    ]
+   }
+  },
+  "183": {
+   "id": 183,
+   "rect": {
+    "x": 0,
+    "y": 2883,
+    "w": 184,
+    "h": 273
+   },
+   "offset": {
+    "ox": 88,
+    "oy": 227
+   },
+   "layer": "object",
+   "group": "corner_outer",
+   "tag": "wall_end_ruined",
+   "orientation": {
+    "outerCorner": [
+     "-x",
+     "+y"
+    ]
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 10,
+    "maps": 9,
+    "walkableSides": [
+     "-x",
+     "+y"
+    ]
+   }
+  },
+  "184": {
+   "id": 184,
+   "rect": {
+    "x": 375,
+    "y": 3059,
+    "w": 184,
+    "h": 273
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 227
+   },
+   "layer": "object",
+   "group": "corner_outer",
+   "tag": "wall_end_ruined",
+   "orientation": {
+    "outerCorner": [
+     "+x",
+     "-y"
+    ]
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 5,
+    "maps": 4,
+    "walkableSides": [
+     "+x",
+     "-y"
+    ]
+   }
+  },
+  "185": {
+   "id": 185,
+   "rect": {
+    "x": 315,
+    "y": 3605,
+    "w": 177,
+    "h": 257
+   },
+   "offset": {
+    "ox": 86,
+    "oy": 216
+   },
+   "layer": "object",
+   "group": "pillar",
+   "tag": "pillar_broken",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 13,
+    "maps": 10,
+    "walkableSides": [
+     "+x",
+     "-x",
+     "+y",
+     "-y"
+    ]
+   }
+  },
+  "186": {
+   "id": 186,
+   "rect": {
+    "x": 1299,
+    "y": 3118,
+    "w": 174,
+    "h": 208
+   },
+   "offset": {
+    "ox": 83,
+    "oy": 173
+   },
+   "layer": "object",
+   "group": "pillar",
+   "tag": "pillar_broken",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 11,
+    "maps": 9,
+    "walkableSides": [
+     "+x",
+     "-x",
+     "+y",
+     "-y"
+    ]
+   }
+  },
+  "187": {
+   "id": 187,
+   "rect": {
+    "x": 2214,
+    "y": 2743,
+    "w": 174,
+    "h": 134
+   },
+   "offset": {
+    "ox": 86,
+    "oy": 93
+   },
+   "layer": "object",
+   "group": "rubble",
+   "tag": "rubble_mound",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 19,
+    "maps": 14,
+    "walkableSides": [
+     "+x",
+     "-x",
+     "+y",
+     "-y"
+    ]
+   }
+  },
+  "188": {
+   "id": 188,
+   "rect": {
+    "x": 1804,
+    "y": 2457,
+    "w": 84,
+    "h": 45
+   },
+   "offset": {
+    "ox": 25,
+    "oy": 29
+   },
+   "layer": "object",
+   "group": "rubble",
+   "tag": "rubble_small",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 9,
+    "maps": 9,
+    "walkableSides": [
+     "+x",
+     "-y",
+     "+y",
+     "-x"
+    ]
+   }
+  },
+  "189": {
+   "id": 189,
+   "rect": {
+    "x": 1497,
+    "y": 2710,
+    "w": 125,
+    "h": 70
+   },
+   "offset": {
+    "ox": 59,
+    "oy": 50
+   },
+   "layer": "object",
+   "group": "rubble",
+   "tag": "rubble_small",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 22,
+    "maps": 13,
+    "walkableSides": [
+     "+x",
+     "+y",
+     "-x"
+    ]
+   }
+  },
+  "190": {
+   "id": 190,
+   "rect": {
+    "x": 2174,
+    "y": 3602,
+    "w": 119,
+    "h": 62
+   },
+   "offset": {
+    "ox": 64,
+    "oy": 46
+   },
+   "layer": "object",
+   "group": "rubble",
+   "tag": "rubble_small",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 20,
+    "maps": 14,
+    "walkableSides": [
+     "+y",
+     "-y",
+     "-x"
+    ]
+   }
+  },
+  "191": {
+   "id": 191,
+   "rect": {
+    "x": 2203,
+    "y": 3726,
+    "w": 107,
+    "h": 62
+   },
+   "offset": {
+    "ox": 23,
+    "oy": 54
+   },
+   "layer": "object",
+   "group": "rubble",
+   "tag": "rubble_small",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 15,
+    "maps": 10,
+    "walkableSides": [
+     "+x",
+     "-x",
+     "+y"
+    ]
+   }
+  },
+  "192": {
+   "id": 192,
+   "rect": {
+    "x": 2368,
+    "y": 3074,
+    "w": 114,
+    "h": 63
+   },
+   "offset": {
+    "ox": 85,
+    "oy": 56
+   },
+   "layer": "object",
+   "group": "rubble",
+   "tag": "rubble_small",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 9,
+    "maps": 8,
+    "walkableSides": [
+     "+y",
+     "+x"
+    ]
+   }
+  },
+  "193": {
+   "id": 193,
+   "rect": {
+    "x": 1851,
+    "y": 3622,
+    "w": 103,
+    "h": 72
+   },
+   "offset": {
+    "ox": 22,
+    "oy": 58
+   },
+   "layer": "object",
+   "group": "rubble",
+   "tag": "rubble_small",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 16,
+    "maps": 9,
+    "walkableSides": [
+     "+x",
+     "+y",
+     "-x"
+    ]
+   }
+  },
+  "194": {
+   "id": 194,
+   "rect": {
+    "x": 2377,
+    "y": 1102,
+    "w": 107,
+    "h": 65
+   },
+   "offset": {
+    "ox": 72,
+    "oy": 61
+   },
+   "layer": "object",
+   "group": "rubble",
+   "tag": "rubble_small",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 16,
+    "maps": 11,
+    "walkableSides": [
+     "-y",
+     "+x"
+    ]
+   }
+  },
+  "195": {
+   "id": 195,
+   "rect": {
+    "x": 764,
+    "y": 1778,
+    "w": 190,
+    "h": 282
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 236
+   },
+   "layer": "object",
+   "group": "wall_y_front",
+   "tag": "wall_rough",
+   "orientation": {
+    "axis": "y",
+    "face": "+x",
+    "height": "tall"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 42,
+    "maps": 23,
+    "walkableSides": [
+     "+x"
+    ]
+   }
+  },
+  "196": {
+   "id": 196,
+   "rect": {
+    "x": 1144,
+    "y": 1935,
+    "w": 190,
+    "h": 281
+   },
+   "offset": {
+    "ox": 94,
+    "oy": 235
+   },
+   "layer": "object",
+   "group": "wall_x_front",
+   "tag": "wall_rough",
+   "orientation": {
+    "axis": "x",
+    "face": "+y",
+    "height": "tall"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 49,
+    "maps": 27,
+    "walkableSides": [
+     "+y"
+    ]
+   }
+  },
+  "197": {
+   "id": 197,
+   "rect": {
+    "x": 570,
+    "y": 2248,
+    "w": 190,
+    "h": 275
+   },
+   "offset": {
+    "ox": 94,
+    "oy": 227
+   },
+   "layer": "object",
+   "group": "wall_y_back",
+   "tag": "wall_back",
+   "orientation": {
+    "axis": "y",
+    "face": "-x",
+    "height": "tall (top only, black body)"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 3,
+    "maps": 2,
+    "walkableSides": [
+     "-x"
+    ]
+   }
+  },
+  "198": {
+   "id": 198,
+   "rect": {
+    "x": 380,
+    "y": 2250,
+    "w": 190,
+    "h": 275
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 227
+   },
+   "layer": "object",
+   "group": "wall_x_back",
+   "tag": "wall_back",
+   "orientation": {
+    "axis": "x",
+    "face": "-y",
+    "height": "tall (top only, black body)"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 3,
+    "maps": 1,
+    "walkableSides": [
+     "-y"
+    ]
+   }
+  },
+  "199": {
+   "id": 199,
+   "rect": {
+    "x": 1343,
+    "y": 1653,
+    "w": 190,
+    "h": 283
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 237
+   },
+   "layer": "object",
+   "group": "wall_y_front",
+   "tag": "wall_rough",
+   "orientation": {
+    "axis": "y",
+    "face": "+x",
+    "height": "tall"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 54,
+    "maps": 27,
+    "walkableSides": [
+     "+x"
+    ]
+   }
+  },
+  "200": {
+   "id": 200,
+   "rect": {
+    "x": 572,
+    "y": 1966,
+    "w": 190,
+    "h": 282
+   },
+   "offset": {
+    "ox": 94,
+    "oy": 236
+   },
+   "layer": "object",
+   "group": "wall_x_front",
+   "tag": "wall_rough",
+   "orientation": {
+    "axis": "x",
+    "face": "+y",
+    "height": "tall"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 48,
+    "maps": 27,
+    "walkableSides": [
+     "+y"
+    ]
+   }
+  },
+  "201": {
+   "id": 201,
+   "rect": {
+    "x": 380,
+    "y": 2525,
+    "w": 188,
+    "h": 275
+   },
+   "offset": {
+    "ox": 94,
+    "oy": 238
+   },
+   "layer": "object",
+   "group": "corner_outer",
+   "tag": "wall_corner_outer",
+   "orientation": {
+    "outerCorner": [
+     "+x",
+     "+y"
+    ]
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 11,
+    "maps": 9,
+    "walkableSides": [
+     "+x",
+     "+y"
+    ]
+   }
+  },
+  "202": {
+   "id": 202,
+   "rect": {
+    "x": 946,
+    "y": 2853,
+    "w": 178,
+    "h": 273
+   },
+   "offset": {
+    "ox": 82,
+    "oy": 227
+   },
+   "layer": "object",
+   "group": "corner_outer",
+   "tag": "wall_corner_outer",
+   "orientation": {
+    "outerCorner": [
+     "-x",
+     "+y"
+    ]
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 16,
+    "maps": 13,
+    "walkableSides": [
+     "-x",
+     "+y"
+    ]
+   }
+  },
+  "203": {
+   "id": 203,
+   "rect": {
+    "x": 948,
+    "y": 2380,
+    "w": 188,
+    "h": 262
+   },
+   "offset": {
+    "ox": 94,
+    "oy": 214
+   },
+   "layer": "object",
+   "group": "corner_outer",
+   "tag": "wall_corner_outer",
+   "orientation": {
+    "outerCorner": [
+     "-x",
+     "-y"
+    ]
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 8,
+    "maps": 6,
+    "walkableSides": [
+     "-y",
+     "-x"
+    ]
+   }
+  },
+  "204": {
+   "id": 204,
+   "rect": {
+    "x": 756,
+    "y": 2876,
+    "w": 178,
+    "h": 273
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 227
+   },
+   "layer": "object",
+   "group": "corner_outer",
+   "tag": "wall_corner_outer",
+   "orientation": {
+    "outerCorner": [
+     "+x",
+     "-y"
+    ]
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 14,
+    "maps": 9,
+    "walkableSides": [
+     "+x",
+     "-y"
+    ]
+   }
+  },
+  "205": {
+   "id": 205,
+   "rect": {
+    "x": 190,
+    "y": 2604,
+    "w": 188,
+    "h": 275
+   },
+   "offset": {
+    "ox": 94,
+    "oy": 238
+   },
+   "layer": "object",
+   "group": "corner_outer",
+   "tag": "wall_corner_outer",
+   "orientation": {
+    "outerCorner": [
+     "+x",
+     "+y"
+    ]
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 3,
+    "maps": 3,
+    "walkableSides": [
+     "+x",
+     "+y"
+    ]
+   }
+  },
+  "206": {
+   "id": 206,
+   "rect": {
+    "x": 559,
+    "y": 3060,
+    "w": 178,
+    "h": 273
+   },
+   "offset": {
+    "ox": 82,
+    "oy": 227
+   },
+   "layer": "object",
+   "group": "corner_outer",
+   "tag": "wall_corner_outer",
+   "orientation": {
+    "outerCorner": [
+     "-x",
+     "+y"
+    ]
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 1,
+    "maps": 1,
+    "walkableSides": [
+     "-x",
+     "+y"
+    ]
+   }
+  },
+  "207": {
+   "id": 207,
+   "rect": {
+    "x": 758,
+    "y": 2614,
+    "w": 188,
+    "h": 262
+   },
+   "offset": {
+    "ox": 94,
+    "oy": 214
+   },
+   "layer": "object",
+   "group": "corner_outer",
+   "tag": "wall_corner_outer",
+   "orientation": {
+    "outerCorner": [
+     "-x",
+     "-y"
+    ]
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 3,
+    "maps": 3,
+    "walkableSides": [
+     "-y",
+     "-x"
+    ]
+   }
+  },
+  "208": {
+   "id": 208,
+   "rect": {
+    "x": 368,
+    "y": 3332,
+    "w": 178,
+    "h": 273
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 227
+   },
+   "layer": "object",
+   "group": "corner_outer",
+   "tag": "wall_corner_outer",
+   "orientation": {
+    "outerCorner": [
+     "+x",
+     "-y"
+    ]
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 6,
+    "maps": 5,
+    "walkableSides": [
+     "+x",
+     "-y"
+    ]
+   }
+  },
+  "209": {
+   "id": 209,
+   "rect": {
+    "x": 0,
+    "y": 2608,
+    "w": 188,
+    "h": 275
+   },
+   "offset": {
+    "ox": 94,
+    "oy": 238
+   },
+   "layer": "object",
+   "group": "corner_outer",
+   "tag": "wall_corner_outer",
+   "orientation": {
+    "outerCorner": [
+     "+x",
+     "+y"
+    ]
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 4,
+    "maps": 4,
+    "walkableSides": [
+     "+x",
+     "+y"
+    ]
+   }
+  },
+  "210": {
+   "id": 210,
+   "rect": {
+    "x": 1251,
+    "y": 3585,
+    "w": 178,
+    "h": 273
+   },
+   "offset": {
+    "ox": 82,
+    "oy": 227
+   },
+   "layer": "object",
+   "group": "corner_outer",
+   "tag": "wall_corner_outer",
+   "orientation": {
+    "outerCorner": [
+     "-x",
+     "+y"
+    ]
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 8,
+    "maps": 6,
+    "walkableSides": [
+     "-x",
+     "+y"
+    ]
+   }
+  },
+  "211": {
+   "id": 211,
+   "rect": {
+    "x": 568,
+    "y": 2798,
+    "w": 188,
+    "h": 262
+   },
+   "offset": {
+    "ox": 94,
+    "oy": 214
+   },
+   "layer": "object",
+   "group": "corner_outer",
+   "tag": "wall_corner_outer",
+   "orientation": {
+    "outerCorner": [
+     "-x",
+     "-y"
+    ]
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 4,
+    "maps": 4,
+    "walkableSides": [
+     "-x",
+     "-y"
+    ]
+   }
+  },
+  "212": {
+   "id": 212,
+   "rect": {
+    "x": 1429,
+    "y": 3580,
+    "w": 178,
+    "h": 273
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 227
+   },
+   "layer": "object",
+   "group": "corner_outer",
+   "tag": "wall_corner_outer",
+   "orientation": {
+    "outerCorner": [
+     "+x",
+     "-y"
+    ]
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 4,
+    "maps": 4,
+    "walkableSides": [
+     "-y",
+     "+x"
+    ]
+   }
+  },
+  "213": {
+   "id": 213,
+   "rect": {
+    "x": 380,
+    "y": 1968,
+    "w": 190,
+    "h": 282
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 236
+   },
+   "layer": "object",
+   "group": "wall_y_front",
+   "tag": "wall_crumbling",
+   "orientation": {
+    "axis": "y",
+    "face": "+x",
+    "height": "tall"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 54,
+    "maps": 28,
+    "walkableSides": [
+     "+x"
+    ]
+   }
+  },
+  "214": {
+   "id": 214,
+   "rect": {
+    "x": 766,
+    "y": 1495,
+    "w": 190,
+    "h": 283
+   },
+   "offset": {
+    "ox": 94,
+    "oy": 237
+   },
+   "layer": "object",
+   "group": "wall_x_front",
+   "tag": "wall_crumbling",
+   "orientation": {
+    "axis": "x",
+    "face": "+y",
+    "height": "tall"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 59,
+    "maps": 30,
+    "walkableSides": [
+     "+y"
+    ]
+   }
+  },
+  "215": {
+   "id": 215,
+   "rect": {
+    "x": 1917,
+    "y": 1408,
+    "w": 190,
+    "h": 281
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 235
+   },
+   "layer": "object",
+   "group": "wall_y_front",
+   "tag": "wall_crumbling",
+   "orientation": {
+    "axis": "y",
+    "face": "+x",
+    "height": "tall"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 38,
+    "maps": 22,
+    "walkableSides": [
+     "+x"
+    ]
+   }
+  },
+  "216": {
+   "id": 216,
+   "rect": {
+    "x": 574,
+    "y": 1683,
+    "w": 190,
+    "h": 283
+   },
+   "offset": {
+    "ox": 94,
+    "oy": 237
+   },
+   "layer": "object",
+   "group": "wall_x_front",
+   "tag": "wall_crumbling",
+   "orientation": {
+    "axis": "x",
+    "face": "+y",
+    "height": "tall"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 38,
+    "maps": 27,
+    "walkableSides": [
+     "+y"
+    ]
+   }
+  },
+  "217": {
+   "id": 217,
+   "rect": {
+    "x": 190,
+    "y": 2329,
+    "w": 190,
+    "h": 275
+   },
+   "offset": {
+    "ox": 94,
+    "oy": 227
+   },
+   "layer": "object",
+   "group": "wall_y_back",
+   "tag": "wall_back",
+   "orientation": {
+    "axis": "y",
+    "face": "-x",
+    "height": "tall (top only, black body)"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 5,
+    "maps": 3,
+    "walkableSides": [
+     "-x"
+    ]
+   }
+  },
+  "218": {
+   "id": 218,
+   "rect": {
+    "x": 0,
+    "y": 2333,
+    "w": 190,
+    "h": 275
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 227
+   },
+   "layer": "object",
+   "group": "wall_x_back",
+   "tag": "wall_back",
+   "orientation": {
+    "axis": "x",
+    "face": "-y",
+    "height": "tall (top only, black body)"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 1,
+    "maps": 1
+   }
+  },
+  "219": {
+   "id": 219,
+   "rect": {
+    "x": 760,
+    "y": 2335,
+    "w": 188,
+    "h": 279
+   },
+   "offset": {
+    "ox": 94,
+    "oy": 237
+   },
+   "layer": "object",
+   "group": "corner_outer",
+   "tag": "wall_corner_outer",
+   "orientation": {
+    "outerCorner": [
+     "+x",
+     "+y"
+    ]
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 29,
+    "maps": 23,
+    "walkableSides": [
+     "+x",
+     "+y"
+    ]
+   }
+  },
+  "220": {
+   "id": 220,
+   "rect": {
+    "x": 184,
+    "y": 3090,
+    "w": 184,
+    "h": 273
+   },
+   "offset": {
+    "ox": 88,
+    "oy": 227
+   },
+   "layer": "object",
+   "group": "corner_outer",
+   "tag": "wall_corner_outer",
+   "orientation": {
+    "outerCorner": [
+     "-x",
+     "+y"
+    ]
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 31,
+    "maps": 22,
+    "walkableSides": [
+     "-x",
+     "+y"
+    ]
+   }
+  },
+  "221": {
+   "id": 221,
+   "rect": {
+    "x": 378,
+    "y": 2800,
+    "w": 188,
+    "h": 259
+   },
+   "offset": {
+    "ox": 94,
+    "oy": 211
+   },
+   "layer": "object",
+   "group": "corner_outer",
+   "tag": "wall_corner_outer",
+   "orientation": {
+    "outerCorner": [
+     "-x",
+     "-y"
+    ]
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 9,
+    "maps": 5,
+    "walkableSides": [
+     "-x",
+     "-y"
+    ]
+   }
+  },
+  "222": {
+   "id": 222,
+   "rect": {
+    "x": 0,
+    "y": 3156,
+    "w": 184,
+    "h": 273
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 227
+   },
+   "layer": "object",
+   "group": "corner_outer",
+   "tag": "wall_corner_outer",
+   "orientation": {
+    "outerCorner": [
+     "+x",
+     "-y"
+    ]
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 28,
+    "maps": 19,
+    "walkableSides": [
+     "+x",
+     "-y"
+    ]
+   }
+  },
+  "223": {
+   "id": 223,
+   "rect": {
+    "x": 1192,
+    "y": 3331,
+    "w": 174,
+    "h": 254
+   },
+   "offset": {
+    "ox": 83,
+    "oy": 216
+   },
+   "layer": "object",
+   "group": "pillar",
+   "tag": "pillar",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "free-standing square pillar",
+   "usage": {
+    "count": 13,
+    "maps": 9,
+    "walkableSides": [
+     "+x",
+     "-x",
+     "+y",
+     "-y"
+    ]
+   }
+  },
+  "224": {
+   "id": 224,
+   "rect": {
+    "x": 1366,
+    "y": 3326,
+    "w": 174,
+    "h": 254
+   },
+   "offset": {
+    "ox": 83,
+    "oy": 216
+   },
+   "layer": "object",
+   "group": "pillar",
+   "tag": "pillar",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "free-standing square pillar",
+   "usage": {
+    "count": 7,
+    "maps": 6,
+    "walkableSides": [
+     "+x",
+     "+y",
+     "-x",
+     "-y"
+    ]
+   }
+  },
+  "225": {
+   "id": 225,
+   "rect": {
+    "x": 1692,
+    "y": 2526,
+    "w": 174,
+    "h": 254
+   },
+   "offset": {
+    "ox": 83,
+    "oy": 216
+   },
+   "layer": "object",
+   "group": "pillar",
+   "tag": "pillar",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "free-standing square pillar",
+   "usage": {
+    "count": 5,
+    "maps": 5,
+    "walkableSides": [
+     "+x",
+     "-x",
+     "+y",
+     "-y"
+    ]
+   }
+  },
+  "226": {
+   "id": 226,
+   "rect": {
+    "x": 1540,
+    "y": 3313,
+    "w": 174,
+    "h": 254
+   },
+   "offset": {
+    "ox": 83,
+    "oy": 216
+   },
+   "layer": "object",
+   "group": "pillar",
+   "tag": "pillar",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "free-standing square pillar",
+   "usage": {
+    "count": 13,
+    "maps": 11,
+    "walkableSides": [
+     "+x",
+     "-x",
+     "+y",
+     "-y"
+    ]
+   }
+  },
+  "227": {
+   "id": 227,
+   "rect": {
+    "x": 1866,
+    "y": 2526,
+    "w": 174,
+    "h": 254
+   },
+   "offset": {
+    "ox": 83,
+    "oy": 216
+   },
+   "layer": "object",
+   "group": "pillar",
+   "tag": "pillar",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "free-standing square pillar",
+   "usage": {
+    "count": 11,
+    "maps": 8,
+    "walkableSides": [
+     "+x",
+     "-x",
+     "+y",
+     "-y"
+    ]
+   }
+  },
+  "228": {
+   "id": 228,
+   "rect": {
+    "x": 1714,
+    "y": 3301,
+    "w": 174,
+    "h": 254
+   },
+   "offset": {
+    "ox": 83,
+    "oy": 216
+   },
+   "layer": "object",
+   "group": "pillar",
+   "tag": "pillar",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "free-standing square pillar",
+   "usage": {
+    "count": 6,
+    "maps": 5,
+    "walkableSides": [
+     "+x",
+     "-x",
+     "+y",
+     "-y"
+    ]
+   }
+  },
+  "229": {
+   "id": 229,
+   "rect": {
+    "x": 2040,
+    "y": 2526,
+    "w": 174,
+    "h": 254
+   },
+   "offset": {
+    "ox": 83,
+    "oy": 216
+   },
+   "layer": "object",
+   "group": "pillar",
+   "tag": "pillar",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "free-standing square pillar",
+   "usage": {
+    "count": 6,
+    "maps": 5,
+    "walkableSides": [
+     "+x",
+     "-x",
+     "+y",
+     "-y"
+    ]
+   }
+  },
+  "230": {
+   "id": 230,
+   "rect": {
+    "x": 981,
+    "y": 3601,
+    "w": 174,
+    "h": 256
+   },
+   "offset": {
+    "ox": 83,
+    "oy": 216
+   },
+   "layer": "object",
+   "group": "pillar",
+   "tag": "pillar",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "free-standing square pillar",
+   "usage": {
+    "count": 18,
+    "maps": 13,
+    "walkableSides": [
+     "+x",
+     "-x",
+     "+y",
+     "-y"
+    ]
+   }
+  },
+  "231": {
+   "id": 231,
+   "rect": {
+    "x": 492,
+    "y": 3605,
+    "w": 177,
+    "h": 257
+   },
+   "offset": {
+    "ox": 86,
+    "oy": 216
+   },
+   "layer": "object",
+   "group": "pillar",
+   "tag": "pillar",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "free-standing square pillar",
+   "usage": {
+    "count": 13,
+    "maps": 9,
+    "walkableSides": [
+     "+x",
+     "-x",
+     "+y",
+     "-y"
+    ]
+   }
+  },
+  "232": {
+   "id": 232,
+   "rect": {
+    "x": 804,
+    "y": 3601,
+    "w": 177,
+    "h": 257
+   },
+   "offset": {
+    "ox": 86,
+    "oy": 216
+   },
+   "layer": "object",
+   "group": "pillar",
+   "tag": "pillar_broken",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 11,
+    "maps": 10,
+    "walkableSides": [
+     "+x",
+     "-x",
+     "+y",
+     "-y"
+    ]
+   }
+  },
+  "233": {
+   "id": 233,
+   "rect": {
+    "x": 1512,
+    "y": 2456,
+    "w": 180,
+    "h": 254
+   },
+   "offset": {
+    "ox": 89,
+    "oy": 216
+   },
+   "layer": "object",
+   "group": "pillar",
+   "tag": "pillar_broken",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 11,
+    "maps": 10,
+    "walkableSides": [
+     "+x",
+     "-x",
+     "-y",
+     "+y"
+    ]
+   }
+  },
+  "234": {
+   "id": 234,
+   "rect": {
+    "x": 1125,
+    "y": 3118,
+    "w": 174,
+    "h": 213
+   },
+   "offset": {
+    "ox": 83,
+    "oy": 173
+   },
+   "layer": "object",
+   "group": "pillar",
+   "tag": "pillar_broken",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 14,
+    "maps": 12,
+    "walkableSides": [
+     "+x",
+     "-x",
+     "+y",
+     "-y"
+    ]
+   }
+  },
+  "235": {
+   "id": 235,
+   "rect": {
+    "x": 1723,
+    "y": 1902,
+    "w": 190,
+    "h": 280
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 234
+   },
+   "layer": "object",
+   "group": "wall_y_front",
+   "tag": "wall_arch_niche",
+   "orientation": {
+    "axis": "y",
+    "face": "+x",
+    "height": "tall"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 60,
+    "maps": 31,
+    "walkableSides": [
+     "+x"
+    ]
+   }
+  },
+  "236": {
+   "id": 236,
+   "rect": {
+    "x": 190,
+    "y": 2047,
+    "w": 190,
+    "h": 282
+   },
+   "offset": {
+    "ox": 94,
+    "oy": 236
+   },
+   "layer": "object",
+   "group": "wall_x_front",
+   "tag": "wall_arch_niche",
+   "orientation": {
+    "axis": "x",
+    "face": "+y",
+    "height": "tall"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 71,
+    "maps": 32,
+    "walkableSides": [
+     "+y"
+    ]
+   }
+  },
+  "237": {
+   "id": 237,
+   "rect": {
+    "x": 1152,
+    "y": 1371,
+    "w": 191,
+    "h": 283
+   },
+   "offset": {
+    "ox": 95,
+    "oy": 237
+   },
+   "layer": "object",
+   "group": "wall_x_front",
+   "tag": "wall_statue_niche",
+   "orientation": {
+    "axis": "x",
+    "face": "+y",
+    "height": "tall"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 44,
+    "maps": 26,
+    "walkableSides": [
+     "+y"
+    ]
+   }
+  },
+  "238": {
+   "id": 238,
+   "rect": {
+    "x": 1913,
+    "y": 1969,
+    "w": 190,
+    "h": 279
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 233
+   },
+   "layer": "object",
+   "group": "wall_y_front",
+   "tag": "wall_statue_niche",
+   "orientation": {
+    "axis": "y",
+    "face": "+x",
+    "height": "tall"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 54,
+    "maps": 30,
+    "walkableSides": [
+     "+x"
+    ]
+   }
+  },
+  "239": {
+   "id": 239,
+   "rect": {
+    "x": 1993,
+    "y": 657,
+    "w": 192,
+    "h": 282
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 236
+   },
+   "layer": "object",
+   "group": "wall_x_front",
+   "tag": "wall_arch_niche_broken",
+   "orientation": {
+    "axis": "x",
+    "face": "+y",
+    "height": "tall"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 41,
+    "maps": 27,
+    "walkableSides": [
+     "+y"
+    ]
+   }
+  },
+  "240": {
+   "id": 240,
+   "rect": {
+    "x": 2105,
+    "y": 1696,
+    "w": 190,
+    "h": 280
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 234
+   },
+   "layer": "object",
+   "group": "wall_y_front",
+   "tag": "wall_arch_niche_broken",
+   "orientation": {
+    "axis": "y",
+    "face": "+x",
+    "height": "tall"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 26,
+    "maps": 22,
+    "walkableSides": [
+     "+x"
+    ]
+   }
+  },
+  "241": {
+   "id": 241,
+   "rect": {
+    "x": 0,
+    "y": 3605,
+    "w": 154,
+    "h": 260
+   },
+   "offset": {
+    "ox": 63,
+    "oy": 241
+   },
+   "layer": "object",
+   "group": "statue",
+   "tag": "warrior_statue",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "4 facings (spiked-crown woman with shield)",
+   "usage": {
+    "count": 19,
+    "maps": 12,
+    "walkableSides": [
+     "+x",
+     "-x",
+     "+y"
+    ]
+   }
+  },
+  "242": {
+   "id": 242,
+   "rect": {
+    "x": 885,
+    "y": 3333,
+    "w": 133,
+    "h": 268
+   },
+   "offset": {
+    "ox": 44,
+    "oy": 249
+   },
+   "layer": "object",
+   "group": "statue",
+   "tag": "warrior_statue",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "4 facings (spiked-crown woman with shield)",
+   "usage": {
+    "count": 17,
+    "maps": 8,
+    "walkableSides": [
+     "-x",
+     "+y",
+     "-y"
+    ]
+   }
+  },
+  "243": {
+   "id": 243,
+   "rect": {
+    "x": 154,
+    "y": 3602,
+    "w": 161,
+    "h": 262
+   },
+   "offset": {
+    "ox": 70,
+    "oy": 243
+   },
+   "layer": "object",
+   "group": "statue",
+   "tag": "warrior_statue",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "4 facings (spiked-crown woman with shield)",
+   "usage": {
+    "count": 15,
+    "maps": 8,
+    "walkableSides": [
+     "+x",
+     "-x",
+     "-y"
+    ]
+   }
+  },
+  "244": {
+   "id": 244,
+   "rect": {
+    "x": 669,
+    "y": 3604,
+    "w": 135,
+    "h": 261
+   },
+   "offset": {
+    "ox": 45,
+    "oy": 242
+   },
+   "layer": "object",
+   "group": "statue",
+   "tag": "warrior_statue",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "4 facings (spiked-crown woman with shield)",
+   "usage": {
+    "count": 17,
+    "maps": 8,
+    "walkableSides": [
+     "+x",
+     "+y",
+     "-y"
+    ]
+   }
+  },
+  "245": {
+   "id": 245,
+   "rect": {
+    "x": 0,
+    "y": 3429,
+    "w": 145,
+    "h": 175
+   },
+   "offset": {
+    "ox": 79,
+    "oy": 140
+   },
+   "layer": "object",
+   "group": "statue",
+   "tag": "statue_fallen",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 1,
+    "maps": 1,
+    "walkableSides": [
+     "+x"
+    ]
+   }
+  },
+  "246": {
+   "id": 246,
+   "rect": {
+    "x": 1728,
+    "y": 3703,
+    "w": 121,
+    "h": 155
+   },
+   "offset": {
+    "ox": 60,
+    "oy": 131
+   },
+   "layer": "object",
+   "group": "statue",
+   "tag": "statue_fallen",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 5,
+    "maps": 5,
+    "walkableSides": [
+     "+x",
+     "+y"
+    ]
+   }
+  },
+  "247": {
+   "id": 247,
+   "rect": {
+    "x": 1809,
+    "y": 149,
+    "w": 1,
+    "h": 1
+   },
+   "offset": {
+    "ox": 0,
+    "oy": 0
+   },
+   "layer": "object",
+   "group": "marker",
+   "tag": "blank_1x1",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "1x1 transparent pixel: placeholder/marker tile",
+   "usage": {
+    "count": 0,
+    "maps": 0
+   }
+  },
+  "248": {
+   "id": 248,
+   "rect": {
+    "x": 382,
+    "y": 1685,
+    "w": 190,
+    "h": 283
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 237
+   },
+   "layer": "object",
+   "group": "wall_y_front",
+   "tag": "wall_torch",
+   "orientation": {
+    "axis": "y",
+    "face": "+x",
+    "height": "tall"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "light": {
+    "color": "#ffb060",
+    "radius": 3,
+    "intensity": 0.8,
+    "note": "iron wall torch"
+   },
+   "usage": {
+    "count": 41,
+    "maps": 28,
+    "walkableSides": [
+     "+x"
+    ]
+   }
+  },
+  "249": {
+   "id": 249,
+   "rect": {
+    "x": 2295,
+    "y": 1725,
+    "w": 190,
+    "h": 280
+   },
+   "offset": {
+    "ox": 94,
+    "oy": 234
+   },
+   "layer": "object",
+   "group": "wall_x_front",
+   "tag": "wall_torch",
+   "orientation": {
+    "axis": "x",
+    "face": "+y",
+    "height": "tall"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "light": {
+    "color": "#ffb060",
+    "radius": 3,
+    "intensity": 0.8,
+    "note": "iron wall torch"
+   },
+   "usage": {
+    "count": 33,
+    "maps": 23,
+    "walkableSides": [
+     "+y"
+    ]
+   }
+  },
+  "250": {
+   "id": 250,
+   "rect": {
+    "x": 1536,
+    "y": 1333,
+    "w": 191,
+    "h": 284
+   },
+   "offset": {
+    "ox": 95,
+    "oy": 238
+   },
+   "layer": "object",
+   "group": "portcullis",
+   "tag": "barred_arch_closed",
+   "orientation": {
+    "axis": "x",
+    "face": "+y"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "state": {
+    "opensTo": 251
+   },
+   "usage": {
+    "count": 11,
+    "maps": 11,
+    "walkableSides": [
+     "+y"
+    ]
+   }
+  },
+  "251": {
+   "id": 251,
+   "rect": {
+    "x": 1344,
+    "y": 1369,
+    "w": 191,
+    "h": 284
+   },
+   "offset": {
+    "ox": 95,
+    "oy": 238
+   },
+   "layer": "object",
+   "group": "portcullis",
+   "tag": "barred_arch_open",
+   "orientation": {
+    "axis": "x",
+    "face": "+y"
+   },
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 0,
+    "maps": 0
+   }
+  },
+  "252": {
+   "id": 252,
+   "rect": {
+    "x": 1725,
+    "y": 1621,
+    "w": 190,
+    "h": 281
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 235
+   },
+   "layer": "object",
+   "group": "portcullis",
+   "tag": "barred_arch_closed",
+   "orientation": {
+    "axis": "y",
+    "face": "+x"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "state": {
+    "opensTo": 253
+   },
+   "usage": {
+    "count": 12,
+    "maps": 10,
+    "walkableSides": [
+     "+x"
+    ]
+   }
+  },
+  "253": {
+   "id": 253,
+   "rect": {
+    "x": 1533,
+    "y": 1900,
+    "w": 190,
+    "h": 281
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 235
+   },
+   "layer": "object",
+   "group": "portcullis",
+   "tag": "barred_arch_open",
+   "orientation": {
+    "axis": "y",
+    "face": "+x"
+   },
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 0,
+    "maps": 0
+   }
+  },
+  "264": {
+   "id": 264,
+   "rect": {
+    "x": 2119,
+    "y": 2780,
+    "w": 89,
+    "h": 75
+   },
+   "offset": {
+    "ox": 40,
+    "oy": 59
+   },
+   "layer": "object",
+   "group": "chest",
+   "tag": "chest_closed",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "state": {
+    "opensTo": 266
+   },
+   "usage": {
+    "count": 5,
+    "maps": 5,
+    "walkableSides": [
+     "+x",
+     "+y"
+    ]
+   }
+  },
+  "265": {
+   "id": 265,
+   "rect": {
+    "x": 2119,
+    "y": 2855,
+    "w": 89,
+    "h": 75
+   },
+   "offset": {
+    "ox": 40,
+    "oy": 59
+   },
+   "layer": "object",
+   "group": "chest",
+   "tag": "chest_closed",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "state": {
+    "opensTo": 267
+   },
+   "usage": {
+    "count": 5,
+    "maps": 4,
+    "walkableSides": [
+     "+x"
+    ]
+   }
+  },
+  "266": {
+   "id": 266,
+   "rect": {
+    "x": 1124,
+    "y": 3019,
+    "w": 121,
+    "h": 99
+   },
+   "offset": {
+    "ox": 39,
+    "oy": 83
+   },
+   "layer": "object",
+   "group": "chest",
+   "tag": "chest_open",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 1,
+    "maps": 1,
+    "walkableSides": [
+     "+x",
+     "+y"
+    ]
+   }
+  },
+  "267": {
+   "id": 267,
+   "rect": {
+    "x": 1245,
+    "y": 3019,
+    "w": 112,
+    "h": 99
+   },
+   "offset": {
+    "ox": 66,
+    "oy": 83
+   },
+   "layer": "object",
+   "group": "chest",
+   "tag": "chest_open",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 1,
+    "maps": 1,
+    "walkableSides": [
+     "+x"
+    ]
+   }
+  },
+  "268": {
+   "id": 268,
+   "rect": {
+    "x": 1728,
+    "y": 356,
+    "w": 73,
+    "h": 82
+   },
+   "offset": {
+    "ox": 29,
+    "oy": 73
+   },
+   "layer": "object",
+   "group": "container",
+   "tag": "urn",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "state": {
+    "breaksTo": 269
+   },
+   "usage": {
+    "count": 11,
+    "maps": 11,
+    "walkableSides": [
+     "+x",
+     "-y",
+     "+y"
+    ]
+   }
+  },
+  "269": {
+   "id": 269,
+   "rect": {
+    "x": 2390,
+    "y": 2646,
+    "w": 91,
+    "h": 80
+   },
+   "offset": {
+    "ox": 29,
+    "oy": 70
+   },
+   "layer": "object",
+   "group": "container",
+   "tag": "urn_open",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 0,
+    "maps": 0
+   }
+  },
+  "270": {
+   "id": 270,
+   "rect": {
+    "x": 1728,
+    "y": 281,
+    "w": 76,
+    "h": 75
+   },
+   "offset": {
+    "ox": 27,
+    "oy": 61
+   },
+   "layer": "object",
+   "group": "lever",
+   "tag": "lever_off",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "state": {
+    "activatesTo": 271
+   },
+   "usage": {
+    "count": 3,
+    "maps": 3,
+    "walkableSides": [
+     "+y",
+     "+x"
+    ]
+   }
+  },
+  "271": {
+   "id": 271,
+   "rect": {
+    "x": 1728,
+    "y": 667,
+    "w": 69,
+    "h": 44
+   },
+   "offset": {
+    "ox": 39,
+    "oy": 30
+   },
+   "layer": "object",
+   "group": "lever",
+   "tag": "lever_on",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 0,
+    "maps": 0
+   }
+  },
+  "272": {
+   "id": 272,
+   "rect": {
+    "x": 1728,
+    "y": 711,
+    "w": 68,
+    "h": 75
+   },
+   "offset": {
+    "ox": 39,
+    "oy": 61
+   },
+   "layer": "object",
+   "group": "lever",
+   "tag": "lever",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "state": {
+    "togglesTo": 273
+   },
+   "usage": {
+    "count": 3,
+    "maps": 2,
+    "walkableSides": [
+     "+x",
+     "-x",
+     "+y",
+     "-y"
+    ]
+   }
+  },
+  "273": {
+   "id": 273,
+   "rect": {
+    "x": 1728,
+    "y": 237,
+    "w": 77,
+    "h": 44
+   },
+   "offset": {
+    "ox": 27,
+    "oy": 30
+   },
+   "layer": "object",
+   "group": "lever",
+   "tag": "lever",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "state": {
+    "togglesTo": 272
+   },
+   "usage": {
+    "count": 1,
+    "maps": 1,
+    "walkableSides": [
+     "+x",
+     "-x",
+     "+y",
+     "-y"
+    ]
+   }
+  },
+  "274": {
+   "id": 274,
+   "rect": {
+    "x": 2368,
+    "y": 3137,
+    "w": 112,
+    "h": 147
+   },
+   "offset": {
+    "ox": 41,
+    "oy": 129
+   },
+   "layer": "object",
+   "group": "prop",
+   "tag": "lectern_book_closed",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "state": {
+    "activatesTo": 276
+   },
+   "usage": {
+    "count": 3,
+    "maps": 3,
+    "walkableSides": [
+     "+x",
+     "+y"
+    ]
+   }
+  },
+  "275": {
+   "id": 275,
+   "rect": {
+    "x": 1728,
+    "y": 3555,
+    "w": 123,
+    "h": 148
+   },
+   "offset": {
+    "ox": 45,
+    "oy": 128
+   },
+   "layer": "object",
+   "group": "prop",
+   "tag": "lectern_book_closed",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "state": {
+    "activatesTo": 277
+   },
+   "usage": {
+    "count": 1,
+    "maps": 1,
+    "walkableSides": [
+     "+y"
+    ]
+   }
+  },
+  "276": {
+   "id": 276,
+   "rect": {
+    "x": 1849,
+    "y": 3703,
+    "w": 112,
+    "h": 147
+   },
+   "offset": {
+    "ox": 41,
+    "oy": 129
+   },
+   "layer": "object",
+   "group": "prop",
+   "tag": "lectern_book_open",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 0,
+    "maps": 0
+   }
+  },
+  "277": {
+   "id": 277,
+   "rect": {
+    "x": 1888,
+    "y": 3474,
+    "w": 124,
+    "h": 148
+   },
+   "offset": {
+    "ox": 45,
+    "oy": 128
+   },
+   "layer": "object",
+   "group": "prop",
+   "tag": "lectern_book_open",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 0,
+    "maps": 0
+   }
+  },
+  "278": {
+   "id": 278,
+   "rect": {
+    "x": 987,
+    "y": 3126,
+    "w": 138,
+    "h": 205
+   },
+   "offset": {
+    "ox": 53,
+    "oy": 176
+   },
+   "layer": "object",
+   "group": "light",
+   "tag": "crystal_obelisk",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "light": {
+    "color": "#a0ff60",
+    "radius": 3,
+    "intensity": 0.8
+   },
+   "usage": {
+    "count": 23,
+    "maps": 9
+   }
+  },
+  "279": {
+   "id": 279,
+   "rect": {
+    "x": 1306,
+    "y": 2780,
+    "w": 142,
+    "h": 229
+   },
+   "offset": {
+    "ox": 46,
+    "oy": 206
+   },
+   "layer": "object",
+   "group": "prop",
+   "tag": "bookshelf",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 6,
+    "maps": 5,
+    "walkableSides": [
+     "+y"
+    ]
+   }
+  },
+  "280": {
+   "id": 280,
+   "rect": {
+    "x": 1699,
+    "y": 2780,
+    "w": 169,
+    "h": 228
+   },
+   "offset": {
+    "ox": 73,
+    "oy": 205
+   },
+   "layer": "object",
+   "group": "prop",
+   "tag": "bookshelf",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 4,
+    "maps": 4,
+    "walkableSides": [
+     "+x"
+    ]
+   }
+  },
+  "281": {
+   "id": 281,
+   "rect": {
+    "x": 2189,
+    "y": 3145,
+    "w": 161,
+    "h": 141
+   },
+   "offset": {
+    "ox": 69,
+    "oy": 110
+   },
+   "layer": "object",
+   "group": "prop",
+   "tag": "desk_candles",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "light": {
+    "color": "#ffd080",
+    "radius": 1.5,
+    "intensity": 0.4
+   },
+   "usage": {
+    "count": 6,
+    "maps": 6,
+    "walkableSides": [
+     "+x"
+    ]
+   }
+  },
+  "282": {
+   "id": 282,
+   "rect": {
+    "x": 2027,
+    "y": 3118,
+    "w": 162,
+    "h": 141
+   },
+   "offset": {
+    "ox": 69,
+    "oy": 111
+   },
+   "layer": "object",
+   "group": "prop",
+   "tag": "desk_candles",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "light": {
+    "color": "#ffd080",
+    "radius": 1.5,
+    "intensity": 0.4
+   },
+   "usage": {
+    "count": 3,
+    "maps": 3,
+    "walkableSides": [
+     "+y"
+    ]
+   }
+  },
+  "283": {
+   "id": 283,
+   "rect": {
+    "x": 2202,
+    "y": 3014,
+    "w": 166,
+    "h": 131
+   },
+   "offset": {
+    "ox": 72,
+    "oy": 101
+   },
+   "layer": "object",
+   "group": "prop",
+   "tag": "round_table_candles",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "light": {
+    "color": "#ffd080",
+    "radius": 1.5,
+    "intensity": 0.4
+   },
+   "usage": {
+    "count": 3,
+    "maps": 2,
+    "walkableSides": [
+     "+x",
+     "-x",
+     "+y",
+     "-y"
+    ]
+   }
+  },
+  "284": {
+   "id": 284,
+   "rect": {
+    "x": 2208,
+    "y": 2877,
+    "w": 166,
+    "h": 137
+   },
+   "offset": {
+    "ox": 72,
+    "oy": 101
+   },
+   "layer": "object",
+   "group": "prop",
+   "tag": "round_table_candles",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "light": {
+    "color": "#ffd080",
+    "radius": 1.5,
+    "intensity": 0.4
+   },
+   "usage": {
+    "count": 4,
+    "maps": 3,
+    "walkableSides": [
+     "+x",
+     "+y",
+     "-x",
+     "-y"
+    ]
+   }
+  },
+  "285": {
+   "id": 285,
+   "rect": {
+    "x": 2390,
+    "y": 2555,
+    "w": 95,
+    "h": 91
+   },
+   "offset": {
+    "ox": 40,
+    "oy": 71
+   },
+   "layer": "object",
+   "group": "container",
+   "tag": "crate",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "state": {
+    "breaksTo": 286
+   },
+   "usage": {
+    "count": 7,
+    "maps": 7,
+    "walkableSides": [
+     "+x",
+     "+y"
+    ]
+   }
+  },
+  "286": {
+   "id": 286,
+   "rect": {
+    "x": 2377,
+    "y": 1008,
+    "w": 108,
+    "h": 94
+   },
+   "offset": {
+    "ox": 40,
+    "oy": 66
+   },
+   "layer": "object",
+   "group": "container",
+   "tag": "crate_open",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 1,
+    "maps": 1,
+    "walkableSides": [
+     "-x",
+     "+y"
+    ]
+   }
+  },
+  "287": {
+   "id": 287,
+   "rect": {
+    "x": 1500,
+    "y": 3009,
+    "w": 92,
+    "h": 108
+   },
+   "offset": {
+    "ox": 35,
+    "oy": 93
+   },
+   "layer": "object",
+   "group": "container",
+   "tag": "barrel",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "state": {
+    "breaksTo": 288
+   },
+   "usage": {
+    "count": 6,
+    "maps": 6,
+    "walkableSides": [
+     "+x",
+     "+y",
+     "-y"
+    ]
+   }
+  },
+  "288": {
+   "id": 288,
+   "rect": {
+    "x": 2390,
+    "y": 2726,
+    "w": 90,
+    "h": 119
+   },
+   "offset": {
+    "ox": 35,
+    "oy": 93
+   },
+   "layer": "object",
+   "group": "container",
+   "tag": "barrel_broken",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 1,
+    "maps": 1,
+    "walkableSides": [
+     "+x"
+    ]
+   }
+  },
+  "289": {
+   "id": 289,
+   "rect": {
+    "x": 188,
+    "y": 2879,
+    "w": 187,
+    "h": 211
+   },
+   "offset": {
+    "ox": 91,
+    "oy": 168
+   },
+   "layer": "object",
+   "group": "prop",
+   "tag": "well",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 2,
+    "maps": 2,
+    "walkableSides": [
+     "+y",
+     "-x"
+    ]
+   }
+  },
+  "290": {
+   "id": 290,
+   "rect": {
+    "x": 946,
+    "y": 2642,
+    "w": 182,
+    "h": 211
+   },
+   "offset": {
+    "ox": 86,
+    "oy": 168
+   },
+   "layer": "object",
+   "group": "prop",
+   "tag": "well",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 3,
+    "maps": 3,
+    "walkableSides": [
+     "+x",
+     "-y",
+     "+y"
+    ]
+   }
+  },
+  "291": {
+   "id": 291,
+   "rect": {
+    "x": 2015,
+    "y": 3432,
+    "w": 140,
+    "h": 171
+   },
+   "offset": {
+    "ox": 55,
+    "oy": 148
+   },
+   "layer": "object",
+   "group": "altar",
+   "tag": "stone_shrine",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "arched stone shrine / grave marker",
+   "usage": {
+    "count": 8,
+    "maps": 2,
+    "walkableSides": [
+     "+x",
+     "+y",
+     "-y",
+     "-x"
+    ]
+   }
+  },
+  "292": {
+   "id": 292,
+   "rect": {
+    "x": 2181,
+    "y": 3431,
+    "w": 146,
+    "h": 171
+   },
+   "offset": {
+    "ox": 57,
+    "oy": 148
+   },
+   "layer": "object",
+   "group": "altar",
+   "tag": "stone_shrine",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "arched stone shrine / grave marker",
+   "usage": {
+    "count": 13,
+    "maps": 4,
+    "walkableSides": [
+     "+x",
+     "+y",
+     "-y",
+     "-x"
+    ]
+   }
+  },
+  "293": {
+   "id": 293,
+   "rect": {
+    "x": 1961,
+    "y": 3688,
+    "w": 121,
+    "h": 170
+   },
+   "offset": {
+    "ox": 49,
+    "oy": 144
+   },
+   "layer": "object",
+   "group": "altar",
+   "tag": "orb_pedestal_lit",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "light": {
+    "color": "#b0ff80",
+    "radius": 3,
+    "intensity": 0.9
+   },
+   "state": {
+    "deactivatesTo": 294
+   },
+   "usage": {
+    "count": 5,
+    "maps": 2
+   }
+  },
+  "294": {
+   "id": 294,
+   "rect": {
+    "x": 2082,
+    "y": 3667,
+    "w": 121,
+    "h": 170
+   },
+   "offset": {
+    "ox": 49,
+    "oy": 144
+   },
+   "layer": "object",
+   "group": "altar",
+   "tag": "orb_pedestal_unlit",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 0,
+    "maps": 0
+   }
+  },
+  "295": {
+   "id": 295,
+   "rect": {
+    "x": 1728,
+    "y": 149,
+    "w": 81,
+    "h": 88
+   },
+   "offset": {
+    "ox": 33,
+    "oy": 72
+   },
+   "layer": "object",
+   "group": "light",
+   "tag": "brazier_unlit",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "state": {
+    "activatesTo": 296
+   },
+   "usage": {
+    "count": 16,
+    "maps": 9,
+    "walkableSides": [
+     "-x",
+     "+y",
+     "-y",
+     "+x"
+    ]
+   }
+  },
+  "296": {
+   "id": 296,
+   "rect": {
+    "x": 192,
+    "y": 192,
+    "w": 192,
+    "h": 192
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 144
+   },
+   "layer": "object",
+   "group": "light",
+   "tag": "brazier_lit_blue",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "light": {
+    "color": "#a080ff",
+    "radius": 4,
+    "intensity": 1,
+    "flicker": true
+   },
+   "animation": {
+    "frames": [
+     {
+      "x": 192,
+      "y": 192,
+      "ms": 66
+     },
+     {
+      "x": 384,
+      "y": 192,
+      "ms": 66
+     },
+     {
+      "x": 576,
+      "y": 192,
+      "ms": 66
+     },
+     {
+      "x": 768,
+      "y": 192,
+      "ms": 66
+     },
+     {
+      "x": 960,
+      "y": 192,
+      "ms": 66
+     },
+     {
+      "x": 1152,
+      "y": 192,
+      "ms": 66
+     },
+     {
+      "x": 1344,
+      "y": 192,
+      "ms": 66
+     },
+     {
+      "x": 192,
+      "y": 384,
+      "ms": 66
+     }
+    ]
+   },
+   "note": "animated 8 frames x 66ms, blue-violet flame",
+   "usage": {
+    "count": 34,
+    "maps": 16,
+    "walkableSides": [
+     "+x",
+     "-x",
+     "+y",
+     "-y"
+    ]
+   }
+  },
+  "312": {
+   "id": 312,
+   "rect": {
+    "x": 1357,
+    "y": 3009,
+    "w": 143,
+    "h": 109
+   },
+   "offset": {
+    "ox": 66,
+    "oy": 92
+   },
+   "layer": "object",
+   "group": "plant",
+   "tag": "bush",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 14,
+    "maps": 8,
+    "walkableSides": [
+     "-x",
+     "-y",
+     "+x",
+     "+y"
+    ]
+   }
+  },
+  "313": {
+   "id": 313,
+   "rect": {
+    "x": 2350,
+    "y": 3284,
+    "w": 134,
+    "h": 111
+   },
+   "offset": {
+    "ox": 60,
+    "oy": 90
+   },
+   "layer": "object",
+   "group": "plant",
+   "tag": "bush",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 14,
+    "maps": 10,
+    "walkableSides": [
+     "+x",
+     "-x",
+     "-y",
+     "+y"
+    ]
+   }
+  },
+  "314": {
+   "id": 314,
+   "rect": {
+    "x": 737,
+    "y": 3149,
+    "w": 165,
+    "h": 184
+   },
+   "offset": {
+    "ox": 69,
+    "oy": 172
+   },
+   "layer": "object",
+   "group": "plant",
+   "tag": "dead_shrub",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 14,
+    "maps": 11,
+    "walkableSides": [
+     "+x",
+     "-x",
+     "+y"
+    ]
+   }
+  },
+  "315": {
+   "id": 315,
+   "rect": {
+    "x": 1963,
+    "y": 2780,
+    "w": 156,
+    "h": 189
+   },
+   "offset": {
+    "ox": 60,
+    "oy": 172
+   },
+   "layer": "object",
+   "group": "plant",
+   "tag": "dead_shrub",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 7,
+    "maps": 7,
+    "walkableSides": [
+     "+x",
+     "-x",
+     "+y"
+    ]
+   }
+  },
+  "316": {
+   "id": 316,
+   "rect": {
+    "x": 1888,
+    "y": 3299,
+    "w": 130,
+    "h": 85
+   },
+   "offset": {
+    "ox": 62,
+    "oy": 59
+   },
+   "layer": "object",
+   "group": "plant",
+   "tag": "bush",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 12,
+    "maps": 9,
+    "walkableSides": [
+     "-x",
+     "+y",
+     "-y",
+     "+x"
+    ]
+   }
+  },
+  "317": {
+   "id": 317,
+   "rect": {
+    "x": 1888,
+    "y": 3384,
+    "w": 127,
+    "h": 90
+   },
+   "offset": {
+    "ox": 58,
+    "oy": 61
+   },
+   "layer": "object",
+   "group": "plant",
+   "tag": "bush",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 12,
+    "maps": 9,
+    "walkableSides": [
+     "+x",
+     "-x",
+     "-y",
+     "+y"
+    ]
+   }
+  },
+  "328": {
+   "id": 328,
+   "rect": {
+    "x": 1728,
+    "y": 834,
+    "w": 25,
+    "h": 189
+   },
+   "offset": {
+    "ox": 25,
+    "oy": 141
+   },
+   "layer": "object",
+   "group": "stairs",
+   "tag": "stairs_up",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "part": {
+    "set": "stairs_up_A",
+    "dx": 0,
+    "dy": 2
+   },
+   "usage": {
+    "count": 2,
+    "maps": 2,
+    "walkableSides": [
+     "+y"
+    ]
+   }
+  },
+  "329": {
+   "id": 329,
+   "rect": {
+    "x": 546,
+    "y": 3333,
+    "w": 96,
+    "h": 271
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 223
+   },
+   "layer": "object",
+   "group": "stairs",
+   "tag": "stairs_up",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "part": {
+    "set": "stairs_up_A",
+    "dx": 1,
+    "dy": 2
+   },
+   "usage": {
+    "count": 2,
+    "maps": 2,
+    "walkableSides": [
+     "+y"
+    ]
+   }
+  },
+  "330": {
+   "id": 330,
+   "rect": {
+    "x": 1536,
+    "y": 149,
+    "w": 192,
+    "h": 372
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 329
+   },
+   "layer": "object",
+   "group": "stairs",
+   "tag": "stairs_up",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    3,
+    3
+   ],
+   "part": {
+    "set": "stairs_up_A",
+    "dx": 2,
+    "dy": 2,
+    "main": true
+   },
+   "note": "stairs up, 5 parts on the east L of a 3x3 block (iron_labyrinth/f1/start.txt: 332@13,10 331@13,11 328@11,12 329@12,12 330@13,12; exit event 11,10,3,3).",
+   "usage": {
+    "count": 2,
+    "maps": 2,
+    "walkableSides": [
+     "+x",
+     "+y",
+     "-y"
+    ]
+   }
+  },
+  "331": {
+   "id": 331,
+   "rect": {
+    "x": 2386,
+    "y": 734,
+    "w": 96,
+    "h": 274
+   },
+   "offset": {
+    "ox": 0,
+    "oy": 230
+   },
+   "layer": "object",
+   "group": "stairs",
+   "tag": "stairs_up",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "part": {
+    "set": "stairs_up_A",
+    "dx": 2,
+    "dy": 1
+   },
+   "usage": {
+    "count": 2,
+    "maps": 2,
+    "walkableSides": [
+     "+x"
+    ]
+   }
+  },
+  "332": {
+   "id": 332,
+   "rect": {
+    "x": 902,
+    "y": 3149,
+    "w": 85,
+    "h": 184
+   },
+   "offset": {
+    "ox": 0,
+    "oy": 137
+   },
+   "layer": "object",
+   "group": "stairs",
+   "tag": "stairs_up",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "part": {
+    "set": "stairs_up_A",
+    "dx": 2,
+    "dy": 0
+   },
+   "usage": {
+    "count": 2,
+    "maps": 2,
+    "walkableSides": [
+     "+x",
+     "+y"
+    ]
+   }
+  },
+  "333": {
+   "id": 333,
+   "rect": {
+    "x": 1756,
+    "y": 832,
+    "w": 26,
+    "h": 186
+   },
+   "offset": {
+    "ox": 26,
+    "oy": 138
+   },
+   "layer": "object",
+   "group": "stairs",
+   "tag": "stairs_up",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "part": {
+    "set": "stairs_up_B",
+    "dx": 0,
+    "dy": 2
+   },
+   "usage": {
+    "count": 2,
+    "maps": 2,
+    "walkableSides": [
+     "+x",
+     "+y",
+     "-x"
+    ]
+   }
+  },
+  "334": {
+   "id": 334,
+   "rect": {
+    "x": 1155,
+    "y": 3586,
+    "w": 96,
+    "h": 274
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 234
+   },
+   "layer": "object",
+   "group": "stairs",
+   "tag": "stairs_up",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    1,
+    1
+   ],
+   "part": {
+    "set": "stairs_up_B",
+    "dx": 1,
+    "dy": 2
+   },
+   "usage": {
+    "count": 2,
+    "maps": 2,
+    "walkableSides": [
+     "+y"
+    ]
+   }
+  },
+  "335": {
+   "id": 335,
+   "rect": {
+    "x": 1810,
+    "y": 0,
+    "w": 192,
+    "h": 374
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 331
+   },
+   "layer": "object",
+   "group": "stairs",
+   "tag": "stairs_up",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    3,
+    3
+   ],
+   "part": {
+    "set": "stairs_up_B",
+    "dx": 2,
+    "dy": 2,
+    "main": true
+   },
+   "usage": {
+    "count": 2,
+    "maps": 2,
+    "walkableSides": [
+     "-x",
+     "+y",
+     "+x"
+    ]
+   }
+  },
+  "336": {
+   "id": 336,
+   "rect": {
+    "x": 642,
+    "y": 3333,
+    "w": 96,
+    "h": 271
+   },
+   "offset": {
+    "ox": 0,
+    "oy": 223
+   },
+   "layer": "object",
+   "group": "stairs",
+   "tag": "stairs_up",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "part": {
+    "set": "stairs_up_B",
+    "dx": 2,
+    "dy": 1
+   },
+   "usage": {
+    "count": 2,
+    "maps": 2,
+    "walkableSides": [
+     "+x"
+    ]
+   }
+  },
+  "337": {
+   "id": 337,
+   "rect": {
+    "x": 2119,
+    "y": 2930,
+    "w": 83,
+    "h": 188
+   },
+   "offset": {
+    "ox": 0,
+    "oy": 140
+   },
+   "layer": "object",
+   "group": "stairs",
+   "tag": "stairs_up",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "part": {
+    "set": "stairs_up_B",
+    "dx": 2,
+    "dy": 0
+   },
+   "usage": {
+    "count": 2,
+    "maps": 2,
+    "walkableSides": [
+     "+x"
+    ]
+   }
+  },
+  "344": {
+   "id": 344,
+   "rect": {
+    "x": 1592,
+    "y": 3009,
+    "w": 96,
+    "h": 98
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 50
+   },
+   "layer": "background",
+   "group": "stairs",
+   "tag": "stairs_down",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "part": {
+    "set": "stairs_down_A",
+    "dx": 0,
+    "dy": 2
+   },
+   "usage": {
+    "count": 2,
+    "maps": 2
+   }
+  },
+  "345": {
+   "id": 345,
+   "rect": {
+    "x": 1569,
+    "y": 3117,
+    "w": 96,
+    "h": 194
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 146
+   },
+   "layer": "background",
+   "group": "stairs",
+   "tag": "stairs_down",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "part": {
+    "set": "stairs_down_A",
+    "dx": 1,
+    "dy": 2
+   },
+   "usage": {
+    "count": 2,
+    "maps": 2
+   }
+  },
+  "346": {
+   "id": 346,
+   "rect": {
+    "x": 2194,
+    "y": 296,
+    "w": 192,
+    "h": 290
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 242
+   },
+   "layer": "background",
+   "group": "stairs",
+   "tag": "stairs_down",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    3,
+    3
+   ],
+   "part": {
+    "set": "stairs_down_A",
+    "dx": 2,
+    "dy": 2,
+    "main": true
+   },
+   "note": "stairs down into the floor, 5 background parts (iron_labyrinth_chasm: 348@63,62 347@63,63 344@61,64 345@62,64 346@63,64). Remaining cells of the 3x3 keep a normal floor/collision 1.",
+   "usage": {
+    "count": 2,
+    "maps": 2
+   }
+  },
+  "347": {
+   "id": 347,
+   "rect": {
+    "x": 1473,
+    "y": 3118,
+    "w": 96,
+    "h": 195
+   },
+   "offset": {
+    "ox": 0,
+    "oy": 147
+   },
+   "layer": "background",
+   "group": "stairs",
+   "tag": "stairs_down",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "part": {
+    "set": "stairs_down_A",
+    "dx": 2,
+    "dy": 1
+   },
+   "usage": {
+    "count": 2,
+    "maps": 2
+   }
+  },
+  "348": {
+   "id": 348,
+   "rect": {
+    "x": 2388,
+    "y": 2845,
+    "w": 96,
+    "h": 97
+   },
+   "offset": {
+    "ox": 0,
+    "oy": 49
+   },
+   "layer": "background",
+   "group": "stairs",
+   "tag": "stairs_down",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "part": {
+    "set": "stairs_down_A",
+    "dx": 2,
+    "dy": 0
+   },
+   "usage": {
+    "count": 2,
+    "maps": 2
+   }
+  },
+  "349": {
+   "id": 349,
+   "rect": {
+    "x": 1688,
+    "y": 3009,
+    "w": 96,
+    "h": 98
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 50
+   },
+   "layer": "background",
+   "group": "stairs",
+   "tag": "stairs_down",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "part": {
+    "set": "stairs_down_B",
+    "dx": 0,
+    "dy": 2
+   },
+   "usage": {
+    "count": 2,
+    "maps": 2
+   }
+  },
+  "350": {
+   "id": 350,
+   "rect": {
+    "x": 1761,
+    "y": 3107,
+    "w": 96,
+    "h": 193
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 145
+   },
+   "layer": "background",
+   "group": "stairs",
+   "tag": "stairs_down",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "part": {
+    "set": "stairs_down_B",
+    "dx": 1,
+    "dy": 2
+   },
+   "usage": {
+    "count": 2,
+    "maps": 2
+   }
+  },
+  "351": {
+   "id": 351,
+   "rect": {
+    "x": 2002,
+    "y": 367,
+    "w": 192,
+    "h": 290
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 242
+   },
+   "layer": "background",
+   "group": "stairs",
+   "tag": "stairs_down",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    3,
+    3
+   ],
+   "part": {
+    "set": "stairs_down_B",
+    "dx": 2,
+    "dy": 2,
+    "main": true
+   },
+   "usage": {
+    "count": 2,
+    "maps": 2
+   }
+  },
+  "352": {
+   "id": 352,
+   "rect": {
+    "x": 1665,
+    "y": 3107,
+    "w": 96,
+    "h": 194
+   },
+   "offset": {
+    "ox": 0,
+    "oy": 146
+   },
+   "layer": "background",
+   "group": "stairs",
+   "tag": "stairs_down",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "part": {
+    "set": "stairs_down_B",
+    "dx": 2,
+    "dy": 1
+   },
+   "usage": {
+    "count": 2,
+    "maps": 2
+   }
+  },
+  "353": {
+   "id": 353,
+   "rect": {
+    "x": 1784,
+    "y": 3008,
+    "w": 96,
+    "h": 98
+   },
+   "offset": {
+    "ox": 0,
+    "oy": 50
+   },
+   "layer": "background",
+   "group": "stairs",
+   "tag": "stairs_down",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "part": {
+    "set": "stairs_down_B",
+    "dx": 2,
+    "dy": 0
+   },
+   "usage": {
+    "count": 2,
+    "maps": 2
+   }
+  },
+  "360": {
+   "id": 360,
+   "rect": {
+    "x": 2194,
+    "y": 586,
+    "w": 192,
+    "h": 288
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 240
+   },
+   "layer": "object",
+   "group": "fence",
+   "tag": "iron_fence",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "spiked iron fence section/corner (orientation by image)",
+   "usage": {
+    "count": 0,
+    "maps": 0
+   }
+  },
+  "361": {
+   "id": 361,
+   "rect": {
+    "x": 2194,
+    "y": 0,
+    "w": 192,
+    "h": 296
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 248
+   },
+   "layer": "object",
+   "group": "fence",
+   "tag": "fence_gate_jamb_open",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 1,
+    "maps": 1,
+    "walkableSides": [
+     "+x",
+     "+y"
+    ]
+   }
+  },
+  "362": {
+   "id": 362,
+   "rect": {
+    "x": 2182,
+    "y": 1155,
+    "w": 192,
+    "h": 261
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 249
+   },
+   "layer": "object",
+   "group": "fence",
+   "tag": "fence_gate_jamb_open",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 2,
+    "maps": 2,
+    "walkableSides": [
+     "-x",
+     "+y"
+    ]
+   }
+  },
+  "363": {
+   "id": 363,
+   "rect": {
+    "x": 2327,
+    "y": 3540,
+    "w": 121,
+    "h": 320
+   },
+   "offset": {
+    "ox": 25,
+    "oy": 277
+   },
+   "layer": "object",
+   "group": "fence",
+   "tag": "iron_fence",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "spiked iron fence section/corner (orientation by image)",
+   "usage": {
+    "count": 0,
+    "maps": 0
+   }
+  },
+  "364": {
+   "id": 364,
+   "rect": {
+    "x": 1607,
+    "y": 3567,
+    "w": 121,
+    "h": 296
+   },
+   "offset": {
+    "ox": 25,
+    "oy": 248
+   },
+   "layer": "object",
+   "group": "fence",
+   "tag": "fence_gate_jamb_open",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 2,
+    "maps": 2,
+    "walkableSides": [
+     "+x",
+     "+y"
+    ]
+   }
+  },
+  "365": {
+   "id": 365,
+   "rect": {
+    "x": 1801,
+    "y": 374,
+    "w": 192,
+    "h": 288
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 240
+   },
+   "layer": "object",
+   "group": "fence",
+   "tag": "iron_fence",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "spiked iron fence section/corner (orientation by image)",
+   "usage": {
+    "count": 0,
+    "maps": 0
+   }
+  },
+  "366": {
+   "id": 366,
+   "rect": {
+    "x": 952,
+    "y": 2060,
+    "w": 189,
+    "h": 320
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 277
+   },
+   "layer": "object",
+   "group": "fence",
+   "tag": "iron_fence",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "note": "spiked iron fence section/corner (orientation by image)",
+   "usage": {
+    "count": 0,
+    "maps": 0
+   }
+  },
+  "367": {
+   "id": 367,
+   "rect": {
+    "x": 0,
+    "y": 192,
+    "w": 192,
+    "h": 260
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 248
+   },
+   "layer": "object",
+   "group": "fence",
+   "tag": "fence_gate_jamb_open",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 1,
+    "maps": 1,
+    "walkableSides": [
+     "+x",
+     "-y"
+    ]
+   }
+  },
+  "368": {
+   "id": 368,
+   "rect": {
+    "x": 1868,
+    "y": 2780,
+    "w": 95,
+    "h": 228
+   },
+   "offset": {
+    "ox": -1,
+    "oy": 248
+   },
+   "layer": "object",
+   "group": "fence",
+   "tag": "fence_gate_jamb_closed",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "state": {
+    "opensTo": 364
+   },
+   "usage": {
+    "count": 5,
+    "maps": 4
+   }
+  },
+  "369": {
+   "id": 369,
+   "rect": {
+    "x": 1448,
+    "y": 2780,
+    "w": 126,
+    "h": 229
+   },
+   "offset": {
+    "ox": 70,
+    "oy": 248
+   },
+   "layer": "object",
+   "group": "fence",
+   "tag": "fence_gate_jamb_closed",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "state": {
+    "opensTo": 361
+   },
+   "usage": {
+    "count": 3,
+    "maps": 3,
+    "walkableSides": [
+     "+x"
+    ]
+   }
+  },
+  "370": {
+   "id": 370,
+   "rect": {
+    "x": 1728,
+    "y": 438,
+    "w": 70,
+    "h": 229
+   },
+   "offset": {
+    "ox": -26,
+    "oy": 234
+   },
+   "layer": "object",
+   "group": "fence",
+   "tag": "fence_gate_jamb_closed",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "state": {
+    "opensTo": 362
+   },
+   "usage": {
+    "count": 4,
+    "maps": 4,
+    "walkableSides": [
+     "+y"
+    ]
+   }
+  },
+  "371": {
+   "id": 371,
+   "rect": {
+    "x": 1574,
+    "y": 2780,
+    "w": 125,
+    "h": 229
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 234
+   },
+   "layer": "object",
+   "group": "fence",
+   "tag": "fence_gate_jamb_closed",
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "state": {
+    "opensTo": 367
+   },
+   "usage": {
+    "count": 3,
+    "maps": 3,
+    "walkableSides": [
+     "+x"
+    ]
+   }
+  },
+  "376": {
+   "id": 376,
+   "rect": {
+    "x": 1329,
+    "y": 2216,
+    "w": 183,
+    "h": 291
+   },
+   "offset": {
+    "ox": 135,
+    "oy": 277
+   },
+   "layer": "object",
+   "group": "door",
+   "tag": "gate_closed_leaf_right",
+   "orientation": {
+    "spans": "y"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "part": {
+    "door": "y",
+    "dx": 0,
+    "dy": 1
+   },
+   "state": {
+    "opensTo": 0
+   },
+   "usage": {
+    "count": 3,
+    "maps": 3,
+    "walkableSides": [
+     "+x"
+    ]
+   }
+  },
+  "377": {
+   "id": 377,
+   "rect": {
+    "x": 738,
+    "y": 3333,
+    "w": 147,
+    "h": 268
+   },
+   "offset": {
+    "ox": 99,
+    "oy": 267
+   },
+   "layer": "object",
+   "group": "door",
+   "tag": "gate_closed_leaf_left",
+   "orientation": {
+    "spans": "y"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "part": {
+    "door": "y",
+    "dx": 0,
+    "dy": 0
+   },
+   "state": {
+    "opensTo": 0
+   },
+   "note": "y-spanning iron gate: jamb 369@(x,y-1), leaves 377@(x,y) 376@(x,y+1), jamb 371@(x,y+2). Open: leaves->0, 369->361, 371->367 (iron_labyrinth/door_we1).",
+   "usage": {
+    "count": 3,
+    "maps": 3,
+    "walkableSides": [
+     "+x"
+    ]
+   }
+  },
+  "378": {
+   "id": 378,
+   "rect": {
+    "x": 1136,
+    "y": 2478,
+    "w": 183,
+    "h": 268
+   },
+   "offset": {
+    "ox": 39,
+    "oy": 267
+   },
+   "layer": "object",
+   "group": "door",
+   "tag": "gate_closed_leaf_left",
+   "orientation": {
+    "spans": "x"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "part": {
+    "door": "x",
+    "dx": 0,
+    "dy": 0
+   },
+   "state": {
+    "opensTo": 0
+   },
+   "note": "x-spanning iron gate: jamb 368@(x-1,y), leaves 378@(x,y) 379@(x+1,y), jamb 370@(x+2,y). Collision 1 on (x..x+1, y-1..y). Open: leaves->0, 368->364, 370->362 (iron_labyrinth/door_ns1).",
+   "usage": {
+    "count": 5,
+    "maps": 4,
+    "walkableSides": [
+     "+y"
+    ]
+   }
+  },
+  "379": {
+   "id": 379,
+   "rect": {
+    "x": 1880,
+    "y": 3008,
+    "w": 147,
+    "h": 291
+   },
+   "offset": {
+    "ox": 3,
+    "oy": 277
+   },
+   "layer": "object",
+   "group": "door",
+   "tag": "gate_closed_leaf_right",
+   "orientation": {
+    "spans": "x"
+   },
+   "blocks": "all",
+   "collision": 1,
+   "footprint": [
+    1,
+    1
+   ],
+   "part": {
+    "door": "x",
+    "dx": 1,
+    "dy": 0
+   },
+   "state": {
+    "opensTo": 0
+   },
+   "usage": {
+    "count": 4,
+    "maps": 4,
+    "walkableSides": [
+     "+y"
+    ]
+   }
+  },
+  "380": {
+   "id": 380,
+   "rect": {
+    "x": 1536,
+    "y": 0,
+    "w": 274,
+    "h": 149
+   },
+   "offset": {
+    "ox": 39,
+    "oy": 79
+   },
+   "layer": "background_fringe",
+   "group": "floor_special",
+   "tag": "portal_pad",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    2,
+    2
+   ],
+   "anchorCell": "west (leftmost on screen): footprint covers x..x+w-1, y-(h-1)..y",
+   "state": {
+    "activatesTo": 381
+   },
+   "usage": {
+    "count": 1,
+    "maps": 1
+   }
+  },
+  "381": {
+   "id": 381,
+   "rect": {
+    "x": 0,
+    "y": 0,
+    "w": 384,
+    "h": 192
+   },
+   "offset": {
+    "ox": 96,
+    "oy": 96
+   },
+   "layer": "background_fringe",
+   "group": "floor_special",
+   "tag": "portal_pad_active",
+   "blocks": "none",
+   "collision": 0,
+   "footprint": [
+    2,
+    2
+   ],
+   "anchorCell": "west (leftmost on screen): footprint covers x..x+w-1, y-(h-1)..y",
+   "light": {
+    "color": "#50a0ff",
+    "radius": 3,
+    "intensity": 0.8
+   },
+   "animation": {
+    "frames": [
+     {
+      "x": 0,
+      "y": 0,
+      "ms": 66
+     },
+     {
+      "x": 384,
+      "y": 0,
+      "ms": 66
+     },
+     {
+      "x": 768,
+      "y": 0,
+      "ms": 66
+     },
+     {
+      "x": 1152,
+      "y": 0,
+      "ms": 66
+     }
+    ]
+   },
+   "note": "animated 4 frames",
+   "usage": {
+    "count": 5,
+    "maps": 4,
+    "walkableSides": [
+     "+x",
+     "-x",
+     "+y",
+     "-y"
+    ]
+   }
+  },
+  "384": {
+   "id": 384,
+   "rect": {
+    "x": 2331,
+    "y": 3395,
+    "w": 148,
+    "h": 145
+   },
+   "offset": {
+    "ox": 64,
+    "oy": 107
+   },
+   "layer": "object",
+   "group": "chest",
+   "tag": "boss_chest_closed",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "state": {
+    "opensTo": 385
+   },
+   "usage": {
+    "count": 5,
+    "maps": 2,
+    "walkableSides": [
+     "+y"
+    ]
+   }
+  },
+  "385": {
+   "id": 385,
+   "rect": {
+    "x": 2027,
+    "y": 3259,
+    "w": 154,
+    "h": 173
+   },
+   "offset": {
+    "ox": 58,
+    "oy": 135
+   },
+   "layer": "object",
+   "group": "chest",
+   "tag": "boss_chest_open",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 0,
+    "maps": 0
+   }
+  },
+  "386": {
+   "id": 386,
+   "rect": {
+    "x": 2181,
+    "y": 3286,
+    "w": 150,
+    "h": 145
+   },
+   "offset": {
+    "ox": 63,
+    "oy": 107
+   },
+   "layer": "object",
+   "group": "chest",
+   "tag": "boss_chest_closed",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "state": {
+    "opensTo": 387
+   },
+   "usage": {
+    "count": 0,
+    "maps": 0
+   }
+  },
+  "387": {
+   "id": 387,
+   "rect": {
+    "x": 145,
+    "y": 3429,
+    "w": 155,
+    "h": 173
+   },
+   "offset": {
+    "ox": 86,
+    "oy": 135
+   },
+   "layer": "object",
+   "group": "chest",
+   "tag": "boss_chest_open",
+   "blocks": "movement",
+   "collision": 2,
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 0,
+    "maps": 0
+   }
+  }
+ },
+ "structure": "Ruins maps have NO short walls: every non-room cell is filled with void_top (153-160, collision 3) at wall height, and back walls (138/139) are top-only pieces with a black body. Result: rooms look carved into a solid masonry mass.",
+ "doors": {
+  "xSpanning": {
+   "jambs": [
+    {
+     "id": 368,
+     "dx": -1,
+     "dy": 0
+    },
+    {
+     "id": 370,
+     "dx": 2,
+     "dy": 0
+    }
+   ],
+   "leaves": [
+    {
+     "id": 378,
+     "dx": 0,
+     "dy": 0
+    },
+    {
+     "id": 379,
+     "dx": 1,
+     "dy": 0
+    }
+   ],
+   "open": {
+    "368": 364,
+    "370": 362,
+    "378": 0,
+    "379": 0
+   }
+  },
+  "ySpanning": {
+   "jambs": [
+    {
+     "id": 369,
+     "dx": 0,
+     "dy": -1
+    },
+    {
+     "id": 371,
+     "dx": 0,
+     "dy": 2
+    }
+   ],
+   "leaves": [
+    {
+     "id": 377,
+     "dx": 0,
+     "dy": 0
+    },
+    {
+     "id": 376,
+     "dx": 0,
+     "dy": 1
+    }
+   ],
+   "open": {
+    "369": 361,
+    "371": 367,
+    "376": 0,
+    "377": 0
+   }
+  }
+ },
+ "procgen": "maps/procgen_rules/iron_labyrinth*.txt: Flare procgen stitches hand-made 28x28 chunks (procgen_type=start|end|door_north_south|door_west_east|room|links|key|treasure|vendor) with doors_max=2, door_spacing_min=2, main_path_length 10..20, branch_length 5..10, branches_per_door_level_max=2. It does NOT generate walls tile-by-tile.",
+ "stateChanges": "mapmods: 378/379/376/377->0 gates, 370->362, 368->364, 369->361, 371->367, 265->267, 264->266, 268->269, 384->385, 285->286, 272<->273, 287->288, 274->276, 293->294, 270->271, 252->253"
+}

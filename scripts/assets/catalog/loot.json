@@ -1,0 +1,1602 @@
+{
+ "generatedBy": ".assets-src/scratch/fx-icons-audio/gen.cjs (sheets: loot/*.png, loot_rest.png)",
+ "license": "Flare art CC-BY-SA 3.0",
+ "notes": [
+  "Each .txt has 8 direction rows but only direction 0 has real frames (others are 1x1 blanks) -> non-directional.",
+  "Gold uses 3 piles by quantity (empyrean items.txt id=1): coins5 for 1-24, coins25 for 25-99, coins100 for 100+.",
+  "Engine plays soundfx/flying_loot.ogg on drop (engine/loot.txt sfx_loot); item-specific pickup/inventory sound = item soundfx (inventory_*.ogg).",
+  "No ground sprites for: amulet (Flare reuses gem.txt), crossbow, orb/offhand tome (book.txt usable), quiver, crafting mats, gem colors (single white gem, tint per gem). Tint/recolor at runtime or reuse pouch.txt.",
+  "Legendary/rare ground highlight: overlay fx sparkle (20 frames) + colored light beam (procedural)."
+ ],
+ "goldPiles": [
+  {
+   "anim": "coins5",
+   "min": 1,
+   "max": 24
+  },
+  {
+   "anim": "coins25",
+   "min": 25,
+   "max": 99
+  },
+  {
+   "anim": "coins100",
+   "min": 100,
+   "max": null
+  }
+ ],
+ "suggestedMappingForDiablo": {
+  "helm": "leather_armor (cloth/leather) or steel_armor (plate) — no dedicated helm sprite",
+  "chest": "clothes | leather_armor | steel_armor",
+  "gloves": "clothes | leather_armor | steel_armor",
+  "boots": "boots",
+  "belt": "belt",
+  "pants": "clothes | leather_armor | steel_armor",
+  "sword": "shortsword | longsword",
+  "greatsword": "greatsword | zweihander",
+  "axe": "hand_axe | infantry_axe",
+  "twoHandedAxe": "battle_axe",
+  "mace": "mace | club | reinforced_club",
+  "twoHandedMace": "maul | war_hammer | smith_hammer",
+  "dagger": "dagger",
+  "staff": "staff | greatstaff",
+  "wand": "wand",
+  "rod": "rod",
+  "bow": "shortbow | longbow | greatbow",
+  "crossbow": "GAP (use longbow)",
+  "shield": "buckler | shield",
+  "offhandTome": "book",
+  "offhandOrb": "GAP (use gem tinted, scaled x2)",
+  "quiver": "GAP (use pouch)",
+  "ring": "ring",
+  "amulet": "gem (Flare convention) — GAP for a chain sprite",
+  "potionHealth": "hp_potion",
+  "potionMana": "mp_potion",
+  "scroll": "scroll",
+  "gem": "gem (tint)",
+  "material": "pouch | gem (tint per tier)",
+  "gold": "coins5/25/100"
+ },
+ "items": [
+  {
+   "id": "battle_axe",
+   "animFile": "mods/fantasycore/animations/loot/battle_axe.txt",
+   "image": "mods/fantasycore/images/loot/battle_axe.png",
+   "imageSize": [
+    342,
+    433
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "directional": false,
+   "frameSemantics": "f0-f4 = item tossed up and tumbling in an arc (drop animation, frames offset upward up to ~250px), f5 = final resting pose on ground (hold this frame).",
+   "restingFrame": {
+    "index": 5,
+    "size": [
+     93,
+     50
+    ],
+    "rect": [
+     142,
+     383,
+     93,
+     50
+    ],
+    "anchor": [
+     50,
+     25
+    ]
+   },
+   "maxFrameSize": [
+    171,
+    272
+   ],
+   "usedByItemBases": [
+    "weapons/melee/battle_axe.txt"
+   ]
+  },
+  {
+   "id": "belt",
+   "animFile": "mods/fantasycore/animations/loot/belt.txt",
+   "image": "mods/fantasycore/images/loot/belt.png",
+   "imageSize": [
+    197,
+    387
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "directional": false,
+   "frameSemantics": "f0-f4 = item tossed up and tumbling in an arc (drop animation, frames offset upward up to ~250px), f5 = final resting pose on ground (hold this frame).",
+   "restingFrame": {
+    "index": 5,
+    "size": [
+     40,
+     25
+    ],
+    "rect": [
+     145,
+     302,
+     40,
+     25
+    ],
+    "anchor": [
+     20,
+     14
+    ]
+   },
+   "maxFrameSize": [
+    99,
+    203
+   ],
+   "usedByItemBases": [
+    "armor/belt.txt"
+   ]
+  },
+  {
+   "id": "book",
+   "animFile": "mods/fantasycore/animations/loot/book.txt",
+   "image": "mods/fantasycore/images/loot/book.png",
+   "imageSize": [
+    225,
+    411
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "directional": false,
+   "frameSemantics": "f0-f4 = item tossed up and tumbling in an arc (drop animation, frames offset upward up to ~250px), f5 = final resting pose on ground (hold this frame).",
+   "restingFrame": {
+    "index": 5,
+    "size": [
+     57,
+     37
+    ],
+    "rect": [
+     109,
+     163,
+     57,
+     37
+    ],
+    "anchor": [
+     28,
+     23
+    ]
+   },
+   "maxFrameSize": [
+    116,
+    211
+   ],
+   "usedByItemBases": [
+    "misc/spellbook.txt",
+    "misc/book.txt"
+   ]
+  },
+  {
+   "id": "boots",
+   "animFile": "mods/fantasycore/animations/loot/boots.txt",
+   "image": "mods/fantasycore/images/loot/boots.png",
+   "imageSize": [
+    192,
+    366
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "directional": false,
+   "frameSemantics": "f0-f4 = item tossed up and tumbling in an arc (drop animation, frames offset upward up to ~250px), f5 = final resting pose on ground (hold this frame).",
+   "restingFrame": {
+    "index": 5,
+    "size": [
+     37,
+     40
+    ],
+    "rect": [
+     0,
+     326,
+     37,
+     40
+    ],
+    "anchor": [
+     25,
+     22
+    ]
+   },
+   "maxFrameSize": [
+    111,
+    171
+   ],
+   "usedByItemBases": [
+    "armor/magic_boots.txt"
+   ]
+  },
+  {
+   "id": "buckler",
+   "animFile": "mods/fantasycore/animations/loot/buckler.txt",
+   "image": "mods/fantasycore/images/loot/buckler.png",
+   "imageSize": [
+    204,
+    440
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "directional": false,
+   "frameSemantics": "f0-f4 = item tossed up and tumbling in an arc (drop animation, frames offset upward up to ~250px), f5 = final resting pose on ground (hold this frame).",
+   "restingFrame": {
+    "index": 5,
+    "size": [
+     55,
+     30
+    ],
+    "rect": [
+     0,
+     410,
+     55,
+     30
+    ],
+    "anchor": [
+     27,
+     17
+    ]
+   },
+   "maxFrameSize": [
+    129,
+    221
+   ],
+   "usedByItemBases": [
+    "shields/iron.txt",
+    "shields/wood.txt"
+   ]
+  },
+  {
+   "id": "clothes",
+   "animFile": "mods/fantasycore/animations/loot/clothes.txt",
+   "image": "mods/fantasycore/images/loot/clothes.png",
+   "imageSize": [
+    232,
+    435
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "directional": false,
+   "frameSemantics": "f0-f4 = item tossed up and tumbling in an arc (drop animation, frames offset upward up to ~250px), f5 = final resting pose on ground (hold this frame).",
+   "restingFrame": {
+    "index": 5,
+    "size": [
+     58,
+     34
+    ],
+    "rect": [
+     0,
+     401,
+     58,
+     34
+    ],
+    "anchor": [
+     29,
+     21
+    ]
+   },
+   "maxFrameSize": [
+    139,
+    219
+   ],
+   "usedByItemBases": [
+    "armor/cloth/chest.txt",
+    "armor/cloth/feet.txt",
+    "armor/cloth/hands.txt",
+    "armor/cloth/legs.txt",
+    "armor/mage/chest.txt",
+    "armor/mage/feet.txt",
+    "armor/mage/hands.txt",
+    "armor/mage/head.txt",
+    "armor/mage/legs.txt",
+    "armor/mage_alt1/chest.txt",
+    "armor/mage_alt1/feet.txt",
+    "armor/mage_alt1/hands.txt",
+    "armor/mage_alt1/head.txt",
+    "armor/mage_alt1/legs.txt",
+    "armor/mage_alt2/chest.txt",
+    "armor/mage_alt2/feet.txt",
+    "armor/mage_alt2/hands.txt",
+    "armor/mage_alt2/head.txt",
+    "armor/mage_alt2/legs.txt"
+   ]
+  },
+  {
+   "id": "club",
+   "animFile": "mods/fantasycore/animations/loot/club.txt",
+   "image": "mods/fantasycore/images/loot/club.png",
+   "imageSize": [
+    321,
+    278
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "directional": false,
+   "frameSemantics": "f0-f4 = item tossed up and tumbling in an arc (drop animation, frames offset upward up to ~250px), f5 = final resting pose on ground (hold this frame).",
+   "restingFrame": {
+    "index": 5,
+    "size": [
+     58,
+     22
+    ],
+    "rect": [
+     0,
+     256,
+     58,
+     22
+    ],
+    "anchor": [
+     38,
+     11
+    ]
+   },
+   "maxFrameSize": [
+    126,
+    256
+   ],
+   "usedByItemBases": [
+    "weapons/melee/club.txt"
+   ]
+  },
+  {
+   "id": "coins100",
+   "animFile": "mods/fantasycore/animations/loot/coins100.txt",
+   "image": "mods/fantasycore/images/loot/coins100.png",
+   "imageSize": [
+    414,
+    441
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "directional": false,
+   "frameSemantics": "f0-f4 = item tossed up and tumbling in an arc (drop animation, frames offset upward up to ~250px), f5 = final resting pose on ground (hold this frame).",
+   "restingFrame": {
+    "index": 5,
+    "size": [
+     94,
+     43
+    ],
+    "rect": [
+     282,
+     394,
+     94,
+     43
+    ],
+    "anchor": [
+     42,
+     20
+    ]
+   },
+   "maxFrameSize": [
+    159,
+    224
+   ],
+   "usedByItemBases": []
+  },
+  {
+   "id": "coins25",
+   "animFile": "mods/fantasycore/animations/loot/coins25.txt",
+   "image": "mods/fantasycore/images/loot/coins25.png",
+   "imageSize": [
+    401,
+    432
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "directional": false,
+   "frameSemantics": "f0-f4 = item tossed up and tumbling in an arc (drop animation, frames offset upward up to ~250px), f5 = final resting pose on ground (hold this frame).",
+   "restingFrame": {
+    "index": 5,
+    "size": [
+     99,
+     42
+    ],
+    "rect": [
+     126,
+     390,
+     99,
+     42
+    ],
+    "anchor": [
+     48,
+     21
+    ]
+   },
+   "maxFrameSize": [
+    162,
+    227
+   ],
+   "usedByItemBases": []
+  },
+  {
+   "id": "coins5",
+   "animFile": "mods/fantasycore/animations/loot/coins5.txt",
+   "image": "mods/fantasycore/images/loot/coins5.png",
+   "imageSize": [
+    273,
+    500
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "directional": false,
+   "frameSemantics": "f0-f4 = item tossed up and tumbling in an arc (drop animation, frames offset upward up to ~250px), f5 = final resting pose on ground (hold this frame).",
+   "restingFrame": {
+    "index": 5,
+    "size": [
+     66,
+     29
+    ],
+    "rect": [
+     0,
+     418,
+     66,
+     29
+    ],
+    "anchor": [
+     36,
+     15
+    ]
+   },
+   "maxFrameSize": [
+    144,
+    209
+   ],
+   "usedByItemBases": []
+  },
+  {
+   "id": "dagger",
+   "animFile": "mods/fantasycore/animations/loot/dagger.txt",
+   "image": "mods/fantasycore/images/loot/dagger.png",
+   "imageSize": [
+    183,
+    378
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "directional": false,
+   "frameSemantics": "f0-f4 = item tossed up and tumbling in an arc (drop animation, frames offset upward up to ~250px), f5 = final resting pose on ground (hold this frame).",
+   "restingFrame": {
+    "index": 5,
+    "size": [
+     43,
+     11
+    ],
+    "rect": [
+     94,
+     336,
+     43,
+     11
+    ],
+    "anchor": [
+     22,
+     8
+    ]
+   },
+   "maxFrameSize": [
+    129,
+    227
+   ],
+   "usedByItemBases": [
+    "weapons/melee/dagger.txt"
+   ]
+  },
+  {
+   "id": "gem",
+   "animFile": "mods/fantasycore/animations/loot/gem.txt",
+   "image": "mods/fantasycore/images/loot/gem.png",
+   "imageSize": [
+    170,
+    316
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "directional": false,
+   "frameSemantics": "f0-f4 = item tossed up and tumbling in an arc (drop animation, frames offset upward up to ~250px), f5 = final resting pose on ground (hold this frame).",
+   "restingFrame": {
+    "index": 5,
+    "size": [
+     14,
+     13
+    ],
+    "rect": [
+     79,
+     197,
+     14,
+     13
+    ],
+    "anchor": [
+     7,
+     9
+    ]
+   },
+   "maxFrameSize": [
+    103,
+    197
+   ],
+   "usedByItemBases": [
+    "gems/diamond.txt",
+    "gems/emerald.txt",
+    "gems/ruby.txt",
+    "gems/sapphire.txt",
+    "necklaces/gold_1.txt",
+    "necklaces/gold_2.txt",
+    "necklaces/silver_1.txt",
+    "necklaces/silver_2.txt"
+   ]
+  },
+  {
+   "id": "greatbow",
+   "animFile": "mods/fantasycore/animations/loot/greatbow.txt",
+   "image": "mods/fantasycore/images/loot/greatbow.png",
+   "imageSize": [
+    386,
+    477
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "directional": false,
+   "frameSemantics": "f0-f4 = item tossed up and tumbling in an arc (drop animation, frames offset upward up to ~250px), f5 = final resting pose on ground (hold this frame).",
+   "restingFrame": {
+    "index": 5,
+    "size": [
+     146,
+     56
+    ],
+    "rect": [
+     143,
+     230,
+     146,
+     56
+    ],
+    "anchor": [
+     78,
+     37
+    ]
+   },
+   "maxFrameSize": [
+    197,
+    295
+   ],
+   "usedByItemBases": [
+    "weapons/ranged/greatbow.txt"
+   ]
+  },
+  {
+   "id": "greatstaff",
+   "animFile": "mods/fantasycore/animations/loot/greatstaff.txt",
+   "image": "mods/fantasycore/images/loot/greatstaff.png",
+   "imageSize": [
+    214,
+    989
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "directional": false,
+   "frameSemantics": "f0-f4 = item tossed up and tumbling in an arc (drop animation, frames offset upward up to ~250px), f5 = final resting pose on ground (hold this frame).",
+   "restingFrame": {
+    "index": 5,
+    "size": [
+     85,
+     99
+    ],
+    "rect": [
+     129,
+     414,
+     85,
+     99
+    ],
+    "anchor": [
+     55,
+     53
+    ]
+   },
+   "maxFrameSize": [
+    213,
+    282
+   ],
+   "usedByItemBases": [
+    "weapons/magic/greatstaff.txt"
+   ]
+  },
+  {
+   "id": "greatsword",
+   "animFile": "mods/fantasycore/animations/loot/greatsword.txt",
+   "image": "mods/fantasycore/images/loot/greatsword.png",
+   "imageSize": [
+    362,
+    448
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "directional": false,
+   "frameSemantics": "f0-f4 = item tossed up and tumbling in an arc (drop animation, frames offset upward up to ~250px), f5 = final resting pose on ground (hold this frame).",
+   "restingFrame": {
+    "index": 5,
+    "size": [
+     109,
+     93
+    ],
+    "rect": [
+     233,
+     331,
+     109,
+     93
+    ],
+    "anchor": [
+     41,
+     95
+    ]
+   },
+   "maxFrameSize": [
+    169,
+    257
+   ],
+   "usedByItemBases": [
+    "weapons/melee/greatsword.txt"
+   ]
+  },
+  {
+   "id": "hand_axe",
+   "animFile": "mods/fantasycore/animations/loot/hand_axe.txt",
+   "image": "mods/fantasycore/images/loot/hand_axe.png",
+   "imageSize": [
+    317,
+    300
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "directional": false,
+   "frameSemantics": "f0-f4 = item tossed up and tumbling in an arc (drop animation, frames offset upward up to ~250px), f5 = final resting pose on ground (hold this frame).",
+   "restingFrame": {
+    "index": 5,
+    "size": [
+     47,
+     36
+    ],
+    "rect": [
+     0,
+     255,
+     47,
+     36
+    ],
+    "anchor": [
+     36,
+     15
+    ]
+   },
+   "maxFrameSize": [
+    136,
+    255
+   ],
+   "usedByItemBases": [
+    "weapons/melee/hand_axe.txt"
+   ]
+  },
+  {
+   "id": "hp_potion",
+   "animFile": "mods/fantasycore/animations/loot/hp_potion.txt",
+   "image": "mods/fantasycore/images/loot/hp_potion.png",
+   "imageSize": [
+    207,
+    316
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "directional": false,
+   "frameSemantics": "f0-f4 = item tossed up and tumbling in an arc (drop animation, frames offset upward up to ~250px), f5 = final resting pose on ground (hold this frame).",
+   "restingFrame": {
+    "index": 5,
+    "size": [
+     28,
+     30
+    ],
+    "rect": [
+     71,
+     275,
+     28,
+     30
+    ],
+    "anchor": [
+     12,
+     25
+    ]
+   },
+   "maxFrameSize": [
+    104,
+    192
+   ],
+   "usedByItemBases": [
+    "potion/hp.txt"
+   ]
+  },
+  {
+   "id": "infantry_axe",
+   "animFile": "mods/fantasycore/animations/loot/infantry_axe.txt",
+   "image": "mods/fantasycore/images/loot/infantry_axe.png",
+   "imageSize": [
+    320,
+    381
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "directional": false,
+   "frameSemantics": "f0-f4 = item tossed up and tumbling in an arc (drop animation, frames offset upward up to ~250px), f5 = final resting pose on ground (hold this frame).",
+   "restingFrame": {
+    "index": 5,
+    "size": [
+     90,
+     29
+    ],
+    "rect": [
+     186,
+     348,
+     90,
+     29
+    ],
+    "anchor": [
+     41,
+     15
+    ]
+   },
+   "maxFrameSize": [
+    158,
+    256
+   ],
+   "usedByItemBases": [
+    "weapons/ranged/throwing_axe.txt",
+    "weapons/melee/infantry_axe.txt"
+   ]
+  },
+  {
+   "id": "leather_armor",
+   "animFile": "mods/fantasycore/animations/loot/leather_armor.txt",
+   "image": "mods/fantasycore/images/loot/leather_armor.png",
+   "imageSize": [
+    275,
+    479
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "directional": false,
+   "frameSemantics": "f0-f4 = item tossed up and tumbling in an arc (drop animation, frames offset upward up to ~250px), f5 = final resting pose on ground (hold this frame).",
+   "restingFrame": {
+    "index": 5,
+    "size": [
+     70,
+     44
+    ],
+    "rect": [
+     0,
+     422,
+     70,
+     44
+    ],
+    "anchor": [
+     29,
+     26
+    ]
+   },
+   "maxFrameSize": [
+    150,
+    229
+   ],
+   "usedByItemBases": [
+    "armor/leather/chest.txt",
+    "armor/leather/feet.txt",
+    "armor/leather/hands.txt",
+    "armor/leather/head.txt",
+    "armor/leather/legs.txt"
+   ]
+  },
+  {
+   "id": "longbow",
+   "animFile": "mods/fantasycore/animations/loot/longbow.txt",
+   "image": "mods/fantasycore/images/loot/longbow.png",
+   "imageSize": [
+    351,
+    450
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "directional": false,
+   "frameSemantics": "f0-f4 = item tossed up and tumbling in an arc (drop animation, frames offset upward up to ~250px), f5 = final resting pose on ground (hold this frame).",
+   "restingFrame": {
+    "index": 5,
+    "size": [
+     90,
+     58
+    ],
+    "rect": [
+     234,
+     336,
+     90,
+     58
+    ],
+    "anchor": [
+     39,
+     37
+    ]
+   },
+   "maxFrameSize": [
+    164,
+    245
+   ],
+   "usedByItemBases": [
+    "weapons/ranged/longbow.txt"
+   ]
+  },
+  {
+   "id": "longsword",
+   "animFile": "mods/fantasycore/animations/loot/longsword.txt",
+   "image": "mods/fantasycore/images/loot/longsword.png",
+   "imageSize": [
+    290,
+    469
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "directional": false,
+   "frameSemantics": "f0-f4 = item tossed up and tumbling in an arc (drop animation, frames offset upward up to ~250px), f5 = final resting pose on ground (hold this frame).",
+   "restingFrame": {
+    "index": 5,
+    "size": [
+     100,
+     22
+    ],
+    "rect": [
+     0,
+     430,
+     100,
+     22
+    ],
+    "anchor": [
+     57,
+     14
+    ]
+   },
+   "maxFrameSize": [
+    163,
+    242
+   ],
+   "usedByItemBases": [
+    "weapons/melee/longsword.txt"
+   ]
+  },
+  {
+   "id": "mace",
+   "animFile": "mods/fantasycore/animations/loot/mace.txt",
+   "image": "mods/fantasycore/images/loot/mace.png",
+   "imageSize": [
+    271,
+    435
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "directional": false,
+   "frameSemantics": "f0-f4 = item tossed up and tumbling in an arc (drop animation, frames offset upward up to ~250px), f5 = final resting pose on ground (hold this frame).",
+   "restingFrame": {
+    "index": 5,
+    "size": [
+     68,
+     38
+    ],
+    "rect": [
+     152,
+     128,
+     68,
+     38
+    ],
+    "anchor": [
+     45,
+     19
+    ]
+   },
+   "maxFrameSize": [
+    152,
+    264
+   ],
+   "usedByItemBases": [
+    "weapons/melee/mace.txt"
+   ]
+  },
+  {
+   "id": "maul",
+   "animFile": "mods/fantasycore/animations/loot/maul.txt",
+   "image": "mods/fantasycore/images/loot/maul.png",
+   "imageSize": [
+    322,
+    428
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "directional": false,
+   "frameSemantics": "f0-f4 = item tossed up and tumbling in an arc (drop animation, frames offset upward up to ~250px), f5 = final resting pose on ground (hold this frame).",
+   "restingFrame": {
+    "index": 5,
+    "size": [
+     78,
+     57
+    ],
+    "rect": [
+     242,
+     296,
+     78,
+     57
+    ],
+    "anchor": [
+     43,
+     29
+    ]
+   },
+   "maxFrameSize": [
+    164,
+    281
+   ],
+   "usedByItemBases": [
+    "weapons/melee/maul.txt"
+   ]
+  },
+  {
+   "id": "mp_potion",
+   "animFile": "mods/fantasycore/animations/loot/mp_potion.txt",
+   "image": "mods/fantasycore/images/loot/mp_potion.png",
+   "imageSize": [
+    202,
+    337
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "directional": false,
+   "frameSemantics": "f0-f4 = item tossed up and tumbling in an arc (drop animation, frames offset upward up to ~250px), f5 = final resting pose on ground (hold this frame).",
+   "restingFrame": {
+    "index": 5,
+    "size": [
+     29,
+     35
+    ],
+    "rect": [
+     70,
+     286,
+     29,
+     35
+    ],
+    "anchor": [
+     12,
+     31
+    ]
+   },
+   "maxFrameSize": [
+    105,
+    194
+   ],
+   "usedByItemBases": [
+    "potion/mp.txt"
+   ]
+  },
+  {
+   "id": "pouch",
+   "animFile": "mods/fantasycore/animations/loot/pouch.txt",
+   "image": "mods/fantasycore/images/loot/pouch.png",
+   "imageSize": [
+    228,
+    393
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "directional": false,
+   "frameSemantics": "f0-f4 = item tossed up and tumbling in an arc (drop animation, frames offset upward up to ~250px), f5 = final resting pose on ground (hold this frame).",
+   "restingFrame": {
+    "index": 5,
+    "size": [
+     40,
+     45
+    ],
+    "rect": [
+     181,
+     310,
+     40,
+     45
+    ],
+    "anchor": [
+     19,
+     34
+    ]
+   },
+   "maxFrameSize": [
+    128,
+    202
+   ],
+   "usedByItemBases": [
+    "misc/generic.txt",
+    "figurines/bear.txt",
+    "figurines/cat.txt",
+    "figurines/owl.txt",
+    "figurines/turtle.txt",
+    "misc/key.txt"
+   ]
+  },
+  {
+   "id": "reinforced_club",
+   "animFile": "mods/fantasycore/animations/loot/reinforced_club.txt",
+   "image": "mods/fantasycore/images/loot/reinforced_club.png",
+   "imageSize": [
+    238,
+    404
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "directional": false,
+   "frameSemantics": "f0-f4 = item tossed up and tumbling in an arc (drop animation, frames offset upward up to ~250px), f5 = final resting pose on ground (hold this frame).",
+   "restingFrame": {
+    "index": 5,
+    "size": [
+     49,
+     34
+    ],
+    "rect": [
+     1,
+     370,
+     49,
+     34
+    ],
+    "anchor": [
+     33,
+     16
+    ]
+   },
+   "maxFrameSize": [
+    137,
+    256
+   ],
+   "usedByItemBases": [
+    "weapons/melee/reinforced_club.txt"
+   ]
+  },
+  {
+   "id": "ring",
+   "animFile": "mods/fantasycore/animations/loot/ring.txt",
+   "image": "mods/fantasycore/images/loot/ring.png",
+   "imageSize": [
+    170,
+    311
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "directional": false,
+   "frameSemantics": "f0-f4 = item tossed up and tumbling in an arc (drop animation, frames offset upward up to ~250px), f5 = final resting pose on ground (hold this frame).",
+   "restingFrame": {
+    "index": 5,
+    "size": [
+     18,
+     13
+    ],
+    "rect": [
+     62,
+     249,
+     18,
+     13
+    ],
+    "anchor": [
+     9,
+     8
+    ]
+   },
+   "maxFrameSize": [
+    97,
+    184
+   ],
+   "usedByItemBases": [
+    "rings/gold_1.txt",
+    "rings/gold_2.txt",
+    "rings/gold_3.txt",
+    "rings/gold_4.txt",
+    "rings/gold_5.txt",
+    "rings/silver_1.txt",
+    "rings/silver_2.txt",
+    "rings/silver_3.txt",
+    "rings/silver_4.txt",
+    "rings/silver_5.txt"
+   ]
+  },
+  {
+   "id": "rod",
+   "animFile": "mods/fantasycore/animations/loot/rod.txt",
+   "image": "mods/fantasycore/images/loot/rod.png",
+   "imageSize": [
+    231,
+    413
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "directional": false,
+   "frameSemantics": "f0-f4 = item tossed up and tumbling in an arc (drop animation, frames offset upward up to ~250px), f5 = final resting pose on ground (hold this frame).",
+   "restingFrame": {
+    "index": 5,
+    "size": [
+     73,
+     28
+    ],
+    "rect": [
+     63,
+     220,
+     73,
+     28
+    ],
+    "anchor": [
+     47,
+     16
+    ]
+   },
+   "maxFrameSize": [
+    142,
+    220
+   ],
+   "usedByItemBases": [
+    "weapons/magic/rod.txt"
+   ]
+  },
+  {
+   "id": "scroll",
+   "animFile": "mods/fantasycore/animations/loot/scroll.txt",
+   "image": "mods/fantasycore/images/loot/scroll.png",
+   "imageSize": [
+    314,
+    374
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "directional": false,
+   "frameSemantics": "f0-f4 = item tossed up and tumbling in an arc (drop animation, frames offset upward up to ~250px), f5 = final resting pose on ground (hold this frame).",
+   "restingFrame": {
+    "index": 5,
+    "size": [
+     77,
+     44
+    ],
+    "rect": [
+     232,
+     271,
+     77,
+     44
+    ],
+    "anchor": [
+     38,
+     26
+    ]
+   },
+   "maxFrameSize": [
+    158,
+    213
+   ],
+   "usedByItemBases": [
+    "scrolls/scroll_1.txt",
+    "scrolls/scroll_2.txt",
+    "scrolls/scroll_3.txt",
+    "scrolls/scroll_4.txt",
+    "scrolls/scroll_5.txt",
+    "scrolls/scroll_6.txt",
+    "scrolls/scroll_7.txt",
+    "scrolls/scroll_8.txt",
+    "scrolls/scroll_blank.txt"
+   ]
+  },
+  {
+   "id": "shield",
+   "animFile": "mods/fantasycore/animations/loot/shield.txt",
+   "image": "mods/fantasycore/images/loot/shield.png",
+   "imageSize": [
+    298,
+    411
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "directional": false,
+   "frameSemantics": "f0-f4 = item tossed up and tumbling in an arc (drop animation, frames offset upward up to ~250px), f5 = final resting pose on ground (hold this frame).",
+   "restingFrame": {
+    "index": 5,
+    "size": [
+     51,
+     50
+    ],
+    "rect": [
+     153,
+     180,
+     51,
+     50
+    ],
+    "anchor": [
+     31,
+     28
+    ]
+   },
+   "maxFrameSize": [
+    153,
+    239
+   ],
+   "usedByItemBases": [
+    "shields/kite.txt",
+    "shields/steel.txt"
+   ]
+  },
+  {
+   "id": "shortbow",
+   "animFile": "mods/fantasycore/animations/loot/shortbow.txt",
+   "image": "mods/fantasycore/images/loot/shortbow.png",
+   "imageSize": [
+    255,
+    366
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "directional": false,
+   "frameSemantics": "f0-f4 = item tossed up and tumbling in an arc (drop animation, frames offset upward up to ~250px), f5 = final resting pose on ground (hold this frame).",
+   "restingFrame": {
+    "index": 5,
+    "size": [
+     90,
+     21
+    ],
+    "rect": [
+     0,
+     336,
+     90,
+     21
+    ],
+    "anchor": [
+     42,
+     16
+    ]
+   },
+   "maxFrameSize": [
+    154,
+    199
+   ],
+   "usedByItemBases": [
+    "weapons/ranged/shortbow.txt"
+   ]
+  },
+  {
+   "id": "shortsword",
+   "animFile": "mods/fantasycore/animations/loot/shortsword.txt",
+   "image": "mods/fantasycore/images/loot/shortsword.png",
+   "imageSize": [
+    216,
+    396
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "directional": false,
+   "frameSemantics": "f0-f4 = item tossed up and tumbling in an arc (drop animation, frames offset upward up to ~250px), f5 = final resting pose on ground (hold this frame).",
+   "restingFrame": {
+    "index": 5,
+    "size": [
+     43,
+     37
+    ],
+    "rect": [
+     0,
+     357,
+     43,
+     37
+    ],
+    "anchor": [
+     7,
+     11
+    ]
+   },
+   "maxFrameSize": [
+    122,
+    218
+   ],
+   "usedByItemBases": [
+    "weapons/melee/shortsword.txt"
+   ]
+  },
+  {
+   "id": "slingshot",
+   "animFile": "mods/fantasycore/animations/loot/slingshot.txt",
+   "image": "mods/fantasycore/images/loot/slingshot.png",
+   "imageSize": [
+    185,
+    389
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "directional": false,
+   "frameSemantics": "f0-f4 = item tossed up and tumbling in an arc (drop animation, frames offset upward up to ~250px), f5 = final resting pose on ground (hold this frame).",
+   "restingFrame": {
+    "index": 5,
+    "size": [
+     26,
+     25
+    ],
+    "rect": [
+     0,
+     364,
+     26,
+     25
+    ],
+    "anchor": [
+     9,
+     15
+    ]
+   },
+   "maxFrameSize": [
+    106,
+    201
+   ],
+   "usedByItemBases": [
+    "weapons/ranged/slingshot.txt"
+   ]
+  },
+  {
+   "id": "smith_hammer",
+   "animFile": "mods/fantasycore/animations/loot/smith_hammer.txt",
+   "image": "mods/fantasycore/images/loot/smith_hammer.png",
+   "imageSize": [
+    234,
+    437
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "directional": false,
+   "frameSemantics": "f0-f4 = item tossed up and tumbling in an arc (drop animation, frames offset upward up to ~250px), f5 = final resting pose on ground (hold this frame).",
+   "restingFrame": {
+    "index": 5,
+    "size": [
+     55,
+     30
+    ],
+    "rect": [
+     135,
+     407,
+     55,
+     30
+    ],
+    "anchor": [
+     32,
+     15
+    ]
+   },
+   "maxFrameSize": [
+    138,
+    255
+   ],
+   "usedByItemBases": [
+    "weapons/melee/smith_hammer.txt"
+   ]
+  },
+  {
+   "id": "staff",
+   "animFile": "mods/fantasycore/animations/loot/staff.txt",
+   "image": "mods/fantasycore/images/loot/staff.png",
+   "imageSize": [
+    352,
+    444
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "directional": false,
+   "frameSemantics": "f0-f4 = item tossed up and tumbling in an arc (drop animation, frames offset upward up to ~250px), f5 = final resting pose on ground (hold this frame).",
+   "restingFrame": {
+    "index": 5,
+    "size": [
+     84,
+     75
+    ],
+    "rect": [
+     1,
+     0,
+     84,
+     75
+    ],
+    "anchor": [
+     40,
+     38
+    ]
+   },
+   "maxFrameSize": [
+    212,
+    282
+   ],
+   "usedByItemBases": [
+    "weapons/magic/staff.txt"
+   ]
+  },
+  {
+   "id": "steel_armor",
+   "animFile": "mods/fantasycore/animations/loot/steel_armor.txt",
+   "image": "mods/fantasycore/images/loot/steel_armor.png",
+   "imageSize": [
+    292,
+    494
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "directional": false,
+   "frameSemantics": "f0-f4 = item tossed up and tumbling in an arc (drop animation, frames offset upward up to ~250px), f5 = final resting pose on ground (hold this frame).",
+   "restingFrame": {
+    "index": 5,
+    "size": [
+     90,
+     52
+    ],
+    "rect": [
+     0,
+     432,
+     90,
+     52
+    ],
+    "anchor": [
+     52,
+     33
+    ]
+   },
+   "maxFrameSize": [
+    172,
+    242
+   ],
+   "usedByItemBases": [
+    "armor/chain/chest.txt",
+    "armor/chain/feet.txt",
+    "armor/chain/hands.txt",
+    "armor/chain/head.txt",
+    "armor/chain/legs.txt",
+    "armor/plate/chest.txt",
+    "armor/plate/feet.txt",
+    "armor/plate/hands.txt",
+    "armor/plate/head.txt",
+    "armor/plate/legs.txt"
+   ]
+  },
+  {
+   "id": "wand",
+   "animFile": "mods/fantasycore/animations/loot/wand.txt",
+   "image": "mods/fantasycore/images/loot/wand.png",
+   "imageSize": [
+    192,
+    395
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "directional": false,
+   "frameSemantics": "f0-f4 = item tossed up and tumbling in an arc (drop animation, frames offset upward up to ~250px), f5 = final resting pose on ground (hold this frame).",
+   "restingFrame": {
+    "index": 5,
+    "size": [
+     42,
+     15
+    ],
+    "rect": [
+     136,
+     151,
+     42,
+     15
+    ],
+    "anchor": [
+     17,
+     7
+    ]
+   },
+   "maxFrameSize": [
+    136,
+    215
+   ],
+   "usedByItemBases": [
+    "weapons/magic/wand.txt"
+   ]
+  },
+  {
+   "id": "war_hammer",
+   "animFile": "mods/fantasycore/animations/loot/war_hammer.txt",
+   "image": "mods/fantasycore/images/loot/war_hammer.png",
+   "imageSize": [
+    228,
+    484
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "directional": false,
+   "frameSemantics": "f0-f4 = item tossed up and tumbling in an arc (drop animation, frames offset upward up to ~250px), f5 = final resting pose on ground (hold this frame).",
+   "restingFrame": {
+    "index": 5,
+    "size": [
+     72,
+     41
+    ],
+    "rect": [
+     0,
+     443,
+     72,
+     41
+    ],
+    "anchor": [
+     50,
+     17
+    ]
+   },
+   "maxFrameSize": [
+    141,
+    268
+   ],
+   "usedByItemBases": [
+    "weapons/melee/war_hammer.txt"
+   ]
+  },
+  {
+   "id": "zweihander",
+   "animFile": "mods/fantasycore/animations/loot/zweihander.txt",
+   "image": "mods/fantasycore/images/loot/zweihander.png",
+   "imageSize": [
+    381,
+    347
+   ],
+   "frames": 6,
+   "durationMs": 600,
+   "playback": "play_once",
+   "directional": false,
+   "frameSemantics": "f0-f4 = item tossed up and tumbling in an arc (drop animation, frames offset upward up to ~250px), f5 = final resting pose on ground (hold this frame).",
+   "restingFrame": {
+    "index": 5,
+    "size": [
+     81,
+     60
+    ],
+    "rect": [
+     0,
+     285,
+     81,
+     60
+    ],
+    "anchor": [
+     40,
+     28
+    ]
+   },
+   "maxFrameSize": [
+    158,
+    285
+   ],
+   "usedByItemBases": [
+    "weapons/melee/zweihander.txt"
+   ]
+  }
+ ]
+}

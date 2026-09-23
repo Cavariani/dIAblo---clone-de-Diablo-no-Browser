@@ -1,0 +1,2813 @@
+{
+ "generatedBy": ".assets-src/scratch/fx-icons-audio/gen.cjs (durations parsed from Ogg last-page granule / WAV data chunk; no ffprobe on this machine)",
+ "creditsSource": "https://github.com/flareteam/flare-game/wiki/Credits (saved: .assets-src/scratch/fx-icons-audio/credits_game.md). Files not listed there fall back to Flare art license CC-BY-SA 3.0.",
+ "licenseNotes": "Flare audio mixes CC0, CC-BY 3.0, CC-BY-SA 3.0 — ship a CREDITS screen listing author+license per file used. Bart K requires a link to OpenGameArt.org.",
+ "engineHooks": {
+  "sfx_loot": "soundfx/flying_loot.ogg",
+  "sfx_unable_to_cast": "soundfx/no_mana.ogg",
+  "widget_activate": "soundfx/widget_activate.ogg",
+  "stepSounds": "items/step_sounds.txt: cloth/leather/metal x4 each; step_echo1-4 unused by default"
+ },
+ "counts": {
+  "flareSfx": 116,
+  "flareMusic": 12,
+  "cc0Packs": 23,
+  "cc0Files": 1139
+ },
+ "sfx": [
+  {
+   "path": "mods/fantasycore/soundfx/door_open.ogg",
+   "durationSec": 0.561,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 7566,
+   "description": "wooden door opening creak",
+   "author": "Iwan \"qubodup\" Gabovitch (http://opengameart.org/users/qubodup)",
+   "license": "Public Domain, CC0",
+   "original": [
+    "http://opengameart.org/content/door-open-door-close"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "door open"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/enemies/antlion_critdie.ogg",
+   "durationSec": 0.886,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "bytes": 18616,
+   "description": "antlion crit death (gib)",
+   "author": "Ljudbank (http://www.johannespinter.com/inu/ljudbank.htm)",
+   "license": "Public Domain, CC0",
+   "original": [
+    "http://opengameart.org/content/8-wet-squish-slurp-impacts"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "enemy insect/beetle crit death (gib)"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/enemies/antlion_die.ogg",
+   "durationSec": 1.02,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 11854,
+   "description": "antlion death",
+   "author": "Ljudbank (http://www.johannespinter.com/inu/ljudbank.htm)",
+   "license": "Public Domain, CC0",
+   "original": [
+    "http://opengameart.org/content/8-wet-squish-slurp-impacts"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "enemy insect/beetle death"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/enemies/antlion_hit.ogg",
+   "durationSec": 0.668,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 8368,
+   "description": "antlion hurt",
+   "author": "Michel Baradari",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/15-monster-gruntpaindeath-sounds"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "enemy insect/beetle hurt"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/enemies/antlion_ment.ogg",
+   "durationSec": 0.586,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 8857,
+   "description": "antlion magic/mental attack (cast)",
+   "author": "uncredited on wiki (Flare team asset)",
+   "license": "CC-BY-SA 3.0 (Flare art default per wiki License section)",
+   "flareUsage": [],
+   "suggestedUse": "enemy insect/beetle magic/mental attack (cast)"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/enemies/antlion_phys.ogg",
+   "durationSec": 0.586,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 7789,
+   "description": "antlion physical attack",
+   "author": "Iwan \"qubodup\" Gabovitch (http://opengameart.org/users/qubodup)",
+   "license": "Public Domain, CC0",
+   "original": [
+    "http://opengameart.org/content/insect-or-alien-scream-short"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "enemy insect/beetle physical attack"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/enemies/goblin_die.ogg",
+   "durationSec": 1.186,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 12031,
+   "description": "goblin death",
+   "author": "MaximB",
+   "license": "CC-BY-SA 3.0",
+   "original": [
+    "http://opengameart.org/content/drunk-dwarf-voice-pack"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "enemy goblin/imp (fallen-like) death"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/enemies/goblin_hit.ogg",
+   "durationSec": 0.203,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 5564,
+   "description": "goblin hurt",
+   "author": "MaximB",
+   "license": "CC-BY-SA 3.0",
+   "original": [
+    "http://opengameart.org/content/drunk-dwarf-voice-pack"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "enemy goblin/imp (fallen-like) hurt"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/enemies/goblin_ment.ogg",
+   "durationSec": 1.185,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 14148,
+   "description": "goblin magic/mental attack (cast)",
+   "author": "MaximB",
+   "license": "CC-BY-SA 3.0",
+   "original": [
+    "http://opengameart.org/content/drunk-dwarf-voice-pack"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "enemy goblin/imp (fallen-like) magic/mental attack (cast)"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/enemies/goblin_phys.ogg",
+   "durationSec": 0.468,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 7397,
+   "description": "goblin physical attack",
+   "author": "MaximB",
+   "license": "CC-BY-SA 3.0",
+   "original": [
+    "http://opengameart.org/content/drunk-dwarf-voice-pack"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "enemy goblin/imp (fallen-like) physical attack"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/enemies/grave_attack.ogg",
+   "durationSec": 3.431,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "bytes": 70371,
+   "description": "grave attack",
+   "author": "uncredited on wiki (Flare team asset)",
+   "license": "CC-BY-SA 3.0 (Flare art default per wiki License section)",
+   "flareUsage": [],
+   "suggestedUse": "enemy cursed grave/ghost attack"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/enemies/grave_die.ogg",
+   "durationSec": 1.005,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 1,
+   "bytes": 18590,
+   "description": "grave death",
+   "author": "uncredited on wiki (Flare team asset)",
+   "license": "CC-BY-SA 3.0 (Flare art default per wiki License section)",
+   "flareUsage": [],
+   "suggestedUse": "enemy cursed grave/ghost death"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/enemies/grave_hit.ogg",
+   "durationSec": 0.511,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 1,
+   "bytes": 10480,
+   "description": "grave hurt",
+   "author": "uncredited on wiki (Flare team asset)",
+   "license": "CC-BY-SA 3.0 (Flare art default per wiki License section)",
+   "flareUsage": [],
+   "suggestedUse": "enemy cursed grave/ghost hurt"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/enemies/minotaur_critdie.ogg",
+   "durationSec": 1.268,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 9066,
+   "description": "minotaur crit death (gib)",
+   "author": "Brandon Morris (Augmentality) (http://www.youtube.com/brandon75689)",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/osare-minotaur-sounds"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "enemy large brute/boss crit death (gib)"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/enemies/minotaur_die.ogg",
+   "durationSec": 1.268,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 9066,
+   "description": "minotaur death",
+   "author": "Brandon Morris (Augmentality) (http://www.youtube.com/brandon75689)",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/osare-minotaur-sounds"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "enemy large brute/boss death"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/enemies/minotaur_hit.ogg",
+   "durationSec": 1.172,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 7493,
+   "description": "minotaur hurt",
+   "author": "Brandon Morris (Augmentality) (http://www.youtube.com/brandon75689)",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/osare-minotaur-sounds"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "enemy large brute/boss hurt"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/enemies/minotaur_phys.ogg",
+   "durationSec": 1.116,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 7427,
+   "description": "minotaur physical attack",
+   "author": "Brandon Morris (Augmentality) (http://www.youtube.com/brandon75689)",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/osare-minotaur-sounds"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "enemy large brute/boss physical attack"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/enemies/skeleton_critdie.ogg",
+   "durationSec": 1.05,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 10885,
+   "description": "skeleton crit death (gib)",
+   "author": "Ljudbank (http://www.johannespinter.com/inu/ljudbank.htm)",
+   "license": "Public Domain, CC0",
+   "original": [
+    "http://opengameart.org/content/5-break-crunch-impacts"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "enemy skeleton crit death (gib)"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/enemies/skeleton_die.ogg",
+   "durationSec": 1.05,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 10885,
+   "description": "skeleton death",
+   "author": "Ljudbank (http://www.johannespinter.com/inu/ljudbank.htm)",
+   "license": "Public Domain, CC0",
+   "original": [
+    "http://opengameart.org/content/5-break-crunch-impacts"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "enemy skeleton death"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/enemies/skeleton_hit.ogg",
+   "durationSec": 0.542,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 8242,
+   "description": "skeleton hurt",
+   "author": "Ljudbank (http://www.johannespinter.com/inu/ljudbank.htm)",
+   "license": "Public Domain, CC0",
+   "original": [
+    "http://opengameart.org/content/5-break-crunch-impacts"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "enemy skeleton hurt"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/enemies/skeleton_phys.ogg",
+   "durationSec": 0.932,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 9754,
+   "description": "skeleton physical attack",
+   "author": "Iwan \"qubodup\" Gabovitch (http://opengameart.org/users/qubodup)",
+   "license": "Public Domain, CC0",
+   "original": [
+    "http://opengameart.org/content/ghost-breath"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "enemy skeleton physical attack"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/enemies/wyvern_die.ogg",
+   "durationSec": 0.836,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 1,
+   "bytes": 11756,
+   "description": "wyvern death",
+   "author": "Brandon Morris (Augmentality) (http://www.youtube.com/brandon75689)",
+   "license": "CC-BY 3.0",
+   "flareUsage": [],
+   "suggestedUse": "enemy flying beast/drake death"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/enemies/wyvern_hit.ogg",
+   "durationSec": 0.5,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 1,
+   "bytes": 9568,
+   "description": "wyvern hurt",
+   "author": "Brandon Morris (Augmentality) (http://www.youtube.com/brandon75689)",
+   "license": "CC-BY 3.0",
+   "flareUsage": [],
+   "suggestedUse": "enemy flying beast/drake hurt"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/enemies/wyvern_ment.ogg",
+   "durationSec": 1.313,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 1,
+   "bytes": 22195,
+   "description": "wyvern magic/mental attack (cast)",
+   "author": "Brandon Morris (Augmentality) (http://www.youtube.com/brandon75689)",
+   "license": "CC-BY 3.0",
+   "flareUsage": [],
+   "suggestedUse": "enemy flying beast/drake magic/mental attack (cast)"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/enemies/wyvern_phys.ogg",
+   "durationSec": 0.5,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 1,
+   "bytes": 8202,
+   "description": "wyvern physical attack",
+   "author": "Brandon Morris (Augmentality) (http://www.youtube.com/brandon75689)",
+   "license": "CC-BY 3.0",
+   "flareUsage": [],
+   "suggestedUse": "enemy flying beast/drake physical attack"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/enemies/zombie_critdie.ogg",
+   "durationSec": 1.118,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 13383,
+   "description": "zombie crit death (gib)",
+   "author": "Ljudbank (http://www.johannespinter.com/inu/ljudbank.htm)",
+   "license": "Public Domain, CC0",
+   "original": [
+    "http://opengameart.org/content/2-wooden-squish-splatter-sequences"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "enemy zombie/ghoul crit death (gib)"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/enemies/zombie_die.ogg",
+   "durationSec": 1.581,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 12971,
+   "description": "zombie death",
+   "author": "Ljudbank (http://www.johannespinter.com/inu/ljudbank.htm)",
+   "license": "Public Domain, CC0",
+   "original": [
+    "http://opengameart.org/content/2-wooden-squish-splatter-sequences"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "enemy zombie/ghoul death"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/enemies/zombie_hit.ogg",
+   "durationSec": 0.508,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 8715,
+   "description": "zombie hurt",
+   "author": "Ljudbank (http://www.johannespinter.com/inu/ljudbank.htm)",
+   "license": "Public Domain, CC0",
+   "original": [
+    "http://opengameart.org/content/2-wooden-squish-splatter-sequences"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "enemy zombie/ghoul hurt"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/enemies/zombie_ment.ogg",
+   "durationSec": 2.492,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 21981,
+   "description": "zombie magic/mental attack (cast)",
+   "author": "Bart K (http://www.opengameart.org)",
+   "license": "CC-BY-SA 3.0",
+   "original": [
+    "http://opengameart.org/content/25-spooky-sound-effects"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "enemy zombie/ghoul magic/mental attack (cast)"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/enemies/zombie_phys.ogg",
+   "durationSec": 1.281,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 12112,
+   "description": "zombie physical attack",
+   "author": "Bart K (http://www.opengameart.org)",
+   "license": "CC-BY-SA 3.0",
+   "original": [
+    "http://opengameart.org/content/25-spooky-sound-effects"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "enemy zombie/ghoul physical attack"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/environment/anvil_loop.ogg",
+   "durationSec": 24.906,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 1,
+   "bytes": 286804,
+   "description": "blacksmith hammering anvil loop",
+   "author": "uncredited on wiki (Flare team asset)",
+   "license": "CC-BY-SA 3.0 (Flare art default per wiki License section)",
+   "flareUsage": [],
+   "suggestedUse": "town blacksmith ambient"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/environment/bird_twitter_loop.ogg",
+   "durationSec": 9.364,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "bytes": 222530,
+   "description": "birds chirping loop",
+   "author": "Chris Castiglione (alienistcog) (http://www.freesound.org/people/alienistcog/)",
+   "license": "CC0",
+   "original": [
+    "http://www.freesound.org/people/alienistcog/sounds/125781/"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "outdoor day ambient"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/environment/cave_droplets_loop.ogg",
+   "durationSec": 10.14,
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "bytes": 163165,
+   "description": "cave water droplets loop",
+   "author": "uncredited on wiki (Flare team asset)",
+   "license": "CC-BY-SA 3.0 (Flare art default per wiki License section)",
+   "flareUsage": [],
+   "suggestedUse": "cave/dungeon ambient"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/environment/cave_wind_loop.ogg",
+   "durationSec": 21.712,
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "bytes": 455973,
+   "description": "low cave wind loop",
+   "author": "uncredited on wiki (Flare team asset)",
+   "license": "CC-BY-SA 3.0 (Flare art default per wiki License section)",
+   "flareUsage": [],
+   "suggestedUse": "cave/dungeon ambient"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/environment/forest_owl_loop.ogg",
+   "durationSec": 11.33,
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "bytes": 244169,
+   "description": "forest night with owl loop",
+   "author": "uncredited on wiki (Flare team asset)",
+   "license": "CC-BY-SA 3.0 (Flare art default per wiki License section)",
+   "flareUsage": [],
+   "suggestedUse": "forest night ambient"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/environment/open_fire.ogg",
+   "durationSec": 5,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 38168,
+   "description": "crackling fire (5s)",
+   "author": "uncredited on wiki (Flare team asset)",
+   "license": "CC-BY-SA 3.0 (Flare art default per wiki License section)",
+   "flareUsage": [],
+   "suggestedUse": "campfire/brazier one-shot"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/environment/open_fire_loop.ogg",
+   "durationSec": 2.753,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 26020,
+   "description": "crackling fire loop",
+   "author": "uncredited on wiki (Flare team asset)",
+   "license": "CC-BY-SA 3.0 (Flare art default per wiki License section)",
+   "flareUsage": [],
+   "suggestedUse": "campfire/brazier/torch ambient"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/environment/raven_loop.ogg",
+   "durationSec": 4.044,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "bytes": 88153,
+   "description": "raven caws",
+   "author": "uncredited on wiki (Flare team asset)",
+   "license": "CC-BY-SA 3.0 (Flare art default per wiki License section)",
+   "flareUsage": [],
+   "suggestedUse": "graveyard/outdoor ambient"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/environment/river_loop.ogg",
+   "durationSec": 4.581,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 1,
+   "bytes": 57990,
+   "description": "running water loop",
+   "author": "uncredited on wiki (Flare team asset)",
+   "license": "CC-BY-SA 3.0 (Flare art default per wiki License section)",
+   "flareUsage": [],
+   "suggestedUse": "river/stream ambient"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/environment/stairs.ogg",
+   "durationSec": 2.404,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 24356,
+   "description": "footsteps on stone stairs",
+   "author": "Justin Jacobs (dorkster) (http://dorkster.github.io)",
+   "license": "CC-BY-SA 3.0",
+   "original": [
+    "http://opengameart.org/content/stone-stair-steps"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "level transition (stairs)"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/environment/stone_open.ogg",
+   "durationSec": 2.305,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 19609,
+   "description": "heavy stone grinding",
+   "author": "uncredited on wiki (Flare team asset)",
+   "license": "CC-BY-SA 3.0 (Flare art default per wiki License section)",
+   "flareUsage": [],
+   "suggestedUse": "stone door / sarcophagus / secret wall"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/environment/teleporter.ogg",
+   "durationSec": 2.513,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 26680,
+   "description": "magic smite whoosh",
+   "author": "spookymodem",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/magic-smite"
+   ],
+   "flareUsage": [
+    "Perdition Scroll"
+   ],
+   "suggestedUse": "waypoint / town portal"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/environment/wind_loop.ogg",
+   "durationSec": 49.938,
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "bytes": 1122577,
+   "description": "wind loop (50s)",
+   "author": "uncredited on wiki (Flare team asset)",
+   "license": "CC-BY-SA 3.0 (Flare art default per wiki License section)",
+   "flareUsage": [],
+   "suggestedUse": "outdoor ambient"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/female_die.ogg",
+   "durationSec": 1.484,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "bytes": 26188,
+   "description": "female death scream",
+   "author": "remaxim (http://opengameart.org/users/remaxim)",
+   "license": "CC-BY-SA 3.0",
+   "original": [
+    "http://opengameart.org/content/2-male-death-voices"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "player death (female)"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/female_hit.ogg",
+   "durationSec": 0.285,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "bytes": 9120,
+   "description": "female pain grunt",
+   "author": "remaxim (http://opengameart.org/users/remaxim)",
+   "license": "CC-BY-SA 3.0",
+   "original": [
+    "http://opengameart.org/content/7-male-pain-voices"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "player hurt (female)"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/flying_loot.ogg",
+   "durationSec": 0.522,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 7362,
+   "description": "whoosh of item flying out",
+   "author": "Iwan \"qubodup\" Gabovitch (http://opengameart.org/users/qubodup)",
+   "license": "Public Domain, CC0",
+   "original": [
+    "http://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "item drop (loot fly)"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/heartbeat.ogg",
+   "durationSec": 1.8,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "bytes": 17034,
+   "description": "heartbeat thump",
+   "author": "uncredited on wiki (Flare team asset)",
+   "license": "CC-BY-SA 3.0 (Flare art default per wiki License section)",
+   "flareUsage": [],
+   "suggestedUse": "low-health warning loop"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/inventory/inventory_book.ogg",
+   "durationSec": 1,
+   "codec": "vorbis",
+   "sampleRate": 88200,
+   "channels": 1,
+   "bytes": 6180,
+   "description": "inventory handling sound (book)",
+   "author": "Cori Samuel",
+   "license": "Public Domain, CC0",
+   "original": [
+    "http://www.pdsounds.org/sounds/old_book"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "item pickup/equip: book/tome"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/inventory/inventory_cloth.ogg",
+   "durationSec": 0.45,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 7179,
+   "description": "inventory handling sound (cloth)",
+   "author": "artisticdude",
+   "license": "Public Domain, CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/inventory-sound-effects"
+   ],
+   "flareUsage": [
+    "item:belt",
+    "item:chest",
+    "item:feet",
+    "item:hands",
+    "item:legs",
+    "item:head"
+   ],
+   "suggestedUse": "item pickup/equip: cloth armor"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/inventory/inventory_coins.ogg",
+   "durationSec": 0.487,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 7887,
+   "description": "inventory handling sound (coins)",
+   "author": "artisticdude",
+   "license": "Public Domain, CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/inventory-sound-effects"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "item pickup/equip: gold"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/inventory/inventory_gem.ogg",
+   "durationSec": 0.176,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 4936,
+   "description": "inventory handling sound (gem)",
+   "author": "artisticdude",
+   "license": "Public Domain, CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/inventory-sound-effects"
+   ],
+   "flareUsage": [
+    "item:diamond",
+    "item:emerald",
+    "item:ruby",
+    "item:sapphire",
+    "item:key",
+    "item:gold_1",
+    "item:gold_2",
+    "item:silver_1",
+    "item:silver_2",
+    "item:gold_3"
+   ],
+   "suggestedUse": "item pickup/equip: gem/ring/amulet"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/inventory/inventory_heavy.ogg",
+   "durationSec": 0.376,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 6654,
+   "description": "inventory handling sound (heavy)",
+   "author": "Michel Baradari",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/3-item-sounds"
+   ],
+   "flareUsage": [
+    "item:kite",
+    "item:steel"
+   ],
+   "suggestedUse": "item pickup/equip: heavy shield/plate"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/inventory/inventory_leather.ogg",
+   "durationSec": 0.9,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 10499,
+   "description": "inventory handling sound (leather)",
+   "author": "artisticdude",
+   "license": "Public Domain, CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/inventory-sound-effects"
+   ],
+   "flareUsage": [
+    "item:chest",
+    "item:feet",
+    "item:hands",
+    "item:legs",
+    "item:magic_boots"
+   ],
+   "suggestedUse": "item pickup/equip: leather armor"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/inventory/inventory_maille.ogg",
+   "durationSec": 0.409,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 6896,
+   "description": "inventory handling sound (maille)",
+   "author": "Michel Baradari",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/3-item-sounds"
+   ],
+   "flareUsage": [
+    "item:chest",
+    "item:feet",
+    "item:hands",
+    "item:head",
+    "item:legs"
+   ],
+   "suggestedUse": "item pickup/equip: chain/plate armor"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/inventory/inventory_metal.ogg",
+   "durationSec": 0.372,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 6696,
+   "description": "inventory handling sound (metal)",
+   "author": "artisticdude",
+   "license": "Public Domain, CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/inventory-sound-effects"
+   ],
+   "flareUsage": [
+    "item:throwing_axe",
+    "item:battle_axe",
+    "item:dagger",
+    "item:greatsword",
+    "item:hand_axe",
+    "item:infantry_axe",
+    "item:longsword",
+    "item:mace",
+    "item:maul",
+    "item:reinforced_club"
+   ],
+   "suggestedUse": "item pickup/equip: metal weapon"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/inventory/inventory_object.ogg",
+   "durationSec": 0.351,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 6699,
+   "description": "inventory handling sound (object)",
+   "author": "Michel Baradari",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/3-item-sounds"
+   ],
+   "flareUsage": [
+    "item:generic",
+    "item:spellbook",
+    "item:bear",
+    "item:cat",
+    "item:owl",
+    "item:turtle",
+    "item:book"
+   ],
+   "suggestedUse": "item pickup/equip: misc object"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/inventory/inventory_page.ogg",
+   "durationSec": 0.335,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 6667,
+   "description": "inventory handling sound (page)",
+   "author": "artisticdude",
+   "license": "Public Domain, CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/inventory-sound-effects"
+   ],
+   "flareUsage": [
+    "item:scroll_1",
+    "item:scroll_2",
+    "item:scroll_3",
+    "item:scroll_4",
+    "item:scroll_5",
+    "item:scroll_6",
+    "item:scroll_7",
+    "item:scroll_8",
+    "item:scroll_blank"
+   ],
+   "suggestedUse": "item pickup/equip: scroll/page"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/inventory/inventory_potion.ogg",
+   "durationSec": 0.5,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 1,
+   "bytes": 10585,
+   "description": "inventory handling sound (potion)",
+   "author": "Stephan",
+   "license": "Public Domain, CC0",
+   "original": [
+    "http://www.pdsounds.org/sounds/water_bubbles_chortling"
+   ],
+   "flareUsage": [
+    "item:hp",
+    "item:mp"
+   ],
+   "suggestedUse": "item pickup/equip: potion"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/inventory/inventory_wood.ogg",
+   "durationSec": 0.549,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 6823,
+   "description": "inventory handling sound (wood)",
+   "author": "Mike Koenig",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://soundbible.com/605-Wood-Whack.html"
+   ],
+   "flareUsage": [
+    "item:iron",
+    "item:wood",
+    "item:greatstaff",
+    "item:rod",
+    "item:staff",
+    "item:wand",
+    "item:club",
+    "item:greatbow",
+    "item:longbow",
+    "item:shortbow"
+   ],
+   "suggestedUse": "item pickup/equip: wooden weapon/bow/staff"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/level_up.ogg",
+   "durationSec": 2.574,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "bytes": 40612,
+   "description": "rising magical chime/whoosh",
+   "author": "Brandon Morris (Augmentality) (http://www.youtube.com/brandon75689)",
+   "license": "CC-BY 3.0",
+   "flareUsage": [],
+   "suggestedUse": "level up"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/male_die.ogg",
+   "durationSec": 1.547,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "bytes": 25351,
+   "description": "male death scream",
+   "author": "remaxim (http://opengameart.org/users/remaxim)",
+   "license": "CC-BY-SA 3.0",
+   "original": [
+    "http://opengameart.org/content/2-male-death-voices"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "player death (male)"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/male_hit.ogg",
+   "durationSec": 0.372,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "bytes": 9590,
+   "description": "male pain grunt",
+   "author": "remaxim (http://opengameart.org/users/remaxim)",
+   "license": "CC-BY-SA 3.0",
+   "original": [
+    "http://opengameart.org/content/7-male-pain-voices"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "player hurt (male)"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/melee_attack.ogg",
+   "durationSec": 0.258,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "bytes": 8914,
+   "description": "weapon swing whoosh 1",
+   "author": "uncredited on wiki (Flare team asset)",
+   "license": "CC-BY-SA 3.0 (Flare art default per wiki License section)",
+   "flareUsage": [],
+   "suggestedUse": "weapon swing"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/melee_attack_2.ogg",
+   "durationSec": 0.287,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "bytes": 9333,
+   "description": "weapon swing whoosh 2",
+   "author": "uncredited on wiki (Flare team asset)",
+   "license": "CC-BY-SA 3.0 (Flare art default per wiki License section)",
+   "flareUsage": [],
+   "suggestedUse": "weapon swing"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/melee_attack_3.ogg",
+   "durationSec": 0.235,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "bytes": 8738,
+   "description": "weapon swing whoosh 3",
+   "author": "uncredited on wiki (Flare team asset)",
+   "license": "CC-BY-SA 3.0 (Flare art default per wiki License section)",
+   "flareUsage": [],
+   "suggestedUse": "weapon swing"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/no_mana.ogg",
+   "durationSec": 1.718,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "bytes": 36025,
+   "description": "fizzle / cannot cast",
+   "author": "uncredited on wiki (Flare team asset)",
+   "license": "CC-BY-SA 3.0 (Flare art default per wiki License section)",
+   "flareUsage": [],
+   "suggestedUse": "not enough resource / skill on cooldown"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/npcs/female_merchant_01.ogg",
+   "durationSec": 1.831,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 1,
+   "bytes": 21808,
+   "description": "merchant voice (EN): subtitle in soundfx/subtitles.txt",
+   "author": "Holly Daniel (https://www.odesk.com/users/~~822174c5679d5273)",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/female-merchant-voices"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "vendor greeting (English voice — pt-BR game: optional/muted)",
+   "subtitle": "Take a look around."
+  },
+  {
+   "path": "mods/fantasycore/soundfx/npcs/female_merchant_02.ogg",
+   "durationSec": 1.956,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 1,
+   "bytes": 22683,
+   "description": "merchant voice (EN): subtitle in soundfx/subtitles.txt",
+   "author": "Holly Daniel (https://www.odesk.com/users/~~822174c5679d5273)",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/female-merchant-voices"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "vendor greeting (English voice — pt-BR game: optional/muted)",
+   "subtitle": "Looking to buy something?"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/npcs/female_merchant_03.ogg",
+   "durationSec": 1.615,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 1,
+   "bytes": 19781,
+   "description": "merchant voice (EN): subtitle in soundfx/subtitles.txt",
+   "author": "Holly Daniel (https://www.odesk.com/users/~~822174c5679d5273)",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/female-merchant-voices"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "vendor greeting (English voice — pt-BR game: optional/muted)",
+   "subtitle": "How can I help you?"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/npcs/female_merchant_04.ogg",
+   "durationSec": 1.887,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 1,
+   "bytes": 22778,
+   "description": "merchant voice (EN): subtitle in soundfx/subtitles.txt",
+   "author": "Holly Daniel (https://www.odesk.com/users/~~822174c5679d5273)",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/female-merchant-voices"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "vendor greeting (English voice — pt-BR game: optional/muted)",
+   "subtitle": "Let's trade."
+  },
+  {
+   "path": "mods/fantasycore/soundfx/npcs/female_merchant_05.ogg",
+   "durationSec": 2.16,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 1,
+   "bytes": 26100,
+   "description": "merchant voice (EN): subtitle in soundfx/subtitles.txt",
+   "author": "Holly Daniel (https://www.odesk.com/users/~~822174c5679d5273)",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/female-merchant-voices"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "vendor greeting (English voice — pt-BR game: optional/muted)",
+   "subtitle": "Looking to buy something?"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/npcs/female_merchant_06.ogg",
+   "durationSec": 2.229,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 1,
+   "bytes": 25331,
+   "description": "merchant voice (EN): subtitle in soundfx/subtitles.txt",
+   "author": "Holly Daniel (https://www.odesk.com/users/~~822174c5679d5273)",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/female-merchant-voices"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "vendor greeting (English voice — pt-BR game: optional/muted)",
+   "subtitle": "How can I help you?"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/npcs/female_merchant_07.ogg",
+   "durationSec": 2.115,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 1,
+   "bytes": 24328,
+   "description": "merchant voice (EN): subtitle in soundfx/subtitles.txt",
+   "author": "Holly Daniel (https://www.odesk.com/users/~~822174c5679d5273)",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/female-merchant-voices"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "vendor greeting (English voice — pt-BR game: optional/muted)",
+   "subtitle": "Let's trade."
+  },
+  {
+   "path": "mods/fantasycore/soundfx/npcs/female_merchant_08.ogg",
+   "durationSec": 2.479,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 1,
+   "bytes": 28549,
+   "description": "merchant voice (EN): subtitle in soundfx/subtitles.txt",
+   "author": "Holly Daniel (https://www.odesk.com/users/~~822174c5679d5273)",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/female-merchant-voices"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "vendor greeting (English voice — pt-BR game: optional/muted)",
+   "subtitle": "Take a look around."
+  },
+  {
+   "path": "mods/fantasycore/soundfx/npcs/male_merchant_01.ogg",
+   "durationSec": 1.275,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "bytes": 25092,
+   "description": "merchant voice (EN): subtitle in soundfx/subtitles.txt",
+   "author": "Brandon Morris (http://www.youtube.com/brandon75689)",
+   "license": "CC-BY-SA 3.0",
+   "flareUsage": [],
+   "suggestedUse": "vendor greeting (English voice — pt-BR game: optional/muted)",
+   "subtitle": "Looking to buy something?"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/npcs/male_merchant_02.ogg",
+   "durationSec": 0.985,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "bytes": 20424,
+   "description": "merchant voice (EN): subtitle in soundfx/subtitles.txt",
+   "author": "Brandon Morris (http://www.youtube.com/brandon75689)",
+   "license": "CC-BY-SA 3.0",
+   "flareUsage": [],
+   "suggestedUse": "vendor greeting (English voice — pt-BR game: optional/muted)",
+   "subtitle": "How can I help you?"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/npcs/male_merchant_03.ogg",
+   "durationSec": 0.754,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "bytes": 17631,
+   "description": "merchant voice (EN): subtitle in soundfx/subtitles.txt",
+   "author": "Brandon Morris (http://www.youtube.com/brandon75689)",
+   "license": "CC-BY-SA 3.0",
+   "flareUsage": [],
+   "suggestedUse": "vendor greeting (English voice — pt-BR game: optional/muted)",
+   "subtitle": "Let's trade."
+  },
+  {
+   "path": "mods/fantasycore/soundfx/npcs/male_merchant_04.ogg",
+   "durationSec": 1.135,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "bytes": 23299,
+   "description": "merchant voice (EN): subtitle in soundfx/subtitles.txt",
+   "author": "Brandon Morris (http://www.youtube.com/brandon75689)",
+   "license": "CC-BY-SA 3.0",
+   "flareUsage": [],
+   "suggestedUse": "vendor greeting (English voice — pt-BR game: optional/muted)",
+   "subtitle": "Take a look around."
+  },
+  {
+   "path": "mods/fantasycore/soundfx/powers/arrow_wall.ogg",
+   "durationSec": 0.764,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 8606,
+   "description": "arrow thunk + wood wobble",
+   "author": "Iwan \"qubodup\" Gabovitch (http://opengameart.org/users/qubodup)",
+   "license": "Public Domain, CC0",
+   "original": [
+    "http://opengameart.org/content/wood-wobbling-rattling"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "arrow hits wall/obstacle"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/powers/block.ogg",
+   "durationSec": 0.75,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 7597,
+   "description": "metallic block clang",
+   "author": "Brandon Morris (Augmentality) (http://www.youtube.com/brandon75689)",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/osare-10-sound-pack"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "blocked hit / shield block"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/powers/burn.ogg",
+   "durationSec": 1.728,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 12410,
+   "description": "fire whoosh/roar",
+   "author": "Bart K (http://www.opengameart.org)",
+   "license": "CC-BY-SA 3.0",
+   "original": [
+    "http://opengameart.org/content/spell-4-fire"
+   ],
+   "flareUsage": [
+    "Burn"
+   ],
+   "suggestedUse": "fire AoE / explosion / meteor impact"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/powers/fireball.ogg",
+   "durationSec": 0.829,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 2,
+   "bytes": 9489,
+   "description": "fireball launch whoosh",
+   "author": "artisticdude",
+   "license": "Public Domain, CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/fire-evil-spell"
+   ],
+   "flareUsage": [
+    "Fireball",
+    "Fireball Scroll"
+   ],
+   "suggestedUse": "fire bolt cast"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/powers/freeze.ogg",
+   "durationSec": 0.919,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 11161,
+   "description": "icy crackle burst",
+   "author": "Bart K (http://www.opengameart.org)",
+   "license": "CC0",
+   "original": [
+    "http://opengameart.org/content/ice-spells"
+   ],
+   "flareUsage": [
+    "Freeze"
+   ],
+   "suggestedUse": "frost nova / freeze"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/powers/heal.ogg",
+   "durationSec": 1.959,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 11520,
+   "description": "soft magical shimmer",
+   "author": "remaxim (http://opengameart.org/users/remaxim)",
+   "license": "CC-BY-SA 3.0",
+   "flareUsage": [
+    "Haste",
+    "Haste Scroll",
+    "Immunity Scroll"
+   ],
+   "suggestedUse": "heal / buff cast"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/powers/potion.ogg",
+   "durationSec": 0.884,
+   "codec": "vorbis",
+   "sampleRate": 88200,
+   "channels": 1,
+   "bytes": 12360,
+   "description": "gulp/drink",
+   "author": "uncredited on wiki (Flare team asset)",
+   "license": "CC-BY-SA 3.0 (Flare art default per wiki License section)",
+   "flareUsage": [
+    "Elemental Potion",
+    "Health Potion",
+    "Mana Potion",
+    "Restoration Potion",
+    "Stamina Potion",
+    "Super Health Potion",
+    "Super Mana Potion",
+    "Treasure Potion",
+    "Ultra Health Potion",
+    "Ultra Mana Potion"
+   ],
+   "suggestedUse": "potion drink"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/powers/quake.ogg",
+   "durationSec": 1.5,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 9332,
+   "description": "heavy ground slam rumble",
+   "author": "Brandon Morris (Augmentality) (http://www.youtube.com/brandon75689)",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/osare-10-sound-pack"
+   ],
+   "flareUsage": [
+    "Quake",
+    "Rupture"
+   ],
+   "suggestedUse": "leap slam / ground stomp"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/powers/shield.ogg",
+   "durationSec": 0.447,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 6314,
+   "description": "magical shield hum",
+   "author": "Brandon Morris (Augmentality) (http://www.youtube.com/brandon75689)",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/osare-10-sound-pack"
+   ],
+   "flareUsage": [
+    "Shield",
+    "Vampirism",
+    "Shield Scroll",
+    "Reflection Scroll"
+   ],
+   "suggestedUse": "shield / bone armor cast"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/powers/shock.ogg",
+   "durationSec": 1.19,
+   "codec": "vorbis",
+   "sampleRate": 88200,
+   "channels": 1,
+   "bytes": 15372,
+   "description": "electric zap",
+   "author": "Brandon Morris (Augmentality) (http://www.youtube.com/brandon75689)",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/spell-sounds"
+   ],
+   "flareUsage": [
+    "Ice Bolt",
+    "Mystic Blast",
+    "Shock",
+    "Shield Bash",
+    "Ice Bolt Scroll"
+   ],
+   "suggestedUse": "lightning / arcane bolt cast"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/powers/shoot.ogg",
+   "durationSec": 0.449,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 6381,
+   "description": "bow twang + arrow whoosh",
+   "author": "Iwan \"qubodup\" Gabovitch (http://opengameart.org/users/qubodup)",
+   "license": "CC-BY-SA 3.0",
+   "original": [
+    "http://opengameart.org/content/arrow-hit-twang",
+    "http://opengameart.org/content/swish-bamboo-stick-weapon-swhoshes"
+   ],
+   "flareUsage": [
+    "Charged Shot",
+    "Ember Shot",
+    "Multishot",
+    "Piercing Shot",
+    "Poison Shot",
+    "Rapid Fire",
+    "Shoot"
+   ],
+   "suggestedUse": "bow shot"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/powers/spikes.ogg",
+   "durationSec": 0.949,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 9262,
+   "description": "spikes shooting up",
+   "author": "uncredited on wiki (Flare team asset)",
+   "license": "CC-BY-SA 3.0 (Flare art default per wiki License section)",
+   "flareUsage": [],
+   "suggestedUse": "bone spikes / floor trap"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/powers/teleport.ogg",
+   "durationSec": 1.05,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 8179,
+   "description": "magical warp whoosh",
+   "author": "Brandon Morris (Augmentality) (http://www.youtube.com/brandon75689)",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/spell-sounds"
+   ],
+   "flareUsage": [
+    "Summon Skeleton",
+    "Teleport",
+    "Turn Invisible",
+    "Remove Invisibility"
+   ],
+   "suggestedUse": "teleport / summon"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/powers/thunder.ogg",
+   "durationSec": 3.36,
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 2,
+   "bytes": 54886,
+   "description": "thunder crack & rumble (rock breaking)",
+   "author": "Blender Foundation",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/rockbreaking"
+   ],
+   "flareUsage": [
+    "Thunderstrike"
+   ],
+   "suggestedUse": "thunderstrike / chain lightning finisher"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/powers/timestop.ogg",
+   "durationSec": 6.71,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 36538,
+   "description": "long eerie time-stop drone (6.7s)",
+   "author": "remaxim (http://opengameart.org/users/remaxim)",
+   "license": "CC-BY-SA 3.0",
+   "flareUsage": [],
+   "suggestedUse": "boss phase / curse ambience"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/powers/warcry.ogg",
+   "durationSec": 2.906,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 19928,
+   "description": "battle shout",
+   "author": "Brandon Morris (Augmentality) (http://www.youtube.com/brandon75689)",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/osare-10-sound-pack"
+   ],
+   "flareUsage": [
+    "Warcry"
+   ],
+   "suggestedUse": "war cry"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/steps/step_cloth1.ogg",
+   "durationSec": 0.25,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 1,
+   "bytes": 5243,
+   "description": "footstep cloth #1",
+   "author": "Brandon Morris (Augmentality) (http://www.youtube.com/brandon75689)",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/footsteps-leather-cloth-armor"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "player footsteps (cloth armor)"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/steps/step_cloth2.ogg",
+   "durationSec": 0.25,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 1,
+   "bytes": 5208,
+   "description": "footstep cloth #2",
+   "author": "Brandon Morris (Augmentality) (http://www.youtube.com/brandon75689)",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/footsteps-leather-cloth-armor"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "player footsteps (cloth armor)"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/steps/step_cloth3.ogg",
+   "durationSec": 0.25,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 1,
+   "bytes": 5278,
+   "description": "footstep cloth #3",
+   "author": "Brandon Morris (Augmentality) (http://www.youtube.com/brandon75689)",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/footsteps-leather-cloth-armor"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "player footsteps (cloth armor)"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/steps/step_cloth4.ogg",
+   "durationSec": 0.188,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 1,
+   "bytes": 4801,
+   "description": "footstep cloth #4",
+   "author": "Brandon Morris (Augmentality) (http://www.youtube.com/brandon75689)",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/footsteps-leather-cloth-armor"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "player footsteps (cloth armor)"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/steps/step_echo1.ogg",
+   "durationSec": 0.727,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 7417,
+   "description": "footstep echo #1",
+   "author": "Mike Koenig",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://soundbible.com/911-Footsteps.html"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "footsteps in dungeon (echo)"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/steps/step_echo2.ogg",
+   "durationSec": 0.727,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 7503,
+   "description": "footstep echo #2",
+   "author": "Mike Koenig",
+   "license": "CC-BY 3.0",
+   "flareUsage": [],
+   "suggestedUse": "footsteps in dungeon (echo)"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/steps/step_echo3.ogg",
+   "durationSec": 0.772,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 7822,
+   "description": "footstep echo #3",
+   "author": "Mike Koenig",
+   "license": "CC-BY 3.0",
+   "flareUsage": [],
+   "suggestedUse": "footsteps in dungeon (echo)"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/steps/step_echo4.ogg",
+   "durationSec": 0.735,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 7445,
+   "description": "footstep echo #4",
+   "author": "Mike Koenig",
+   "license": "CC-BY 3.0",
+   "flareUsage": [],
+   "suggestedUse": "footsteps in dungeon (echo)"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/steps/step_leather1.ogg",
+   "durationSec": 0.25,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 1,
+   "bytes": 5300,
+   "description": "footstep leather #1",
+   "author": "Brandon Morris (Augmentality) (http://www.youtube.com/brandon75689)",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/footsteps-leather-cloth-armor"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "player footsteps (leather armor)"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/steps/step_leather2.ogg",
+   "durationSec": 0.188,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 1,
+   "bytes": 4965,
+   "description": "footstep leather #2",
+   "author": "Brandon Morris (Augmentality) (http://www.youtube.com/brandon75689)",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/footsteps-leather-cloth-armor"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "player footsteps (leather armor)"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/steps/step_leather3.ogg",
+   "durationSec": 0.25,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 1,
+   "bytes": 5288,
+   "description": "footstep leather #3",
+   "author": "Brandon Morris (Augmentality) (http://www.youtube.com/brandon75689)",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/footsteps-leather-cloth-armor"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "player footsteps (leather armor)"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/steps/step_leather4.ogg",
+   "durationSec": 0.25,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 1,
+   "bytes": 5315,
+   "description": "footstep leather #4",
+   "author": "Brandon Morris (Augmentality) (http://www.youtube.com/brandon75689)",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/footsteps-leather-cloth-armor"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "player footsteps (leather armor)"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/steps/step_metal1.ogg",
+   "durationSec": 0.25,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 1,
+   "bytes": 5145,
+   "description": "footstep metal #1",
+   "author": "Brandon Morris (Augmentality) (http://www.youtube.com/brandon75689)",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/footsteps-leather-cloth-armor"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "player footsteps (metal armor)"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/steps/step_metal2.ogg",
+   "durationSec": 0.28,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 1,
+   "bytes": 5386,
+   "description": "footstep metal #2",
+   "author": "Brandon Morris (Augmentality) (http://www.youtube.com/brandon75689)",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/footsteps-leather-cloth-armor"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "player footsteps (metal armor)"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/steps/step_metal3.ogg",
+   "durationSec": 0.25,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 1,
+   "bytes": 5067,
+   "description": "footstep metal #3",
+   "author": "Brandon Morris (Augmentality) (http://www.youtube.com/brandon75689)",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/footsteps-leather-cloth-armor"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "player footsteps (metal armor)"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/steps/step_metal4.ogg",
+   "durationSec": 0.25,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 1,
+   "bytes": 5264,
+   "description": "footstep metal #4",
+   "author": "Brandon Morris (Augmentality) (http://www.youtube.com/brandon75689)",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/footsteps-leather-cloth-armor"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "player footsteps (metal armor)"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/widget_activate.ogg",
+   "durationSec": 0.045,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 4205,
+   "description": "short UI click",
+   "author": "uncredited on wiki (Flare team asset)",
+   "license": "CC-BY-SA 3.0 (Flare art default per wiki License section)",
+   "flareUsage": [],
+   "suggestedUse": "UI click"
+  },
+  {
+   "path": "mods/fantasycore/soundfx/wood_open.ogg",
+   "durationSec": 0.906,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 12366,
+   "description": "creaky wooden casket lid",
+   "author": "Stephan",
+   "license": "Public Domain, CC0",
+   "original": [
+    "http://www.pdsounds.org/sounds/creaky_wooden_casket"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "chest open (wooden chest)"
+  },
+  {
+   "path": "mods/empyrean_campaign/soundfx/environment/falling_rocks.ogg",
+   "durationSec": 3.005,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 32263,
+   "description": "rocks falling/crumbling",
+   "author": "uncredited on wiki (Flare team asset)",
+   "license": "CC-BY-SA 3.0 (Flare art default per wiki License section)",
+   "flareUsage": [],
+   "suggestedUse": "destructible/boulder break, cave-in"
+  },
+  {
+   "path": "mods/empyrean_campaign/soundfx/environment/minecart.ogg",
+   "durationSec": 2.91,
+   "codec": "vorbis",
+   "sampleRate": 22050,
+   "channels": 1,
+   "bytes": 15387,
+   "description": "rolling mine cart",
+   "author": "uncredited on wiki (Flare team asset)",
+   "license": "CC-BY-SA 3.0 (Flare art default per wiki License section)",
+   "flareUsage": [],
+   "suggestedUse": "mine hazard"
+  },
+  {
+   "path": "mods/empyrean_campaign/soundfx/environment/rain.ogg",
+   "durationSec": 65.005,
+   "codec": "vorbis",
+   "sampleRate": 48000,
+   "channels": 1,
+   "bytes": 971340,
+   "description": "rain loop (65s)",
+   "author": "uncredited on wiki (Flare team asset)",
+   "license": "CC-BY-SA 3.0 (Flare art default per wiki License section)",
+   "flareUsage": [],
+   "suggestedUse": "weather ambient"
+  },
+  {
+   "path": "mods/empyrean_campaign/soundfx/powers/mastite_regen.ogg",
+   "durationSec": 1.429,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "bytes": 17136,
+   "description": "crystal regen chime",
+   "author": "uncredited on wiki (Flare team asset)",
+   "license": "CC-BY-SA 3.0 (Flare art default per wiki License section)",
+   "flareUsage": [],
+   "suggestedUse": "resource orb pickup / shrine"
+  }
+ ],
+ "music": [
+  {
+   "path": "mods/fantasycore/music/battle_theme.ogg",
+   "durationSec": 205,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "bytes": 3327365,
+   "description": "battle theme",
+   "author": "remaxim (http://opengameart.org/users/remaxim)",
+   "license": "CC-BY-SA 3.0",
+   "original": [
+    "http://opengameart.org/content/battle-theme"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "combat / elite pack"
+  },
+  {
+   "path": "mods/fantasycore/music/boss_theme.ogg",
+   "durationSec": 189.296,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "bytes": 3073584,
+   "description": "boss theme",
+   "author": "remaxim (http://opengameart.org/users/remaxim)",
+   "license": "CC-BY-SA 3.0",
+   "original": [
+    "http://opengameart.org/content/boss-theme"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "boss fight"
+  },
+  {
+   "path": "mods/fantasycore/music/cave_theme.ogg",
+   "durationSec": 280,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "bytes": 4543256,
+   "description": "cave theme",
+   "author": "uncredited on wiki (Flare team asset)",
+   "license": "CC-BY-SA 3.0 (Flare art default per wiki License section)",
+   "flareUsage": [],
+   "suggestedUse": "caves/mines"
+  },
+  {
+   "path": "mods/fantasycore/music/dungeon_theme.ogg",
+   "durationSec": 178.742,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "bytes": 2902019,
+   "description": "dungeon theme",
+   "author": "remaxim (http://opengameart.org/users/remaxim)",
+   "license": "CC-BY-SA 3.0",
+   "original": [
+    "http://opengameart.org/content/dungeon-theme"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "dungeon/catacombs"
+  },
+  {
+   "path": "mods/fantasycore/music/forest_theme.ogg",
+   "durationSec": 216,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "bytes": 10806965,
+   "description": "forest theme",
+   "author": "Brandon Morris (Augmentality) (http://www.youtube.com/brandon75689)",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/creepy-forest-f"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "dark forest (creepy)"
+  },
+  {
+   "path": "mods/fantasycore/music/magical_theme.ogg",
+   "durationSec": 180,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "bytes": 2922009,
+   "description": "magical theme",
+   "author": "remaxim (http://opengameart.org/users/remaxim)",
+   "license": "CC-BY 3.0",
+   "original": [
+    "http://opengameart.org/content/magical-theme"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "arcane area / shrine"
+  },
+  {
+   "path": "mods/fantasycore/music/overworld_theme.ogg",
+   "durationSec": 222,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "bytes": 3602688,
+   "description": "overworld theme",
+   "author": "remaxim (http://opengameart.org/users/remaxim)",
+   "license": "CC-BY-SA 3.0",
+   "original": [
+    "http://opengameart.org/content/overworld-theme"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "overworld wilderness"
+  },
+  {
+   "path": "mods/fantasycore/music/safe_room_theme.ogg",
+   "durationSec": 149.647,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "bytes": 2431401,
+   "description": "safe room theme",
+   "author": "remaxim (http://opengameart.org/users/remaxim)",
+   "license": "CC-BY-SA 3.0",
+   "original": [
+    "http://opengameart.org/content/safe-room-theme"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "safe room / checkpoint"
+  },
+  {
+   "path": "mods/fantasycore/music/title_theme.ogg",
+   "durationSec": 76,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "bytes": 1236966,
+   "description": "title theme",
+   "author": "Brandon Morris (Augmentality) (http://www.youtube.com/brandon75689)",
+   "license": "CC-BY-SA 3.0",
+   "original": [
+    "http://opengameart.org/content/flare-main"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "title/main menu"
+  },
+  {
+   "path": "mods/fantasycore/music/town_theme.ogg",
+   "durationSec": 205.714,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "bytes": 3338818,
+   "description": "town theme",
+   "author": "remaxim (http://opengameart.org/users/remaxim)",
+   "license": "CC-BY-SA 3.0",
+   "original": [
+    "http://opengameart.org/content/town-theme"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "town hub"
+  },
+  {
+   "path": "mods/fantasycore/music/unrest_theme.ogg",
+   "durationSec": 304,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 2,
+   "bytes": 4931792,
+   "description": "unrest theme",
+   "author": "Brandon Morris (Augmentality) (http://www.youtube.com/brandon75689)",
+   "license": "CC-BY-SA 3.0",
+   "original": [
+    "http://opengameart.org/content/osare-song-1"
+   ],
+   "flareUsage": [],
+   "suggestedUse": "tense exploration"
+  },
+  {
+   "path": "mods/fantasycore/music/wind_ambient.ogg",
+   "durationSec": 59.999,
+   "codec": "vorbis",
+   "sampleRate": 44100,
+   "channels": 1,
+   "bytes": 490204,
+   "description": "wind ambient",
+   "author": "uncredited on wiki (Flare team asset)",
+   "license": "CC-BY-SA 3.0 (Flare art default per wiki License section)",
+   "flareUsage": [],
+   "suggestedUse": "ambient bed (wind)"
+  }
+ ],
+ "cc0Supplements": [
+  {
+   "dir": ".assets-src/cc0-audio/kenney_rpg-audio",
+   "name": "Kenney RPG Audio",
+   "page": "https://kenney.nl/assets/rpg-audio",
+   "url": "https://kenney.nl/media/pages/assets/rpg-audio/8e99002d76-1677590336/kenney_rpg-audio.zip",
+   "author": "Kenney (kenney.nl)",
+   "covers": "coins handling, book, cloth, doors, creaks, footsteps, knife draw/slice, metal latches/pots",
+   "license": "CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/)",
+   "fileCount": 51,
+   "totalSec": 25.2,
+   "picks": [
+    {
+     "file": ".assets-src/cc0-audio/kenney_rpg-audio/Audio/handleCoins.ogg",
+     "exists": true,
+     "durationSec": 0.846,
+     "use": "gold pickup"
+    },
+    {
+     "file": ".assets-src/cc0-audio/kenney_rpg-audio/Audio/doorOpen_1.ogg",
+     "exists": true,
+     "durationSec": 0.919,
+     "use": "door open"
+    },
+    {
+     "file": ".assets-src/cc0-audio/kenney_rpg-audio/Audio/creak1.ogg",
+     "exists": true,
+     "durationSec": 0.661,
+     "use": "chest creak"
+    },
+    {
+     "file": ".assets-src/cc0-audio/kenney_rpg-audio/Audio/drawKnife1.ogg",
+     "exists": true,
+     "durationSec": 0.4,
+     "use": "weapon draw"
+    },
+    {
+     "file": ".assets-src/cc0-audio/kenney_rpg-audio/Audio/bookOpen.ogg",
+     "exists": true,
+     "durationSec": 0.154,
+     "use": "tome/scroll"
+    }
+   ]
+  },
+  {
+   "dir": ".assets-src/cc0-audio/kenney_impact-sounds",
+   "name": "Kenney Impact Sounds",
+   "page": "https://kenney.nl/assets/impact-sounds",
+   "url": "https://kenney.nl/media/pages/assets/impact-sounds/87b4ddecda-1677589768/kenney_impact-sounds.zip",
+   "author": "Kenney (kenney.nl)",
+   "covers": "melee hits (punch/plate/metal/wood/soft), footsteps (grass/wood/snow/concrete/carpet), glass, mining",
+   "license": "CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/)",
+   "fileCount": 130,
+   "totalSec": 52.3,
+   "picks": [
+    {
+     "file": ".assets-src/cc0-audio/kenney_impact-sounds/Audio/impactPunch_heavy_000.ogg",
+     "exists": true,
+     "durationSec": 0.649,
+     "use": "heavy melee hit"
+    },
+    {
+     "file": ".assets-src/cc0-audio/kenney_impact-sounds/Audio/impactPlate_heavy_000.ogg",
+     "exists": true,
+     "durationSec": 0.489,
+     "use": "hit armored"
+    },
+    {
+     "file": ".assets-src/cc0-audio/kenney_impact-sounds/Audio/impactMetal_heavy_000.ogg",
+     "exists": true,
+     "durationSec": 0.168,
+     "use": "metal clang"
+    },
+    {
+     "file": ".assets-src/cc0-audio/kenney_impact-sounds/Audio/footstep_grass_000.ogg",
+     "exists": true,
+     "durationSec": 0.778,
+     "use": "footsteps grass"
+    },
+    {
+     "file": ".assets-src/cc0-audio/kenney_impact-sounds/Audio/impactMining_000.ogg",
+     "exists": true,
+     "durationSec": 0.937,
+     "use": "pickaxe/stone"
+    }
+   ]
+  },
+  {
+   "dir": ".assets-src/cc0-audio/kenney_interface-sounds",
+   "name": "Kenney Interface Sounds",
+   "page": "https://kenney.nl/assets/interface-sounds",
+   "url": "https://kenney.nl/media/pages/assets/interface-sounds/fa43c1dd4d-1677589452/kenney_interface-sounds.zip",
+   "author": "Kenney (kenney.nl)",
+   "covers": "UI click/select/open/close/error/confirmation/drop/scroll/toggle",
+   "license": "CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/)",
+   "fileCount": 100,
+   "totalSec": 30.1,
+   "picks": [
+    {
+     "file": ".assets-src/cc0-audio/kenney_interface-sounds/Audio/click_001.ogg",
+     "exists": true,
+     "durationSec": 0.1,
+     "use": "UI click"
+    },
+    {
+     "file": ".assets-src/cc0-audio/kenney_interface-sounds/Audio/open_001.ogg",
+     "exists": true,
+     "durationSec": 0.148,
+     "use": "panel open"
+    },
+    {
+     "file": ".assets-src/cc0-audio/kenney_interface-sounds/Audio/close_001.ogg",
+     "exists": true,
+     "durationSec": 0.148,
+     "use": "panel close"
+    },
+    {
+     "file": ".assets-src/cc0-audio/kenney_interface-sounds/Audio/error_001.ogg",
+     "exists": true,
+     "durationSec": 0.165,
+     "use": "cannot do"
+    },
+    {
+     "file": ".assets-src/cc0-audio/kenney_interface-sounds/Audio/drop_001.ogg",
+     "exists": true,
+     "durationSec": 0.11,
+     "use": "item drop in inventory"
+    }
+   ]
+  },
+  {
+   "dir": ".assets-src/cc0-audio/kenney_ui-audio",
+   "name": "Kenney UI Audio",
+   "page": "https://kenney.nl/assets/ui-audio",
+   "url": "https://kenney.nl/media/pages/assets/ui-audio/490d233f68-1677590494/kenney_ui-audio.zip",
+   "author": "Kenney (kenney.nl)",
+   "covers": "UI clicks, rollovers, switches",
+   "license": "CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/)",
+   "fileCount": 51,
+   "totalSec": 13.4,
+   "picks": []
+  },
+  {
+   "dir": ".assets-src/cc0-audio/kenney_casino-audio",
+   "name": "Kenney Casino Audio",
+   "page": "https://kenney.nl/assets/casino-audio",
+   "url": "https://kenney.nl/media/pages/assets/casino-audio/2472606a04-1721639069/kenney_casino-audio.zip",
+   "author": "Kenney (kenney.nl)",
+   "covers": "chips stack/handle/collide (usable as gold coin clinks), cards, dice",
+   "license": "CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/)",
+   "fileCount": 54,
+   "totalSec": 34.3,
+   "picks": [
+    {
+     "file": ".assets-src/cc0-audio/kenney_casino-audio/Audio/chips-stack-1.ogg",
+     "exists": true,
+     "durationSec": 0.287,
+     "use": "gold pile pickup"
+    },
+    {
+     "file": ".assets-src/cc0-audio/kenney_casino-audio/Audio/chips-handle-1.ogg",
+     "exists": true,
+     "durationSec": 0.616,
+     "use": "gold clink"
+    }
+   ]
+  },
+  {
+   "dir": ".assets-src/cc0-audio/kenney_music-jingles",
+   "name": "Kenney Music Jingles",
+   "page": "https://kenney.nl/assets/music-jingles",
+   "url": "https://kenney.nl/media/pages/assets/music-jingles/f37e530b9e-1677590399/kenney_music-jingles.zip",
+   "author": "Kenney (kenney.nl)",
+   "covers": "85 short jingles (NES/Hit/Pizzicato/Sax/Steel) — Steel/Hit sets for quest complete, level up, legendary drop stingers",
+   "license": "CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/)",
+   "fileCount": 85,
+   "totalSec": 64.9,
+   "picks": [
+    {
+     "file": ".assets-src/cc0-audio/kenney_music-jingles/Audio/Steel jingles/jingles_STEEL00.ogg",
+     "exists": true,
+     "durationSec": 0.933,
+     "use": "level up / quest complete stinger"
+    },
+    {
+     "file": ".assets-src/cc0-audio/kenney_music-jingles/Audio/Hit jingles/jingles_HIT00.ogg",
+     "exists": true,
+     "durationSec": 0.284,
+     "use": "legendary drop stinger alt"
+    }
+   ]
+  },
+  {
+   "dir": ".assets-src/cc0-audio/oga_80-cc0-rpg-sfx",
+   "name": "80 CC0 RPG SFX",
+   "page": "https://opengameart.org/content/80-cc0-rpg-sfx",
+   "url": "https://opengameart.org/sites/default/files/80-CC0-RPG-SFX_0.zip",
+   "author": "rubberduck (OpenGameArt)",
+   "covers": "blade swings, spells (spell_01-02, spell_fire_01-07), creature hurt/die/roar/slime, item coins/gem/stone/wood pickups, locks, chains, books",
+   "license": "CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/)",
+   "fileCount": 80,
+   "totalSec": 48.6,
+   "picks": [
+    {
+     "file": ".assets-src/cc0-audio/oga_80-cc0-rpg-sfx/spell_fire_01.ogg",
+     "exists": true,
+     "durationSec": 1.057,
+     "use": "fire bolt cast"
+    },
+    {
+     "file": ".assets-src/cc0-audio/oga_80-cc0-rpg-sfx/spell_fire_04.ogg",
+     "exists": true,
+     "durationSec": 1.595,
+     "use": "meteor/explosive arrow impact"
+    },
+    {
+     "file": ".assets-src/cc0-audio/oga_80-cc0-rpg-sfx/spell_01.ogg",
+     "exists": true,
+     "durationSec": 0.633,
+     "use": "arcane orb cast"
+    },
+    {
+     "file": ".assets-src/cc0-audio/oga_80-cc0-rpg-sfx/spell_02.ogg",
+     "exists": true,
+     "durationSec": 0.546,
+     "use": "teleport/curse cast"
+    },
+    {
+     "file": ".assets-src/cc0-audio/oga_80-cc0-rpg-sfx/blade_01.ogg",
+     "exists": true,
+     "durationSec": 0.291,
+     "use": "sword swing"
+    },
+    {
+     "file": ".assets-src/cc0-audio/oga_80-cc0-rpg-sfx/item_coins_01.ogg",
+     "exists": true,
+     "durationSec": 0.406,
+     "use": "gold pickup"
+    },
+    {
+     "file": ".assets-src/cc0-audio/oga_80-cc0-rpg-sfx/item_gem_01.ogg",
+     "exists": true,
+     "durationSec": 0.247,
+     "use": "gem/ring pickup"
+    },
+    {
+     "file": ".assets-src/cc0-audio/oga_80-cc0-rpg-sfx/creature_die_01.ogg",
+     "exists": true,
+     "durationSec": 1.06,
+     "use": "enemy death generic"
+    },
+    {
+     "file": ".assets-src/cc0-audio/oga_80-cc0-rpg-sfx/chain_01.ogg",
+     "exists": true,
+     "durationSec": 0.506,
+     "use": "bone armor/chains"
+    }
+   ]
+  },
+  {
+   "dir": ".assets-src/cc0-audio/oga_80-cc0-creature-sfx",
+   "name": "80 CC0 creature SFX",
+   "page": "https://opengameart.org/content/80-cc0-creature-sfx",
+   "url": "https://opengameart.org/sites/default/files/80-CC0-creature-SFX_0.zip",
+   "author": "rubberduck (OpenGameArt)",
+   "covers": "monster grunts/roars/hurt/screams/growl/troll/bug/spit — enemy vocal variety",
+   "license": "CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/)",
+   "fileCount": 80,
+   "totalSec": 46.7,
+   "picks": [
+    {
+     "file": ".assets-src/cc0-audio/oga_80-cc0-creature-sfx/grunt_01.ogg",
+     "exists": true,
+     "durationSec": 0.933,
+     "use": "enemy grunt"
+    },
+    {
+     "file": ".assets-src/cc0-audio/oga_80-cc0-creature-sfx/roar_01.ogg",
+     "exists": true,
+     "durationSec": 0.373,
+     "use": "elite/boss roar"
+    },
+    {
+     "file": ".assets-src/cc0-audio/oga_80-cc0-creature-sfx/hurt_01.ogg",
+     "exists": true,
+     "durationSec": 0.495,
+     "use": "enemy hurt"
+    },
+    {
+     "file": ".assets-src/cc0-audio/oga_80-cc0-creature-sfx/monster_01.ogg",
+     "exists": true,
+     "durationSec": 0.998,
+     "use": "demon vocal"
+    },
+    {
+     "file": ".assets-src/cc0-audio/oga_80-cc0-creature-sfx/troll_01.ogg",
+     "exists": true,
+     "durationSec": 0.571,
+     "use": "brute vocal"
+    },
+    {
+     "file": ".assets-src/cc0-audio/oga_80-cc0-creature-sfx/spit_01.ogg",
+     "exists": true,
+     "durationSec": 0.488,
+     "use": "acid spit attack"
+    }
+   ]
+  },
+  {
+   "dir": ".assets-src/cc0-audio/oga_75-cc0-breaking-falling-hit-sfx",
+   "name": "75 CC0 breaking/falling/hit SFX",
+   "page": "https://opengameart.org/content/75-cc0-breaking-falling-hit-sfx",
+   "url": "https://opengameart.org/sites/default/files/sfx_breaking_and_falling.zip",
+   "author": "rubberduck (OpenGameArt)",
+   "covers": "barrel/crate/pot breaking (destructibles), rock breaking/falling, glass, metal hits",
+   "license": "CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/)",
+   "fileCount": 75,
+   "totalSec": 43,
+   "picks": [
+    {
+     "file": ".assets-src/cc0-audio/oga_75-cc0-breaking-falling-hit-sfx/bfh1_wood_breaking_01.ogg",
+     "exists": true,
+     "durationSec": 0.298,
+     "use": "barrel/crate break"
+    },
+    {
+     "file": ".assets-src/cc0-audio/oga_75-cc0-breaking-falling-hit-sfx/bfh1_rock_breaking_01.ogg",
+     "exists": true,
+     "durationSec": 1.147,
+     "use": "ground stomp debris / golem"
+    },
+    {
+     "file": ".assets-src/cc0-audio/oga_75-cc0-breaking-falling-hit-sfx/bfh1_glass_breaking_01.ogg",
+     "exists": true,
+     "durationSec": 0.761,
+     "use": "potion shatter / ice shatter"
+    }
+   ]
+  },
+  {
+   "dir": ".assets-src/cc0-audio/oga_100-cc0-metal-and-wood-sfx",
+   "name": "100 CC0 metal and wood SFX",
+   "page": "https://opengameart.org/content/100-cc0-metal-and-wood-sfx",
+   "url": "https://opengameart.org/sites/default/files/100-CC0-wood-metal-SFX.zip",
+   "author": "rubberduck (OpenGameArt)",
+   "covers": "door/lock open, keys, metal hits/slams, wood breaking — chests, doors, gates",
+   "license": "CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/)",
+   "fileCount": 100,
+   "totalSec": 48.8,
+   "picks": [
+    {
+     "file": ".assets-src/cc0-audio/oga_100-cc0-metal-and-wood-sfx/lock_open_01.ogg",
+     "exists": true,
+     "durationSec": 0.737,
+     "use": "chest unlock"
+    },
+    {
+     "file": ".assets-src/cc0-audio/oga_100-cc0-metal-and-wood-sfx/door_open_01.ogg",
+     "exists": true,
+     "durationSec": 0.433,
+     "use": "iron door"
+    },
+    {
+     "file": ".assets-src/cc0-audio/oga_100-cc0-metal-and-wood-sfx/metal_hit_01.ogg",
+     "exists": true,
+     "durationSec": 0.269,
+     "use": "armor hit"
+    }
+   ]
+  },
+  {
+   "dir": ".assets-src/cc0-audio/oga_100-cc0-sfx",
+   "name": "100 CC0 SFX",
+   "page": "https://opengameart.org/content/100-cc0-sfx",
+   "url": "https://opengameart.org/sites/default/files/100-CC0-SFX_0.zip",
+   "author": "rubberduck (OpenGameArt)",
+   "covers": "bells, gongs (shrine/waypoint), explosion, wooden box open (chest), doors, glass, splash",
+   "license": "CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/)",
+   "fileCount": 100,
+   "totalSec": 74.9,
+   "picks": [
+    {
+     "file": ".assets-src/cc0-audio/oga_100-cc0-sfx/gong_01.ogg",
+     "exists": true,
+     "durationSec": 1.424,
+     "use": "waypoint activate / boss gong"
+    },
+    {
+     "file": ".assets-src/cc0-audio/oga_100-cc0-sfx/bell_01.ogg",
+     "exists": true,
+     "durationSec": 1.3,
+     "use": "shrine activate"
+    },
+    {
+     "file": ".assets-src/cc0-audio/oga_100-cc0-sfx/wooded_box_open.ogg",
+     "exists": true,
+     "durationSec": 0.374,
+     "use": "chest open"
+    },
+    {
+     "file": ".assets-src/cc0-audio/oga_100-cc0-sfx/explosion.ogg",
+     "exists": true,
+     "durationSec": 0.562,
+     "use": "corpse explosion"
+    }
+   ]
+  },
+  {
+   "dir": ".assets-src/cc0-audio/oga_30-cc0-sfx-loops",
+   "name": "30 CC0 SFX loops",
+   "page": "https://opengameart.org/content/30-cc0-sfx-loops",
+   "url": "https://opengameart.org/sites/default/files/sfx_loops.zip",
+   "author": "rubberduck (OpenGameArt)",
+   "covers": "ambient_01-03, rain, water flowing/boiling, weird loops (portal hum)",
+   "license": "CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/)",
+   "fileCount": 30,
+   "totalSec": 85,
+   "picks": [
+    {
+     "file": ".assets-src/cc0-audio/oga_30-cc0-sfx-loops/weird_01.ogg",
+     "exists": true,
+     "durationSec": 1.153,
+     "use": "portal hum loop"
+    },
+    {
+     "file": ".assets-src/cc0-audio/oga_30-cc0-sfx-loops/ambient_01.ogg",
+     "exists": true,
+     "durationSec": 8.234,
+     "use": "ambient bed"
+    }
+   ]
+  },
+  {
+   "dir": ".assets-src/cc0-audio/oga_rpg-sound-pack",
+   "name": "RPG Sound Pack",
+   "page": "https://opengameart.org/content/rpg-sound-pack",
+   "url": "https://opengameart.org/sites/default/files/rpg_sound_pack.zip",
+   "author": "artisticdude (OpenGameArt)",
+   "covers": "battle swings/unsheathe/magic/spell, inventory (coin, chainmail, bottle, bubble), NPC monsters (giant, ogre, shade, slime, beetle, gutteral beast, wolfman), UI",
+   "license": "CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/)",
+   "fileCount": 96,
+   "totalSec": 59.3,
+   "picks": [
+    {
+     "file": ".assets-src/cc0-audio/oga_rpg-sound-pack/RPG Sound Pack/battle/swing.wav",
+     "exists": true,
+     "durationSec": 0.229,
+     "use": "weapon swing"
+    },
+    {
+     "file": ".assets-src/cc0-audio/oga_rpg-sound-pack/RPG Sound Pack/battle/magic1.wav",
+     "exists": true,
+     "durationSec": 0.875,
+     "use": "spell cast generic"
+    },
+    {
+     "file": ".assets-src/cc0-audio/oga_rpg-sound-pack/RPG Sound Pack/inventory/coin.wav",
+     "exists": true,
+     "durationSec": 0.604,
+     "use": "gold pickup"
+    },
+    {
+     "file": ".assets-src/cc0-audio/oga_rpg-sound-pack/RPG Sound Pack/inventory/bottle.wav",
+     "exists": true,
+     "durationSec": 0.479,
+     "use": "potion pickup"
+    },
+    {
+     "file": ".assets-src/cc0-audio/oga_rpg-sound-pack/RPG Sound Pack/NPC/shade/shade1.wav",
+     "exists": true,
+     "durationSec": 0.53,
+     "use": "ghost/wraith"
+    },
+    {
+     "file": ".assets-src/cc0-audio/oga_rpg-sound-pack/RPG Sound Pack/NPC/ogre/ogre1.wav",
+     "exists": true,
+     "durationSec": 0.404,
+     "use": "brute enemy"
+    }
+   ]
+  },
+  {
+   "dir": ".assets-src/cc0-audio/oga_fantasy-tinysized-sfx",
+   "name": "Fantasy Sound Effects (Tinysized SFX)",
+   "page": "https://opengameart.org/content/fantasy-sound-effects-tinysized-sfx",
+   "url": "https://opengameart.org/sites/default/files/tinysized.zip",
+   "author": "Vehicle / Jan Schupke (vehiclemusic.eu)",
+   "covers": "arrow from quiver, bottle uncork (potion), coin spin/shake, sword clash, sheathe/unsheathe, whooshes, water drops",
+   "license": "CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/)",
+   "fileCount": 96,
+   "totalSec": 187.4,
+   "picks": [
+    {
+     "file": ".assets-src/cc0-audio/oga_fantasy-tinysized-sfx/sfx-cc0/bottle-glass-uncork-01.wav",
+     "exists": true,
+     "durationSec": 0.479,
+     "use": "potion drink (uncork)"
+    },
+    {
+     "file": ".assets-src/cc0-audio/oga_fantasy-tinysized-sfx/sfx-cc0/arrow-grab-from-quiver-01.wav",
+     "exists": true,
+     "durationSec": 0.624,
+     "use": "bow draw"
+    },
+    {
+     "file": ".assets-src/cc0-audio/oga_fantasy-tinysized-sfx/sfx-cc0/coin-spin-fall-01.wav",
+     "exists": true,
+     "durationSec": 1.435,
+     "use": "gold drop"
+    },
+    {
+     "file": ".assets-src/cc0-audio/oga_fantasy-tinysized-sfx/sfx-cc0/sword-clash-01.wav",
+     "exists": true,
+     "durationSec": 1.335,
+     "use": "parry/block"
+    }
+   ]
+  },
+  {
+   "dir": ".assets-src/cc0-audio/oga_ice-spells",
+   "name": "Ice spells",
+   "page": "https://opengameart.org/content/ice-spells",
+   "url": "https://opengameart.org/sites/default/files/icespells.zip",
+   "author": "Bart K (OpenGameArt)",
+   "covers": "coldsnap.wav, ice.wav — frost nova / blizzard casts",
+   "license": "CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/)",
+   "fileCount": 2,
+   "totalSec": 3.8,
+   "picks": [
+    {
+     "file": ".assets-src/cc0-audio/oga_ice-spells/coldsnap.wav",
+     "exists": true,
+     "durationSec": 2.649,
+     "use": "frost nova"
+    },
+    {
+     "file": ".assets-src/cc0-audio/oga_ice-spells/ice.wav",
+     "exists": true,
+     "durationSec": 1.164,
+     "use": "ice bolt"
+    }
+   ]
+  },
+  {
+   "dir": ".assets-src/cc0-audio/oga_freeze-spell",
+   "name": "Freeze Spell",
+   "page": "https://opengameart.org/content/freeze-spell-0",
+   "url": "https://opengameart.org/sites/default/files/freeze.wav",
+   "author": "artisticdude (OpenGameArt)",
+   "covers": "freeze.wav — ice cast",
+   "license": "CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/)",
+   "fileCount": 1,
+   "totalSec": 2.1,
+   "picks": [
+    {
+     "file": ".assets-src/cc0-audio/oga_freeze-spell/freeze.wav",
+     "exists": true,
+     "durationSec": 2.125,
+     "use": "blizzard/freeze"
+    }
+   ]
+  },
+  {
+   "dir": ".assets-src/cc0-audio/oga_fireball-1",
+   "name": "Fireball",
+   "page": "https://opengameart.org/content/fireball-1",
+   "url": "https://opengameart.org/sites/default/files/105016__julien-matthey__jm-fx-fireball-01.wav",
+   "author": "Julien Matthey (freesound #105016), posted by diligentcircle",
+   "covers": "fireball launch/impact (meteor)",
+   "license": "CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/)",
+   "fileCount": 1,
+   "totalSec": 2,
+   "picks": [
+    {
+     "file": ".assets-src/cc0-audio/oga_fireball-1/jm-fx-fireball-01.wav",
+     "exists": true,
+     "durationSec": 1.962,
+     "use": "fire bolt / meteor"
+    }
+   ]
+  },
+  {
+   "dir": ".assets-src/cc0-audio/oga_earth-element-magic-spell",
+   "name": "Earth Element Magic Spell",
+   "page": "https://opengameart.org/content/earth-element-magic-spell",
+   "url": "https://opengameart.org/sites/default/files/Earth%20Element%20Magic%20Spell_3.ogg",
+   "author": "Iwan \"qubodup\" Gabovitch",
+   "covers": "earthy magic rumble — ground stomp / bone spikes / golem summon",
+   "license": "CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/)",
+   "fileCount": 1,
+   "totalSec": 1.9,
+   "picks": [
+    {
+     "file": ".assets-src/cc0-audio/oga_earth-element-magic-spell/earth_element_magic_spell.ogg",
+     "exists": true,
+     "durationSec": 1.886,
+     "use": "ground stomp / bone spikes"
+    }
+   ]
+  },
+  {
+   "dir": ".assets-src/cc0-audio/oga_get-ruby-se",
+   "name": "Get Ruby SE",
+   "page": "https://opengameart.org/content/get-ruby-se",
+   "url": "https://opengameart.org/sites/default/files/getruby.ogg",
+   "author": "mieki256",
+   "covers": "sparkly pickup chime — rare/legendary pickup",
+   "license": "CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/)",
+   "fileCount": 1,
+   "totalSec": 2.9,
+   "picks": [
+    {
+     "file": ".assets-src/cc0-audio/oga_get-ruby-se/getruby.ogg",
+     "exists": true,
+     "durationSec": 2.897,
+     "use": "rare item pickup"
+    }
+   ]
+  },
+  {
+   "dir": ".assets-src/cc0-audio/oga_bell-arpeggio-24",
+   "name": "Bell arpeggio 24",
+   "page": "https://opengameart.org/content/bell-arpeggio-24",
+   "url": "https://opengameart.org/sites/default/files/24.wav",
+   "author": "cynicmusic",
+   "covers": "magic bell arpeggio (2.6s) — LEGENDARY DROP stinger",
+   "license": "CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/)",
+   "fileCount": 1,
+   "totalSec": 2.6,
+   "picks": [
+    {
+     "file": ".assets-src/cc0-audio/oga_bell-arpeggio-24/24.wav",
+     "exists": true,
+     "durationSec": 2.553,
+     "use": "legendary drop"
+    }
+   ]
+  },
+  {
+   "dir": ".assets-src/cc0-audio/oga_dark-cavern-ambient",
+   "name": "Dark Cavern Ambient",
+   "page": "https://opengameart.org/content/dark-cavern-ambient",
+   "url": "https://opengameart.org/sites/default/files/dark_cavern_ambient_001.ogg (+ _002.ogg)",
+   "author": "Paul Wortmann",
+   "covers": "2x 120s dark ambient loops — dungeon/cave beds",
+   "license": "CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/)",
+   "fileCount": 2,
+   "totalSec": 240,
+   "picks": [
+    {
+     "file": ".assets-src/cc0-audio/oga_dark-cavern-ambient/dark_cavern_ambient_001.ogg",
+     "exists": true,
+     "durationSec": 119.998,
+     "use": "dungeon ambient loop A"
+    },
+    {
+     "file": ".assets-src/cc0-audio/oga_dark-cavern-ambient/dark_cavern_ambient_002.ogg",
+     "exists": true,
+     "durationSec": 119.998,
+     "use": "dungeon ambient loop B"
+    }
+   ]
+  },
+  {
+   "dir": ".assets-src/cc0-audio/oga_dungeon-ambience",
+   "name": "Dungeon Ambience",
+   "page": "https://opengameart.org/content/dungeon-ambience",
+   "url": "https://opengameart.org/sites/default/files/dungeon002.ogg",
+   "author": "yd (OpenGameArt)",
+   "covers": "206s dark dungeon ambience",
+   "license": "CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/)",
+   "fileCount": 1,
+   "totalSec": 206,
+   "picks": [
+    {
+     "file": ".assets-src/cc0-audio/oga_dungeon-ambience/dungeon002.ogg",
+     "exists": true,
+     "durationSec": 206,
+     "use": "dungeon ambient"
+    }
+   ]
+  },
+  {
+   "dir": ".assets-src/cc0-audio/oga_loopable-dungeon-ambience",
+   "name": "Loopable Dungeon Ambience",
+   "page": "https://opengameart.org/content/loopable-dungeon-ambience",
+   "url": "https://opengameart.org/sites/default/files/dungeon_ambient_1.ogg",
+   "author": "JaggedStone",
+   "covers": "94s seamless dungeon ambience loop",
+   "license": "CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/)",
+   "fileCount": 1,
+   "totalSec": 94.3,
+   "picks": [
+    {
+     "file": ".assets-src/cc0-audio/oga_loopable-dungeon-ambience/dungeon_ambient_1.ogg",
+     "exists": true,
+     "durationSec": 94.31,
+     "use": "dungeon ambient loop"
+    }
+   ]
+  }
+ ],
+ "nonCc0Optional": [
+  {
+   "name": "Spell Sounds Starter Pack",
+   "page": "https://opengameart.org/content/spell-sounds-starter-pack",
+   "url": "https://opengameart.org/sites/default/files/spells.zip",
+   "author": "p0ss",
+   "license": "CC-BY-SA 3.0 (compatible with Flare assets; not downloaded)",
+   "why": "most complete elemental spell set if CC0 casts feel thin"
+  },
+  {
+   "name": "Magic SFX Sample",
+   "page": "https://opengameart.org/content/magic-sfx-sample",
+   "url": "https://opengameart.org/sites/default/files/Magic%20SFX%20Preview%20Pack.zip",
+   "author": "Virix",
+   "license": "CC-BY 3.0 (not downloaded)",
+   "why": "fire/ice blast, wind hit, heal"
+  }
+ ],
+ "gapsAfterSupplements": [
+  "dedicated bone/necromancy sounds (bone crack: use kenney impactWood/bfh1 breaking + pitch down)",
+  "whirlwind loop (loop blade swings or tinysized whooshes)",
+  "pt-BR NPC voice lines (none — keep text only)",
+  "demon/boss unique vocals (layer creature roars)"
+ ]
+}

@@ -1,6 +1,8 @@
 // Core math helpers + isometric projection.
 // WORLD SPACE: cartesian, 1 unit = 1 tile. +x goes down-right on screen, +y goes down-left.
-// SCREEN (iso) SPACE: pixels at zoom 1. Tile diamond is 64x32 px.
+// SCREEN (iso) SPACE: pixels at zoom 1. Tile diamond is 192x96 px (Flare HD art).
+// Scale reference: a hero sprite is ~125 px tall, i.e. an actor radius is ~0.22 tiles and
+// a walking speed of ~2.6 tiles/s looks right.
 // Cell (i, j) covers world [i, i+1) x [j, j+1); its center is (i + 0.5, j + 0.5).
 
 export interface Vec2 {
@@ -8,8 +10,8 @@ export interface Vec2 {
   y: number;
 }
 
-export const TILE_W = 64;
-export const TILE_H = 32;
+export const TILE_W = 192;
+export const TILE_H = 96;
 export const HALF_TW = TILE_W / 2;
 export const HALF_TH = TILE_H / 2;
 

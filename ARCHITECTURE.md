@@ -17,7 +17,7 @@ Mudanças **aditivas** (novos campos opcionais, novos eventos) são permitidas. 
 ## Convenções
 
 - **Espaço do mundo**: cartesiano, `1 unidade = 1 tile`. `+x` vai para baixo-direita na tela, `+y` para baixo-esquerda. Célula `(i,j)` cobre `[i,i+1)×[j,j+1)`; centro em `(i+.5, j+.5)`.
-- **Projeção iso**: `screenX = (x - y) * 32`, `screenY = (x + y) * 16` (tiles 64×32). Ver `src/core/math.ts` (`worldToScreen`, `screenToWorld`, `isoDepth`).
+- **Projeção iso**: `screenX = (x - y) * 96`, `screenY = (x + y) * 48` (tiles **192×96**, arte HD do Flare; herói ≈125 px de altura ≈ raio 0.22 tile, velocidade ≈2.6 tiles/s). Ver `src/core/math.ts` (`worldToScreen`, `screenToWorld`, `isoDepth`).
 - **Profundidade**: ordenar por `x + y` (maior = na frente). Paredes/props usam a célula; atores usam `pos`.
 - **Tempo**: segundos (float). Simulação em passo fixo **1/60 s**; `timeScale` global (hit-stop) multiplica o dt da simulação.
 - **Velocidades**: tiles/segundo. Raios: tiles.

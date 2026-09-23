@@ -1,0 +1,6366 @@
+{
+ "meta": {
+  "license": "Flare RPG assets, CC-BY-SA 3.0 (see flare-game CREDITS); attribution required",
+  "tileSize": [
+   192,
+   96
+  ],
+  "classicTileSize": [
+   64,
+   32
+  ],
+  "anchorRule": "tile=i,x,y,w,h,ox,oy: crop rect (x,y,w,h) from img; draw so that pixel (ox,oy) of the crop sits on the CENTER of the map cell diamond. cellCenter = ((col-row)*96, (col+row)*48 + 48). Objects depth-sort by (col+row) then col.",
+  "axes": "map +x (col+1) = screen down-right; +y (row+1) = screen down-left; -x = up-left; -y = up-right. Orientation strings refer to MAP axes.",
+  "orientationConvention": {
+   "open+x": "wall/edge piece whose open side (floor / land / other terrain) is the +x neighbour (face points screen down-right, visible textured face)",
+   "open+y": "open side is +y (face points screen down-left, visible)",
+   "open-x": "open side is -x (face points up-left; drawn as black back-face silhouette)",
+   "open-y": "open side is -y (face points up-right; black back-face)",
+   "diag+x+y": "only the diagonal (+1,+1) neighbour is open (concave/inner corner of the wall mass, visible)",
+   "diag-x+y": "only (-1,+1) open (screen left)",
+   "diag-x-y": "only (-1,-1) open (screen top, black)",
+   "diag+x-y": "only (+1,-1) open (screen right)",
+   "open+x+y": "both +x and +y open (convex/outer corner pointing at the camera)",
+   "open-x+y": "both -x and +y open (convex corner, screen left)",
+   "open-x-y": "both -x and -y open (convex corner, screen top, black)",
+   "open+x-y": "both +x and -y open (convex corner, screen right)",
+   "along-x": "linear piece continuing to x-1/x+1",
+   "along-y": "linear piece continuing to y-1/y+1"
+  },
+  "blocks": {
+   "none": "collision 0 (walkable)",
+   "all": "collision 1 BLOCKS_ALL (walls, trees, pillars: blocks movement and projectiles)",
+   "movement": "collision 2 BLOCKS_MOVEMENT (water, pits, small props: projectiles pass)"
+  },
+  "layers": "background (floor, water, shore), object (walls, props, depth-sorted), bridge (cave planks over pits, drawn above background), snowplains also uses background_fringe/snow_bottom/snow_top overlays. collision layer values: 0 none, 1 all, 2 movement, 3/4 hidden variants of 1/2 (used for off-map void), 5/6 map-only.",
+  "usageFields": "usage.count = occurrences in empyrean_campaign maps using this tileset; usage.col = most common collision value under the tile; usage.layer = layer where it appears most",
+  "tileset": "mods/fantasycore/tilesetdefs/tileset_cave.txt",
+  "images": [
+   "images/tilesets/tileset_cave.png"
+  ],
+  "mapsUsingIt": [
+   "abandoned_mines",
+   "antlion_nest",
+   "blackmire_mines",
+   "goblin_cave",
+   "mog_caverns",
+   "perdition_mines",
+   "the_breach",
+   "the_pit",
+   "underworld",
+   "underworld_catacombs",
+   "underworld_mines"
+  ],
+  "biome": "cave / mines",
+  "note": "tileset_cave_and_dungeon.txt = these same indices + dungeon tiles at index+250 (e.g. dungeon brazier 167 -> 417) so a cave map can use dungeon braziers/doors."
+ },
+ "groups": {
+  "floor": [
+   16,
+   17,
+   18,
+   19,
+   20,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   29,
+   30,
+   31,
+   56,
+   57
+  ],
+  "floor_rails": [
+   32,
+   34,
+   33,
+   35,
+   36,
+   37,
+   38,
+   39,
+   40,
+   46,
+   41,
+   47,
+   42,
+   44,
+   43,
+   45
+  ],
+  "floor_decal": [
+   48,
+   49,
+   50,
+   51,
+   52,
+   53,
+   54,
+   55
+  ],
+  "wall": [
+   64,
+   65,
+   66,
+   67,
+   68,
+   69,
+   70,
+   71,
+   72,
+   73,
+   74,
+   75,
+   76,
+   77,
+   78,
+   79,
+   80,
+   81,
+   82,
+   83,
+   84,
+   85,
+   86,
+   87
+  ],
+  "wall_variant": [
+   96,
+   97,
+   98,
+   99,
+   117,
+   116,
+   100,
+   101,
+   102,
+   103,
+   119,
+   118,
+   104,
+   105,
+   106,
+   107,
+   108,
+   109,
+   110,
+   111,
+   112,
+   113,
+   114,
+   115,
+   121,
+   120
+  ],
+  "prop": [
+   128,
+   130,
+   129,
+   131,
+   160,
+   161,
+   176,
+   177,
+   162,
+   163,
+   178,
+   179,
+   266,
+   268,
+   267,
+   269
+  ],
+  "plant": [
+   132,
+   133,
+   134,
+   135
+  ],
+  "rock": [
+   144,
+   145,
+   146,
+   147,
+   148,
+   149,
+   150,
+   151,
+   152,
+   153
+  ],
+  "water_pool": [
+   192,
+   196,
+   193,
+   197,
+   194,
+   198,
+   195,
+   199,
+   200,
+   204,
+   201,
+   205,
+   202,
+   206,
+   203,
+   207,
+   208,
+   212,
+   209,
+   213,
+   210,
+   214,
+   211,
+   215,
+   216,
+   217,
+   218,
+   219
+  ],
+  "bridge": [
+   232,
+   233,
+   236,
+   237,
+   234,
+   235,
+   238,
+   239,
+   224,
+   225,
+   226,
+   227,
+   228,
+   229,
+   230,
+   231
+  ],
+  "light": [
+   240,
+   241
+  ],
+  "special": [
+   264,
+   265
+  ]
+ },
+ "rules": {
+  "wallSelection": "Compute solid mask S (wall/void). For each solid cell with any open neighbour (8-neighbourhood), pick by open sides: +x only -> open+x; +y only -> open+y; -x only -> open-x (back, black); -y only -> open-y (back); +x&+y -> open+x+y; -x&+y -> open-x+y; -x&-y -> open-x-y; +x&-y -> open+x-y; only diagonal open -> diag*. Solid cells with open on BOTH opposite sides (1-wide wall) should be avoided: erode/dilate the mask so walls are >=2 thick. Fully enclosed solid cells: no object, background 0 (void) with collision 1.",
+  "wallPalette": {
+   "open+x": [
+    64,
+    68,
+    96,
+    100,
+    104,
+    108,
+    112
+   ],
+   "open+y": [
+    65,
+    69,
+    97,
+    101,
+    105,
+    109,
+    113
+   ],
+   "open-x": [
+    66,
+    70,
+    106
+   ],
+   "open-y": [
+    67,
+    71,
+    107
+   ],
+   "diag+x+y": [
+    72,
+    76,
+    98,
+    102,
+    114
+   ],
+   "diag-x+y": [
+    73,
+    77
+   ],
+   "diag-x-y": [
+    74,
+    78
+   ],
+   "diag+x-y": [
+    75,
+    79
+   ],
+   "open+x+y": [
+    80,
+    84,
+    99,
+    103,
+    115
+   ],
+   "open-x+y": [
+    81,
+    85,
+    117,
+    119,
+    121
+   ],
+   "open-x-y": [
+    82,
+    86
+   ],
+   "open+x-y": [
+    83,
+    87,
+    116,
+    118,
+    120
+   ]
+  },
+  "wallVariantWeights": "Use the plain a/b pieces ~75%, then themed variants: stalagmites (96-99,116,117), cobweb (100-103,118,119), mushrooms (112-115,120,121), mine beams/shoring (104-109) only for \"mine\" levels.",
+  "backgroundUnderWalls": "visible faces (open+x, open+y, diag+x+y, open+x+y, open-x+y, open+x-y) sit on a normal floor tile; open-x/diag-x+y use 57 (left half floor) or 0; open-y/diag+x-y use 56 (right half floor) or 0; open-x-y/diag-x-y use 0 (void). Everything solid: collision 1.",
+  "pools": "Same 8-neighbour logic with water as \"solid\" and land as \"open\": edges 192-199, outer corners 200-207, inner corners 208-215, full 216-219. Collision 2. Planks (bridge layer, collision 0) cross pools.",
+  "rails": "Background layer; straight 32/34 along x, 33/35 along y; curves 36-39; T-junctions 40-47. Minecarts 128-131 on top."
+ },
+ "compositions": [
+  {
+   "name": "waypoint",
+   "cells": [
+    {
+     "dx": 0,
+     "dy": 0,
+     "tile": 264,
+     "layer": "background"
+    }
+   ],
+   "occupies": "x..x+1, y-1..y",
+   "collision": 0
+  }
+ ],
+ "tiles": [
+  {
+   "index": 16,
+   "img": "tileset_cave.png",
+   "rect": [
+    1152,
+    1149,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor",
+   "tag": "floor_dirt",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "plain brown cave dirt; 25 and 31 have moss patches; pick randomly",
+   "usage": {
+    "count": 2119,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 17,
+   "img": "tileset_cave.png",
+   "rect": [
+    1152,
+    1245,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor",
+   "tag": "floor_dirt",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "plain brown cave dirt; 25 and 31 have moss patches; pick randomly",
+   "usage": {
+    "count": 1819,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 18,
+   "img": "tileset_cave.png",
+   "rect": [
+    1344,
+    1255,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor",
+   "tag": "floor_dirt",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "plain brown cave dirt; 25 and 31 have moss patches; pick randomly",
+   "usage": {
+    "count": 1775,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 19,
+   "img": "tileset_cave.png",
+   "rect": [
+    1536,
+    1344,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor",
+   "tag": "floor_dirt",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "plain brown cave dirt; 25 and 31 have moss patches; pick randomly",
+   "usage": {
+    "count": 1839,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 20,
+   "img": "tileset_cave.png",
+   "rect": [
+    1728,
+    1344,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor",
+   "tag": "floor_dirt",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "plain brown cave dirt; 25 and 31 have moss patches; pick randomly",
+   "usage": {
+    "count": 1816,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 21,
+   "img": "tileset_cave.png",
+   "rect": [
+    384,
+    1044,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor",
+   "tag": "floor_dirt",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "plain brown cave dirt; 25 and 31 have moss patches; pick randomly",
+   "usage": {
+    "count": 1704,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 22,
+   "img": "tileset_cave.png",
+   "rect": [
+    192,
+    1046,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor",
+   "tag": "floor_dirt",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "plain brown cave dirt; 25 and 31 have moss patches; pick randomly",
+   "usage": {
+    "count": 1705,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 23,
+   "img": "tileset_cave.png",
+   "rect": [
+    0,
+    1048,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor",
+   "tag": "floor_dirt",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "plain brown cave dirt; 25 and 31 have moss patches; pick randomly",
+   "usage": {
+    "count": 1747,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 24,
+   "img": "tileset_cave.png",
+   "rect": [
+    576,
+    1044,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor",
+   "tag": "floor_dirt",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "plain brown cave dirt; 25 and 31 have moss patches; pick randomly",
+   "usage": {
+    "count": 1812,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 25,
+   "img": "tileset_cave.png",
+   "rect": [
+    384,
+    1140,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor",
+   "tag": "floor_dirt",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "plain brown cave dirt; 25 and 31 have moss patches; pick randomly",
+   "usage": {
+    "count": 1672,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 26,
+   "img": "tileset_cave.png",
+   "rect": [
+    192,
+    1142,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor",
+   "tag": "floor_dirt",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "plain brown cave dirt; 25 and 31 have moss patches; pick randomly",
+   "usage": {
+    "count": 1659,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 27,
+   "img": "tileset_cave.png",
+   "rect": [
+    0,
+    1144,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor",
+   "tag": "floor_dirt",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "plain brown cave dirt; 25 and 31 have moss patches; pick randomly",
+   "usage": {
+    "count": 1753,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 28,
+   "img": "tileset_cave.png",
+   "rect": [
+    576,
+    1140,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor",
+   "tag": "floor_dirt",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "plain brown cave dirt; 25 and 31 have moss patches; pick randomly",
+   "usage": {
+    "count": 1759,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 29,
+   "img": "tileset_cave.png",
+   "rect": [
+    768,
+    1171,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor",
+   "tag": "floor_dirt",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "plain brown cave dirt; 25 and 31 have moss patches; pick randomly",
+   "usage": {
+    "count": 1664,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 30,
+   "img": "tileset_cave.png",
+   "rect": [
+    384,
+    1236,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor",
+   "tag": "floor_dirt",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "plain brown cave dirt; 25 and 31 have moss patches; pick randomly",
+   "usage": {
+    "count": 1636,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 31,
+   "img": "tileset_cave.png",
+   "rect": [
+    192,
+    1238,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor",
+   "tag": "floor_dirt",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "plain brown cave dirt; 25 and 31 have moss patches; pick randomly",
+   "usage": {
+    "count": 1664,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 32,
+   "img": "tileset_cave.png",
+   "rect": [
+    0,
+    1240,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor_rails",
+   "tag": "rail_straight",
+   "orientation": "along-x",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 410,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "blackmire_mines",
+     "mog_caverns",
+     "underworld_mines"
+    ]
+   }
+  },
+  {
+   "index": 33,
+   "img": "tileset_cave.png",
+   "rect": [
+    576,
+    1236,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor_rails",
+   "tag": "rail_straight",
+   "orientation": "along-y",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 333,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "blackmire_mines",
+     "mog_caverns",
+     "perdition_mines",
+     "underworld_mines"
+    ]
+   }
+  },
+  {
+   "index": 34,
+   "img": "tileset_cave.png",
+   "rect": [
+    768,
+    1267,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor_rails",
+   "tag": "rail_straight",
+   "orientation": "along-x",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 168,
+    "col": 0,
+    "maps": [
+     "blackmire_mines",
+     "perdition_mines",
+     "underworld_mines"
+    ]
+   }
+  },
+  {
+   "index": 35,
+   "img": "tileset_cave.png",
+   "rect": [
+    960,
+    1277,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor_rails",
+   "tag": "rail_straight",
+   "orientation": "along-y",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 129,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "blackmire_mines",
+     "mog_caverns",
+     "underworld_mines"
+    ]
+   }
+  },
+  {
+   "index": 36,
+   "img": "tileset_cave.png",
+   "rect": [
+    1152,
+    1341,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor_rails",
+   "tag": "rail_curve",
+   "orientation": "connects+x+y",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 9,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "blackmire_mines",
+     "mog_caverns",
+     "underworld_mines"
+    ]
+   }
+  },
+  {
+   "index": 37,
+   "img": "tileset_cave.png",
+   "rect": [
+    1344,
+    1351,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor_rails",
+   "tag": "rail_curve",
+   "orientation": "connects-x+y",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 19,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "blackmire_mines",
+     "perdition_mines",
+     "underworld_mines"
+    ]
+   }
+  },
+  {
+   "index": 38,
+   "img": "tileset_cave.png",
+   "rect": [
+    1536,
+    1440,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor_rails",
+   "tag": "rail_curve",
+   "orientation": "connects-x-y",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 9,
+    "col": 0,
+    "maps": [
+     "blackmire_mines",
+     "mog_caverns",
+     "underworld_mines"
+    ]
+   }
+  },
+  {
+   "index": 39,
+   "img": "tileset_cave.png",
+   "rect": [
+    1728,
+    1440,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor_rails",
+   "tag": "rail_curve",
+   "orientation": "connects+x-y",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 20,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "blackmire_mines",
+     "mog_caverns",
+     "perdition_mines",
+     "underworld_mines"
+    ]
+   }
+  },
+  {
+   "index": 40,
+   "img": "tileset_cave.png",
+   "rect": [
+    384,
+    1332,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor_rails",
+   "tag": "rail_junction",
+   "orientation": "T:-x+x-y",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 11,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "blackmire_mines",
+     "perdition_mines",
+     "underworld_mines"
+    ]
+   }
+  },
+  {
+   "index": 41,
+   "img": "tileset_cave.png",
+   "rect": [
+    192,
+    1334,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor_rails",
+   "tag": "rail_junction",
+   "orientation": "T:+x-y+y",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 8,
+    "col": 0,
+    "maps": [
+     "blackmire_mines",
+     "underworld_mines"
+    ]
+   }
+  },
+  {
+   "index": 42,
+   "img": "tileset_cave.png",
+   "rect": [
+    0,
+    1336,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor_rails",
+   "tag": "rail_junction",
+   "orientation": "T:-x+x+y",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 10,
+    "col": 0,
+    "maps": [
+     "blackmire_mines",
+     "mog_caverns",
+     "underworld_mines"
+    ]
+   }
+  },
+  {
+   "index": 43,
+   "img": "tileset_cave.png",
+   "rect": [
+    576,
+    1332,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor_rails",
+   "tag": "rail_junction",
+   "orientation": "T:-x-y+y",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 7,
+    "col": 0,
+    "maps": [
+     "blackmire_mines",
+     "underworld_mines"
+    ]
+   }
+  },
+  {
+   "index": 44,
+   "img": "tileset_cave.png",
+   "rect": [
+    768,
+    1363,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor_rails",
+   "tag": "rail_junction",
+   "orientation": "T:-x+x+y",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 10,
+    "col": 0,
+    "maps": [
+     "blackmire_mines",
+     "mog_caverns",
+     "perdition_mines",
+     "underworld_mines"
+    ]
+   }
+  },
+  {
+   "index": 45,
+   "img": "tileset_cave.png",
+   "rect": [
+    960,
+    1373,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor_rails",
+   "tag": "rail_junction",
+   "orientation": "T:-x-y+y",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 11,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "blackmire_mines",
+     "underworld_mines"
+    ]
+   }
+  },
+  {
+   "index": 46,
+   "img": "tileset_cave.png",
+   "rect": [
+    1152,
+    1437,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor_rails",
+   "tag": "rail_junction",
+   "orientation": "T:-x+x-y",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 8,
+    "col": 0,
+    "maps": [
+     "blackmire_mines",
+     "mog_caverns",
+     "underworld_mines"
+    ]
+   }
+  },
+  {
+   "index": 47,
+   "img": "tileset_cave.png",
+   "rect": [
+    1344,
+    1447,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor_rails",
+   "tag": "rail_junction",
+   "orientation": "T:+x-y+y",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 11,
+    "col": 0,
+    "maps": [
+     "blackmire_mines",
+     "underworld_mines"
+    ]
+   }
+  },
+  {
+   "index": 48,
+   "img": "tileset_cave.png",
+   "rect": [
+    1536,
+    1536,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor_decal",
+   "tag": "floor_pebbles",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 109,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "blackmire_mines",
+     "goblin_cave",
+     "perdition_mines",
+     "the_breach"
+    ]
+   }
+  },
+  {
+   "index": 49,
+   "img": "tileset_cave.png",
+   "rect": [
+    1728,
+    1536,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor_decal",
+   "tag": "floor_pebbles",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 119,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 50,
+   "img": "tileset_cave.png",
+   "rect": [
+    384,
+    1428,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor_decal",
+   "tag": "floor_pebbles",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 149,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 51,
+   "img": "tileset_cave.png",
+   "rect": [
+    192,
+    1430,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor_decal",
+   "tag": "floor_pebbles",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 126,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "perdition_mines"
+    ]
+   }
+  },
+  {
+   "index": 52,
+   "img": "tileset_cave.png",
+   "rect": [
+    0,
+    1432,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor_decal",
+   "tag": "floor_bones",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "bones/skull/ribcage baked in floor: good for corrupted/hell caves",
+   "usage": {
+    "count": 57,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 53,
+   "img": "tileset_cave.png",
+   "rect": [
+    576,
+    1428,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor_decal",
+   "tag": "floor_bones",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "bones/skull/ribcage baked in floor: good for corrupted/hell caves",
+   "usage": {
+    "count": 77,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 54,
+   "img": "tileset_cave.png",
+   "rect": [
+    768,
+    1459,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor_decal",
+   "tag": "floor_bones",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "bones/skull/ribcage baked in floor: good for corrupted/hell caves",
+   "usage": {
+    "count": 56,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 55,
+   "img": "tileset_cave.png",
+   "rect": [
+    960,
+    1469,
+    192,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor_decal",
+   "tag": "floor_bones",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "bones/skull/ribcage baked in floor: good for corrupted/hell caves",
+   "usage": {
+    "count": 59,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 56,
+   "img": "tileset_cave.png",
+   "rect": [
+    1824,
+    2599,
+    114,
+    96
+   ],
+   "offset": [
+    18,
+    48
+   ],
+   "group": "floor",
+   "tag": "floor_half_right",
+   "layer": "background",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "right half diamond (x in [-18,+96] of centre); under walls whose floor side is screen-right: 67,71,75,79,107 (open-y / diag+x-y)",
+   "usage": {
+    "count": 994,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 57,
+   "img": "tileset_cave.png",
+   "rect": [
+    1938,
+    2599,
+    114,
+    96
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "floor",
+   "tag": "floor_half_left",
+   "layer": "background",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "left half diamond; under walls open to screen-left: 66,70,73,77 (open-x / diag-x+y)",
+   "usage": {
+    "count": 965,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 64,
+   "img": "tileset_cave.png",
+   "rect": [
+    1185,
+    2676,
+    176,
+    339
+   ],
+   "offset": [
+    96,
+    298
+   ],
+   "group": "wall",
+   "tag": "wall_rock_a",
+   "orientation": "open+x",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 239,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 65,
+   "img": "tileset_cave.png",
+   "rect": [
+    1232,
+    2336,
+    176,
+    339
+   ],
+   "offset": [
+    80,
+    298
+   ],
+   "group": "wall",
+   "tag": "wall_rock_a",
+   "orientation": "open+y",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 299,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 66,
+   "img": "tileset_cave.png",
+   "rect": [
+    321,
+    2712,
+    176,
+    323
+   ],
+   "offset": [
+    80,
+    275
+   ],
+   "group": "wall",
+   "tag": "wall_rock_a",
+   "orientation": "open-x",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 755,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 67,
+   "img": "tileset_cave.png",
+   "rect": [
+    497,
+    2712,
+    176,
+    323
+   ],
+   "offset": [
+    96,
+    275
+   ],
+   "group": "wall",
+   "tag": "wall_rock_a",
+   "orientation": "open-y",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 852,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 68,
+   "img": "tileset_cave.png",
+   "rect": [
+    1252,
+    1993,
+    176,
+    339
+   ],
+   "offset": [
+    96,
+    298
+   ],
+   "group": "wall",
+   "tag": "wall_rock_b",
+   "orientation": "open+x",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 246,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 69,
+   "img": "tileset_cave.png",
+   "rect": [
+    1361,
+    2675,
+    176,
+    339
+   ],
+   "offset": [
+    80,
+    298
+   ],
+   "group": "wall",
+   "tag": "wall_rock_b",
+   "orientation": "open+y",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 280,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 70,
+   "img": "tileset_cave.png",
+   "rect": [
+    674,
+    2043,
+    176,
+    317
+   ],
+   "offset": [
+    80,
+    269
+   ],
+   "group": "wall",
+   "tag": "wall_rock_b",
+   "orientation": "open-x",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 552,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 71,
+   "img": "tileset_cave.png",
+   "rect": [
+    833,
+    2704,
+    176,
+    317
+   ],
+   "offset": [
+    96,
+    269
+   ],
+   "group": "wall",
+   "tag": "wall_rock_b",
+   "orientation": "open-y",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 613,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 72,
+   "img": "tileset_cave.png",
+   "rect": [
+    192,
+    192,
+    192,
+    342
+   ],
+   "offset": [
+    96,
+    298
+   ],
+   "group": "wall",
+   "tag": "wall_rock_inner_corner_a",
+   "orientation": "diag+x+y",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 136,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 73,
+   "img": "tileset_cave.png",
+   "rect": [
+    0,
+    1528,
+    183,
+    346
+   ],
+   "offset": [
+    87,
+    298
+   ],
+   "group": "wall",
+   "tag": "wall_rock_inner_corner_a",
+   "orientation": "diag-x+y",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 482,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 74,
+   "img": "tileset_cave.png",
+   "rect": [
+    960,
+    192,
+    192,
+    317
+   ],
+   "offset": [
+    96,
+    269
+   ],
+   "group": "wall",
+   "tag": "wall_rock_inner_corner_a",
+   "orientation": "diag-x-y",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 371,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 75,
+   "img": "tileset_cave.png",
+   "rect": [
+    573,
+    1524,
+    183,
+    346
+   ],
+   "offset": [
+    96,
+    298
+   ],
+   "group": "wall",
+   "tag": "wall_rock_inner_corner_a",
+   "orientation": "diag+x-y",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 507,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 76,
+   "img": "tileset_cave.png",
+   "rect": [
+    768,
+    192,
+    192,
+    339
+   ],
+   "offset": [
+    96,
+    298
+   ],
+   "group": "wall",
+   "tag": "wall_rock_inner_corner_b",
+   "orientation": "diag+x+y",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 134,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 77,
+   "img": "tileset_cave.png",
+   "rect": [
+    0,
+    2376,
+    176,
+    346
+   ],
+   "offset": [
+    80,
+    298
+   ],
+   "group": "wall",
+   "tag": "wall_rock_inner_corner_b",
+   "orientation": "diag-x+y",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 326,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 78,
+   "img": "tileset_cave.png",
+   "rect": [
+    1152,
+    192,
+    192,
+    317
+   ],
+   "offset": [
+    96,
+    269
+   ],
+   "group": "wall",
+   "tag": "wall_rock_inner_corner_b",
+   "orientation": "diag-x-y",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 244,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 79,
+   "img": "tileset_cave.png",
+   "rect": [
+    528,
+    2363,
+    176,
+    346
+   ],
+   "offset": [
+    96,
+    298
+   ],
+   "group": "wall",
+   "tag": "wall_rock_inner_corner_b",
+   "orientation": "diag+x-y",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 334,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 80,
+   "img": "tileset_cave.png",
+   "rect": [
+    357,
+    2078,
+    160,
+    306
+   ],
+   "offset": [
+    80,
+    298
+   ],
+   "group": "wall",
+   "tag": "wall_rock_outer_corner_a",
+   "orientation": "open+x+y",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 138,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 81,
+   "img": "tileset_cave.png",
+   "rect": [
+    1140,
+    2026,
+    112,
+    310
+   ],
+   "offset": [
+    16,
+    269
+   ],
+   "group": "wall",
+   "tag": "wall_rock_outer_corner_a",
+   "orientation": "open-x+y",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 231,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 82,
+   "img": "tileset_cave.png",
+   "rect": [
+    1584,
+    2389,
+    160,
+    278
+   ],
+   "offset": [
+    80,
+    230
+   ],
+   "group": "wall",
+   "tag": "wall_rock_outer_corner_a",
+   "orientation": "open-x-y",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 386,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 83,
+   "img": "tileset_cave.png",
+   "rect": [
+    1324,
+    1662,
+    112,
+    310
+   ],
+   "offset": [
+    96,
+    269
+   ],
+   "group": "wall",
+   "tag": "wall_rock_outer_corner_a",
+   "orientation": "open+x-y",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 221,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 84,
+   "img": "tileset_cave.png",
+   "rect": [
+    850,
+    2026,
+    168,
+    312
+   ],
+   "offset": [
+    88,
+    298
+   ],
+   "group": "wall",
+   "tag": "wall_rock_outer_corner_rubble",
+   "orientation": "open+x+y",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 155,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 85,
+   "img": "tileset_cave.png",
+   "rect": [
+    1920,
+    1346,
+    122,
+    310
+   ],
+   "offset": [
+    26,
+    269
+   ],
+   "group": "wall",
+   "tag": "wall_rock_outer_corner_rubble",
+   "orientation": "open-x+y",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 193,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 86,
+   "img": "tileset_cave.png",
+   "rect": [
+    1889,
+    2113,
+    168,
+    276
+   ],
+   "offset": [
+    80,
+    228
+   ],
+   "group": "wall",
+   "tag": "wall_rock_outer_corner_rubble",
+   "orientation": "open-x-y",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 293,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 87,
+   "img": "tileset_cave.png",
+   "rect": [
+    1920,
+    1029,
+    122,
+    317
+   ],
+   "offset": [
+    96,
+    269
+   ],
+   "group": "wall",
+   "tag": "wall_rock_outer_corner_rubble",
+   "orientation": "open+x-y",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 214,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 96,
+   "img": "tileset_cave.png",
+   "rect": [
+    1148,
+    1652,
+    176,
+    341
+   ],
+   "offset": [
+    96,
+    298
+   ],
+   "group": "wall_variant",
+   "tag": "wall_rock_stalagmites",
+   "orientation": "open+x",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 241,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 97,
+   "img": "tileset_cave.png",
+   "rect": [
+    880,
+    2338,
+    176,
+    341
+   ],
+   "offset": [
+    80,
+    298
+   ],
+   "group": "wall_variant",
+   "tag": "wall_rock_stalagmites",
+   "orientation": "open+y",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 279,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 98,
+   "img": "tileset_cave.png",
+   "rect": [
+    0,
+    192,
+    192,
+    344
+   ],
+   "offset": [
+    96,
+    298
+   ],
+   "group": "wall_variant",
+   "tag": "wall_rock_stalagmites_inner_corner",
+   "orientation": "diag+x+y",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 126,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 99,
+   "img": "tileset_cave.png",
+   "rect": [
+    161,
+    2722,
+    160,
+    314
+   ],
+   "offset": [
+    80,
+    298
+   ],
+   "group": "wall_variant",
+   "tag": "wall_rock_stalagmites_outer_corner",
+   "orientation": "open+x+y",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 131,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 100,
+   "img": "tileset_cave.png",
+   "rect": [
+    1009,
+    2679,
+    176,
+    340
+   ],
+   "offset": [
+    96,
+    298
+   ],
+   "group": "wall_variant",
+   "tag": "wall_rock_cobweb",
+   "orientation": "open+x",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 232,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 101,
+   "img": "tileset_cave.png",
+   "rect": [
+    1408,
+    2332,
+    176,
+    339
+   ],
+   "offset": [
+    80,
+    298
+   ],
+   "group": "wall_variant",
+   "tag": "wall_rock_cobweb",
+   "orientation": "open+y",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 245,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 102,
+   "img": "tileset_cave.png",
+   "rect": [
+    384,
+    192,
+    192,
+    340
+   ],
+   "offset": [
+    96,
+    298
+   ],
+   "group": "wall_variant",
+   "tag": "wall_rock_cobweb_inner_corner",
+   "orientation": "diag+x+y",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 108,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 103,
+   "img": "tileset_cave.png",
+   "rect": [
+    673,
+    2709,
+    160,
+    326
+   ],
+   "offset": [
+    80,
+    298
+   ],
+   "group": "wall_variant",
+   "tag": "wall_rock_cobweb_outer_corner",
+   "orientation": "open+x+y",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 116,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 104,
+   "img": "tileset_cave.png",
+   "rect": [
+    1428,
+    1972,
+    176,
+    339
+   ],
+   "offset": [
+    96,
+    298
+   ],
+   "group": "wall_variant",
+   "tag": "wall_rock_mine_beam",
+   "orientation": "open+x",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "wooden mine support post against the rock (mines)",
+   "usage": {
+    "count": 66,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 105,
+   "img": "tileset_cave.png",
+   "rect": [
+    704,
+    2360,
+    176,
+    344
+   ],
+   "offset": [
+    80,
+    298
+   ],
+   "group": "wall_variant",
+   "tag": "wall_rock_mine_beam",
+   "orientation": "open+y",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "wooden mine support post against the rock (mines)",
+   "usage": {
+    "count": 94,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 106,
+   "img": "tileset_cave.png",
+   "rect": [
+    176,
+    2386,
+    176,
+    326
+   ],
+   "offset": [
+    80,
+    278
+   ],
+   "group": "wall_variant",
+   "tag": "wall_back_mine_beam",
+   "orientation": "open-x",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "black back wall with beam top poking out; pair with 104/105 across a corridor",
+   "usage": {
+    "count": 42,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns",
+     "perdition_mines"
+    ]
+   }
+  },
+  {
+   "index": 107,
+   "img": "tileset_cave.png",
+   "rect": [
+    352,
+    2386,
+    176,
+    326
+   ],
+   "offset": [
+    96,
+    278
+   ],
+   "group": "wall_variant",
+   "tag": "wall_back_mine_beam",
+   "orientation": "open-y",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "black back wall with beam top poking out; pair with 104/105 across a corridor",
+   "usage": {
+    "count": 59,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns",
+     "perdition_mines"
+    ]
+   }
+  },
+  {
+   "index": 108,
+   "img": "tileset_cave.png",
+   "rect": [
+    1547,
+    1632,
+    176,
+    339
+   ],
+   "offset": [
+    96,
+    298
+   ],
+   "group": "wall_variant",
+   "tag": "wall_rock_mine_shoring",
+   "orientation": "open+x",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "wooden plank shoring/ladder frame on rock",
+   "usage": {
+    "count": 70,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 109,
+   "img": "tileset_cave.png",
+   "rect": [
+    1723,
+    1632,
+    176,
+    339
+   ],
+   "offset": [
+    80,
+    298
+   ],
+   "group": "wall_variant",
+   "tag": "wall_rock_mine_shoring",
+   "orientation": "open+y",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "wooden plank shoring/ladder frame on rock",
+   "usage": {
+    "count": 104,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 110,
+   "img": "tileset_cave.png",
+   "rect": [
+    1899,
+    1656,
+    157,
+    284
+   ],
+   "offset": [
+    61,
+    271
+   ],
+   "group": "wall_variant",
+   "tag": "mine_support_beam_freestanding",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "Y-shaped wooden support pillar, placed on open floor (isolated cell)",
+   "usage": {
+    "count": 52,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 111,
+   "img": "tileset_cave.png",
+   "rect": [
+    517,
+    2078,
+    157,
+    285
+   ],
+   "offset": [
+    61,
+    271
+   ],
+   "group": "wall_variant",
+   "tag": "mine_support_beam_freestanding",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "Y-shaped wooden support pillar, placed on open floor (isolated cell)",
+   "usage": {
+    "count": 51,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 112,
+   "img": "tileset_cave.png",
+   "rect": [
+    1056,
+    2336,
+    176,
+    340
+   ],
+   "offset": [
+    96,
+    298
+   ],
+   "group": "wall_variant",
+   "tag": "wall_rock_mushrooms",
+   "orientation": "open+x",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "purple glowing-looking mushrooms at base",
+   "usage": {
+    "count": 213,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 113,
+   "img": "tileset_cave.png",
+   "rect": [
+    1537,
+    2671,
+    176,
+    339
+   ],
+   "offset": [
+    80,
+    298
+   ],
+   "group": "wall_variant",
+   "tag": "wall_rock_mushrooms",
+   "orientation": "open+y",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "purple glowing-looking mushrooms at base",
+   "usage": {
+    "count": 241,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 114,
+   "img": "tileset_cave.png",
+   "rect": [
+    576,
+    192,
+    192,
+    340
+   ],
+   "offset": [
+    96,
+    298
+   ],
+   "group": "wall_variant",
+   "tag": "wall_rock_mushrooms_inner_corner",
+   "orientation": "diag+x+y",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 121,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 115,
+   "img": "tileset_cave.png",
+   "rect": [
+    0,
+    2722,
+    161,
+    314
+   ],
+   "offset": [
+    81,
+    298
+   ],
+   "group": "wall_variant",
+   "tag": "wall_rock_mushrooms_outer_corner",
+   "orientation": "open+x+y",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 147,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 116,
+   "img": "tileset_cave.png",
+   "rect": [
+    1436,
+    1662,
+    111,
+    310
+   ],
+   "offset": [
+    96,
+    269
+   ],
+   "group": "wall_variant",
+   "tag": "wall_rock_stalagmites_outer_corner",
+   "orientation": "open+x-y",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 172,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "mog_caverns",
+     "the_breach"
+    ]
+   }
+  },
+  {
+   "index": 117,
+   "img": "tileset_cave.png",
+   "rect": [
+    1713,
+    2667,
+    111,
+    310
+   ],
+   "offset": [
+    15,
+    269
+   ],
+   "group": "wall_variant",
+   "tag": "wall_rock_stalagmites_outer_corner",
+   "orientation": "open-x+y",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 145,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "mog_caverns",
+     "the_breach"
+    ]
+   }
+  },
+  {
+   "index": 118,
+   "img": "tileset_cave.png",
+   "rect": [
+    1920,
+    719,
+    123,
+    310
+   ],
+   "offset": [
+    96,
+    269
+   ],
+   "group": "wall_variant",
+   "tag": "wall_rock_cobweb_outer_corner",
+   "orientation": "open+x-y",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 149,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "mog_caverns",
+     "the_breach"
+    ]
+   }
+  },
+  {
+   "index": 119,
+   "img": "tileset_cave.png",
+   "rect": [
+    1018,
+    2026,
+    122,
+    310
+   ],
+   "offset": [
+    26,
+    269
+   ],
+   "group": "wall_variant",
+   "tag": "wall_rock_cobweb_outer_corner",
+   "orientation": "open-x+y",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 154,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "mog_caverns",
+     "the_breach"
+    ]
+   }
+  },
+  {
+   "index": 120,
+   "img": "tileset_cave.png",
+   "rect": [
+    1920,
+    0,
+    131,
+    310
+   ],
+   "offset": [
+    96,
+    269
+   ],
+   "group": "wall_variant",
+   "tag": "wall_rock_mushrooms_outer_corner",
+   "orientation": "open+x-y",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 146,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "mog_caverns",
+     "the_breach"
+    ]
+   }
+  },
+  {
+   "index": 121,
+   "img": "tileset_cave.png",
+   "rect": [
+    1920,
+    310,
+    131,
+    310
+   ],
+   "offset": [
+    35,
+    269
+   ],
+   "group": "wall_variant",
+   "tag": "wall_rock_mushrooms_outer_corner",
+   "orientation": "open-x+y",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 149,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "mog_caverns",
+     "the_breach"
+    ]
+   }
+  },
+  {
+   "index": 128,
+   "img": "tileset_cave.png",
+   "rect": [
+    756,
+    1781,
+    93,
+    79
+   ],
+   "offset": [
+    39,
+    65
+   ],
+   "group": "prop",
+   "tag": "minecart_empty",
+   "orientation": "along-y",
+   "layer": "object",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "sits on rails 33/35",
+   "usage": {
+    "count": 28,
+    "col": 2,
+    "maps": [
+     "abandoned_mines",
+     "blackmire_mines",
+     "mog_caverns",
+     "perdition_mines",
+     "underworld_mines"
+    ]
+   }
+  },
+  {
+   "index": 129,
+   "img": "tileset_cave.png",
+   "rect": [
+    1697,
+    2227,
+    92,
+    79
+   ],
+   "offset": [
+    39,
+    65
+   ],
+   "group": "prop",
+   "tag": "minecart_empty",
+   "orientation": "along-x",
+   "layer": "object",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "sits on rails 32/34",
+   "usage": {
+    "count": 34,
+    "col": 2,
+    "maps": [
+     "abandoned_mines",
+     "blackmire_mines",
+     "mog_caverns",
+     "perdition_mines",
+     "underworld_mines"
+    ]
+   }
+  },
+  {
+   "index": 130,
+   "img": "tileset_cave.png",
+   "rect": [
+    1008,
+    1796,
+    93,
+    79
+   ],
+   "offset": [
+    39,
+    65
+   ],
+   "group": "prop",
+   "tag": "minecart_ore",
+   "orientation": "along-y",
+   "layer": "object",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "sits on rails 33/35",
+   "usage": {
+    "count": 37,
+    "col": 2,
+    "maps": [
+     "abandoned_mines",
+     "blackmire_mines",
+     "mog_caverns",
+     "perdition_mines",
+     "underworld_mines"
+    ]
+   }
+  },
+  {
+   "index": 131,
+   "img": "tileset_cave.png",
+   "rect": [
+    1604,
+    2227,
+    93,
+    79
+   ],
+   "offset": [
+    39,
+    65
+   ],
+   "group": "prop",
+   "tag": "minecart_ore",
+   "orientation": "along-x",
+   "layer": "object",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "sits on rails 32/34",
+   "usage": {
+    "count": 37,
+    "col": 2,
+    "maps": [
+     "abandoned_mines",
+     "blackmire_mines",
+     "mog_caverns",
+     "perdition_mines",
+     "underworld_mines"
+    ]
+   }
+  },
+  {
+   "index": 132,
+   "img": "tileset_cave.png",
+   "rect": [
+    1604,
+    2140,
+    99,
+    87
+   ],
+   "offset": [
+    48,
+    68
+   ],
+   "group": "plant",
+   "tag": "mushrooms_purple",
+   "layer": "object",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "decor; Flare uses col 0 or 2; purple tint reads as bioluminescent",
+   "usage": {
+    "count": 166,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 133,
+   "img": "tileset_cave.png",
+   "rect": [
+    779,
+    1860,
+    69,
+    133
+   ],
+   "offset": [
+    24,
+    121
+   ],
+   "group": "plant",
+   "tag": "mushrooms_purple",
+   "layer": "object",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "decor; Flare uses col 0 or 2; purple tint reads as bioluminescent",
+   "usage": {
+    "count": 117,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 134,
+   "img": "tileset_cave.png",
+   "rect": [
+    1584,
+    2311,
+    147,
+    77
+   ],
+   "offset": [
+    65,
+    62
+   ],
+   "group": "plant",
+   "tag": "mushrooms_purple",
+   "layer": "object",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "decor; Flare uses col 0 or 2; purple tint reads as bioluminescent",
+   "usage": {
+    "count": 159,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 135,
+   "img": "tileset_cave.png",
+   "rect": [
+    1744,
+    2542,
+    80,
+    120
+   ],
+   "offset": [
+    21,
+    108
+   ],
+   "group": "plant",
+   "tag": "mushrooms_purple",
+   "layer": "object",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "decor; Flare uses col 0 or 2; purple tint reads as bioluminescent",
+   "usage": {
+    "count": 130,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 144,
+   "img": "tileset_cave.png",
+   "rect": [
+    1009,
+    1565,
+    139,
+    125
+   ],
+   "offset": [
+    66,
+    105
+   ],
+   "group": "rock",
+   "tag": "stalagmites_small",
+   "layer": "object",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 123,
+    "col": 2,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 145,
+   "img": "tileset_cave.png",
+   "rect": [
+    542,
+    1870,
+    82,
+    206
+   ],
+   "offset": [
+    17,
+    189
+   ],
+   "group": "rock",
+   "tag": "stalagmites_small",
+   "layer": "object",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 36,
+    "col": 2,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 146,
+   "img": "tileset_cave.png",
+   "rect": [
+    1604,
+    1971,
+    100,
+    169
+   ],
+   "offset": [
+    37,
+    141
+   ],
+   "group": "rock",
+   "tag": "stalagmites_small",
+   "layer": "object",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 106,
+    "col": 2,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 147,
+   "img": "tileset_cave.png",
+   "rect": [
+    850,
+    1656,
+    158,
+    225
+   ],
+   "offset": [
+    62,
+    201
+   ],
+   "group": "rock",
+   "tag": "stalagmites_small",
+   "layer": "object",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 58,
+    "col": 2,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 148,
+   "img": "tileset_cave.png",
+   "rect": [
+    1344,
+    192,
+    192,
+    295
+   ],
+   "offset": [
+    96,
+    261
+   ],
+   "group": "rock",
+   "tag": "stalagmite_pillar_tall",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "tall pillar reaching ceiling (black top)",
+   "usage": {
+    "count": 68,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 149,
+   "img": "tileset_cave.png",
+   "rect": [
+    179,
+    2073,
+    178,
+    313
+   ],
+   "offset": [
+    82,
+    268
+   ],
+   "group": "rock",
+   "tag": "stalagmite_pillar_tall",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "tall pillar reaching ceiling (black top)",
+   "usage": {
+    "count": 83,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 150,
+   "img": "tileset_cave.png",
+   "rect": [
+    183,
+    1850,
+    179,
+    223
+   ],
+   "offset": [
+    96,
+    192
+   ],
+   "group": "rock",
+   "tag": "boulders",
+   "layer": "object",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 138,
+    "col": 2,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 151,
+   "img": "tileset_cave.png",
+   "rect": [
+    1887,
+    2389,
+    168,
+    104
+   ],
+   "offset": [
+    72,
+    67
+   ],
+   "group": "rock",
+   "tag": "boulders",
+   "layer": "object",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 163,
+    "col": 2,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 152,
+   "img": "tileset_cave.png",
+   "rect": [
+    1920,
+    620,
+    129,
+    99
+   ],
+   "offset": [
+    67,
+    69
+   ],
+   "group": "rock",
+   "tag": "boulders",
+   "layer": "object",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 135,
+    "col": 2,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 153,
+   "img": "tileset_cave.png",
+   "rect": [
+    363,
+    1846,
+    179,
+    232
+   ],
+   "offset": [
+    83,
+    193
+   ],
+   "group": "rock",
+   "tag": "rock_pillar",
+   "layer": "object",
+   "blocks": "all",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 78,
+    "col": 1,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 160,
+   "img": "tileset_cave.png",
+   "rect": [
+    1824,
+    2951,
+    92,
+    86
+   ],
+   "offset": [
+    40,
+    65
+   ],
+   "group": "prop",
+   "tag": "chest_wooden",
+   "layer": "object",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "closed; open states are 176/177",
+   "usage": {
+    "count": 13,
+    "col": 2,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "mog_caverns",
+     "perdition_mines"
+    ]
+   }
+  },
+  {
+   "index": 161,
+   "img": "tileset_cave.png",
+   "rect": [
+    1916,
+    2951,
+    91,
+    86
+   ],
+   "offset": [
+    40,
+    65
+   ],
+   "group": "prop",
+   "tag": "chest_wooden",
+   "layer": "object",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "closed; open states are 176/177",
+   "usage": {
+    "count": 11,
+    "col": 2,
+    "maps": [
+     "abandoned_mines",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns",
+     "underworld"
+    ]
+   }
+  },
+  {
+   "index": 162,
+   "img": "tileset_cave.png",
+   "rect": [
+    1922,
+    2801,
+    93,
+    108
+   ],
+   "offset": [
+    35,
+    92
+   ],
+   "group": "prop",
+   "tag": "barrel",
+   "layer": "object",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 17,
+    "col": 2,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 163,
+   "img": "tileset_cave.png",
+   "rect": [
+    1922,
+    2695,
+    111,
+    106
+   ],
+   "offset": [
+    45,
+    82
+   ],
+   "group": "prop",
+   "tag": "crate",
+   "layer": "object",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 25,
+    "col": 2,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 176,
+   "img": "tileset_cave.png",
+   "rect": [
+    1862,
+    2493,
+    115,
+    106
+   ],
+   "offset": [
+    67,
+    85
+   ],
+   "group": "prop",
+   "tag": "chest_wooden_open",
+   "layer": "object",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 0
+   }
+  },
+  {
+   "index": 177,
+   "img": "tileset_cave.png",
+   "rect": [
+    1008,
+    1690,
+    121,
+    106
+   ],
+   "offset": [
+    40,
+    85
+   ],
+   "group": "prop",
+   "tag": "chest_wooden_open",
+   "layer": "object",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 0
+   }
+  },
+  {
+   "index": 178,
+   "img": "tileset_cave.png",
+   "rect": [
+    756,
+    1656,
+    94,
+    125
+   ],
+   "offset": [
+    35,
+    92
+   ],
+   "group": "prop",
+   "tag": "barrel_broken",
+   "layer": "object",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 5,
+    "col": 2,
+    "maps": [
+     "blackmire_mines"
+    ]
+   }
+  },
+  {
+   "index": 179,
+   "img": "tileset_cave.png",
+   "rect": [
+    1744,
+    2427,
+    118,
+    115
+   ],
+   "offset": [
+    45,
+    91
+   ],
+   "group": "prop",
+   "tag": "crate_broken",
+   "layer": "object",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 5,
+    "col": 2,
+    "maps": [
+     "abandoned_mines",
+     "blackmire_mines",
+     "underworld"
+    ]
+   }
+  },
+  {
+   "index": 192,
+   "img": "tileset_cave.png",
+   "rect": [
+    1536,
+    192,
+    192,
+    128
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "water_pool",
+   "tag": "pool_edge",
+   "orientation": "open-x",
+   "layer": "background",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "anim": {
+    "frames": [
+     [
+      1536,
+      192
+     ],
+     [
+      1536,
+      960
+     ]
+    ],
+    "ms": 250
+   },
+   "notes": "dark green water with dirt rim; \"open\" = land side",
+   "usage": {
+    "count": 143,
+    "col": 2,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 193,
+   "img": "tileset_cave.png",
+   "rect": [
+    1728,
+    192,
+    192,
+    128
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "water_pool",
+   "tag": "pool_edge",
+   "orientation": "open-y",
+   "layer": "background",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "anim": {
+    "frames": [
+     [
+      1728,
+      192
+     ],
+     [
+      1728,
+      960
+     ]
+    ],
+    "ms": 250
+   },
+   "usage": {
+    "count": 152,
+    "col": 2,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 194,
+   "img": "tileset_cave.png",
+   "rect": [
+    1536,
+    320,
+    192,
+    128
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "water_pool",
+   "tag": "pool_edge",
+   "orientation": "open+x",
+   "layer": "background",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "anim": {
+    "frames": [
+     [
+      1536,
+      320
+     ],
+     [
+      384,
+      660
+     ]
+    ],
+    "ms": 250
+   },
+   "usage": {
+    "count": 129,
+    "col": 2,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 195,
+   "img": "tileset_cave.png",
+   "rect": [
+    1728,
+    320,
+    192,
+    128
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "water_pool",
+   "tag": "pool_edge",
+   "orientation": "open+y",
+   "layer": "background",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "anim": {
+    "frames": [
+     [
+      1728,
+      320
+     ],
+     [
+      192,
+      662
+     ]
+    ],
+    "ms": 250
+   },
+   "usage": {
+    "count": 151,
+    "col": 2,
+    "maps": [
+     "abandoned_mines",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns",
+     "the_pit"
+    ]
+   }
+  },
+  {
+   "index": 196,
+   "img": "tileset_cave.png",
+   "rect": [
+    1536,
+    448,
+    192,
+    128
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "water_pool",
+   "tag": "pool_edge",
+   "orientation": "open-x",
+   "layer": "background",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "anim": {
+    "frames": [
+     [
+      1536,
+      448
+     ],
+     [
+      0,
+      664
+     ]
+    ],
+    "ms": 250
+   },
+   "notes": "dark green water with dirt rim; \"open\" = land side",
+   "usage": {
+    "count": 73,
+    "col": 2,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "goblin_cave",
+     "mog_caverns",
+     "the_pit"
+    ]
+   }
+  },
+  {
+   "index": 197,
+   "img": "tileset_cave.png",
+   "rect": [
+    1344,
+    487,
+    192,
+    128
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "water_pool",
+   "tag": "pool_edge",
+   "orientation": "open-y",
+   "layer": "background",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "anim": {
+    "frames": [
+     [
+      1344,
+      487
+     ],
+     [
+      576,
+      660
+     ]
+    ],
+    "ms": 250
+   },
+   "usage": {
+    "count": 97,
+    "col": 2,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 198,
+   "img": "tileset_cave.png",
+   "rect": [
+    1728,
+    448,
+    192,
+    128
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "water_pool",
+   "tag": "pool_edge",
+   "orientation": "open+x",
+   "layer": "background",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "anim": {
+    "frames": [
+     [
+      1728,
+      448
+     ],
+     [
+      768,
+      787
+     ]
+    ],
+    "ms": 250
+   },
+   "usage": {
+    "count": 97,
+    "col": 2,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 199,
+   "img": "tileset_cave.png",
+   "rect": [
+    1536,
+    576,
+    192,
+    128
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "water_pool",
+   "tag": "pool_edge",
+   "orientation": "open+y",
+   "layer": "background",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "anim": {
+    "frames": [
+     [
+      1536,
+      576
+     ],
+     [
+      960,
+      893
+     ]
+    ],
+    "ms": 250
+   },
+   "usage": {
+    "count": 72,
+    "col": 2,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 200,
+   "img": "tileset_cave.png",
+   "rect": [
+    1728,
+    576,
+    192,
+    128
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "water_pool",
+   "tag": "pool_outer_corner",
+   "orientation": "open-x+y",
+   "layer": "background",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "anim": {
+    "frames": [
+     [
+      1728,
+      576
+     ],
+     [
+      1152,
+      893
+     ]
+    ],
+    "ms": 250
+   },
+   "usage": {
+    "count": 122,
+    "col": 2,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 201,
+   "img": "tileset_cave.png",
+   "rect": [
+    960,
+    509,
+    192,
+    128
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "water_pool",
+   "tag": "pool_outer_corner",
+   "orientation": "open-x-y",
+   "layer": "background",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "anim": {
+    "frames": [
+     [
+      960,
+      509
+     ],
+     [
+      1344,
+      999
+     ]
+    ],
+    "ms": 250
+   },
+   "usage": {
+    "count": 116,
+    "col": 2,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 202,
+   "img": "tileset_cave.png",
+   "rect": [
+    768,
+    531,
+    192,
+    128
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "water_pool",
+   "tag": "pool_outer_corner",
+   "orientation": "open+x-y",
+   "layer": "background",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "anim": {
+    "frames": [
+     [
+      768,
+      531
+     ],
+     [
+      1536,
+      1088
+     ]
+    ],
+    "ms": 250
+   },
+   "usage": {
+    "count": 117,
+    "col": 2,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 203,
+   "img": "tileset_cave.png",
+   "rect": [
+    1152,
+    509,
+    192,
+    128
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "water_pool",
+   "tag": "pool_outer_corner",
+   "orientation": "open+x+y",
+   "layer": "background",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "anim": {
+    "frames": [
+     [
+      1152,
+      509
+     ],
+     [
+      1728,
+      1088
+     ]
+    ],
+    "ms": 250
+   },
+   "usage": {
+    "count": 113,
+    "col": 2,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 204,
+   "img": "tileset_cave.png",
+   "rect": [
+    1344,
+    615,
+    192,
+    128
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "water_pool",
+   "tag": "pool_outer_corner",
+   "orientation": "open-x+y",
+   "layer": "background",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "anim": {
+    "frames": [
+     [
+      1344,
+      615
+     ],
+     [
+      384,
+      788
+     ]
+    ],
+    "ms": 250
+   },
+   "usage": {
+    "count": 107,
+    "col": 2,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 205,
+   "img": "tileset_cave.png",
+   "rect": [
+    1536,
+    704,
+    192,
+    128
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "water_pool",
+   "tag": "pool_outer_corner",
+   "orientation": "open-x-y",
+   "layer": "background",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "anim": {
+    "frames": [
+     [
+      1536,
+      704
+     ],
+     [
+      192,
+      790
+     ]
+    ],
+    "ms": 250
+   },
+   "usage": {
+    "count": 69,
+    "col": 2,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 206,
+   "img": "tileset_cave.png",
+   "rect": [
+    1728,
+    704,
+    192,
+    128
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "water_pool",
+   "tag": "pool_outer_corner",
+   "orientation": "open+x-y",
+   "layer": "background",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "anim": {
+    "frames": [
+     [
+      1728,
+      704
+     ],
+     [
+      0,
+      792
+     ]
+    ],
+    "ms": 250
+   },
+   "usage": {
+    "count": 95,
+    "col": 2,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 207,
+   "img": "tileset_cave.png",
+   "rect": [
+    960,
+    637,
+    192,
+    128
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "water_pool",
+   "tag": "pool_outer_corner",
+   "orientation": "open+x+y",
+   "layer": "background",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "anim": {
+    "frames": [
+     [
+      960,
+      637
+     ],
+     [
+      576,
+      788
+     ]
+    ],
+    "ms": 250
+   },
+   "usage": {
+    "count": 89,
+    "col": 2,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "mog_caverns",
+     "the_pit"
+    ]
+   }
+  },
+  {
+   "index": 208,
+   "img": "tileset_cave.png",
+   "rect": [
+    1152,
+    637,
+    192,
+    128
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "water_pool",
+   "tag": "pool_inner_corner",
+   "orientation": "diag-x+y",
+   "layer": "background",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "anim": {
+    "frames": [
+     [
+      1152,
+      637
+     ],
+     [
+      768,
+      915
+     ]
+    ],
+    "ms": 250
+   },
+   "usage": {
+    "count": 215,
+    "col": 2,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 209,
+   "img": "tileset_cave.png",
+   "rect": [
+    1344,
+    743,
+    192,
+    128
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "water_pool",
+   "tag": "pool_inner_corner",
+   "orientation": "diag-x-y",
+   "layer": "background",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "anim": {
+    "frames": [
+     [
+      1344,
+      743
+     ],
+     [
+      960,
+      1021
+     ]
+    ],
+    "ms": 250
+   },
+   "usage": {
+    "count": 170,
+    "col": 2,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 210,
+   "img": "tileset_cave.png",
+   "rect": [
+    1536,
+    832,
+    192,
+    128
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "water_pool",
+   "tag": "pool_inner_corner",
+   "orientation": "diag+x-y",
+   "layer": "background",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "anim": {
+    "frames": [
+     [
+      1536,
+      832
+     ],
+     [
+      1152,
+      1021
+     ]
+    ],
+    "ms": 250
+   },
+   "usage": {
+    "count": 195,
+    "col": 2,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 211,
+   "img": "tileset_cave.png",
+   "rect": [
+    1728,
+    832,
+    192,
+    128
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "water_pool",
+   "tag": "pool_inner_corner",
+   "orientation": "diag+x+y",
+   "layer": "background",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "anim": {
+    "frames": [
+     [
+      1728,
+      832
+     ],
+     [
+      1344,
+      1127
+     ]
+    ],
+    "ms": 250
+   },
+   "usage": {
+    "count": 187,
+    "col": 2,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "mog_caverns",
+     "the_pit"
+    ]
+   }
+  },
+  {
+   "index": 212,
+   "img": "tileset_cave.png",
+   "rect": [
+    384,
+    532,
+    192,
+    128
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "water_pool",
+   "tag": "pool_inner_corner",
+   "orientation": "diag-x+y",
+   "layer": "background",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "anim": {
+    "frames": [
+     [
+      384,
+      532
+     ],
+     [
+      1536,
+      1216
+     ]
+    ],
+    "ms": 250
+   },
+   "usage": {
+    "count": 2,
+    "col": 2,
+    "maps": [
+     "blackmire_mines"
+    ]
+   }
+  },
+  {
+   "index": 213,
+   "img": "tileset_cave.png",
+   "rect": [
+    192,
+    534,
+    192,
+    128
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "water_pool",
+   "tag": "pool_inner_corner",
+   "orientation": "diag-x-y",
+   "layer": "background",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "anim": {
+    "frames": [
+     [
+      192,
+      534
+     ],
+     [
+      1728,
+      1216
+     ]
+    ],
+    "ms": 250
+   },
+   "usage": {
+    "count": 2,
+    "col": 2,
+    "maps": [
+     "blackmire_mines",
+     "underworld_catacombs"
+    ]
+   }
+  },
+  {
+   "index": 214,
+   "img": "tileset_cave.png",
+   "rect": [
+    0,
+    536,
+    192,
+    128
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "water_pool",
+   "tag": "pool_inner_corner",
+   "orientation": "diag+x-y",
+   "layer": "background",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "anim": {
+    "frames": [
+     [
+      0,
+      536
+     ],
+     [
+      384,
+      916
+     ]
+    ],
+    "ms": 250
+   },
+   "usage": {
+    "count": 2,
+    "col": 2,
+    "maps": [
+     "blackmire_mines"
+    ]
+   }
+  },
+  {
+   "index": 215,
+   "img": "tileset_cave.png",
+   "rect": [
+    576,
+    532,
+    192,
+    128
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "water_pool",
+   "tag": "pool_inner_corner",
+   "orientation": "diag+x+y",
+   "layer": "background",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "anim": {
+    "frames": [
+     [
+      576,
+      532
+     ],
+     [
+      192,
+      918
+     ]
+    ],
+    "ms": 250
+   },
+   "usage": {
+    "count": 1,
+    "col": 2,
+    "maps": [
+     "blackmire_mines"
+    ]
+   }
+  },
+  {
+   "index": 216,
+   "img": "tileset_cave.png",
+   "rect": [
+    768,
+    659,
+    192,
+    128
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "water_pool",
+   "tag": "pool_full",
+   "layer": "background",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "anim": {
+    "frames": [
+     [
+      768,
+      659
+     ],
+     [
+      0,
+      920
+     ]
+    ],
+    "ms": 250
+   },
+   "notes": "best LAVA candidate: recolor to orange/red (animated)",
+   "usage": {
+    "count": 977,
+    "col": 2,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "goblin_cave",
+     "mog_caverns"
+    ]
+   }
+  },
+  {
+   "index": 217,
+   "img": "tileset_cave.png",
+   "rect": [
+    960,
+    765,
+    192,
+    128
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "water_pool",
+   "tag": "pool_full",
+   "layer": "background",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "anim": {
+    "frames": [
+     [
+      960,
+      765
+     ],
+     [
+      576,
+      916
+     ]
+    ],
+    "ms": 250
+   },
+   "notes": "best LAVA candidate: recolor to orange/red (animated)",
+   "usage": {
+    "count": 870,
+    "col": 2,
+    "maps": [
+     "antlion_nest",
+     "blackmire_mines",
+     "mog_caverns",
+     "the_pit",
+     "underworld"
+    ]
+   }
+  },
+  {
+   "index": 218,
+   "img": "tileset_cave.png",
+   "rect": [
+    1152,
+    765,
+    192,
+    128
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "water_pool",
+   "tag": "pool_full",
+   "layer": "background",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "anim": {
+    "frames": [
+     [
+      1152,
+      765
+     ],
+     [
+      768,
+      1043
+     ]
+    ],
+    "ms": 250
+   },
+   "notes": "best LAVA candidate: recolor to orange/red (animated)",
+   "usage": {
+    "count": 855,
+    "col": 2,
+    "maps": [
+     "antlion_nest",
+     "blackmire_mines",
+     "mog_caverns",
+     "the_pit",
+     "underworld"
+    ]
+   }
+  },
+  {
+   "index": 219,
+   "img": "tileset_cave.png",
+   "rect": [
+    1344,
+    871,
+    192,
+    128
+   ],
+   "offset": [
+    96,
+    48
+   ],
+   "group": "water_pool",
+   "tag": "pool_full",
+   "layer": "background",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "anim": {
+    "frames": [
+     [
+      1344,
+      871
+     ],
+     [
+      960,
+      1149
+     ]
+    ],
+    "ms": 250
+   },
+   "notes": "best LAVA candidate: recolor to orange/red (animated)",
+   "usage": {
+    "count": 849,
+    "col": 2,
+    "maps": [
+     "antlion_nest",
+     "blackmire_mines",
+     "mog_caverns",
+     "the_pit",
+     "underworld"
+    ]
+   }
+  },
+  {
+   "index": 224,
+   "img": "tileset_cave.png",
+   "rect": [
+    1713,
+    2073,
+    176,
+    98
+   ],
+   "offset": [
+    88,
+    48
+   ],
+   "group": "bridge",
+   "tag": "plank_bridge_end_broken",
+   "orientation": "end-y (continues +y)",
+   "layer": "bridge",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 8,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "blackmire_mines",
+     "mog_caverns",
+     "underworld"
+    ]
+   }
+  },
+  {
+   "index": 225,
+   "img": "tileset_cave.png",
+   "rect": [
+    0,
+    2076,
+    178,
+    102
+   ],
+   "offset": [
+    85,
+    53
+   ],
+   "group": "bridge",
+   "tag": "plank_bridge_end_broken",
+   "orientation": "end+y (continues -y)",
+   "layer": "bridge",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 9,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "blackmire_mines",
+     "mog_caverns",
+     "underworld"
+    ]
+   }
+  },
+  {
+   "index": 226,
+   "img": "tileset_cave.png",
+   "rect": [
+    1713,
+    1971,
+    176,
+    102
+   ],
+   "offset": [
+    88,
+    53
+   ],
+   "group": "bridge",
+   "tag": "plank_bridge_end_broken",
+   "orientation": "end+x (continues -x)",
+   "layer": "bridge",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 10,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "mog_caverns",
+     "underworld"
+    ]
+   }
+  },
+  {
+   "index": 227,
+   "img": "tileset_cave.png",
+   "rect": [
+    0,
+    2279,
+    177,
+    97
+   ],
+   "offset": [
+    85,
+    48
+   ],
+   "group": "bridge",
+   "tag": "plank_bridge_end_broken",
+   "orientation": "end-x (continues +x)",
+   "layer": "bridge",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 9,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "mog_caverns",
+     "underworld"
+    ]
+   }
+  },
+  {
+   "index": 228,
+   "img": "tileset_cave.png",
+   "rect": [
+    192,
+    1526,
+    188,
+    119
+   ],
+   "offset": [
+    92,
+    64
+   ],
+   "group": "bridge",
+   "tag": "plank_platform_framed",
+   "layer": "bridge",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "framed wooden grate/platform, landing piece",
+   "usage": {
+    "count": 2,
+    "col": 0,
+    "maps": [
+     "underworld"
+    ]
+   }
+  },
+  {
+   "index": 229,
+   "img": "tileset_cave.png",
+   "rect": [
+    1152,
+    1533,
+    190,
+    119
+   ],
+   "offset": [
+    94,
+    64
+   ],
+   "group": "bridge",
+   "tag": "plank_platform_framed",
+   "layer": "bridge",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "framed wooden grate/platform, landing piece",
+   "usage": {
+    "count": 2,
+    "col": 0,
+    "maps": [
+     "underworld"
+    ]
+   }
+  },
+  {
+   "index": 230,
+   "img": "tileset_cave.png",
+   "rect": [
+    1342,
+    1543,
+    190,
+    119
+   ],
+   "offset": [
+    94,
+    64
+   ],
+   "group": "bridge",
+   "tag": "plank_platform_framed",
+   "layer": "bridge",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "framed wooden grate/platform, landing piece",
+   "usage": {
+    "count": 4,
+    "col": 0,
+    "maps": [
+     "mog_caverns",
+     "underworld"
+    ]
+   }
+  },
+  {
+   "index": 231,
+   "img": "tileset_cave.png",
+   "rect": [
+    384,
+    1524,
+    189,
+    120
+   ],
+   "offset": [
+    93,
+    64
+   ],
+   "group": "bridge",
+   "tag": "plank_platform_framed",
+   "layer": "bridge",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "framed wooden grate/platform, landing piece",
+   "usage": {
+    "count": 1,
+    "col": 0,
+    "maps": [
+     "underworld"
+    ]
+   }
+  },
+  {
+   "index": 232,
+   "img": "tileset_cave.png",
+   "rect": [
+    183,
+    1747,
+    180,
+    103
+   ],
+   "offset": [
+    88,
+    54
+   ],
+   "group": "bridge",
+   "tag": "plank_bridge",
+   "orientation": "along-y",
+   "layer": "bridge",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 3,
+    "col": 0,
+    "maps": [
+     "mog_caverns",
+     "underworld"
+    ]
+   }
+  },
+  {
+   "index": 233,
+   "img": "tileset_cave.png",
+   "rect": [
+    756,
+    1555,
+    181,
+    101
+   ],
+   "offset": [
+    87,
+    53
+   ],
+   "group": "bridge",
+   "tag": "plank_bridge",
+   "orientation": "along-y",
+   "layer": "bridge",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 6,
+    "col": 0,
+    "maps": [
+     "mog_caverns",
+     "underworld"
+    ]
+   }
+  },
+  {
+   "index": 234,
+   "img": "tileset_cave.png",
+   "rect": [
+    364,
+    1746,
+    181,
+    100
+   ],
+   "offset": [
+    88,
+    52
+   ],
+   "group": "bridge",
+   "tag": "plank_bridge",
+   "orientation": "along-x",
+   "layer": "bridge",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 10,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "mog_caverns",
+     "underworld"
+    ]
+   }
+  },
+  {
+   "index": 235,
+   "img": "tileset_cave.png",
+   "rect": [
+    380,
+    1644,
+    182,
+    102
+   ],
+   "offset": [
+    88,
+    53
+   ],
+   "group": "bridge",
+   "tag": "plank_bridge",
+   "orientation": "along-x",
+   "layer": "bridge",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 5,
+    "col": 0,
+    "maps": [
+     "mog_caverns",
+     "underworld"
+    ]
+   }
+  },
+  {
+   "index": 236,
+   "img": "tileset_cave.png",
+   "rect": [
+    0,
+    2178,
+    178,
+    101
+   ],
+   "offset": [
+    87,
+    52
+   ],
+   "group": "bridge",
+   "tag": "plank_bridge",
+   "orientation": "along-y",
+   "layer": "bridge",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 6,
+    "col": 0,
+    "maps": [
+     "underworld"
+    ]
+   }
+  },
+  {
+   "index": 237,
+   "img": "tileset_cave.png",
+   "rect": [
+    0,
+    1874,
+    179,
+    102
+   ],
+   "offset": [
+    88,
+    53
+   ],
+   "group": "bridge",
+   "tag": "plank_bridge",
+   "orientation": "along-y",
+   "layer": "bridge",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 10,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "underworld"
+    ]
+   }
+  },
+  {
+   "index": 238,
+   "img": "tileset_cave.png",
+   "rect": [
+    0,
+    1976,
+    179,
+    100
+   ],
+   "offset": [
+    88,
+    51
+   ],
+   "group": "bridge",
+   "tag": "plank_bridge",
+   "orientation": "along-x",
+   "layer": "bridge",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 10,
+    "col": 0,
+    "maps": [
+     "mog_caverns",
+     "underworld"
+    ]
+   }
+  },
+  {
+   "index": 239,
+   "img": "tileset_cave.png",
+   "rect": [
+    183,
+    1645,
+    181,
+    102
+   ],
+   "offset": [
+    89,
+    53
+   ],
+   "group": "bridge",
+   "tag": "plank_bridge",
+   "orientation": "along-x",
+   "layer": "bridge",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 4,
+    "col": 0,
+    "maps": [
+     "underworld"
+    ]
+   }
+  },
+  {
+   "index": 240,
+   "img": "tileset_cave.png",
+   "rect": [
+    1789,
+    2171,
+    98,
+    256
+   ],
+   "offset": [
+    49,
+    231
+   ],
+   "group": "light",
+   "tag": "light_shaft_blue",
+   "layer": "object",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "translucent blue light beam from ceiling (additive-looking); only native \"light\" in cave",
+   "usage": {
+    "count": 37,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "antlion_nest",
+     "blackmire_mines",
+     "mog_caverns",
+     "perdition_mines"
+    ]
+   }
+  },
+  {
+   "index": 241,
+   "img": "tileset_cave.png",
+   "rect": [
+    1824,
+    2695,
+    98,
+    256
+   ],
+   "offset": [
+    49,
+    231
+   ],
+   "group": "light",
+   "tag": "light_shaft_blue",
+   "layer": "object",
+   "blocks": "none",
+   "footprint": [
+    1,
+    1
+   ],
+   "notes": "translucent blue light beam from ceiling (additive-looking); only native \"light\" in cave",
+   "usage": {
+    "count": 23,
+    "col": 0,
+    "maps": [
+     "abandoned_mines",
+     "goblin_cave",
+     "the_breach",
+     "underworld",
+     "underworld_catacombs"
+    ]
+   }
+  },
+  {
+   "index": 264,
+   "img": "tileset_cave.png",
+   "rect": [
+    0,
+    0,
+    384,
+    192
+   ],
+   "offset": [
+    96,
+    96
+   ],
+   "group": "special",
+   "tag": "waypoint_platform",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    2,
+    2
+   ],
+   "notes": "2x2 stone rune circle; anchor cell (x,y) covers x..x+1, y-1..y",
+   "usage": {
+    "count": 3,
+    "col": 0,
+    "maps": [
+     "blackmire_mines",
+     "underworld",
+     "underworld_catacombs"
+    ]
+   }
+  },
+  {
+   "index": 265,
+   "img": "tileset_cave.png",
+   "rect": [
+    384,
+    0,
+    384,
+    192
+   ],
+   "offset": [
+    96,
+    96
+   ],
+   "group": "special",
+   "tag": "waypoint_platform_active",
+   "layer": "background",
+   "blocks": "none",
+   "footprint": [
+    2,
+    2
+   ],
+   "anim": {
+    "frames": [
+     [
+      384,
+      0
+     ],
+     [
+      768,
+      0
+     ],
+     [
+      1152,
+      0
+     ],
+     [
+      1536,
+      0
+     ]
+    ],
+    "ms": 66
+   },
+   "notes": "animated glowing blue (4 frames 66ms)",
+   "usage": {
+    "count": 1,
+    "col": 0,
+    "maps": [
+     "the_pit"
+    ]
+   }
+  },
+  {
+   "index": 266,
+   "img": "tileset_cave.png",
+   "rect": [
+    998,
+    1881,
+    148,
+    145
+   ],
+   "offset": [
+    64,
+    107
+   ],
+   "group": "prop",
+   "tag": "boss_chest_closed",
+   "layer": "object",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 1,
+    "col": 2,
+    "maps": [
+     "the_pit"
+    ]
+   }
+  },
+  {
+   "index": 267,
+   "img": "tileset_cave.png",
+   "rect": [
+    1899,
+    1940,
+    154,
+    173
+   ],
+   "offset": [
+    58,
+    135
+   ],
+   "group": "prop",
+   "tag": "boss_chest_open",
+   "layer": "object",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 0
+   }
+  },
+  {
+   "index": 268,
+   "img": "tileset_cave.png",
+   "rect": [
+    848,
+    1881,
+    150,
+    145
+   ],
+   "offset": [
+    63,
+    107
+   ],
+   "group": "prop",
+   "tag": "boss_chest_closed",
+   "layer": "object",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 0
+   }
+  },
+  {
+   "index": 269,
+   "img": "tileset_cave.png",
+   "rect": [
+    624,
+    1870,
+    155,
+    173
+   ],
+   "offset": [
+    86,
+    135
+   ],
+   "group": "prop",
+   "tag": "boss_chest_open",
+   "layer": "object",
+   "blocks": "movement",
+   "footprint": [
+    1,
+    1
+   ],
+   "usage": {
+    "count": 0
+   }
+  }
+ ]
+}

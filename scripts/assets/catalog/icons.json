@@ -1,0 +1,1549 @@
+{
+ "generatedBy": ".assets-src/scratch/fx-icons-audio/gen.cjs (labelled sheets icons/*.png, all viewed; refs from items/**.txt + powers/**.txt)",
+ "license": "Flare art CC-BY-SA 3.0",
+ "iconPx": 64,
+ "source": "mods/fantasycore/engine/resolutions.txt icon_size=64; engine/icons.txt icon_set=<firstIndex>,<file>",
+ "atlases": [
+  {
+   "file": "mods/fantasycore/images/icons/icons.png",
+   "firstIndex": 0,
+   "size": [
+    512,
+    2048
+   ],
+   "columns": 8,
+   "rows": 32,
+   "slots": 256
+  },
+  {
+   "file": "mods/empyrean_campaign/images/icons/icons_empyrean.png",
+   "firstIndex": 256,
+   "size": [
+    512,
+    64
+   ],
+   "columns": 8,
+   "rows": 1,
+   "slots": 8
+  },
+  {
+   "file": "mods/empyrean_campaign/images/icons/icons_crafting.png",
+   "firstIndex": 512,
+   "size": [
+    512,
+    64
+   ],
+   "columns": 8,
+   "rows": 1,
+   "slots": 8
+  },
+  {
+   "file": "mods/fantasycore/images/icons/icons_overlay.png",
+   "firstIndex": 1024,
+   "size": [
+    512,
+    128
+   ],
+   "columns": 8,
+   "rows": 2,
+   "slots": 16
+  }
+ ],
+ "lookup": "local = index - atlas.firstIndex; x = (local % 8) * 64; y = floor(local / 8) * 64",
+ "style": {
+  "skills": "indices 0-46: monochrome white glyph on grey scratched-stone square (no element color) — tint the frame/background per element in our UI.",
+  "items": "indices 64-262, 512-516: painted 3D-rendered item on black background."
+ },
+ "blankSlots": [
+  "47-63",
+  "66-67",
+  "89-95",
+  "108",
+  "116",
+  "124-128",
+  "133-135",
+  "141-143",
+  "149-151",
+  "157-159",
+  "165-175",
+  "177-183",
+  "189-191",
+  "197",
+  "209-211",
+  "220-223",
+  "227-255",
+  "263",
+  "517-519",
+  "1034-1039"
+ ],
+ "groups": {
+  "weapons": {
+   "dagger": [
+    96
+   ],
+   "sword": [
+    97,
+    98
+   ],
+   "greatsword": [
+    99,
+    100
+   ],
+   "axe": [
+    117,
+    118
+   ],
+   "twoHandedAxe": [
+    119
+   ],
+   "mace": [
+    109,
+    110,
+    111
+   ],
+   "twoHandedMace": [
+    101,
+    102,
+    103
+   ],
+   "wand": [
+    104
+   ],
+   "rod": [
+    105
+   ],
+   "staff": [
+    106,
+    107
+   ],
+   "bow": [
+    113,
+    114,
+    115
+   ],
+   "slingshot": [
+    112
+   ],
+   "shield": [
+    120,
+    121,
+    122,
+    123
+   ]
+  },
+  "armor": {
+   "cloth": {
+    "head": null,
+    "chest": 129,
+    "hands": 130,
+    "legs": 131,
+    "feet": 132
+   },
+   "wool_mage": {
+    "head": 136,
+    "chest": 137,
+    "hands": 138,
+    "legs": 139,
+    "feet": 140
+   },
+   "silk_mage": {
+    "head": 184,
+    "chest": 185,
+    "hands": 186,
+    "legs": 187,
+    "feet": 188
+   },
+   "velvet_mage": {
+    "head": 192,
+    "chest": 193,
+    "hands": 194,
+    "legs": 195,
+    "feet": 196
+   },
+   "leather": {
+    "head": 144,
+    "chest": 145,
+    "hands": 146,
+    "legs": 147,
+    "feet": 148
+   },
+   "chain": {
+    "head": 152,
+    "chest": 153,
+    "hands": 154,
+    "legs": 155,
+    "feet": 156
+   },
+   "plate": {
+    "head": 160,
+    "chest": 161,
+    "hands": 162,
+    "legs": 163,
+    "feet": 164
+   },
+   "magicBoots": 176,
+   "belt": 208
+  },
+  "rings": [
+   198,
+   199,
+   200,
+   201,
+   202,
+   203,
+   204,
+   205,
+   206,
+   207
+  ],
+  "amulets": [
+   212,
+   213,
+   214,
+   215
+  ],
+  "charms": [
+   216,
+   217,
+   218,
+   219
+  ],
+  "potions": {
+   "health": [
+    64,
+    84,
+    85
+   ],
+   "mana": [
+    65,
+    86,
+    87
+   ],
+   "other": {
+    "stamina": 80,
+    "restoration": 81,
+    "treasure": 82,
+    "elemental": 83
+   }
+  },
+  "gems": {
+   "sapphire": 68,
+   "emerald": 69,
+   "ruby": 70,
+   "diamond": 71
+  },
+  "scrolls": [
+   72,
+   73,
+   74,
+   75,
+   76,
+   77,
+   78,
+   79,
+   224
+  ],
+  "books": [
+   225
+  ],
+  "key": [
+   226
+  ],
+  "gold": [
+   88
+  ],
+  "materials": [
+   262,
+   512,
+   513,
+   514,
+   516
+  ],
+  "quest": [
+   256,
+   257,
+   258,
+   259,
+   260,
+   261
+  ],
+  "skillsByElement": {
+   "fire": [
+    18,
+    34,
+    37
+   ],
+   "ice": [
+    14,
+    24,
+    35
+   ],
+   "lightning": [
+    7,
+    36
+   ],
+   "physical": [
+    1,
+    4,
+    10,
+    22,
+    32,
+    33,
+    39,
+    44
+   ],
+   "ranged": [
+    3,
+    8,
+    16,
+    20,
+    21,
+    23,
+    41
+   ],
+   "arcane": [
+    2,
+    15,
+    17,
+    19,
+    26,
+    45,
+    46
+   ],
+   "holy": [
+    11
+   ],
+   "poison": [
+    42
+   ],
+   "shadowBone": [
+    12,
+    27
+   ],
+   "blood": [
+    5,
+    25,
+    38
+   ],
+   "buffs": [
+    6,
+    9,
+    13,
+    40,
+    43
+   ]
+  },
+  "ui": [
+   0,
+   28,
+   29,
+   30,
+   31
+  ],
+  "qualityOverlays": [
+   1024,
+   1025,
+   1026,
+   1027,
+   1028,
+   1029,
+   1030,
+   1031,
+   1032,
+   1033
+  ]
+ },
+ "proposedForDiablo": {
+  "itemBases": {
+   "helm": {
+    "cloth": 136,
+    "leather": 144,
+    "chain": 152,
+    "plate": 160,
+    "mage": 184
+   },
+   "chest": {
+    "cloth": 129,
+    "leather": 145,
+    "chain": 153,
+    "plate": 161,
+    "mage": 185
+   },
+   "gloves": {
+    "cloth": 130,
+    "leather": 146,
+    "chain": 154,
+    "plate": 162,
+    "mage": 186
+   },
+   "boots": {
+    "cloth": 132,
+    "leather": 148,
+    "chain": 156,
+    "plate": 164,
+    "mage": 188,
+    "magic": 176
+   },
+   "pants": {
+    "cloth": 131,
+    "leather": 147,
+    "chain": 155,
+    "plate": 163,
+    "mage": 187
+   },
+   "belt": 208,
+   "sword": [
+    97,
+    98
+   ],
+   "greatsword": [
+    99,
+    100
+   ],
+   "axe": [
+    117,
+    118
+   ],
+   "twoHandedAxe": 119,
+   "mace": [
+    111,
+    109,
+    110
+   ],
+   "twoHandedMace": [
+    103,
+    102
+   ],
+   "dagger": 96,
+   "staff": [
+    106,
+    107
+   ],
+   "wand": 104,
+   "rod": 105,
+   "bow": [
+    113,
+    114,
+    115
+   ],
+   "crossbow": "GAP",
+   "shield": [
+    120,
+    121,
+    122,
+    123
+   ],
+   "offhandTome": 225,
+   "offhandOrb": "GAP (crop orb head of 107 or 105 / generate)",
+   "quiver": "GAP",
+   "ring": [
+    198,
+    199,
+    200,
+    201,
+    202,
+    203,
+    204,
+    205,
+    206,
+    207
+   ],
+   "amulet": [
+    212,
+    213,
+    214,
+    215
+   ],
+   "potionHealth": [
+    64,
+    84,
+    85
+   ],
+   "potionMana": [
+    65,
+    86,
+    87
+   ],
+   "scroll": {
+    "townPortal": 79,
+    "identify": 72,
+    "generic": 224
+   },
+   "gold": 88,
+   "salvageMaterials": {
+    "tier1_common": 262,
+    "tier2_magic": 514,
+    "tier3_rare": 70,
+    "tier4_legendary": 71,
+    "note": "no purpose-made salvage mats; 262 sack/514 crystal/ruby/diamond are the best fits — or recolor 514 per tier"
+   }
+  },
+  "qualityFrames": {
+   "normal": 1025,
+   "magic": 1027,
+   "rare": 1029,
+   "legendary": 1029,
+   "set": 1033,
+   "unique": 1028,
+   "note": "Flare colors: low grey, normal white, high green, epic blue, rare purple, unique gold"
+  }
+ },
+ "gaps": [
+  "No colored/elemental skill icons: 47 glyphs total (0-46), all monochrome white — need ~20 more glyphs for 32 skills (bone spear, corpse explosion, bone armor, curse, golem, blood nova, raise skeleton variants, leap, whirlwind, charge, ground stomp, frost nova, meteor, blizzard, chain lightning, teleport (19 usable), sentry turret, evasive roll, explosive arrow, rain of arrows).",
+  "No crossbow, quiver, orb offhand, second belt, amulet variety (4 only), pants/helm for cloth tier (cloth has no head icon).",
+  "No dedicated salvage/crafting materials in 4 tiers.",
+  "Many blank slots in icons.png (see blankSlots) — free to append our own 64px icons in the same atlas layout."
+ ],
+ "entries": [
+  {
+   "index": 0,
+   "category": "ui",
+   "depicts": "\"?\" question mark (unknown/default)",
+   "flare": null
+  },
+  {
+   "index": 1,
+   "category": "skill-physical",
+   "depicts": "crossed swords",
+   "flare": "Swing (warrior basic)"
+  },
+  {
+   "index": 2,
+   "category": "skill-arcane",
+   "depicts": "staff with glowing orb",
+   "flare": "Channel (mage basic)"
+  },
+  {
+   "index": 3,
+   "category": "skill-ranged",
+   "depicts": "bow with nocked arrow",
+   "flare": "Shoot (ranger basic)"
+  },
+  {
+   "index": 4,
+   "category": "skill-physical",
+   "depicts": "heater shield",
+   "flare": "Shield Bash"
+  },
+  {
+   "index": 5,
+   "category": "skill-blood",
+   "depicts": "sword with blood drop",
+   "flare": "Blood Strike (bleed)"
+  },
+  {
+   "index": 6,
+   "category": "skill-buff",
+   "depicts": "eye",
+   "flare": "Wolf's Eye"
+  },
+  {
+   "index": 7,
+   "category": "skill-lightning",
+   "depicts": "lightning bolt",
+   "flare": "Shock"
+  },
+  {
+   "index": 8,
+   "category": "skill-ranged",
+   "depicts": "three arrows fanning",
+   "flare": "Multishot"
+  },
+  {
+   "index": 9,
+   "category": "skill-buff",
+   "depicts": "running figure with speed lines",
+   "flare": "Haste / Stamina potion buff"
+  },
+  {
+   "index": 10,
+   "category": "skill-physical",
+   "depicts": "circle with seismic wave",
+   "flare": "Quake"
+  },
+  {
+   "index": 11,
+   "category": "skill-holy",
+   "depicts": "heart with cross",
+   "flare": "Stone Wall / hp_heal"
+  },
+  {
+   "index": 12,
+   "category": "skill-shadow",
+   "depicts": "skull",
+   "flare": "Summon Skeleton"
+  },
+  {
+   "index": 13,
+   "category": "skill-buff",
+   "depicts": "double chevron bouncing back",
+   "flare": "Reflect"
+  },
+  {
+   "index": 14,
+   "category": "skill-ice",
+   "depicts": "ice crystals",
+   "flare": "Freeze"
+  },
+  {
+   "index": 15,
+   "category": "skill-arcane",
+   "depicts": "spiky ring / sun circle",
+   "flare": "Shield (mage)"
+  },
+  {
+   "index": 16,
+   "category": "skill-ranged",
+   "depicts": "crosshair",
+   "flare": "Piercing Shot"
+  },
+  {
+   "index": 17,
+   "category": "skill-arcane",
+   "depicts": "open hand with energy lines",
+   "flare": "Energy Flow / MP Regen"
+  },
+  {
+   "index": 18,
+   "category": "skill-fire",
+   "depicts": "flame on ground",
+   "flare": "Ember Shot / Weakness to Fire"
+  },
+  {
+   "index": 19,
+   "category": "skill-arcane",
+   "depicts": "up arrow over swirling ring (ascend/teleport)",
+   "flare": "unreferenced"
+  },
+  {
+   "index": 20,
+   "category": "skill-ranged",
+   "depicts": "three 4-point caltrop stars",
+   "flare": "Caltrops"
+  },
+  {
+   "index": 21,
+   "category": "skill-ranged",
+   "depicts": "toothed bear trap",
+   "flare": "Bear Trap"
+  },
+  {
+   "index": 22,
+   "category": "skill-physical",
+   "depicts": "sword with curved slash",
+   "flare": "Cleave"
+  },
+  {
+   "index": 23,
+   "category": "skill-ranged",
+   "depicts": "arrows in quick succession",
+   "flare": "Rapid Fire"
+  },
+  {
+   "index": 24,
+   "category": "skill-ice",
+   "depicts": "snowflake",
+   "flare": "Slow / Weakness to Ice"
+  },
+  {
+   "index": 25,
+   "category": "skill-blood",
+   "depicts": "heart with blood drop",
+   "flare": "Bleeding / Sacrifice"
+  },
+  {
+   "index": 26,
+   "category": "skill-arcane",
+   "depicts": "orbiting rings with stars (dizzy)",
+   "flare": "Stun"
+  },
+  {
+   "index": 27,
+   "category": "skill-shadow",
+   "depicts": "skull and crossbones",
+   "flare": "Stun (dark mist) / death"
+  },
+  {
+   "index": 28,
+   "category": "ui",
+   "depicts": "book with triangle emblem (spellbook)",
+   "flare": "actionbar: powers/log menu"
+  },
+  {
+   "index": 29,
+   "category": "ui",
+   "depicts": "head silhouette",
+   "flare": "actionbar: character menu"
+  },
+  {
+   "index": 30,
+   "category": "ui",
+   "depicts": "treasure chest",
+   "flare": "actionbar: inventory menu"
+  },
+  {
+   "index": 31,
+   "category": "ui",
+   "depicts": "raised fist",
+   "flare": "actionbar: powers menu"
+  },
+  {
+   "index": 32,
+   "category": "skill-physical",
+   "depicts": "curved throwing knife / sickle",
+   "flare": "Throw Knife"
+  },
+  {
+   "index": 33,
+   "category": "skill-physical",
+   "depicts": "axe",
+   "flare": "Throw Axe"
+  },
+  {
+   "index": 34,
+   "category": "skill-fire",
+   "depicts": "fireball",
+   "flare": "Fireball"
+  },
+  {
+   "index": 35,
+   "category": "skill-ice",
+   "depicts": "ice shards / spear tips",
+   "flare": "Ice Bolt"
+  },
+  {
+   "index": 36,
+   "category": "skill-lightning",
+   "depicts": "forked lightning branch",
+   "flare": "Thunderstrike"
+  },
+  {
+   "index": 37,
+   "category": "skill-fire",
+   "depicts": "flames",
+   "flare": "Burn"
+  },
+  {
+   "index": 38,
+   "category": "skill-blood",
+   "depicts": "dripping fangs",
+   "flare": "Vampirism"
+  },
+  {
+   "index": 39,
+   "category": "skill-physical",
+   "depicts": "ground eruption with cracks",
+   "flare": "Rupture"
+  },
+  {
+   "index": 40,
+   "category": "skill-buff",
+   "depicts": "glowing sword with runes",
+   "flare": "Enchanted Blade"
+  },
+  {
+   "index": 41,
+   "category": "skill-ranged",
+   "depicts": "charged arrow/drill head",
+   "flare": "Charged Shot"
+  },
+  {
+   "index": 42,
+   "category": "skill-poison",
+   "depicts": "bubbles",
+   "flare": "Poison / Poison Shot"
+  },
+  {
+   "index": 43,
+   "category": "skill-buff",
+   "depicts": "chain with pendant (loot)",
+   "flare": "Scavenger"
+  },
+  {
+   "index": 44,
+   "category": "skill-physical",
+   "depicts": "crossed axes",
+   "flare": "Warcry / Immunity"
+  },
+  {
+   "index": 45,
+   "category": "skill-arcane",
+   "depicts": "radiant burst star",
+   "flare": "Mystic Blast"
+  },
+  {
+   "index": 46,
+   "category": "skill-arcane",
+   "depicts": "crescent swirl",
+   "flare": "Barrier"
+  },
+  {
+   "index": 64,
+   "category": "potion",
+   "depicts": "red health potion (rounded flask, cork, chain)",
+   "flare": "Health Potion"
+  },
+  {
+   "index": 65,
+   "category": "potion",
+   "depicts": "blue mana potion",
+   "flare": "Mana Potion"
+  },
+  {
+   "index": 68,
+   "category": "gem",
+   "depicts": "blue sapphire (round cut)",
+   "flare": "Sapphire"
+  },
+  {
+   "index": 69,
+   "category": "gem",
+   "depicts": "green emerald (rect cut)",
+   "flare": "Emerald"
+  },
+  {
+   "index": 70,
+   "category": "gem",
+   "depicts": "red ruby (teardrop)",
+   "flare": "Ruby"
+  },
+  {
+   "index": 71,
+   "category": "gem",
+   "depicts": "white diamond",
+   "flare": "Diamond"
+  },
+  {
+   "index": 72,
+   "category": "scroll",
+   "depicts": "parchment scroll with glyph",
+   "flare": "Haste Scroll"
+  },
+  {
+   "index": 73,
+   "category": "scroll",
+   "depicts": "parchment scroll with glyph",
+   "flare": "Summon Zombie Scroll"
+  },
+  {
+   "index": 74,
+   "category": "scroll",
+   "depicts": "parchment scroll with fire glyph",
+   "flare": "Fireball Scroll"
+  },
+  {
+   "index": 75,
+   "category": "scroll",
+   "depicts": "parchment scroll with glyph",
+   "flare": "Shield Scroll"
+  },
+  {
+   "index": 76,
+   "category": "scroll",
+   "depicts": "parchment scroll with glyph",
+   "flare": "Immunity Scroll"
+  },
+  {
+   "index": 77,
+   "category": "scroll",
+   "depicts": "parchment scroll with glyph",
+   "flare": "Reflection Scroll"
+  },
+  {
+   "index": 78,
+   "category": "scroll",
+   "depicts": "parchment scroll with water/ice glyph",
+   "flare": "Ice Bolt Scroll"
+  },
+  {
+   "index": 79,
+   "category": "scroll",
+   "depicts": "parchment scroll with glyph",
+   "flare": "Perdition Scroll (town portal)"
+  },
+  {
+   "index": 80,
+   "category": "potion",
+   "depicts": "green potion (tall bottle)",
+   "flare": "Stamina Potion"
+  },
+  {
+   "index": 81,
+   "category": "potion",
+   "depicts": "purple potion (square bottle)",
+   "flare": "Restoration Potion"
+  },
+  {
+   "index": 82,
+   "category": "potion",
+   "depicts": "yellow potion (jug)",
+   "flare": "Treasure Potion"
+  },
+  {
+   "index": 83,
+   "category": "potion",
+   "depicts": "teal potion (angular)",
+   "flare": "Elemental Potion"
+  },
+  {
+   "index": 84,
+   "category": "potion",
+   "depicts": "red potion with golden glow",
+   "flare": "Super Health Potion"
+  },
+  {
+   "index": 85,
+   "category": "potion",
+   "depicts": "red potion with fiery aura",
+   "flare": "Ultra Health Potion"
+  },
+  {
+   "index": 86,
+   "category": "potion",
+   "depicts": "blue potion with sparkles",
+   "flare": "Super Mana Potion"
+  },
+  {
+   "index": 87,
+   "category": "potion",
+   "depicts": "blue potion with strong aura",
+   "flare": "Ultra Mana Potion"
+  },
+  {
+   "index": 88,
+   "category": "gold",
+   "depicts": "stacks of gold coins",
+   "flare": "Gold"
+  },
+  {
+   "index": 96,
+   "category": "weapon-dagger",
+   "depicts": "curved dagger",
+   "flare": "Dagger"
+  },
+  {
+   "index": 97,
+   "category": "weapon-sword",
+   "depicts": "shortsword",
+   "flare": "Shortsword"
+  },
+  {
+   "index": 98,
+   "category": "weapon-sword",
+   "depicts": "longsword with gold crossguard",
+   "flare": "Longsword"
+  },
+  {
+   "index": 99,
+   "category": "weapon-greatsword",
+   "depicts": "greatsword with red blade glow",
+   "flare": "Greatsword"
+  },
+  {
+   "index": 100,
+   "category": "weapon-greatsword",
+   "depicts": "zweihander (long two-hander)",
+   "flare": "Zweihander (Amir Blade)"
+  },
+  {
+   "index": 101,
+   "category": "weapon-mace",
+   "depicts": "smith hammer",
+   "flare": "Smith Hammer"
+  },
+  {
+   "index": 102,
+   "category": "weapon-mace",
+   "depicts": "war hammer",
+   "flare": "War Hammer"
+  },
+  {
+   "index": 103,
+   "category": "weapon-mace",
+   "depicts": "maul (big block hammer)",
+   "flare": "Maul"
+  },
+  {
+   "index": 104,
+   "category": "weapon-wand",
+   "depicts": "dark twisted wand",
+   "flare": "Wand"
+  },
+  {
+   "index": 105,
+   "category": "weapon-rod",
+   "depicts": "rod with red skull-orb head",
+   "flare": "Rod"
+  },
+  {
+   "index": 106,
+   "category": "weapon-staff",
+   "depicts": "staff with green crystal head",
+   "flare": "Staff"
+  },
+  {
+   "index": 107,
+   "category": "weapon-staff",
+   "depicts": "greatstaff with blue radiant star",
+   "flare": "Greatstaff"
+  },
+  {
+   "index": 109,
+   "category": "weapon-mace",
+   "depicts": "wooden club",
+   "flare": "Club"
+  },
+  {
+   "index": 110,
+   "category": "weapon-mace",
+   "depicts": "reinforced (studded) club",
+   "flare": "Reinforced Club"
+  },
+  {
+   "index": 111,
+   "category": "weapon-mace",
+   "depicts": "flanged mace",
+   "flare": "Mace"
+  },
+  {
+   "index": 112,
+   "category": "weapon-bow",
+   "depicts": "slingshot",
+   "flare": "Slingshot"
+  },
+  {
+   "index": 113,
+   "category": "weapon-bow",
+   "depicts": "shortbow",
+   "flare": "Shortbow"
+  },
+  {
+   "index": 114,
+   "category": "weapon-bow",
+   "depicts": "longbow",
+   "flare": "Longbow"
+  },
+  {
+   "index": 115,
+   "category": "weapon-bow",
+   "depicts": "greatbow (recurve with metal)",
+   "flare": "Greatbow"
+  },
+  {
+   "index": 117,
+   "category": "weapon-axe",
+   "depicts": "hand axe",
+   "flare": "Hand Axe"
+  },
+  {
+   "index": 118,
+   "category": "weapon-axe",
+   "depicts": "infantry axe (poleaxe)",
+   "flare": "Infantry Axe / Throwing axe"
+  },
+  {
+   "index": 119,
+   "category": "weapon-axe",
+   "depicts": "double-bit battle axe",
+   "flare": "Battle Axe"
+  },
+  {
+   "index": 120,
+   "category": "shield",
+   "depicts": "wooden buckler",
+   "flare": "Wood Buckler"
+  },
+  {
+   "index": 121,
+   "category": "shield",
+   "depicts": "iron-rimmed round buckler",
+   "flare": "Iron Buckler"
+  },
+  {
+   "index": 122,
+   "category": "shield",
+   "depicts": "crest/kite shield with emblem",
+   "flare": "Crest Shield"
+  },
+  {
+   "index": 123,
+   "category": "shield",
+   "depicts": "steel tower shield",
+   "flare": "Tower Shield"
+  },
+  {
+   "index": 129,
+   "category": "armor-chest-cloth",
+   "depicts": "green cloth shirt",
+   "flare": "Cloth Shirt"
+  },
+  {
+   "index": 130,
+   "category": "armor-hands-cloth",
+   "depicts": "cloth gloves",
+   "flare": "Cloth Gloves"
+  },
+  {
+   "index": 131,
+   "category": "armor-legs-cloth",
+   "depicts": "blue cloth pants",
+   "flare": "Cloth Pants"
+  },
+  {
+   "index": 132,
+   "category": "armor-feet-cloth",
+   "depicts": "sandals",
+   "flare": "Cloth Sandals"
+  },
+  {
+   "index": 136,
+   "category": "armor-head-mage",
+   "depicts": "brown wool hood",
+   "flare": "Wool Hood"
+  },
+  {
+   "index": 137,
+   "category": "armor-chest-mage",
+   "depicts": "wool vest",
+   "flare": "Wool Vest"
+  },
+  {
+   "index": 138,
+   "category": "armor-hands-mage",
+   "depicts": "wool sleeves",
+   "flare": "Wool Sleeves"
+  },
+  {
+   "index": 139,
+   "category": "armor-legs-mage",
+   "depicts": "wool skirt",
+   "flare": "Wool Skirt"
+  },
+  {
+   "index": 140,
+   "category": "armor-feet-mage",
+   "depicts": "wool boots",
+   "flare": "Wool Boots"
+  },
+  {
+   "index": 144,
+   "category": "armor-head-leather",
+   "depicts": "leather hood",
+   "flare": "Leather Hood"
+  },
+  {
+   "index": 145,
+   "category": "armor-chest-leather",
+   "depicts": "leather tunic",
+   "flare": "Leather Tunic"
+  },
+  {
+   "index": 146,
+   "category": "armor-hands-leather",
+   "depicts": "leather gloves",
+   "flare": "Leather Gloves"
+  },
+  {
+   "index": 147,
+   "category": "armor-legs-leather",
+   "depicts": "leather pants",
+   "flare": "Leather Pants"
+  },
+  {
+   "index": 148,
+   "category": "armor-feet-leather",
+   "depicts": "leather boots",
+   "flare": "Leather Boots"
+  },
+  {
+   "index": 152,
+   "category": "armor-head-chain",
+   "depicts": "chain coif",
+   "flare": "Chain Coif"
+  },
+  {
+   "index": 153,
+   "category": "armor-chest-chain",
+   "depicts": "chain cuirass",
+   "flare": "Chain Cuirass"
+  },
+  {
+   "index": 154,
+   "category": "armor-hands-chain",
+   "depicts": "chain gloves",
+   "flare": "Chain Gloves"
+  },
+  {
+   "index": 155,
+   "category": "armor-legs-chain",
+   "depicts": "chain greaves",
+   "flare": "Chain Greaves"
+  },
+  {
+   "index": 156,
+   "category": "armor-feet-chain",
+   "depicts": "chain boots",
+   "flare": "Chain Boots"
+  },
+  {
+   "index": 160,
+   "category": "armor-head-plate",
+   "depicts": "plate helmet (visor)",
+   "flare": "Plate Helmet"
+  },
+  {
+   "index": 161,
+   "category": "armor-chest-plate",
+   "depicts": "plate cuirass",
+   "flare": "Plate Cuirass"
+  },
+  {
+   "index": 162,
+   "category": "armor-hands-plate",
+   "depicts": "plate gauntlets",
+   "flare": "Plate Gauntlets"
+  },
+  {
+   "index": 163,
+   "category": "armor-legs-plate",
+   "depicts": "plate greaves",
+   "flare": "Plate Greaves"
+  },
+  {
+   "index": 164,
+   "category": "armor-feet-plate",
+   "depicts": "plate boots",
+   "flare": "Plate Boots"
+  },
+  {
+   "index": 176,
+   "category": "armor-feet-magic",
+   "depicts": "brown buckled boots",
+   "flare": "Escape Boots (magic_boots)"
+  },
+  {
+   "index": 184,
+   "category": "armor-head-silk",
+   "depicts": "dark blue silk hood (gold trim)",
+   "flare": "Silk Hood"
+  },
+  {
+   "index": 185,
+   "category": "armor-chest-silk",
+   "depicts": "silk vest",
+   "flare": "Silk Vest"
+  },
+  {
+   "index": 186,
+   "category": "armor-hands-silk",
+   "depicts": "silk sleeves",
+   "flare": "Silk Sleeves"
+  },
+  {
+   "index": 187,
+   "category": "armor-legs-silk",
+   "depicts": "silk skirt",
+   "flare": "Silk Skirt"
+  },
+  {
+   "index": 188,
+   "category": "armor-feet-silk",
+   "depicts": "silk boots",
+   "flare": "Silk Boots"
+  },
+  {
+   "index": 192,
+   "category": "armor-head-velvet",
+   "depicts": "dark brown velvet hood (gold trim)",
+   "flare": "Velvet Hood"
+  },
+  {
+   "index": 193,
+   "category": "armor-chest-velvet",
+   "depicts": "velvet vest",
+   "flare": "Velvet Vest"
+  },
+  {
+   "index": 194,
+   "category": "armor-hands-velvet",
+   "depicts": "velvet sleeves",
+   "flare": "Velvet Sleeves"
+  },
+  {
+   "index": 195,
+   "category": "armor-legs-velvet",
+   "depicts": "velvet skirt",
+   "flare": "Velvet Skirt"
+  },
+  {
+   "index": 196,
+   "category": "armor-feet-velvet",
+   "depicts": "velvet boots",
+   "flare": "Velvet Boots"
+  },
+  {
+   "index": 198,
+   "category": "ring",
+   "depicts": "plain silver band",
+   "flare": "silver_1"
+  },
+  {
+   "index": 199,
+   "category": "ring",
+   "depicts": "plain gold band",
+   "flare": "gold_1"
+  },
+  {
+   "index": 200,
+   "category": "ring",
+   "depicts": "silver ring with rune seal",
+   "flare": "silver_2 (Intellectual/Scholar)"
+  },
+  {
+   "index": 201,
+   "category": "ring",
+   "depicts": "gold open/twisted ring",
+   "flare": "gold_2 (Lucrative/Affluence)"
+  },
+  {
+   "index": 202,
+   "category": "ring",
+   "depicts": "silver engraved (celtic) band",
+   "flare": "silver_3"
+  },
+  {
+   "index": 203,
+   "category": "ring",
+   "depicts": "gold braided rope ring",
+   "flare": "gold_3 (Gloom/Void)"
+  },
+  {
+   "index": 204,
+   "category": "ring",
+   "depicts": "silver twist with sapphire",
+   "flare": "silver_4 (Freeze/Glacial)"
+  },
+  {
+   "index": 205,
+   "category": "ring",
+   "depicts": "gold with emerald",
+   "flare": "gold_4 (Artifact/Relic)"
+  },
+  {
+   "index": 206,
+   "category": "ring",
+   "depicts": "silver with diamond",
+   "flare": "silver_5 (Shock/Volt)"
+  },
+  {
+   "index": 207,
+   "category": "ring",
+   "depicts": "gold with ruby",
+   "flare": "gold_5 (Blaze/Inferno)"
+  },
+  {
+   "index": 208,
+   "category": "belt",
+   "depicts": "studded leather belt",
+   "flare": "Leather Belt"
+  },
+  {
+   "index": 212,
+   "category": "amulet",
+   "depicts": "gold chain pendant with emerald",
+   "flare": "necklace gold_1 (Ranger/Sniper Pendant)"
+  },
+  {
+   "index": 213,
+   "category": "amulet",
+   "depicts": "gold chain pendant with ruby",
+   "flare": "necklace gold_2 (Inferno Pendant)"
+  },
+  {
+   "index": 214,
+   "category": "amulet",
+   "depicts": "silver chain pendant with sapphire",
+   "flare": "necklace silver_1"
+  },
+  {
+   "index": 215,
+   "category": "amulet",
+   "depicts": "silver chain pendant with diamond",
+   "flare": "necklace silver_2"
+  },
+  {
+   "index": 216,
+   "category": "charm",
+   "depicts": "bear figurine (red veins)",
+   "flare": "Bear Figurine"
+  },
+  {
+   "index": 217,
+   "category": "charm",
+   "depicts": "owl figurine (blue veins)",
+   "flare": "Owl Figurine"
+  },
+  {
+   "index": 218,
+   "category": "charm",
+   "depicts": "cat figurine (gold veins)",
+   "flare": "Cat Figurine"
+  },
+  {
+   "index": 219,
+   "category": "charm",
+   "depicts": "turtle figurine (green veins)",
+   "flare": "Turtle Figurine"
+  },
+  {
+   "index": 224,
+   "category": "scroll",
+   "depicts": "blank rolled note / parchment",
+   "flare": "Worn Note / blank scroll"
+  },
+  {
+   "index": 225,
+   "category": "book",
+   "depicts": "closed brown leather book",
+   "flare": "Book / Spellbook (artifact offhand)"
+  },
+  {
+   "index": 226,
+   "category": "key",
+   "depicts": "iron key",
+   "flare": "Key"
+  },
+  {
+   "index": 256,
+   "category": "quest",
+   "depicts": "purple lily flower",
+   "flare": "Gravebloom"
+  },
+  {
+   "index": 257,
+   "category": "quest",
+   "depicts": "black/white feather quill",
+   "flare": "Black Quill"
+  },
+  {
+   "index": 258,
+   "category": "quest",
+   "depicts": "bloody curved knife",
+   "flare": "Knife of Sacrifices"
+  },
+  {
+   "index": 259,
+   "category": "quest",
+   "depicts": "vial of dark red blood",
+   "flare": "Vial of Your Blood"
+  },
+  {
+   "index": 260,
+   "category": "quest",
+   "depicts": "blood-filled inkwell",
+   "flare": "Blood Inkwell"
+  },
+  {
+   "index": 261,
+   "category": "quest",
+   "depicts": "bundle of red dynamite sticks",
+   "flare": "Dynamite"
+  },
+  {
+   "index": 262,
+   "category": "material",
+   "depicts": "tied cloth sack of powder",
+   "flare": "Blast Powder"
+  },
+  {
+   "index": 512,
+   "category": "material",
+   "depicts": "empty glass bottle with rope",
+   "flare": "Empty Bottle"
+  },
+  {
+   "index": 513,
+   "category": "material",
+   "depicts": "aloe vera plant",
+   "flare": "Aloe Vera"
+  },
+  {
+   "index": 514,
+   "category": "material",
+   "depicts": "violet mana crystal cluster",
+   "flare": "Mana Crystal"
+  },
+  {
+   "index": 515,
+   "category": "material",
+   "depicts": "mortar and pestle",
+   "flare": "Mortar and Pestle"
+  },
+  {
+   "index": 516,
+   "category": "material",
+   "depicts": "red-capped mushrooms",
+   "flare": "Mushrooms"
+  },
+  {
+   "index": 1024,
+   "category": "quality-overlay",
+   "depicts": "grey gradient border frame (drawn over item icon)",
+   "flare": "quality=low"
+  },
+  {
+   "index": 1025,
+   "category": "quality-overlay",
+   "depicts": "white gradient border frame (drawn over item icon)",
+   "flare": "quality=normal"
+  },
+  {
+   "index": 1026,
+   "category": "quality-overlay",
+   "depicts": "green gradient border frame (drawn over item icon)",
+   "flare": "quality=high"
+  },
+  {
+   "index": 1027,
+   "category": "quality-overlay",
+   "depicts": "blue gradient border frame (drawn over item icon)",
+   "flare": "quality=epic"
+  },
+  {
+   "index": 1028,
+   "category": "quality-overlay",
+   "depicts": "purple gradient border frame (drawn over item icon)",
+   "flare": "quality=rare"
+  },
+  {
+   "index": 1029,
+   "category": "quality-overlay",
+   "depicts": "gold/orange gradient border frame (drawn over item icon)",
+   "flare": "quality=unique"
+  },
+  {
+   "index": 1030,
+   "category": "quality-overlay",
+   "depicts": "cyan gradient border frame (drawn over item icon)",
+   "flare": "quality=crafting_tool"
+  },
+  {
+   "index": 1031,
+   "category": "quality-overlay",
+   "depicts": "beige gradient border frame (drawn over item icon)",
+   "flare": "quality=unused"
+  },
+  {
+   "index": 1032,
+   "category": "quality-overlay",
+   "depicts": "pink gradient border frame (drawn over item icon)",
+   "flare": "quality=crafting"
+  },
+  {
+   "index": 1033,
+   "category": "quality-overlay",
+   "depicts": "yellow-green gradient border frame (drawn over item icon)",
+   "flare": "quality=mastite (set)"
+  }
+ ]
+}
