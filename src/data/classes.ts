@@ -1,5 +1,9 @@
 // The four playable classes (see DECISIONS.md D-021). Skills/passives are listed in tree order.
 import type { ClassDef } from './schema';
+import { ARCANIST_PASSIVES } from './passives/arcanist';
+import { BERSERKER_PASSIVES } from './passives/berserker';
+import { BONEMANCER_PASSIVES } from './passives/bonemancer';
+import { STALKER_PASSIVES } from './passives/stalker';
 
 const ARMOR_TINTS = [0xffffff, 0xb0463c, 0x4a6fb5, 0x3f7d4a, 0xc9a24a, 0x5b4a6e, 0x2e2e33];
 
@@ -27,7 +31,7 @@ export const CLASSES: ClassDef[] = [
       'berserker.ground_stomp',
       'berserker.wrath',
     ],
-    passives: [],
+    passives: BERSERKER_PASSIVES.map((p) => p.id),
     treeTiers: [0, 3, 8, 14, 20],
     startingItems: [{ baseId: 'axe_hand' }, { baseId: 'shield_buckler' }, { baseId: 'chest_leather' }, { baseId: 'legs_cloth' }, { baseId: 'feet_sandals' }],
     startingSkills: [
@@ -68,7 +72,7 @@ export const CLASSES: ClassDef[] = [
       'arcanist.arcane_ward',
       'arcanist.blizzard',
     ],
-    passives: [],
+    passives: ARCANIST_PASSIVES.map((p) => p.id),
     treeTiers: [0, 3, 8, 14, 20],
     startingItems: [{ baseId: 'staff_quarter' }, { baseId: 'chest_robe' }, { baseId: 'legs_cloth' }, { baseId: 'feet_sandals' }],
     startingSkills: [
@@ -109,7 +113,7 @@ export const CLASSES: ClassDef[] = [
       'stalker.sentry',
       'stalker.rain_of_arrows',
     ],
-    passives: [],
+    passives: STALKER_PASSIVES.map((p) => p.id),
     treeTiers: [0, 3, 8, 14, 20],
     startingItems: [{ baseId: 'bow_short' }, { baseId: 'chest_leather' }, { baseId: 'legs_cloth' }, { baseId: 'feet_sandals' }, { baseId: 'head_hood_leather' }],
     startingSkills: [
@@ -150,7 +154,7 @@ export const CLASSES: ClassDef[] = [
       'bonemancer.curse',
       'bonemancer.blood_nova',
     ],
-    passives: [],
+    passives: BONEMANCER_PASSIVES.map((p) => p.id),
     treeTiers: [0, 3, 8, 14, 20],
     startingItems: [{ baseId: 'dagger_ritual' }, { baseId: 'grimoire_worn' }, { baseId: 'chest_robe' }, { baseId: 'legs_cloth' }, { baseId: 'feet_sandals' }],
     startingSkills: [

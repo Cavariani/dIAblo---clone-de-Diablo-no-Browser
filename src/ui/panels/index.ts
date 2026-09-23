@@ -4,3 +4,4 @@ import './InventoryPanel';
 import './CharacterPanel';
 import './SkillsPanel';
 import './TownPanels';
+import './ParagonPanel';

@@ -87,3 +87,19 @@
 .bind-keys { display: flex; gap: 2px; }
 .bind-keys button { width: 1.6rem; height: 1.4rem; font: 700 .55rem/1 var(--f-ui); color: var(--c-text-muted); background: #15110e; border: 1px solid #000; border-radius: 2px; cursor: pointer; padding: 0; }
 .bind-keys button.on { color: #111; background: var(--c-gold-2); }
+
+/* paragon */
+.paragon { display: flex; flex-direction: column; gap: .8rem; }
+.paragon__head { display: flex; justify-content: space-between; align-items: baseline; font-size: .85rem; color: var(--c-text-muted); }
+.paragon__head.has { color: var(--c-ember-3); }
+.paragon__lvl { font: 700 1.2rem var(--f-title); color: #b9a3ff; text-shadow: 0 0 .6rem rgba(140,110,255,.45); }
+.paragon__nodes { display: flex; flex-direction: column; gap: .45rem; }
+.paragon__node { display: grid; grid-template-columns: 1fr auto; gap: .6rem; align-items: center; padding: .55rem .7rem; background: rgba(0,0,0,.3); border: 1px solid rgba(0,0,0,.6); box-shadow: inset 0 0 0 1px rgba(120,100,200,.18); }
+.paragon__node.on { box-shadow: inset 0 0 0 1px rgba(160,140,255,.45); }
+.paragon__name { font: 700 .95rem var(--f-title); color: var(--c-text); }
+.paragon__val { font-size: .8rem; color: #b9a3ff; margin-top: .1rem; }
+.paragon__bar { height: 3px; margin-top: .35rem; background: #120e1c; }
+.paragon__bar i { display: block; height: 100%; background: linear-gradient(90deg, #5a46b0, #b9a3ff); }
+.paragon__btns { display: flex; gap: .3rem; }
+.skill-row .sk-ico--passive { border-radius: 50%; overflow: hidden; box-shadow: inset 0 0 0 1px var(--c-gold-2), 0 0 0 1px #000; }
+.skill-list .section-title { margin: .8rem 0 .2rem; }

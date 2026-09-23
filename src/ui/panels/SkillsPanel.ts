@@ -1,6 +1,7 @@
 // Skill tree (D4-like simplified): 1 point per level, ranks 1-5, runes unlocked by rank, hotbar binding.
 import { Data } from '../../data';
-import { HOTBAR_SLOTS, type HotbarSlot, type SkillDef } from '../../data/schema';
+import { HOTBAR_SLOTS, type HotbarSlot, type PassiveDef, type SkillDef } from '../../data/schema';
+import { passiveTierReq, passiveUnlocked, treePointsSpent } from '../../game/progression/passives';
 import type { GameCtx } from '../../game/api';
 import { el, setText } from '../components/el';
 import { hideTooltip, simpleTip } from '../components/Tooltip';
@@ -9,6 +10,18 @@ import { registerPanel, type UIRoot } from '../UIRoot';
 import { panelFrame } from './common';
 
 const KEY: Record<HotbarSlot, string> = { lmb: 'E', rmb: 'D', k1: '1', k2: '2', k3: '3', k4: '4' };
+
+/** Flat stats shown as numbers; everything else in statsPerRank is a fraction shown as %. */
+const FLAT_STATS = new Set(['str', 'dex', 'int', 'vit', 'maxLife', 'lifeRegen', 'lifeOnHit', 'lifePerKill', 'maxResource', 'resourceRegen', 'resourceOnHit', 'armor', 'allRes', 'thorns', 'blockAmount', 'minDamage', 'maxDamage']);
+
+/** Passive description with {v}/{v2}… filled from statsPerRank × rank. */
+export function passiveText(p: PassiveDef, rank: number): string {
+  const vals = Object.entries(p.statsPerRank ?? {}).map(([k, v]) => {
+    const x = (v ?? 0) * rank;
+    return FLAT_STATS.has(k) ? String(Math.round(x * 10) / 10) : `${Math.round(x * 1000) / 10}%`;
+  });
+  return p.description.replace(/\{v(\d?)\}/g, (_, n: string) => vals[n ? Number(n) - 1 : 0] ?? '?');
+}
 
 export function skillPointsTotal(ctx: GameCtx): number {
   const c = ctx.character;
@@ -103,12 +116,38 @@ class SkillsPanel {
       const info = el('div', {}, el('h4', `${d.name}${locked ? ` (nível ${d.unlockLevel})` : ''}`), el('p', `${categoryName(d)} · ${rank}/${d.maxRank}`), pips, runes);
       this.list.append(el('div', { class: `skill-row ${locked ? 'locked' : ''}` }, ico, info, el('div', { class: 'bind' }, plus, keys)));
     }
+    // passives: unlocked by total points spent in the tree
+    const spent = treePointsSpent(c);
+    this.list.append(el('h3', { class: 'section-title' }, `Passivas · ${spent} pontos na árvore`));
+    for (const p of Data.passivesOf(c.classId)) {
+      const rank = c.passiveRanks[p.id] ?? 0;
+      const unlocked = passiveUnlocked(c, p);
+      const ico = el('div', { class: 'sk-ico sk-ico--passive' });
+      const icon = el('span', { class: 'ico' });
+      applyIcon(icon, p.icon, '✦');
+      ico.append(icon);
+      const now = passiveText(p, Math.max(1, rank));
+      simpleTip(ico, () => `<h4>${p.name}</h4><p>${now}</p>${rank > 0 && rank < p.maxRank ? `<p class="kv">Próxima: ${passiveText(p, rank + 1)}</p>` : ''}`);
+      const pips = el('div', { class: 'ranks' }, ...Array.from({ length: p.maxRank }, (_, i) => el('i', { class: i < rank ? 'on' : '' })));
+      const plus = el('button', { class: 'btn btn--sm', disabled: !unlocked || free <= 0 || rank >= p.maxRank }, '+') as HTMLButtonElement;
+      plus.onclick = () => {
+        if (skillPointsFree(ctx) <= 0) return;
+        c.passiveRanks[p.id] = rank + 1;
+        ctx.audio.play(rank === 0 ? 'skill_unlock' : 'ui_confirm');
+        ctx.refreshPlayerStats();
+        ctx.events.emit('skillsChanged', {});
+      };
+      const lock = unlocked ? `${rank}/${p.maxRank}` : `Requer ${passiveTierReq(c, p)} pontos na árvore`;
+      this.list.append(el('div', { class: `skill-row ${unlocked ? '' : 'locked'}` }, ico, el('div', {}, el('h4', p.name), el('p', now), el('p', { class: 'kv' }, lock), pips), el('div', { class: 'bind' }, plus)));
+    }
     const respec = el('button', { class: 'btn btn--sm btn--ghost' }, 'Redistribuir pontos') as HTMLButtonElement;
     respec.onclick = () => {
       hideTooltip();
       const cls2 = Data.classDef(c.classId);
       c.skillRanks = {};
+      c.passiveRanks = {};
       c.runes = {};
+      ctx.refreshPlayerStats();
       for (const s of cls2.startingSkills) c.skillRanks[s.skillId] = 1;
       for (const s of HOTBAR_SLOTS) if (c.hotbar[s] && !c.skillRanks[c.hotbar[s]!]) c.hotbar[s] = null;
       ctx.events.emit('skillsChanged', {});

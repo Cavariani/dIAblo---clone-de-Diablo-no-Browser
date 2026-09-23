@@ -93,5 +93,5 @@
 }
 
 html {
-  font-size: calc(clamp(9px, min(100vh / 67.5, 100vw / 120), 24px) * var(--ui-scale));
+  font-size: calc(clamp(10px, min(100vh / 62, 100vw / 110), 26px) * var(--ui-scale));
 }
