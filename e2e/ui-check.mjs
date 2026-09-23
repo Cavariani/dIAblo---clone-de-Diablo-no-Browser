@@ -1,0 +1,20 @@
+// Screenshots of menu/create screens. VW=1887 VH=852 node e2e/ui-check.mjs [url]
+import { chromium } from '@playwright/test';
+const url = process.argv[2] ?? 'http://localhost:5288/';
+const browser = await chromium.launch({ args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
+const page = await browser.newPage({ viewport: { width: Number(process.env.VW ?? 1600), height: Number(process.env.VH ?? 900) } });
+page.on('pageerror', (e) => console.log('[pageerror]', e.message));
+const shot = (p) => page.screenshot({ path: p, timeout: 60000, animations: 'disabled' });
+await page.goto(url);
+await page.waitForSelector('.menu-stack', { timeout: 60000 });
+await page.waitForTimeout(2000);
+await shot('e2e-results/ui-menu.png');
+await page.click('.menu-btn:has-text("Novo Herói")');
+await page.waitForTimeout(1200);
+await page.click('.class-tile:has-text("Ossomante")', { force: true });
+await page.waitForTimeout(2000);
+await page.waitForTimeout(3000);
+console.log(await page.evaluate(() => { const c = document.querySelector('.stage canvas'); return c ? c.width + 'x' + c.height : 'no canvas'; }));
+await shot('e2e-results/ui-create.png');
+console.log('ok');
+await browser.close();

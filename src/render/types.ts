@@ -56,5 +56,9 @@ export interface RendererAPI {
 export interface AvatarPreviewHandle {
   update(visual: ActorVisual): void;
   setAnim(anim: string): void;
+  /** Plays a one-shot animation, then returns to the idle one. */
+  playOnce(anim: string, seconds: number): void;
+  /** Rotates the preview (radians); drag-to-rotate. */
+  rotateBy(delta: number): void;
   destroy(): void;
 }

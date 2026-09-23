@@ -59,16 +59,17 @@ input, textarea { user-select: text; -webkit-user-select: text; }
 [hidden] { display: none !important; }
 
 /* ---------------------------------------------------------------- scrollbars */
-.ui-scroll { overflow: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: var(--c-gold-1) rgba(0, 0, 0, .4); }
-.ui-scroll::-webkit-scrollbar { width: .5rem; height: .5rem; }
-.ui-scroll::-webkit-scrollbar-track { background: linear-gradient(90deg, #070605, #120e0b 50%, #070605); border-left: 1px solid #000; }
-.ui-scroll::-webkit-scrollbar-thumb {
-  background: linear-gradient(90deg, var(--c-gold-0), var(--c-gold-1) 50%, var(--c-gold-0));
-  border: 1px solid #000;
-  border-radius: 1px;
-  box-shadow: inset 0 1px 0 rgba(243, 213, 138, .35);
+/* Global gothic scrollbars. Chrome ignores ::-webkit-scrollbar when scrollbar-color is set, so the standard props go to Firefox only. */
+.ui-scroll { overflow: auto; overscroll-behavior: contain; }
+@supports not selector(::-webkit-scrollbar) {
+  #ui-root * { scrollbar-width: thin; scrollbar-color: var(--c-gold-1) rgba(0, 0, 0, .4); }
 }
-.ui-scroll::-webkit-scrollbar-thumb:hover { background: linear-gradient(90deg, var(--c-gold-1), var(--c-gold-2) 50%, var(--c-gold-1)); }
+#ui-root ::-webkit-scrollbar { width: .45rem; height: .45rem; }
+#ui-root ::-webkit-scrollbar-button { display: none; }
+#ui-root ::-webkit-scrollbar-corner { background: transparent; }
+#ui-root ::-webkit-scrollbar-track { background: linear-gradient(90deg, rgba(0,0,0,.55), rgba(18,14,11,.7) 50%, rgba(0,0,0,.55)); box-shadow: inset 0 0 0 1px rgba(0,0,0,.8); }
+#ui-root ::-webkit-scrollbar-thumb { background: linear-gradient(90deg, var(--c-gold-0), var(--c-gold-1) 50%, var(--c-gold-0)); border: 1px solid #000; border-radius: 1px; box-shadow: inset 0 1px 0 rgba(243, 213, 138, .35); }
+#ui-root ::-webkit-scrollbar-thumb:hover { background: linear-gradient(90deg, var(--c-gold-1), var(--c-gold-2) 50%, var(--c-gold-1)); }
 
 /* ---------------------------------------------------------------- icons */
 .ico {

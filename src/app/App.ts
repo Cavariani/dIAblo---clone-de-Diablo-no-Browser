@@ -8,10 +8,12 @@ import { playerVisual } from '../game/actors';
 import { Game } from '../game/Game';
 import { defaultAppearance, newCharacter } from '../game/save/defaults';
 import { SaveManager } from '../game/save/SaveManager';
-import type { CharacterState, SaveFile } from '../game/types';
+import type { ActorVisual, CharacterState, SaveFile } from '../game/types';
 import { assets } from '../render/assets/AssetManager';
 import { Renderer } from '../render/Renderer';
 import type { AvatarPreviewHandle } from '../render/types';
+import type { AvatarLayer } from '../data/schema';
+import { iconEl } from '../ui/icons';
 import { clearBuffs } from '../game/skills/buffs';
 import { el } from '../ui/components/el';
 import { fmtPlayTime } from '../ui/format';
@@ -31,6 +33,25 @@ const TIPS = [
 
 const SKIN_TONES = [0xffffff, 0xf2d2b8, 0xd8a880, 0xa87a58, 0x7a5840];
 const ARMOR_TINTS = [0xffffff, 0xc8a080, 0xb04a3c, 0x4a6fb5, 0x3f7d4a, 0xc9a24a, 0x6a5a8e, 0x3a3a40];
+
+const hex = (c: number) => `#${c.toString(16).padStart(6, '0')}`;
+const portraitUrl = (classId: ClassId, body: string) => `${import.meta.env.BASE_URL}assets/ui/portraits/${classId}_${body === 'male' ? 'm' : 'f'}.webp`;
+const ATTR_NAME: Record<string, string> = { str: 'Força', dex: 'Destreza', int: 'Inteligência' };
+const CLASS_ROLE: Record<ClassId, { style: string; difficulty: number }> = {
+  berserker: { style: 'Corpo a corpo', difficulty: 1 },
+  arcanist: { style: 'Conjurador à distância', difficulty: 2 },
+  stalker: { style: 'Atirador ágil', difficulty: 2 },
+  bonemancer: { style: 'Invocador', difficulty: 3 },
+};
+/** Animation played when a class is picked on the creation screen. */
+const CLASS_POSE: Record<ClassId, string> = { berserker: 'swing', arcanist: 'cast', stalker: 'shoot', bonemancer: 'cast' };
+/** Iconic gear shown on the creation screen (the hero starts in rags). */
+const SHOWCASE: Record<ClassId, Partial<Record<AvatarLayer, string>>> = {
+  berserker: { chest: 'plate_cuirass', legs: 'plate_greaves', feet: 'plate_boots', hands: 'plate_gauntlets', mainhand: 'battle_axe', offhand: 'kite_shield' },
+  arcanist: { chest: 'mage_vest', legs: 'mage_skirt', feet: 'mage_boots', hands: 'mage_sleeves', head: 'mage_hood', mainhand: 'greatstaff' },
+  stalker: { chest: 'leather_chest', legs: 'leather_pants', feet: 'leather_boots', hands: 'leather_gloves', head: 'leather_hood', offhand: 'longbow' },
+  bonemancer: { chest: 'mage_vest_alt2', legs: 'mage_skirt_alt2', feet: 'mage_boots_alt2', hands: 'mage_sleeves_alt2', head: 'mage_hood_alt2', mainhand: 'rod' },
+};
 
 function embers(n = 40): HTMLElement {
   const box = el('div', { class: 'embers' });
@@ -134,77 +155,146 @@ export class App {
     };
   }
 
+  /** Shared atmospheric backdrop for all out-of-game screens. */
+  private backdrop(extra = ''): HTMLElement {
+    return el('div', { class: `screen menu-screen ${extra}` }, el('div', { class: 'menu-bg', style: `background-image:url(${import.meta.env.BASE_URL}assets/ui/menu_bg.webp)` }), el('div', { class: 'menu-fog' }, el('i'), el('i')), embers(45), el('div', { class: 'menu-vignette' }));
+  }
+
+  private mountPreview(stage: HTMLElement, visual: ActorVisual): void {
+    this.preview = this.renderer.createAvatarPreview(stage, visual, { scale: 2, rotate: false });
+    let dragX: number | null = null;
+    stage.addEventListener('pointerdown', (e) => {
+      dragX = e.clientX;
+      stage.setPointerCapture(e.pointerId);
+    });
+    stage.addEventListener('pointermove', (e) => {
+      if (dragX === null) return;
+      this.preview?.rotateBy((e.clientX - dragX) * 0.012);
+      dragX = e.clientX;
+    });
+    const end = () => (dragX = null);
+    stage.addEventListener('pointerup', end);
+    stage.addEventListener('pointercancel', end);
+  }
+
   mainMenu(): void {
     audio.playMusic('music_title', 1);
     const last = this.file.characters.find((c) => c.id === this.file.lastCharacterId) ?? this.file.characters[0];
-    const btn = (label: string, fn: () => void, disabled = false, hint = '') => {
-      const b = el('button', { class: 'menu-btn', onclick: () => { audio.play('ui_click'); fn(); } }, el('span', { class: 'menu-btn__glyph' }, '✦'), label, hint ? el('span', { class: 'menu-btn__hint' }, hint) : null) as HTMLButtonElement;
-      b.disabled = disabled;
-      b.addEventListener('pointerenter', () => audio.play('ui_hover'));
+    const btn = (label: string, fn: () => void, opts: { disabled?: boolean; primary?: boolean } = {}) => {
+      const b = el('button', { class: `menu-btn ${opts.primary ? 'menu-btn--primary' : ''}`, onclick: () => { audio.play('ui_click'); fn(); } }, el('span', { class: 'menu-btn__label' }, label)) as HTMLButtonElement;
+      b.disabled = !!opts.disabled;
+      b.addEventListener('pointerenter', () => !b.disabled && audio.play('ui_hover'));
       return b;
     };
+    const heroCard = last
+      ? el(
+          'button',
+          { class: 'hero-card', style: `--cc:${hex(Data.classDef(last.classId).color)}`, onclick: () => { audio.play('ui_click'); this.startGame(last); } },
+          el('img', { class: 'hero-card__portrait', src: portraitUrl(last.classId, last.appearance.body), alt: '' }),
+          el('div', { class: 'hero-card__text' }, el('div', { class: 'hero-card__kicker' }, 'Continuar jornada'), el('div', { class: 'hero-card__name' }, last.name), el('div', { class: 'hero-card__meta' }, `${Data.classDef(last.classId).name} · Nível ${last.level} · ${Data.difficulty(last.difficulty).name}`)),
+          el('span', { class: 'hero-card__go' }, '▶'),
+        )
+      : null;
     const stack = el(
-      'div',
+      'nav',
       { class: 'menu-stack' },
-      btn('Continuar', () => last && this.startGame(last), !last, last ? `${last.name} · Nv. ${last.level}` : ''),
-      btn('Novo Personagem', () => this.createScreen()),
-      btn('Selecionar Personagem', () => this.selectScreen(), this.file.characters.length === 0),
+      btn(last ? 'Continuar' : 'Novo Herói', () => (last ? this.startGame(last) : this.createScreen()), { primary: true }),
+      last ? btn('Novo Herói', () => this.createScreen()) : null,
+      btn('Selecionar Herói', () => this.selectScreen(), { disabled: this.file.characters.length === 0 }),
       btn('Opções', () => this.ui.openPanel('options')),
       btn('Créditos', () => this.creditsScreen()),
     );
-    const node = el('div', { class: 'screen' }, embers(), el('div', { class: 'main-menu' }, el('div', { class: 'main-menu__inner' }, el('div', {}, el('div', { class: 'logo' }, 'd', el('em', 'IA'), 'blo'), el('div', { class: 'logo-sub' }, 'Um ARPG de trevas')), stack)), el('div', { class: 'version' }, 'v1.0 · arte Flare (CC-BY-SA)'));
+    const node = this.backdrop('menu-screen--main');
+    node.append(
+      el(
+        'div',
+        { class: 'main-menu' },
+        el('header', { class: 'main-menu__brand' }, el('div', { class: 'logo' }, 'd', el('em', 'IA'), 'blo'), el('div', { class: 'logo-rule' }), el('div', { class: 'logo-sub' }, 'As Trevas Despertam')),
+        stack,
+        heroCard,
+      ),
+      el('footer', { class: 'menu-footer' }, el('span', 'v1.0'), el('span', 'Arte: Projeto Flare (CC-BY-SA 3.0)'), el('span', 'Um tributo não oficial a Diablo')),
+    );
     this.setScreen(node);
   }
 
   private createScreen(): void {
     let classId: ClassId = 'berserker';
     let app = defaultAppearance(classId);
-    let name = '';
-    const cards = el('div', { class: 'class-cards' });
-    const stage = el('div', { class: 'preview__stage' });
-    const nameLabel = el('div', { class: 'preview__name' });
-    const custom = el('div', { class: 'custom' });
+    const tiles = el('div', { class: 'class-tiles' });
+    const stage = el('div', { class: 'stage' });
+    const heroName = el('div', { class: 'stage__class' });
+    const heroTitle = el('div', { class: 'stage__title' });
+    const info = el('aside', { class: 'cs-panel' });
     const err = el('div', { class: 'field-error' });
-    const input = el('input', { class: 'input', placeholder: 'Nome do herói', maxLength: 16 }) as HTMLInputElement;
-    const visual = () => playerVisual(newCharacter(classId, 'preview', app));
+    const input = el('input', { class: 'cs-input', placeholder: 'Nome do herói', maxLength: 16, spellcheck: false }) as HTMLInputElement;
+    const visual = () => {
+      const v = playerVisual(newCharacter(classId, 'preview', app));
+      v.layers = { ...v.layers, ...SHOWCASE[classId], head: SHOWCASE[classId].head ?? app.head };
+      return v;
+    };
+    const selectClass = (id: ClassId) => {
+      if (id === classId) return;
+      classId = id;
+      app = { ...defaultAppearance(id), skinTone: app.skinTone, armorTint: app.armorTint, body: app.body, head: Data.classDef(id).appearance.heads[app.body]?.[0] ?? defaultAppearance(id).head };
+      audio.play('ui_click');
+      refresh();
+      this.preview?.playOnce(CLASS_POSE[id], 1.1);
+    };
     const refresh = () => {
-      cards.replaceChildren(
+      const cls = Data.classDef(classId);
+      document.querySelector('.cs')?.setAttribute('style', `--cc:${hex(cls.color)}`);
+      tiles.replaceChildren(
         ...CLASS_IDS.map((id) => {
           const c = Data.classDef(id);
-          const card = el('button', { class: `class-card ${id === classId ? 'sel' : ''}`, style: `--cc:#${c.color.toString(16).padStart(6, '0')}`, onclick: () => { classId = id; app = { ...defaultAppearance(id), skinTone: app.skinTone, armorTint: app.armorTint }; audio.play('ui_click'); refresh(); } }, el('h3', c.name), el('div', { class: 'tagline' }, c.title), el('div', { class: 'res' }, `Recurso: ${c.resource.name} · Atributo: ${{ str: 'Força', dex: 'Destreza', int: 'Inteligência' }[c.mainStat]}`), el('p', c.description));
-          return card;
+          return el(
+            'button',
+            { class: `class-tile ${id === classId ? 'sel' : ''}`, style: `--tc:${hex(c.color)}`, onclick: () => selectClass(id), onpointerenter: () => audio.play('ui_hover') },
+            el('img', { class: 'class-tile__portrait', src: portraitUrl(id, app.body), alt: '' }),
+            el('div', { class: 'class-tile__text' }, el('div', { class: 'class-tile__name' }, c.name), el('div', { class: 'class-tile__title' }, c.title), el('div', { class: 'class-tile__role' }, CLASS_ROLE[id].style)),
+          );
         }),
       );
-      const cls = Data.classDef(classId);
+      heroName.textContent = cls.name;
+      heroTitle.textContent = cls.title;
       const chips = <T>(label: string, options: T[], cur: T, text: (o: T) => string, set: (o: T) => void) =>
-        el('div', {}, el('h4', label), el('div', { class: 'swatches' }, ...options.map((o) => el('button', { class: 'chip', 'aria-pressed': String(o === cur), onclick: () => { set(o); refresh(); } } as never, text(o)))));
+        el('div', { class: 'cs-field' }, el('h4', label), el('div', { class: 'chips' }, ...options.map((o) => el('button', { class: 'chip', 'aria-pressed': String(o === cur), onclick: () => { set(o); audio.play('ui_click'); refresh(); } } as never, text(o)))));
       const swatches = (label: string, colors: number[], cur: number, set: (c: number) => void) =>
-        el('div', {}, el('h4', label), el('div', { class: 'swatches' }, ...colors.map((c) => el('button', { class: 'swatch', style: `background:#${c.toString(16).padStart(6, '0')}`, 'aria-pressed': String(c === cur), onclick: () => { set(c); refresh(); } } as never))));
-      const bodyName: Record<string, string> = { male: 'Masculino', female: 'Feminino', female_dark: 'Feminino (pele escura)' };
-      custom.replaceChildren(
-        ...([
-        el('h1', 'Criar Herói'),
-        el('div', {}, el('h4', 'Nome'), input, err),
-        chips('Silhueta', cls.appearance.bodies, app.body, (b) => bodyName[b] ?? b, (b) => (app = { ...app, body: b, head: cls.appearance.heads[b][0] })),
-        chips('Rosto / Cabelo', cls.appearance.heads[app.body], app.head, (h) => ({ head_short: 'Cabelo curto', head_bald: 'Careca', head_long: 'Cabelo longo' })[h] ?? h, (h) => (app = { ...app, head: h })),
-        app.body === 'male' ? swatches('Tom de pele', SKIN_TONES, app.skinTone, (c) => (app = { ...app, skinTone: c })) : null,
-        swatches('Cor da armadura', ARMOR_TINTS, app.armorTint, (c) => (app = { ...app, armorTint: c })),
-        el('div', { class: 'screen-actions' }, el('button', { class: 'btn btn--primary btn--lg', onclick: () => create() }, 'Criar'), el('button', { class: 'btn btn--ghost', onclick: () => this.mainMenu() }, 'Voltar')),
-        ].filter(Boolean) as HTMLElement[]),
+        el('div', { class: 'cs-field' }, el('h4', label), el('div', { class: 'swatches' }, ...colors.map((c) => el('button', { class: 'swatch', style: `--sw:${hex(c)}`, 'aria-pressed': String(c === cur), onclick: () => { set(c); audio.play('ui_click'); refresh(); } } as never))));
+      const bodyName: Record<string, string> = { male: 'Masculino', female: 'Feminino', female_dark: 'Feminino II' };
+      const role = CLASS_ROLE[classId];
+      const skills = cls.skills.map((s) => Data.trySkill(s)).filter((s): s is NonNullable<typeof s> => !!s);
+      info.replaceChildren(
+        el('section', { class: 'cs-section' }, el('h3', { class: 'cs-h' }, 'A Classe'), el('p', { class: 'cs-lore' }, cls.description)),
+        el(
+          'dl',
+          { class: 'cs-facts' },
+          el('div', el('dt', 'Recurso'), el('dd', el('i', { class: 'res-dot', style: `--rc:${hex(cls.resource.color)}` }), cls.resource.name)),
+          el('div', el('dt', 'Atributo'), el('dd', ATTR_NAME[cls.mainStat])),
+          el('div', el('dt', 'Estilo'), el('dd', role.style)),
+          el('div', el('dt', 'Complexidade'), el('dd', el('span', { class: 'pips' }, ...[1, 2, 3].map((n) => el('i', { class: n <= role.difficulty ? 'on' : '' }))))),
+        ),
+        el('section', { class: 'cs-section' }, el('h3', { class: 'cs-h' }, 'Habilidades'), el('div', { class: 'cs-skills' }, ...skills.map((s) => el('div', { class: 'cs-skill', 'data-name': s.name } as never, iconEl(s.icon, 'cs-skill__ico'))))),
+        el(
+          'section',
+          { class: 'cs-section' },
+          el('h3', { class: 'cs-h' }, 'Aparência'),
+          chips('Corpo', cls.appearance.bodies, app.body, (b) => bodyName[b] ?? b, (b) => (app = { ...app, body: b, head: cls.appearance.heads[b][0] })),
+          chips('Cabelo', cls.appearance.heads[app.body], app.head, (h) => ({ head_short: 'Curto', head_bald: 'Raspado', head_long: 'Longo' })[h] ?? h, (h) => (app = { ...app, head: h })),
+          app.body === 'male' ? swatches('Pele', SKIN_TONES, app.skinTone, (c) => (app = { ...app, skinTone: c })) : null,
+          swatches('Tingimento da armadura', ARMOR_TINTS, app.armorTint, (c) => (app = { ...app, armorTint: c })),
+        ),
       );
-      nameLabel.textContent = name || cls.name;
-      if (!this.preview) this.preview = this.renderer.createAvatarPreview(stage, visual(), { scale: 2.2, rotate: true });
+      if (!this.preview) this.mountPreview(stage, visual());
       else this.preview.update(visual());
     };
-    input.addEventListener('input', () => {
-      name = input.value.trim();
-      nameLabel.textContent = name || Data.classDef(classId).name;
-      err.textContent = '';
-    });
+    input.addEventListener('input', () => (err.textContent = ''));
+    input.addEventListener('keydown', (e) => e.key === 'Enter' && create());
     const create = () => {
-      name = input.value.trim();
+      const name = input.value.trim();
       if (name.length < 2) {
         err.textContent = 'O nome precisa ter entre 2 e 16 letras.';
+        input.focus();
         return;
       }
       if (this.file.characters.some((c) => c.name.toLowerCase() === name.toLowerCase())) {
@@ -216,7 +306,23 @@ export class App {
       audio.play('level_up');
       this.startGame(c);
     };
-    const node = el('div', { class: 'screen' }, embers(20), el('div', { class: 'char-screen' }, cards, el('div', { class: 'preview' }, stage, nameLabel), custom));
+    const node = this.backdrop('menu-screen--dim');
+    node.append(
+      el(
+        'div',
+        { class: 'cs' },
+        el('header', { class: 'cs-top' }, el('button', { class: 'back-btn', onclick: () => { audio.play('ui_click'); this.mainMenu(); } }, '‹ Voltar'), el('h1', { class: 'cs-title' }, 'Criar Herói'), el('span')),
+        el('div', { class: 'cs-left' }, el('h2', { class: 'cs-h' }, 'Escolha sua classe'), tiles),
+        el(
+          'main',
+          { class: 'cs-center' },
+          el('div', { class: 'stage-wrap' }, el('div', { class: 'stage__light' }), stage, el('div', { class: 'stage__pedestal' }), el('div', { class: 'stage__hint' }, 'Arraste para girar')),
+          el('div', { class: 'stage__caption' }, heroName, heroTitle),
+          el('div', { class: 'cs-create' }, el('div', { class: 'cs-namebox' }, input, err), el('button', { class: 'big-btn', onclick: () => create() }, 'Criar Herói')),
+        ),
+        info,
+      ),
+    );
     this.setScreen(node);
     refresh();
     setTimeout(() => input.focus(), 50);
@@ -224,30 +330,49 @@ export class App {
 
   private selectScreen(): void {
     let sel = this.file.characters.find((c) => c.id === this.file.lastCharacterId) ?? this.file.characters[0];
-    const list = el('div', { class: 'char-list' });
-    const stage = el('div', { class: 'preview__stage' });
-    const nameLabel = el('div', { class: 'preview__name' });
+    const list = el('div', { class: 'class-tiles' });
+    const stage = el('div', { class: 'stage' });
+    const heroName = el('div', { class: 'stage__class' });
+    const heroTitle = el('div', { class: 'stage__title' });
+    const info = el('aside', { class: 'cs-panel' });
     const fileInput = el('input', { type: 'file', accept: '.json,application/json', style: 'display:none' }) as HTMLInputElement;
-    const info = el('div', { class: 'custom' });
     const refresh = () => {
+      if (!sel) return this.mainMenu();
+      document.querySelector('.cs')?.setAttribute('style', `--cc:${hex(Data.classDef(sel.classId).color)}`);
       list.replaceChildren(
-        ...this.file.characters.map((c) =>
-          el('div', { class: `char-entry ${c === sel ? 'sel' : ''}`, onclick: () => { sel = c; audio.play('ui_click'); refresh(); } }, el('div', {}, el('h3', c.name), el('p', `${Data.classDef(c.classId).name} · Nível ${c.level}${c.paragonLevel ? ` (P${c.paragonLevel})` : ''} · ${Data.difficulty(c.difficulty).name}`)), el('span', { class: 'menu-btn__hint' }, fmtPlayTime(c.stats.playTime))),
+        ...this.file.characters.map((c) => {
+          const cd = Data.classDef(c.classId);
+          return el(
+            'button',
+            { class: `class-tile ${c === sel ? 'sel' : ''}`, style: `--tc:${hex(cd.color)}`, onclick: () => { sel = c; audio.play('ui_click'); refresh(); }, ondblclick: () => this.startGame(c) },
+            el('img', { class: 'class-tile__portrait', src: portraitUrl(c.classId, c.appearance.body), alt: '' }),
+            el('div', { class: 'class-tile__text' }, el('div', { class: 'class-tile__name' }, c.name), el('div', { class: 'class-tile__title' }, `${cd.name} · Nível ${c.level}${c.paragonLevel ? ` · P${c.paragonLevel}` : ''}`), el('div', { class: 'class-tile__role' }, `${Data.difficulty(c.difficulty).name} · ${fmtPlayTime(c.stats.playTime)}`)),
+          );
+        }),
+      );
+      const cd = Data.classDef(sel.classId);
+      heroName.textContent = sel.name;
+      heroTitle.textContent = `${cd.name} · Nível ${sel.level}`;
+      const row = (k: string, v: string) => el('div', el('dt', k), el('dd', v));
+      info.replaceChildren(
+        el('section', { class: 'cs-section' }, el('h3', { class: 'cs-h' }, 'Crônica'), el('dl', { class: 'cs-facts' }, row('Local', Data.tryZone(sel.location.zoneId)?.name ?? '—'), row('Dificuldade', Data.difficulty(sel.difficulty).name), row('Tempo de jogo', fmtPlayTime(sel.stats.playTime)), row('Ouro', sel.gold.toLocaleString('pt-BR')))),
+        el('section', { class: 'cs-section' }, el('h3', { class: 'cs-h' }, 'Feitos'), el('dl', { class: 'cs-facts' }, row('Monstros abatidos', sel.stats.kills.toLocaleString('pt-BR')), row('Elites abatidos', String(sel.stats.eliteKills)), row('Lendários encontrados', String(sel.stats.legendariesFound)), row('Fendas concluídas', String(sel.riftsCompleted)), row('Mortes', String(sel.stats.deaths)))),
+        el(
+          'section',
+          { class: 'cs-section' },
+          el('h3', { class: 'cs-h' }, 'Arquivo'),
+          el(
+            'div',
+            { class: 'cs-file' },
+            el('button', { class: 'btn btn--sm', onclick: () => this.exportSave() }, 'Exportar save'),
+            el('button', { class: 'btn btn--sm', onclick: () => fileInput.click() }, 'Importar save'),
+            el('button', { class: 'btn btn--danger btn--sm', onclick: () => { if (sel && confirm(`Apagar ${sel.name} para sempre?`)) { void this.save.deleteCharacter(sel.id); sel = this.file.characters[0]; refresh(); } } }, 'Apagar herói'),
+          ),
+          fileInput,
         ),
       );
-      if (sel) {
-        nameLabel.textContent = sel.name;
-        const v = playerVisual(sel);
-        if (!this.preview) this.preview = this.renderer.createAvatarPreview(stage, v, { scale: 2.2, rotate: true });
-        else this.preview.update(v);
-        info.replaceChildren(
-          el('h1', 'Heróis'),
-          el('div', { class: 'well' }, el('div', { class: 'stat-row' }, el('span', 'Monstros abatidos'), el('b', String(sel.stats.kills))), el('div', { class: 'stat-row' }, el('span', 'Lendários'), el('b', String(sel.stats.legendariesFound))), el('div', { class: 'stat-row' }, el('span', 'Ouro'), el('b', String(sel.gold))), el('div', { class: 'stat-row' }, el('span', 'Local'), el('b', Data.tryZone(sel.location.zoneId)?.name ?? '—'))),
-          el('div', { class: 'screen-actions' }, el('button', { class: 'btn btn--primary btn--lg', onclick: () => sel && this.startGame(sel) }, 'Jogar')),
-          el('div', { class: 'screen-actions' }, el('button', { class: 'btn btn--danger btn--sm', onclick: () => { if (sel && confirm(`Apagar ${sel.name} para sempre?`)) { void this.save.deleteCharacter(sel.id); sel = this.file.characters[0]; if (!sel) this.mainMenu(); else refresh(); } } }, 'Apagar'), el('button', { class: 'btn btn--sm', onclick: () => this.exportSave() }, 'Exportar save'), el('button', { class: 'btn btn--sm', onclick: () => fileInput.click() }, 'Importar save'), el('button', { class: 'btn btn--ghost btn--sm', onclick: () => this.mainMenu() }, 'Voltar')),
-          fileInput,
-        );
-      }
+      if (!this.preview) this.mountPreview(stage, playerVisual(sel));
+      else this.preview.update(playerVisual(sel));
     };
     fileInput.onchange = async () => {
       const f = fileInput.files?.[0];
@@ -261,7 +386,23 @@ export class App {
         alert((e as Error).message);
       }
     };
-    const node = el('div', { class: 'screen' }, embers(20), el('div', { class: 'char-screen' }, list, el('div', { class: 'preview' }, stage, nameLabel), info));
+    const node = this.backdrop('menu-screen--dim');
+    node.append(
+      el(
+        'div',
+        { class: 'cs' },
+        el('header', { class: 'cs-top' }, el('button', { class: 'back-btn', onclick: () => { audio.play('ui_click'); this.mainMenu(); } }, '‹ Voltar'), el('h1', { class: 'cs-title' }, 'Seus Heróis'), el('span')),
+        el('div', { class: 'cs-left' }, el('h2', { class: 'cs-h' }, `${this.file.characters.length} herói(s)`), list, el('button', { class: 'btn btn--ghost cs-new', onclick: () => this.createScreen() }, '+ Novo herói')),
+        el(
+          'main',
+          { class: 'cs-center' },
+          el('div', { class: 'stage-wrap' }, el('div', { class: 'stage__light' }), stage, el('div', { class: 'stage__pedestal' }), el('div', { class: 'stage__hint' }, 'Arraste para girar')),
+          el('div', { class: 'stage__caption' }, heroName, heroTitle),
+          el('div', { class: 'cs-create' }, el('button', { class: 'big-btn', onclick: () => sel && this.startGame(sel) }, 'Jogar')),
+        ),
+        info,
+      ),
+    );
     this.setScreen(node);
     refresh();
   }

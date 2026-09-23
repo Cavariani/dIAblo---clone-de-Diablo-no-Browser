@@ -4,7 +4,7 @@ const url = process.argv[2] ?? 'http://localhost:5173/';
 const out = process.argv[3] ?? 'e2e-results/shot.png';
 const act = process.argv[4] ?? '';
 const browser = await chromium.launch({ args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
-const page = await browser.newPage({ viewport: { width: 1600, height: 900 } });
+const page = await browser.newPage({ viewport: { width: Number(process.env.VW ?? 1600), height: Number(process.env.VH ?? 900) } });
 const logs = [];
 page.on('console', (m) => { if (m.type() === 'error' || m.type() === 'warning') logs.push(`[${m.type()}] ${m.text()}`); });
 page.on('pageerror', (e) => logs.push(`[pageerror] ${e.message}\n${e.stack}`));
@@ -13,13 +13,13 @@ if (act.includes('menu')) {
   await page.waitForSelector('.menu-stack', { timeout: 60000 });
   await page.waitForTimeout(2500);
   await page.screenshot({ path: out.replace('.png', '-menu.png') });
-  await page.click('text=Novo Personagem');
+  await page.click('.menu-btn:has-text("Novo Herói")', { force: true });
   await page.waitForTimeout(2500);
-  await page.fill('.custom input', 'Aldebran');
-  await page.click('text=Ossomante');
+  await page.fill('.cs-input', 'Aldebran');
+  await page.click('.class-tile:has-text("Ossomante")', { force: true });
   await page.waitForTimeout(1500);
   await page.screenshot({ path: out.replace('.png', '-create.png') });
-  await page.click('button.btn--primary:has-text("Criar")');
+  await page.click('.big-btn');
 }
 await page.waitForFunction(() => window.__game && window.__game.world && !window.__game.loading, null, { timeout: 60000 }).catch(() => logs.push('timeout waiting __game'));
 await page.waitForTimeout(2500);

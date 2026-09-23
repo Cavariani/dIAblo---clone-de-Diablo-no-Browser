@@ -1,5 +1,5 @@
 /* Inventory, character, vendor, stash, blacksmith, skills panels. */
-.panel__body { overflow-y: auto; overflow-x: hidden; scrollbar-width: thin; }
+.panel__body { overflow-y: auto; overflow-x: hidden; }
 .inventory-panel .panel__body, .character-panel .panel__body { display: flex; flex-direction: column; gap: .75rem; }
 
 /* paperdoll */

@@ -440,6 +440,7 @@ export class Renderer implements RendererAPI {
     const fake = { id: -1, pos: { x: 0, y: 0 }, facing: Math.PI / 4, radius: 0.22, alive: true, kind: 'player', visual, anim: { name: opts.anim ?? 'stance', time: 0, speed: 1, loop: true, serial: 0 }, flash: 0, dash: null, tags: new Set(), life: 1, maxLife: 1, corpseTimer: 1 } as unknown as Actor;
     let view: ActorView | null = null;
     let raf = 0;
+    let onceLeft = 0;
     const start = async () => {
       await app.init({ backgroundAlpha: 0, width: container.clientWidth || 260, height: container.clientHeight || 320, antialias: false, preference: 'webgl', resolution: Math.min(window.devicePixelRatio || 1, 2), autoDensity: true });
       if (destroyed) {
@@ -465,6 +466,7 @@ export class Renderer implements RendererAPI {
         const dt = (now - last) / 1000;
         last = now;
         if (opts.rotate) fake.facing += dt * 0.6;
+        if (onceLeft > 0 && (onceLeft -= dt) <= 0) fake.anim = { name: opts.anim ?? 'stance', time: 0, speed: 1, loop: true, serial: fake.anim.serial + 1 };
         view!.update(dt, false);
         holder.position.set(app.screen.width / 2, app.screen.height * 0.82);
         view!.root.position.set(0, 0);
@@ -485,6 +487,13 @@ export class Renderer implements RendererAPI {
       },
       setAnim: (name: string) => {
         fake.anim = { name, time: 0, speed: 1, loop: true, serial: fake.anim.serial + 1 };
+      },
+      playOnce: (name: string, seconds: number) => {
+        fake.anim = { name, time: 0, speed: 1, loop: false, serial: fake.anim.serial + 1 };
+        onceLeft = seconds;
+      },
+      rotateBy: (d: number) => {
+        fake.facing += d;
       },
       destroy: () => {
         destroyed = true;
