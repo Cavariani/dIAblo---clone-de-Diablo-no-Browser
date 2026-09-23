@@ -155,7 +155,7 @@ export function createMonsterActor(id: number, def: EnemyDef, pos: Vec2, level: 
     packId: 0,
     leaderId: null,
     displayName: def.name,
-    xp: Math.round((6 + level * 3) * def.xpMult * RANK_XP[rank]),
+    xp: Math.round((10 + level * 4) * def.xpMult * RANK_XP[rank]),
     baseDamage: monsterDamage(level) * def.damageMult * diff.damageMult * RANK_DAMAGE[rank],
     bossPhase: 0,
     riftProgress: 0,
