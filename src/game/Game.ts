@@ -209,6 +209,7 @@ export class Game implements GameCtx {
     this.events.emit('zoneEntered', { zoneId: zone.id, floor, isTown: info.isTown, isRift: info.isRift });
     this.ui.banner(zone.name, zone.kind === 'town' ? zone.subtitle : `Nível ${floor}`, 'zone');
     this.audio.playMusic(info.biome.music, 1.5);
+    (this.audio as { playAmbient?: (id: string | null) => void }).playAmbient?.(info.biome.ambientSfx ?? null);
     if (via !== 'start') this.save(`zone:${zone.id}:${floor}`);
   }
 

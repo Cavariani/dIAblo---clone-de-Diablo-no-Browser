@@ -1,0 +1,611 @@
+{
+ "sfx": {
+  "swing_light": {
+   "files": [
+    "sfx/swing_light_0.ogg",
+    "sfx/swing_light_1.ogg",
+    "sfx/swing_light_2.ogg"
+   ],
+   "volume": 0.55
+  },
+  "swing_heavy": {
+   "files": [
+    "sfx/swing_heavy_0.ogg",
+    "sfx/swing_heavy_1.ogg"
+   ],
+   "volume": 0.7
+  },
+  "bow_shot": {
+   "files": [
+    "sfx/bow_shot.ogg"
+   ],
+   "volume": 0.55
+  },
+  "hit_physical": {
+   "files": [
+    "sfx/hit_physical_0.ogg",
+    "sfx/hit_physical_1.ogg",
+    "sfx/hit_physical_2.ogg",
+    "sfx/hit_physical_3.ogg"
+   ],
+   "volume": 0.45
+  },
+  "hit_crit": {
+   "files": [
+    "sfx/hit_crit_0.ogg",
+    "sfx/hit_crit_1.ogg",
+    "sfx/hit_crit_2.ogg"
+   ],
+   "volume": 0.6
+  },
+  "hit_bone": {
+   "files": [
+    "sfx/hit_bone_0.ogg",
+    "sfx/hit_bone_1.ogg",
+    "sfx/hit_bone_2.ogg"
+   ],
+   "volume": 0.45
+  },
+  "hit_player": {
+   "files": [
+    "sfx/hit_player.ogg"
+   ],
+   "volume": 0.55
+  },
+  "block": {
+   "files": [
+    "sfx/block.ogg"
+   ],
+   "volume": 0.6
+  },
+  "hit_metal": {
+   "files": [
+    "sfx/hit_metal_0.ogg",
+    "sfx/hit_metal_1.ogg"
+   ],
+   "volume": 0.45
+  },
+  "fireball": {
+   "files": [
+    "sfx/fireball.ogg"
+   ],
+   "volume": 0.55
+  },
+  "fire_cast": {
+   "files": [
+    "sfx/fire_cast.ogg"
+   ],
+   "volume": 0.5
+  },
+  "explosion": {
+   "files": [
+    "sfx/explosion.ogg"
+   ],
+   "volume": 0.7
+  },
+  "meteor_impact": {
+   "files": [
+    "sfx/meteor_impact.ogg"
+   ],
+   "volume": 0.85
+  },
+  "frost_nova": {
+   "files": [
+    "sfx/frost_nova.ogg"
+   ],
+   "volume": 0.65
+  },
+  "ice_shatter": {
+   "files": [
+    "sfx/ice_shatter.wav"
+   ],
+   "volume": 0.55
+  },
+  "lightning_zap": {
+   "files": [
+    "sfx/lightning_zap.ogg"
+   ],
+   "volume": 0.5
+  },
+  "chain_lightning": {
+   "files": [
+    "sfx/chain_lightning.ogg"
+   ],
+   "volume": 0.55
+  },
+  "arcane_blast": {
+   "files": [
+    "sfx/arcane_blast.ogg"
+   ],
+   "volume": 0.5
+  },
+  "teleport": {
+   "files": [
+    "sfx/teleport.ogg"
+   ],
+   "volume": 0.55
+  },
+  "bone_spear": {
+   "files": [
+    "sfx/bone_spear.ogg"
+   ],
+   "volume": 0.5
+  },
+  "bone_armor": {
+   "files": [
+    "sfx/bone_armor.ogg"
+   ],
+   "volume": 0.55
+  },
+  "summon_skeleton": {
+   "files": [
+    "sfx/summon_skeleton.ogg"
+   ],
+   "volume": 0.55
+  },
+  "corpse_explosion": {
+   "files": [
+    "sfx/corpse_explosion.ogg"
+   ],
+   "volume": 0.7
+  },
+  "curse": {
+   "files": [
+    "sfx/curse.ogg"
+   ],
+   "volume": 0.55
+  },
+  "blood_nova": {
+   "files": [
+    "sfx/blood_nova.ogg"
+   ],
+   "volume": 0.6
+  },
+  "leap_slam": {
+   "files": [
+    "sfx/leap_slam.ogg"
+   ],
+   "volume": 0.75
+  },
+  "ground_stomp": {
+   "files": [
+    "sfx/ground_stomp.ogg"
+   ],
+   "volume": 0.75
+  },
+  "war_cry": {
+   "files": [
+    "sfx/war_cry.ogg"
+   ],
+   "volume": 0.7
+  },
+  "heal_cast": {
+   "files": [
+    "sfx/heal_cast.ogg"
+   ],
+   "volume": 0.5
+  },
+  "multishot": {
+   "files": [
+    "sfx/multishot.ogg"
+   ],
+   "volume": 0.55
+  },
+  "arrow_wall": {
+   "files": [
+    "sfx/arrow_wall.ogg"
+   ],
+   "volume": 0.4
+  },
+  "trap_set": {
+   "files": [
+    "sfx/trap_set.ogg"
+   ],
+   "volume": 0.5
+  },
+  "skeleton_die": {
+   "files": [
+    "sfx/skeleton_die_0.ogg",
+    "sfx/skeleton_die_1.ogg"
+   ],
+   "volume": 0.5
+  },
+  "skeleton_hit": {
+   "files": [
+    "sfx/skeleton_hit.ogg"
+   ],
+   "volume": 0.4
+  },
+  "zombie_groan": {
+   "files": [
+    "sfx/zombie_groan.ogg"
+   ],
+   "volume": 0.5
+  },
+  "zombie_die": {
+   "files": [
+    "sfx/zombie_die_0.ogg",
+    "sfx/zombie_die_1.ogg"
+   ],
+   "volume": 0.55
+  },
+  "goblin_die": {
+   "files": [
+    "sfx/goblin_die.ogg"
+   ],
+   "volume": 0.5
+  },
+  "beast_die": {
+   "files": [
+    "sfx/beast_die_0.ogg",
+    "sfx/beast_die_1.ogg"
+   ],
+   "volume": 0.5
+  },
+  "minotaur_roar": {
+   "files": [
+    "sfx/minotaur_roar.ogg"
+   ],
+   "volume": 0.7
+  },
+  "minotaur_die": {
+   "files": [
+    "sfx/minotaur_die.ogg"
+   ],
+   "volume": 0.7
+  },
+  "wyvern_screech": {
+   "files": [
+    "sfx/wyvern_screech.ogg"
+   ],
+   "volume": 0.6
+  },
+  "wyvern_die": {
+   "files": [
+    "sfx/wyvern_die.ogg"
+   ],
+   "volume": 0.6
+  },
+  "grave_die": {
+   "files": [
+    "sfx/grave_die.ogg"
+   ],
+   "volume": 0.6
+  },
+  "monster_attack": {
+   "files": [
+    "sfx/monster_attack_0.ogg",
+    "sfx/monster_attack_1.ogg"
+   ],
+   "volume": 0.35
+  },
+  "monster_die": {
+   "files": [
+    "sfx/monster_die_0.ogg",
+    "sfx/monster_die_1.ogg"
+   ],
+   "volume": 0.45
+  },
+  "summon_monster": {
+   "files": [
+    "sfx/summon_monster.ogg"
+   ],
+   "volume": 0.55
+  },
+  "boss_roar": {
+   "files": [
+    "sfx/boss_roar.ogg"
+   ],
+   "volume": 0.9
+  },
+  "gold_pickup": {
+   "files": [
+    "sfx/gold_pickup_0.ogg",
+    "sfx/gold_pickup_1.ogg"
+   ],
+   "volume": 0.5
+  },
+  "gold_drop": {
+   "files": [
+    "sfx/gold_drop.ogg"
+   ],
+   "volume": 0.4
+  },
+  "item_pickup": {
+   "files": [
+    "sfx/item_pickup.ogg"
+   ],
+   "volume": 0.5
+  },
+  "potion_drink": {
+   "files": [
+    "sfx/potion_drink.ogg"
+   ],
+   "volume": 0.6
+  },
+  "potion_drop": {
+   "files": [
+    "sfx/potion_drop.ogg"
+   ],
+   "volume": 0.5
+  },
+  "globe_pickup": {
+   "files": [
+    "sfx/globe_pickup.ogg"
+   ],
+   "volume": 0.5
+  },
+  "equip_armor": {
+   "files": [
+    "sfx/equip_armor_0.ogg",
+    "sfx/equip_armor_1.ogg"
+   ],
+   "volume": 0.55
+  },
+  "equip_weapon": {
+   "files": [
+    "sfx/equip_weapon.ogg"
+   ],
+   "volume": 0.55
+  },
+  "equip_jewelry": {
+   "files": [
+    "sfx/equip_jewelry.ogg"
+   ],
+   "volume": 0.55
+  },
+  "drop_common": {
+   "files": [
+    "sfx/drop_common.ogg"
+   ],
+   "volume": 0.4
+  },
+  "drop_magic": {
+   "files": [
+    "sfx/drop_magic.ogg"
+   ],
+   "volume": 0.45
+  },
+  "drop_rare": {
+   "files": [
+    "sfx/drop_rare.ogg"
+   ],
+   "volume": 0.55
+  },
+  "door_open": {
+   "files": [
+    "sfx/door_open.ogg"
+   ],
+   "volume": 0.55
+  },
+  "chest_open": {
+   "files": [
+    "sfx/chest_open.ogg"
+   ],
+   "volume": 0.6
+  },
+  "chest_open_rare": {
+   "files": [
+    "sfx/chest_open_rare.ogg"
+   ],
+   "volume": 0.6
+  },
+  "waypoint_travel": {
+   "files": [
+    "sfx/waypoint_travel.ogg"
+   ],
+   "volume": 0.6
+  },
+  "portal_travel": {
+   "files": [
+    "sfx/portal_travel.ogg"
+   ],
+   "volume": 0.6
+  },
+  "stairs": {
+   "files": [
+    "sfx/stairs.ogg"
+   ],
+   "volume": 0.55
+  },
+  "level_up": {
+   "files": [
+    "sfx/level_up.ogg"
+   ],
+   "volume": 0.8
+  },
+  "player_death": {
+   "files": [
+    "sfx/player_death.ogg"
+   ],
+   "volume": 0.75
+  },
+  "low_life_heartbeat": {
+   "files": [
+    "sfx/low_life_heartbeat.ogg"
+   ],
+   "volume": 0.6
+  },
+  "no_resource": {
+   "files": [
+    "sfx/no_resource.ogg"
+   ],
+   "volume": 0.4
+  },
+  "footstep_stone": {
+   "files": [
+    "sfx/footstep_stone_0.ogg",
+    "sfx/footstep_stone_1.ogg",
+    "sfx/footstep_stone_2.ogg",
+    "sfx/footstep_stone_3.ogg"
+   ],
+   "volume": 0.18
+  },
+  "footstep_dirt": {
+   "files": [
+    "sfx/footstep_dirt_0.ogg",
+    "sfx/footstep_dirt_1.ogg",
+    "sfx/footstep_dirt_2.ogg"
+   ],
+   "volume": 0.2
+  },
+  "ui_click": {
+   "files": [
+    "sfx/ui_click.ogg"
+   ],
+   "volume": 0.5
+  },
+  "ui_open": {
+   "files": [
+    "sfx/ui_open.ogg"
+   ],
+   "volume": 0.45
+  },
+  "ui_close": {
+   "files": [
+    "sfx/ui_close.ogg"
+   ],
+   "volume": 0.4
+  },
+  "ui_error": {
+   "files": [
+    "sfx/ui_error.ogg"
+   ],
+   "volume": 0.45
+  },
+  "ui_confirm": {
+   "files": [
+    "sfx/ui_confirm.ogg"
+   ],
+   "volume": 0.5
+  },
+  "sell": {
+   "files": [
+    "sfx/sell.ogg"
+   ],
+   "volume": 0.5
+  },
+  "buy": {
+   "files": [
+    "sfx/buy.ogg"
+   ],
+   "volume": 0.5
+  },
+  "salvage": {
+   "files": [
+    "sfx/salvage.ogg"
+   ],
+   "volume": 0.6
+  },
+  "craft_upgrade": {
+   "files": [
+    "sfx/craft_upgrade.ogg"
+   ],
+   "volume": 0.65
+  },
+  "craft_reroll": {
+   "files": [
+    "sfx/craft_reroll.ogg"
+   ],
+   "volume": 0.55
+  },
+  "shrine_activate": {
+   "files": [
+    "sfx/shrine_activate.ogg"
+   ],
+   "volume": 0.6
+  },
+  "legendary_chime": {
+   "files": [
+    "sfx/legendary_chime.wav"
+   ],
+   "volume": 0.7
+  },
+  "amb_wind": {
+   "files": [
+    "sfx/amb_wind.ogg"
+   ],
+   "volume": 0.35
+  },
+  "amb_cave": {
+   "files": [
+    "sfx/amb_cave.ogg"
+   ],
+   "volume": 0.4
+  },
+  "amb_crypt": {
+   "files": [
+    "sfx/amb_crypt.ogg"
+   ],
+   "volume": 0.35
+  },
+  "amb_forest": {
+   "files": [
+    "sfx/amb_forest.ogg"
+   ],
+   "volume": 0.35
+  },
+  "amb_fire": {
+   "files": [
+    "sfx/amb_fire.ogg"
+   ],
+   "volume": 0.35
+  },
+  "amb_town": {
+   "files": [
+    "sfx/amb_town.ogg"
+   ],
+   "volume": 0.3
+  }
+ },
+ "music": {
+  "music_title": {
+   "files": [
+    "music/music_title.ogg"
+   ],
+   "volume": 0.6
+  },
+  "music_town": {
+   "files": [
+    "music/music_town.ogg"
+   ],
+   "volume": 0.55
+  },
+  "music_crypt": {
+   "files": [
+    "music/music_crypt.ogg"
+   ],
+   "volume": 0.55
+  },
+  "music_cave": {
+   "files": [
+    "music/music_cave.ogg"
+   ],
+   "volume": 0.55
+  },
+  "music_forest": {
+   "files": [
+    "music/music_forest.ogg"
+   ],
+   "volume": 0.55
+  },
+  "music_hell": {
+   "files": [
+    "music/music_hell.ogg"
+   ],
+   "volume": 0.55
+  },
+  "music_boss": {
+   "files": [
+    "music/music_boss.ogg"
+   ],
+   "volume": 0.6
+  },
+  "music_rift": {
+   "files": [
+    "music/music_rift.ogg"
+   ],
+   "volume": 0.55
+  }
+ }
+}

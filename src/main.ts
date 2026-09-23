@@ -2,21 +2,24 @@
 import { InputManager } from './core/input';
 import './game/modules';
 import { Game } from './game/Game';
-import type { AudioAPI } from './game/api';
+import { audio } from './audio/AudioManager';
 import { defaultAppearance, defaultSettings, emptyStash, newCharacter } from './game/save/defaults';
 import { assets } from './render/assets/AssetManager';
 import { Renderer } from './render/Renderer';
 import { UIRoot } from './ui/UIRoot';
 
-const nullAudio: AudioAPI = { play: () => {}, playMusic: () => {}, stopMusic: () => {}, setListener: () => {}, applySettings: () => {}, unlock: () => {} };
 
 async function boot(): Promise<void> {
   const root = document.getElementById('game-root')!;
   const renderer = new Renderer();
   await renderer.init(root);
-  await assets.init();
+  await Promise.all([assets.init(), audio.init()]);
+  const unlock = () => audio.unlock();
+  window.addEventListener('pointerdown', unlock);
+  window.addEventListener('keydown', unlock);
   const settings = defaultSettings();
   renderer.applySettings(settings);
+  audio.applySettings(settings);
   const input = new InputManager();
   input.attach(root);
   const params = new URLSearchParams(location.search);
@@ -24,7 +27,7 @@ async function boot(): Promise<void> {
   const character = newCharacter(classId, 'Herói', defaultAppearance(classId));
   character.location = { zoneId: params.get('zone') ?? 'crypt', floor: Number(params.get('floor') ?? 1) };
   const ui = new UIRoot(document.getElementById('ui-root')!);
-  const game = new Game({ character, stash: emptyStash(), settings, renderer, ui, audio: nullAudio, input, save: null });
+  const game = new Game({ character, stash: emptyStash(), settings, renderer, ui, audio, input, save: null });
   ui.bind(game);
   await game.start();
   document.getElementById('boot')?.remove();
