@@ -238,6 +238,7 @@ export class Game implements GameCtx {
   private async activateWorld(world: World): Promise<void> {
     const sheets = new Set<string>();
     for (const a of world.actors) if (a.visual.sheet) sheets.add(a.visual.sheet);
+    if (world.info.zone.bossId) sheets.add(Data.boss(world.info.zone.bossId).sprite.sheet);
     for (const m of world.info.zone.monsters) {
       const d = Data.tryEnemy(m.enemyId);
       if (d) sheets.add(d.sprite.sheet);
@@ -315,9 +316,6 @@ export class Game implements GameCtx {
       if (info.floor > 1) void (ctx as Game).enterZone(info.zone.id, info.floor - 1, 'stairsUp');
       else ctx.travel({ kind: 'town' });
       ctx.audio.play('stairs');
-    });
-    registerInteractHandler('portal', (ctx, o) => {
-      if (o.data.back) ctx.travel({ kind: 'portalBack' });
     });
   }
 

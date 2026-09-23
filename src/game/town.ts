@@ -17,6 +17,11 @@ registerNpcHandler((ctx, npc) => {
 });
 
 registerInteractHandler('stash', (ctx) => ctx.ui.openPanel('stash'));
+registerInteractHandler('portal', (ctx, o) => {
+  ctx.audio.play('portal_travel');
+  if (o.data.back) ctx.travel({ kind: 'portalBack' });
+  else ctx.travel({ kind: 'town' });
+});
 registerInteractHandler('waypoint', (ctx) => {
   ctx.audio.play('waypoint_activate');
   ctx.ui.openPanel('waypoints');

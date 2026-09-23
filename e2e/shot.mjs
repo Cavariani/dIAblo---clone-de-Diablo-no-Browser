@@ -67,6 +67,15 @@ if (act.includes('panels')) {
   if (slot) { const b = await slot.boundingBox(); await page.mouse.move(b.x + b.width / 2, b.y + b.height / 2); }
   await page.waitForTimeout(600);
 }
+if (act.includes('boss')) {
+  await page.evaluate(() => {
+    const g = window.__game; const b = g.world.actors.find(a => a.monster && a.monster.rank === 'boss');
+    if (b) { g.player.pos.x = b.pos.x - 3; g.player.pos.y = b.pos.y - 3; g.player.maxLife = g.player.life = 99999; }
+  });
+  await page.waitForTimeout(4000);
+  await page.evaluate(() => { const g = window.__game; const b = g.world.actors.find(a => a.monster && a.monster.rank === 'boss'); if (b) b.life = b.maxLife * 0.55; });
+  await page.waitForTimeout(2500);
+}
 if (act.includes('legend')) {
   await page.evaluate(() => { const d = window.__dbg; d.drop('legendary'); d.drop('set'); d.drop('rare'); });
   await page.waitForTimeout(1600);

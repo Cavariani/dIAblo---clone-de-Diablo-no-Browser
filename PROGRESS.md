@@ -56,5 +56,11 @@ cd ../.. && npm run assets
 - Passo 2 CONCLUÍDO: jogo roda (npm run dev -- --port 5288; outra app usa 5173). main.ts é quick-start temporário (Berserker nu na cripta; ?class=&zone=&floor=). Screenshot: node e2e/shot.mjs http://localhost:5288/ e2e-results/x.png [walk|fight].
 - Passo 3 agora: UI (UIRoot + HUD orbes/hotbar/xp/boss bar/toasts/banners em src/ui, reaproveitar src/ui/styles/*.css), áudio (AudioManager + sons Flare), dados de itens mínimos (bases com visual/ícone para starter gear) + LootSystem básico (ouro/itens caindo).
 
+## Status atualizado (fim da sessão 3)
+- FEITO: jogo jogável ponta a ponta: menu → criar personagem → cidade (Brasaluz) → cripta (3 andares) → loot → inventário/equipar → vender/ferreiro/baú → portal (T) → save.
+- Teste rápido: `?quick=berserker&zone=crypt&floor=1` pula o menu. `window.__dbg` (give/drop/open/quick).
+- Script de screenshot: `node e2e/shot.mjs <url> <out.png> [menu|fight|long|skills|panels|legend]` (dev server na porta 5288).
+- FALTA (ordem): (1) chefes (data/bosses.ts + SpawnSystem para arena/boss bar) e elite mods (data/eliteMods.ts + game/monsters/eliteMods.ts); (2) fog of war + minimapa + mapa TAB; (3) geradores cave/forest/hell; (4) lendários (≥10) + sets + powers; (5) passivas + paragon UI; (6) fendas; (7) balanceamento, README/CREDITS/DECISIONS, lint, build, deploy.
+
 ## Pendências / notas
 - Tamanho total de assets ~97 MB: se o deploy Vercel reclamar, remover tileset snowplains e reduzir avatar female/male não usados.
