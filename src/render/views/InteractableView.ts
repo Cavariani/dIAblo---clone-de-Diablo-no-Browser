@@ -24,7 +24,7 @@ function lookFor(o: Interactable, tileset: string): Look {
   const dungeon = tileset === 'dungeon';
   switch (o.kind) {
     case 'chest':
-      return dungeon ? { tile: 144, tileOpen: 160, light: undefined } : { sheet: 'loot/pouch' };
+      return tileset === 'cave' ? { tile: 160, tileOpen: 176 } : { tile: 144, tileOpen: 160, tileset: 'dungeon' };
     case 'stairsDown':
       return { swirl: 0x3a1a0a, light: { radius: 2.5, color: 0xff7a30, intensity: 0.7 } };
     case 'stairsUp':
@@ -72,7 +72,11 @@ export class InteractableView {
       this.swirl = new Graphics();
       const pit = obj.kind === 'stairsDown' || obj.kind === 'stairsUp' || obj.kind === 'dungeonEntrance';
       this.swirl.blendMode = pit ? 'normal' : 'add';
-      high.addChild(this.swirl);
+      if (pit) {
+        // pits lie on the floor: first in the depth-sorted object layer
+        this.swirl.zIndex = -1e6;
+        objects.addChild(this.swirl);
+      } else high.addChild(this.swirl);
       this.halo = new Sprite({ texture: tex().soft, anchor: 0.5 });
       this.halo.blendMode = 'add';
       this.halo.tint = this.look.swirl;

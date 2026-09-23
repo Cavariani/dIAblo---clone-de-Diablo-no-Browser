@@ -115,7 +115,9 @@ export class Renderer implements RendererAPI {
     for (const a of world.actors) this.viewFor(a).neededSheets(need);
     for (const fx of ['fx/arrows', 'fx/fireball', 'fx/icicle', 'fx/spit', 'npc/return_obelisk1', 'npc/return_obelisk2']) need.add(fx);
     await assets.loadSheets([...need].filter((id) => assets.hasSheet(id)), onProgress);
-    this.tiles.build(world.map, ts, this.objects, biome.tint);
+    // cave back-faces are ~300px black silhouettes that would hide the play area: draw them translucent
+    const caveFront = world.map.tileset === 'cave' ? new Set([66, 70, 106, 67, 71, 107, 74, 78, 82, 86, 73, 77, 75, 79]) : undefined;
+    this.tiles.build(world.map, ts, this.objects, biome.tint, caveFront);
     const decor = world.level.decor ?? [];
     for (const id of new Set(decor.map((d) => d.tileset))) await assets.loadTileset(id);
     this.tiles.addDecor(decor.map((d) => ({ ts: assets.getTileset(d.tileset), tile: d.tile, x: d.x, y: d.y })), this.objects);

@@ -40,7 +40,7 @@ export class TileLayer {
 
   private decorSprites: Sprite[] = [];
 
-  build(map: TileMap, ts: LoadedTileset, objects: Container, tint?: number): void {
+  build(map: TileMap, ts: LoadedTileset, objects: Container, tint?: number, translucent?: Set<number>): void {
     this.clear(objects);
     this.map = map;
     const cw = Math.ceil(map.width / CHUNK);
@@ -84,6 +84,10 @@ export class TileLayer {
                 s.position.set(center.x - t.ox, center.y - t.oy);
                 s.zIndex = x + y + 1 + x * 1e-4;
                 if (tint !== undefined) s.tint = tint;
+                if (translucent?.has(ob)) {
+                  s.alpha = 0.3;
+                  (s as Sprite & { baseAlpha?: number }).baseAlpha = 0.3;
+                }
                 objects.addChild(s);
                 chunk.objs.push(s);
                 this.objectAt.set(i, s);
@@ -130,11 +134,13 @@ export class TileLayer {
         // only tall sprites that could hide the hero
         if (s.height > 150 && Math.abs(x - y - (px - py)) < 2.2) want.add(s);
       }
+    const base = (s: Sprite) => (s as Sprite & { baseAlpha?: number }).baseAlpha ?? 1;
     for (const s of this.faded) if (!want.has(s)) {
-      s.alpha = Math.min(1, s.alpha + dt * 4);
-      if (s.alpha >= 1) this.faded.delete(s);
+      s.alpha = Math.min(base(s), s.alpha + dt * 4);
+      if (s.alpha >= base(s)) this.faded.delete(s);
     }
     for (const s of want) {
+      if (base(s) < 1) continue;
       s.alpha = Math.max(0.35, s.alpha - dt * 5);
       this.faded.add(s);
     }
