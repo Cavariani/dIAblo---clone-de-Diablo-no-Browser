@@ -50,3 +50,26 @@ Registro das decisões tomadas de forma autônoma, sempre buscando a opção mai
 
 ### D-023 — Percentuais como frações
 - Todos os stats percentuais armazenados como frações (0.05 = 5%) para evitar erros de fórmula; a UI formata.
+
+## Implementação (sessões 3–4)
+
+### D-030 — Modo enxuto (sem agentes paralelos)
+Após a fase 1 consumir orçamento demais com orquestração multi-agente, todo o resto foi escrito diretamente, com commit+push por etapa e `PROGRESS.md` como diário de retomada.
+
+### D-031 — Simulação fixa a 60 Hz + render interpolado
+A simulação roda em passos fixos (`src/core/loop.ts`, com hit-stop via timeScale). O renderer interpola `prevPos → pos` pelo alpha do acumulador, e a câmera segue a posição interpolada do herói sem look-ahead do mouse e sem arredondar o container (evita tremidas em monitores 75/120/144 Hz).
+
+### D-032 — Direção de sprite com histerese e giro suave
+Os sprites do Flare têm 8 direções. O `facing` gira a no máximo 22 rad/s e a troca de direção exige passar ~8° da borda do setor; paradas de <90 ms mantêm o ciclo de corrida. Isso elimina o "pisca-pisca" de direção/animação.
+
+### D-033 — Fendas como zona sintética
+Uma fenda é um `ZoneDef` gerado na hora (bioma aleatório, monstros dos biomas existentes, densidade 2.2, sem chefe). O progresso vem das mortes por rank; em 100% nasce um Guardião. Fenda Maior: +17% vida e +8% dano por nível (composto), 10 minutos, custa 1 selo; completar dá selos.
+
+### D-034 — Passivas como nós de atributo + Paragon estilo D3
+Passivas dão atributos por graduação e são liberadas por pontos totais na árvore (`treeTiers` 0/3/8/14/20). O Paragon tem 16 nós em 4 categorias (1 ponto por nível de Paragon, a maioria com teto de 50). Ambos entram via `registerStatContributor`, sem tocar no agregador de stats.
+
+### D-035 — Menus com arte pintada do Flare
+O fundo do menu (`dungeon.jpg`) e os retratos das classes são arte do Flare (CC-BY-SA) processada por `scripts/assets/build-ui.mjs`. A tela de criação mostra cada classe com equipamento de vitrine (a partida começa com equipamento básico). Retratos que parecem fotos de desenvolvedores do Flare foram evitados.
+
+### D-036 — Barras de rolagem góticas globais
+As barras de rolagem de `#ui-root` usam `::-webkit-scrollbar` (no Chrome, definir `scrollbar-color` desativa o estilo webkit); o Firefox recebe `scrollbar-color` via `@supports not selector(::-webkit-scrollbar)`.

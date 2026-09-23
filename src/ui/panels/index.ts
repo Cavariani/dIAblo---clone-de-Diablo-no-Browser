@@ -5,3 +5,4 @@ import './CharacterPanel';
 import './SkillsPanel';
 import './TownPanels';
 import './ParagonPanel';
+import './QuestsPanel';
