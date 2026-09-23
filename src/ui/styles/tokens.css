@@ -1,5 +1,5 @@
 /* =============================================================================
-   dIAblo design tokens (see docs/research/ui-art-direction.md §2-4).
+   Diablopus design tokens (see docs/research/ui-art-direction.md §2-4).
    The whole UI is sized in rem; 1rem = 16px at 1080p and scales with the viewport
    height (clamped for 720p..1440p+). A UI scale option can multiply --ui-scale.
    ============================================================================= */

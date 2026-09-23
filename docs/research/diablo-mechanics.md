@@ -1,12 +1,12 @@
-# Diablo mechanics research (D2 / D3 / D4) and what we take for dIAblo
+# Diablo mechanics research (D2 / D3 / D4) and what we take for Diablopus
 
 Status: research reference, written 2026-09. Sources are listed at the end.
 Confidence markers:
 - **[v]** means the value was checked against a source during this research (maxroll, purediablo, tentonhammer, Arreat Summit and similar).
 - **[~]** means the value comes from well-known community knowledge. It may vary by patch, so treat it as approximate.
-- **[ours]** is a proposal for dIAblo.
+- **[ours]** is a proposal for Diablopus.
 
-The "Recommendations for dIAblo" section (section 12) turns this material into concrete tables. The engine and data teams should read that section first.
+The "Recommendations for Diablopus" section (section 12) turns this material into concrete tables. The engine and data teams should read that section first.
 
 ---
 
@@ -502,7 +502,7 @@ Area Damage: 20% chance per hit to deal AreaDamage% × hit to every other enemy 
 
 ---
 
-## 12. Recommendations for dIAblo  [ours]
+## 12. Recommendations for Diablopus  [ours]
 
 ### 12.1 Rarity table (drop-in for `data/items/rarities`)
 | Rarity (pt-BR) | Key | Color | Affixes | Notes |
@@ -539,7 +539,7 @@ Format `<Substantivo por slot> <Genitivo>`. Keep the genitive in the form "de/do
   - do Corvo, da Víbora, do Carniçal, do Ossário, da Tormenta, da Ruína, do Sangue, da Cinza, do Crepúsculo, da Peste, do Abismo, da Forja, do Lobo, do Espectro, da Geada, do Trovão, da Brasa, do Eclipse, da Agonia, do Juramento.
   - Also: Sombrio/a (adjective, needs gender agreement; skip if it gets complex).
 
-### 12.4 Affix catalogue for dIAblo (values at **ilvl 50**; scaling rules below)
+### 12.4 Affix catalogue for Diablopus (values at **ilvl 50**; scaling rules below)
 Scaling types:
 - **L** (linear): `v(ilvl) = v50 × (0.08 + 0.92 × ilvl/50)`.
 - **P** (percent, mild): `v(ilvl) = v50 × (0.5 + 0.5 × ilvl/50)`.
@@ -787,7 +787,7 @@ Chances per kill, before bonuses:
 - **Utilidade**: Dano em área +1% (50), Redução de custo +0.2% (50), Vida por acerto +1 (50), Raio de coleta +0.05 tile (20).
 - **XP per paragon level**: `P(n) = round(xpToNext(49) × (1 + 0.02 × (n−1)), −2)`. This gives P1 ≈ 119,700, P10 ≈ 141,200, P50 ≈ 236,900, P100 ≈ 356,600, P200 ≈ 595,900. The sum of P1–P100 is ≈ 23.8 M. There is no hard cap (the practical cap is 800 points for the UI).
 
-### 12.12 Formulas for dIAblo
+### 12.12 Formulas for Diablopus
 ```
 hit = roll(wpnMin, wpnMax)
     × skillCoef

@@ -1,4 +1,4 @@
-# dIAblo — UI art direction and design system
+# Diablopus — UI art direction and design system
 
 Scope: every HUD and menu is **HTML/CSS/SVG layered over the Pixi canvas**. In-world feedback (damage numbers, item beams on the ground, hit flashes) is done in Pixi. Everything here is **original**: no Blizzard art, logos, fonts or traced shapes. We borrow only *structural* ideas that are common to the ARPG genre.
 
@@ -8,7 +8,7 @@ Visual keywords: *gothic, forged iron, cold stone, dried blood, gold filigree, e
 
 ## 1. What we take from Diablo 3/4 (patterns, not art)
 
-| Element | D3 pattern | D4 pattern | dIAblo decision |
+| Element | D3 pattern | D4 pattern | Diablopus decision |
 |---|---|---|---|
 | Resource globes | Huge sculpted globes flanking the bar; red life, class-colored resource | Smaller, darker globes; muted liquid; subtle surface highlight | Mid-size orbs (112 px), animated liquid with a wave, glass highlight, ember rim. Life is red; the resource color depends on the class. |
 | Action bar | 4 skills + LMB/RMB, potion, XP bar under the bar | 6 slots, compact, flat metal | 6 slots (LMB, RMB, 1–4) + potion. Thin XP bar with gold fill above the slots. |

@@ -11,7 +11,7 @@
   animation: ember-rise var(--d, 9s) linear infinite; animation-delay: var(--delay, 0s); left: var(--x, 50%); opacity: 0; }
 @keyframes ember-rise { 0% { transform: translate(0, 0); opacity: 0; } 10% { opacity: 1; } 100% { transform: translate(var(--dx, 40px), -105vh); opacity: 0; } }
 
-.logo { font: 900 clamp(3.5rem, 9vw, 7.5rem)/1 var(--f-display); letter-spacing: .08em; text-align: center;
+.logo { font: 900 clamp(3rem, 7vw, 6.5rem)/1 var(--f-display); letter-spacing: .08em; text-align: center;
   background: linear-gradient(180deg, #fff3d0 0%, #f3d58a 35%, #a67c2e 60%, #5a3a10 100%); -webkit-background-clip: text; background-clip: text; color: transparent;
   filter: drop-shadow(0 4px 2px #000) drop-shadow(0 0 30px rgba(255,120,30,.45)); animation: logo-in 1.4s var(--ease-out) both; }
 .logo em { font-style: normal; background: linear-gradient(180deg, #ffb0a0, #e0343c 45%, #5a0508); -webkit-background-clip: text; background-clip: text; }
@@ -47,7 +47,7 @@
 /* ============================================================== main menu */
 .main-menu { position: absolute; inset: 0; z-index: 4; display: flex; flex-direction: column; justify-content: center; gap: 3.5rem; padding: 0 0 4rem clamp(3rem, 8vw, 10rem); }
 .main-menu__brand { width: max-content; }
-.main-menu .logo { font-size: clamp(5rem, 11vw, 10rem); text-align: left; }
+.main-menu .logo { font-size: clamp(4rem, 8vw, 8.5rem); text-align: left; }
 .logo-rule { height: .9rem; margin: .6rem 0 .5rem; width: 100%; background: var(--rule) center / 100% 100% no-repeat; opacity: .9; animation: fade-in 1.5s .5s both; }
 .main-menu .logo-sub { text-align: center; font-size: 1.1rem; letter-spacing: .55em; color: #c9ab7a; }
 .main-menu .menu-stack { gap: .25rem; min-width: 0; width: 26rem; animation: menu-in 1s .7s var(--ease-out) both; }

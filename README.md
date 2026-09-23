@@ -1,4 +1,4 @@
-# dIAblo — ARPG no browser
+# Diablopus — ARPG no browser
 
 ARPG isométrico 2D inspirado em Diablo 3/4, feito em **TypeScript + Vite + PixiJS 8 (WebGL)**, com UI gótica em DOM/CSS. Todo o texto do jogo é em pt-BR.
 

@@ -77,3 +77,4 @@ cd ../.. && npm run assets
 - Balanceamento (`node e2e/balance.mjs berserker`): bot sem trocar equipamento chega ao andar 3 em ~3 min simulados (nível 3–4) e deixa o chefe em 12% antes de morrer 1x → com loot equipado + exploração real, 1º chefe em ~6–10 min. OK para a meta.
 - Testes headless: Google Fonts às vezes atrasam screenshots (usar `snap()` tolerante); não editar src durante testes (HMR).
 - Próximos passos possíveis: deploy na Vercel (usuário), bot que equipe loot, mais polimento de áudio/efeitos.
+- Jogo renomeado para **Diablopus** (logo 'Diabl'+'opus'); chaves de save (IndexedDB 'diablo-browser', localStorage 'diablo-browser-save') mantidas de propósito para não perder saves.

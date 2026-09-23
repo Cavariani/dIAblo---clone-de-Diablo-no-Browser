@@ -1,4 +1,4 @@
-# PixiJS v8 — verified API notes for dIAblo
+# PixiJS v8 — verified API notes for Diablopus
 
 Versions checked: **pixi.js 8.21.0**, **pixi-filters 6.1.5** (from `node_modules`).
 

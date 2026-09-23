@@ -1,6 +1,6 @@
 # Créditos
 
-dIAblo é um projeto pessoal, não comercial, inspirado na série Diablo (Blizzard Entertainment). **Nenhum asset da Blizzard é usado.** Código, design, textos e UI são originais.
+Diablopus é um projeto pessoal, não comercial, inspirado na série Diablo (Blizzard Entertainment). **Nenhum asset da Blizzard é usado.** Código, design, textos e UI são originais.
 
 ## Arte, animações, tilesets, ícones, retratos, música e efeitos do Flare — CC-BY-SA 3.0
 

@@ -3,6 +3,7 @@ import type { SaveAPI } from '../api';
 import type { CharacterState, SaveFile, Settings, StashState } from '../types';
 import { defaultSettings, emptySave, emptyStash, SAVE_VERSION } from './defaults';
 
+// Storage keys keep the original project id so existing saves survive the rename to Diablopus.
 const DB = 'diablo-browser';
 const STORE = 'save';
 const KEY = 'main';

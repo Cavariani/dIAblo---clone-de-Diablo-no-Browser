@@ -1,9 +1,9 @@
 {
-  "name": "diablo-browser-arpg",
+  "name": "diablopus",
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "dIAblo — ARPG isométrico 2D para browser inspirado em Diablo 3/4",
+  "description": "Diablopus — ARPG isométrico 2D para browser inspirado em Diablo 3/4",
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",

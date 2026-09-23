@@ -144,7 +144,7 @@ export class App {
     const bar = el('div', { class: 'loading__bar' }, el('i'));
     const label = el('div', { class: 'loading__label' });
     const tip = el('div', { class: 'loading__tip' }, TIPS[Math.floor(Math.random() * TIPS.length)]);
-    const node = el('div', { class: 'screen' }, embers(25), el('div', { class: 'loading' }, el('div', { class: 'loading__box' }, el('div', { class: 'logo' }, 'd', el('em', 'IA'), 'blo'), bar, label, tip)));
+    const node = el('div', { class: 'screen' }, embers(25), el('div', { class: 'loading' }, el('div', { class: 'loading__box' }, el('div', { class: 'logo' }, 'Diabl', el('em', 'opus')), bar, label, tip)));
     this.setScreen(node);
     return {
       set: (p, l) => {
@@ -209,7 +209,7 @@ export class App {
       el(
         'div',
         { class: 'main-menu' },
-        el('header', { class: 'main-menu__brand' }, el('div', { class: 'logo' }, 'd', el('em', 'IA'), 'blo'), el('div', { class: 'logo-rule' }), el('div', { class: 'logo-sub' }, 'As Trevas Despertam')),
+        el('header', { class: 'main-menu__brand' }, el('div', { class: 'logo' }, 'Diabl', el('em', 'opus')), el('div', { class: 'logo-rule' }), el('div', { class: 'logo-sub' }, 'As Trevas Despertam')),
         stack,
         heroCard,
       ),
@@ -409,7 +409,7 @@ export class App {
 
   private exportSave(): void {
     const blob = new Blob([this.save.exportJson()], { type: 'application/json' });
-    const a = el('a', { href: URL.createObjectURL(blob), download: `diablo-save-${new Date().toISOString().slice(0, 10)}.json` }) as HTMLAnchorElement;
+    const a = el('a', { href: URL.createObjectURL(blob), download: `diablopus-save-${new Date().toISOString().slice(0, 10)}.json` }) as HTMLAnchorElement;
     a.click();
     setTimeout(() => URL.revokeObjectURL(a.href), 1000);
   }
@@ -425,7 +425,7 @@ export class App {
       el('h3', 'Fontes'),
       el('p', 'Cinzel, Cinzel Decorative, Alegreya Sans, EB Garamond — Google Fonts (OFL).'),
       el('h3', 'Jogo'),
-      el('p', 'dIAblo — código, design e UI originais, inspirados na série Diablo. Projeto pessoal sem fins comerciais.'),
+      el('p', 'Diablopus — código, design e UI originais, inspirados na série Diablo. Projeto pessoal sem fins comerciais.'),
     );
     const panel = panelFrame('Créditos', null, () => this.mainMenu(), body);
     this.setScreen(el('div', { class: 'screen' }, embers(20), el('div', { class: 'credits' }, panel)));

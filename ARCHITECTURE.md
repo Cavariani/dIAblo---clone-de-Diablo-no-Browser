@@ -1,4 +1,4 @@
-# dIAblo — Arquitetura
+# Diablopus — Arquitetura
 
 ARPG isométrico 2D para browser (TypeScript + Vite + PixiJS v8 + DOM/CSS UI).
 Este documento é o **contrato** entre módulos. Os arquivos de contrato são:
