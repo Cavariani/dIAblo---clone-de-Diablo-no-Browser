@@ -1,0 +1,11 @@
+node_modules
+dist
+.assets-src
+*.log
+.DS_Store
+.vite
+test-results
+playwright-report
+e2e-results
+.vercel
+.env*
