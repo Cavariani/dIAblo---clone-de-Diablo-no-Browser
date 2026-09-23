@@ -5,6 +5,7 @@ import type { GameCtx } from '../../game/api';
 import { addToGrid, fits, itemSize, removeFromGrid } from '../../game/items/inventory';
 import { buyItem, buyPotions, itemBuyPrice, refreshStock, rerollAffix, rerollCostFor, salvageItem, sellItem, upgradeCostFor, upgradeItem, vendorStock } from '../../game/items/shop';
 import { acceptQuest, questAvailable, questGoal, turnIn } from '../../game/systems/QuestSystem';
+import { startRift } from '../../game/rift';
 import { STASH_H, STASH_W, type ItemInstance } from '../../game/types';
 import { el, setText } from '../components/el';
 import { hideTooltip } from '../components/Tooltip';
@@ -246,6 +247,28 @@ registerPanel('waypoints', (ui, ctx) => {
         );
       }
     }
+  };
+  return { el: root, side: 'left', onOpen: render };
+});
+
+// ---------------------------------------------------------------------------------------- rift
+registerPanel('rift', (ui, ctx) => {
+  let level = 1;
+  const body = el('div', { style: 'display:flex;flex-direction:column;gap:.75rem' });
+  const root = panelFrame('Obelisco da Fenda', 'Rasgue o véu entre os mundos', () => ui.closePanel('rift'), body);
+  const render = () => {
+    const c = ctx.character;
+    const max = c.greaterRiftHighest + 1;
+    level = Math.min(Math.max(1, level), max);
+    body.replaceChildren(
+      el('p', { class: 'npc-greeting' }, 'Monstros de um mundo aleatório. Mate-os para encher a barra e convocar o Guardião.'),
+      el('button', { class: 'btn btn--primary', onclick: () => { ui.closePanel('rift'); startRift(ctx, false, 0); } }, 'Abrir Fenda (grátis)'),
+      el('h3', { class: 'section-title' }, 'Fenda Maior'),
+      el('p', { class: 'smith-cost' }, `Selos de Fenda: ${c.riftKeys} · Maior nível dominado: ${c.greaterRiftHighest} · Tempo: ${Math.floor(Data.rift.timeLimit / 60)} min`),
+      el('div', { class: 'panel-actions' }, el('button', { class: 'btn btn--sm', onclick: () => { level--; render(); } }, '−'), el('span', { style: 'font:700 1.4rem var(--f-title);color:var(--c-gold-3);min-width:3rem;text-align:center' }, String(level)), el('button', { class: 'btn btn--sm', onclick: () => { level++; render(); } }, '+')),
+      el('p', { class: 'smith-cost' }, `Vida dos monstros +${Math.round((Math.pow(1.17, level) - 1) * 100)}% · Dano +${Math.round((Math.pow(1.08, level) - 1) * 100)}%`),
+      el('button', { class: 'btn', disabled: c.riftKeys <= 0, onclick: () => { ui.closePanel('rift'); startRift(ctx, true, level); } } as never, 'Abrir Fenda Maior (1 Selo)'),
+    );
   };
   return { el: root, side: 'left', onOpen: render };
 });

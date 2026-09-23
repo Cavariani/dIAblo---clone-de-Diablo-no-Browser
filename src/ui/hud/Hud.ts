@@ -12,6 +12,7 @@ import { fmtInt } from '../format';
 import { applyIcon } from '../icons';
 import type { UIRoot } from '../UIRoot';
 import { MapView } from '../map/MapView';
+import { rift } from '../../game/rift';
 
 const KEY_LABEL: Record<HotbarSlot, string> = { lmb: 'LMB', rmb: 'RMB', k1: '1', k2: '2', k3: '3', k4: '4' };
 const RES_CLASS: Record<string, string> = { fury: 'orb--fury', mana: 'orb--mana', energy: 'orb--energy', essence: 'orb--essence' };
@@ -312,6 +313,16 @@ export class Hud {
     for (const node of Array.from(this.buffs.children) as HTMLElement[]) {
       const s = p.statuses.find((x) => x.id === node.dataset.sid);
       if (s) node.style.setProperty('--cd', String(1 - s.remaining / Math.max(0.01, s.duration)));
+    }
+    // rift progress
+    this.riftRoot.classList.toggle('on', rift.active);
+    if (rift.active) {
+      if (!this.riftRoot.firstChild) this.riftRoot.append(el('div', { class: 'rift-bar__label' }), el('div', { class: 'rift-bar__track' }, el('i')), el('div', { class: 'rift-bar__time' }));
+      const [label, track, time] = Array.from(this.riftRoot.children) as HTMLElement[];
+      setText(label, rift.done ? 'Fenda concluída' : rift.guardianId !== null ? 'O Guardião chegou!' : `${rift.greater ? `Fenda Maior ${rift.level}` : 'Fenda'} — ${Math.floor(rift.progress * 100)}%`);
+      track.style.setProperty('--fill', String(rift.progress));
+      const t = Math.max(0, rift.timeLeft);
+      setText(time, rift.greater ? `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, '0')}` : '');
     }
     if (this.bigmapOn) this.big.update(dt);
     else this.mini.update(dt);

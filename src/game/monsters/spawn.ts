@@ -36,6 +36,12 @@ export function spawnMonster(ctx: GameCtx, enemyId: string, pos: Vec2, o: SpawnO
     a.life = a.maxLife;
   }
   if (o.damageMult && a.monster) a.monster.baseDamage *= o.damageMult;
+  const gr = w.info.isRift ? w.info.greaterRiftLevel : 0;
+  if (gr > 0 && a.monster && a.faction === 'enemy') {
+    a.maxLife = Math.round(a.maxLife * Math.pow(1 + Data.rift.levelScaling.life, gr));
+    a.life = a.maxLife;
+    a.monster.baseDamage *= Math.pow(1 + Data.rift.levelScaling.damage, gr);
+  }
   if (a.monster) {
     a.monster.packId = o.packId ?? 0;
     if (o.name) a.monster.displayName = o.name;

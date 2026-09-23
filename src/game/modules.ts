@@ -8,3 +8,4 @@ import './monsters/eliteMods';
 import './monsters/bosses';
 import './systems/FogSystem';
 import './items/powers';
+import './rift';

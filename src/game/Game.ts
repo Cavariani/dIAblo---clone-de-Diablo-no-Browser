@@ -289,9 +289,34 @@ export class Game implements GameCtx {
         this.portalReturn = null;
         await this.enterZone(to.zoneId, to.floor, to.via);
         break;
-      case 'rift':
+      case 'rift': {
+        this.portalReturn = null;
+        const biomes = Data.rift.biomes;
+        const biome = biomes[Math.floor(Math.random() * biomes.length)];
+        const pool = Data.zones.filter((z) => z.biome === biome || (biome === 'crypt' && z.id === 'crypt'));
+        const monsters = pool.flatMap((z) => z.monsters);
+        const lvl = Math.max(5, this.character.level + (to.greater ? Math.floor(to.level / 2) : 0));
+        const zone: ZoneDef = {
+          id: `rift_${biome}`,
+          name: to.greater ? `Fenda Maior ${to.level}` : 'Fenda Caótica',
+          biome,
+          kind: 'dungeon',
+          floors: 1,
+          baseLevel: lvl,
+          levelPerFloor: 0,
+          waypointFloors: [],
+          monsters: monsters.length ? monsters : Data.zone('crypt').monsters,
+          density: 2.2,
+          championChance: 0.18,
+          rareChance: 0.12,
+          size: [50, 50],
+          chestsPerFloor: [1, 2],
+          shrinesPerFloor: [1, 3],
+        };
+        await this.enterZone(zone.id, 1, 'portal', { rift: true, grLevel: to.greater ? to.level : 0, zoneOverride: zone });
+        break;
+      }
       case 'riftNextFloor':
-        // implemented by the rift module
         break;
     }
   }
