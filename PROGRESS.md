@@ -36,7 +36,7 @@ cd ../.. && npm run assets
 
 ## Plano (ordem de execução enxuta)
 1. [x] Pipeline de assets
-2. [ ] AssetManager (Pixi) + Renderer mínimo (tiles, atores, câmera) + dados mínimos + World/Game/loop/input + gerador cripta simples → **jogável: andar/colidir/atacar 1 tipo de inimigo**
+2. [x] AssetManager (Pixi) + Renderer mínimo (tiles, atores, câmera) + dados mínimos + World/Game/loop/input + gerador cripta simples → **jogável: andar/colidir/atacar 1 tipo de inimigo**
 3. [ ] Combate/game feel (números, flash, knockback, partículas, hit-stop, shake) + HUD (orbes, hotbar)
 4. [ ] 4 classes × skills (dados + impl), recurso, cooldowns
 5. [ ] Mundo: cidade, cripta/caverna/floresta/inferno, waypoints, portal, fog, minimapa, mapa TAB
@@ -47,7 +47,8 @@ cd ../.. && npm run assets
 10. [ ] QA Playwright, balanceamento, README/CREDITS, deploy
 
 ## Próximo passo
-- Passo 2 em andamento. Feito: AssetManager, gerador cripta (world/gen/rooms.ts + paint/dungeon.ts), input, loop, World (A*, flow field), fórmulas scaling/damage, stats/aggregate, actors.ts, dados classes/enemies/zones/difficulties. FALTA: combat/Combat.ts, systems (control, movement, cast, ai basic, projectile, groundEffect, status, death), Game.ts, render/Renderer.ts, main.ts + index.html.
+- Passo 2 CONCLUÍDO: jogo roda (npm run dev -- --port 5288; outra app usa 5173). main.ts é quick-start temporário (Berserker nu na cripta; ?class=&zone=&floor=). Screenshot: node e2e/shot.mjs http://localhost:5288/ e2e-results/x.png [walk|fight].
+- Passo 3 agora: UI (UIRoot + HUD orbes/hotbar/xp/boss bar/toasts/banners em src/ui, reaproveitar src/ui/styles/*.css), áudio (AudioManager + sons Flare), dados de itens mínimos (bases com visual/ícone para starter gear) + LootSystem básico (ouro/itens caindo).
 
 ## Pendências / notas
 - Tamanho total de assets ~97 MB: se o deploy Vercel reclamar, remover tileset snowplains e reduzir avatar female/male não usados.

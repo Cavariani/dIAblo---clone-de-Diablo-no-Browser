@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dIAblo</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 4 L40 24 L60 24 L44 36 L50 58 L32 46 L14 58 L20 36 L4 24 L24 24Z' fill='%23b3121b' stroke='%23ffb040' stroke-width='3'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700;900&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=EB+Garamond:ital@1&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        background: #000;
+        overflow: hidden;
+      }
+      #game-root {
+        position: fixed;
+        inset: 0;
+      }
+      #ui-root {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+      }
+      #boot {
+        position: fixed;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        color: #c9a45a;
+        font: 700 42px 'Cinzel Decorative', Georgia, serif;
+        letter-spacing: 0.15em;
+        background: radial-gradient(ellipse at center, #1a0606 0%, #000 70%);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="game-root"></div>
+    <div id="ui-root"></div>
+    <div id="boot">dIAblo</div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
