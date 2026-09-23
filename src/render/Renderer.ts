@@ -12,10 +12,13 @@ import { Lighting } from './lighting/Lighting';
 import { FogRenderer } from './fog/FogRenderer';
 import { tex } from './textures';
 import type { AvatarPreviewHandle, HoverInfo, RendererAPI, RenderStats } from './types';
-import { ActorView, frameAt } from './views/ActorView';
+import { ActorView, frameAt, renderPos, setRenderAlpha } from './views/ActorView';
+import { STEP } from '../core/loop';
 import { TileLayer } from './views/TileLayer';
 import { ItemView } from './views/ItemView';
 import { InteractableView } from './views/InteractableView';
+
+const NO_LOOK = { x: 0, y: 0 };
 
 interface ProjView {
   s: Sprite;
@@ -227,7 +230,8 @@ export class Renderer implements RendererAPI {
 
   // ---------------------------------------------------------------------------- frame
 
-  render(ctx: GameCtx, frameDt: number, _alpha: number): void {
+  render(ctx: GameCtx, frameDt: number, alpha: number): void {
+    setRenderAlpha(alpha);
     const t0 = performance.now();
     this.time += frameDt;
     const w = this.world;
@@ -240,13 +244,12 @@ export class Renderer implements RendererAPI {
     // camera
     if (ctx.input.wheel) this.camera.zoomBy(-ctx.input.wheel);
     const p = ctx.player;
-    const mouse = ctx.input.mouse;
-    const look = { x: ((mouse.x - W / 2) / W) * 60, y: ((mouse.y - H / 2) / H) * 40 };
-    this.camera.update(p.pos, look, frameDt);
+    // locked on the interpolated hero (no mouse look-ahead: it made the view drift while clicking around)
+    this.camera.update(renderPos(p), NO_LOOK, frameDt);
     const z = this.zoom;
     for (const c of [this.worldLow, this.worldHigh, this.overlay]) {
       c.scale.set(z);
-      c.position.set(Math.round(W / 2 - this.camera.x * z + this.camera.offX), Math.round(H / 2 - this.camera.y * z + this.camera.offY));
+      c.position.set(W / 2 - this.camera.x * z + this.camera.offX, H / 2 - this.camera.y * z + this.camera.offY);
     }
     const vx0 = this.camera.x - W / 2 / z;
     const vx1 = this.camera.x + W / 2 / z;
@@ -297,7 +300,8 @@ export class Renderer implements RendererAPI {
       }
       v.t += frameDt;
       const sheet = assets.getSheet(pr.visual);
-      const sc = worldToScreen(pr.pos.x, pr.pos.y);
+      const back = (1 - alpha) * STEP;
+      const sc = worldToScreen(pr.pos.x - pr.vel.x * back, pr.pos.y - pr.vel.y * back);
       v.shadow.position.set(sc.x, sc.y);
       v.s.zIndex = pr.pos.x + pr.pos.y;
       if (sheet) {

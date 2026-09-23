@@ -162,6 +162,8 @@ export interface Actor {
   level: number;
 
   pos: Vec2;
+  /** Position at the start of the current sim tick; the renderer interpolates prevPos→pos. */
+  prevPos: Vec2;
   /** Desired velocity for this tick (tiles/s), set by controller / AI. MovementSystem integrates it. */
   vel: Vec2;
   radius: number;

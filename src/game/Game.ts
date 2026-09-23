@@ -377,6 +377,8 @@ export class Game implements GameCtx {
       const s = this.world.level.waypointPos ?? this.world.level.playerStart;
       p.pos.x = s.x;
       p.pos.y = s.y;
+      p.prevPos.x = s.x;
+      p.prevPos.y = s.y;
       this.renderer.snapCamera(p.pos);
     }
   }
@@ -410,6 +412,10 @@ export class Game implements GameCtx {
     this.time += dt;
     this.input.poll();
     const w = this.world;
+    for (const a of w.actors) {
+      a.prevPos.x = a.pos.x;
+      a.prevPos.y = a.pos.y;
+    }
     w.rebuildHash();
     w.updateFlow(this.player.pos);
     for (const s of this.systems) s.update(this, dt);

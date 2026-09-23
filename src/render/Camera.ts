@@ -29,8 +29,8 @@ export class Camera {
     const s = worldToScreen(target.x, target.y);
     const tx = s.x + lookAhead.x;
     const ty = s.y - 40 + lookAhead.y;
-    this.x = damp(this.x, tx, 8, dt);
-    this.y = damp(this.y, ty, 8, dt);
+    this.x = damp(this.x, tx, 12, dt);
+    this.y = damp(this.y, ty, 12, dt);
     this.zoom = damp(this.zoom, this.targetZoom, 10, dt);
     this.t += dt;
     if (this.trauma > 0) {

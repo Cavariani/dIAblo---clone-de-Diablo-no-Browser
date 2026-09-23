@@ -39,7 +39,22 @@ export function frameAt(anim: SheetAnimationLike, t: number, loop: boolean): num
 
 const LAYER_TINTED: Partial<Record<AvatarLayer, boolean>> = { chest: true, legs: true, feet: true, hands: true, head: true };
 
+/** Sim interpolation factor (0..1) for the current frame; set by the Renderer. */
+let renderAlpha = 1;
+export function setRenderAlpha(a: number): void {
+  renderAlpha = a;
+}
+/** Interpolated render position of an actor between the last two sim ticks. */
+export function renderPos(a: Actor): { x: number; y: number } {
+  const p = a.prevPos;
+  if (!p) return a.pos;
+  return { x: p.x + (a.pos.x - p.x) * renderAlpha, y: p.y + (a.pos.y - p.y) * renderAlpha };
+}
+/** Extra angle (rad) past a sector border before switching sprite direction (avoids flicker). */
+const DIR_HYSTERESIS = 0.14;
+
 export class ActorView {
+  private dir = -1;
   readonly root = new Container();
   private shadow: Sprite;
   private body = new Container();
@@ -131,7 +146,8 @@ export class ActorView {
       this.animTime = 0;
     } else this.animTime += dt * a.anim.speed;
 
-    const p = worldToScreen(a.pos.x, a.pos.y);
+    const rp = renderPos(a);
+    const p = worldToScreen(rp.x, rp.y);
     let lift = 0;
     if (a.dash && a.dash.arc > 0) lift = Math.sin(Math.min(1, a.dash.time / a.dash.duration) * Math.PI) * a.dash.arc * 48;
     this.root.position.set(p.x, p.y);
@@ -139,7 +155,15 @@ export class ActorView {
     this.root.zIndex = a.pos.x + a.pos.y;
     const dx = Math.cos(a.facing);
     const dy = Math.sin(a.facing);
-    const dir = flareDir(Math.atan2(dx + dy, dx - dy));
+    const ang = Math.atan2(dx + dy, dx - dy);
+    let dir = flareDir(ang);
+    if (this.dir >= 0 && dir !== this.dir) {
+      // keep the current direction until the angle is clearly inside the next sector
+      let diff = ang - (this.dir - 4) * (Math.PI / 4);
+      diff = Math.atan2(Math.sin(diff), Math.cos(diff));
+      if (Math.abs(diff) < Math.PI / 8 + DIR_HYSTERESIS) dir = this.dir;
+    }
+    this.dir = dir;
     const scale = v.scale;
 
     let minX = Infinity;

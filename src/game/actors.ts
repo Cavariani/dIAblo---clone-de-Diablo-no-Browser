@@ -22,6 +22,7 @@ export function baseActor(id: number, pos: Vec2): Actor {
     name: '',
     level: 1,
     pos: { x: pos.x, y: pos.y },
+    prevPos: { x: pos.x, y: pos.y },
     vel: { x: 0, y: 0 },
     radius: 0.25,
     mass: 1,
