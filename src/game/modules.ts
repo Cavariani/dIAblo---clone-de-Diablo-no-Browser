@@ -6,3 +6,4 @@ import './systems/QuestSystem';
 import './town';
 import './monsters/eliteMods';
 import './monsters/bosses';
+import './systems/FogSystem';

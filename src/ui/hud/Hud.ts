@@ -11,6 +11,7 @@ import { hideTooltip, simpleTip } from '../components/Tooltip';
 import { fmtInt } from '../format';
 import { applyIcon } from '../icons';
 import type { UIRoot } from '../UIRoot';
+import { MapView } from '../map/MapView';
 
 const KEY_LABEL: Record<HotbarSlot, string> = { lmb: 'LMB', rmb: 'RMB', k1: '1', k2: '2', k3: '3', k4: '4' };
 const RES_CLASS: Record<string, string> = { fury: 'orb--fury', mana: 'orb--mana', energy: 'orb--energy', essence: 'orb--essence' };
@@ -127,7 +128,20 @@ export class Hud {
     this.el = el('div', { class: 'hud' }, this.lowLife, bottom, this.buffs, this.target, this.boss, this.minimapRoot, zone, this.riftRoot, this.channel, this.bigmapRoot, this.fps);
     ctx.events.on('zoneEntered', () => this.refreshZone());
     this.refreshZone();
+    this.mini = new MapView(ctx, { big: false });
+    this.big = new MapView(ctx, { big: true });
+    this.minimapRoot.append(this.mini.canvas);
+    this.bigmapRoot.append(this.big.canvas);
+    ui.onToggleMap = () => {
+      this.bigmapOn = !this.bigmapOn;
+      this.bigmapRoot.classList.toggle('on', this.bigmapOn);
+      this.minimapRoot.style.display = this.bigmapOn ? 'none' : '';
+    };
   }
+
+  private mini!: MapView;
+  private big!: MapView;
+  private bigmapOn = false;
 
   private makeSlot(key: string, extra = ''): SlotUI {
     const icon = el('span', { class: 'hk__icon' });
@@ -299,8 +313,10 @@ export class Hud {
       const s = p.statuses.find((x) => x.id === node.dataset.sid);
       if (s) node.style.setProperty('--cd', String(1 - s.remaining / Math.max(0.01, s.duration)));
     }
+    if (this.bigmapOn) this.big.update(dt);
+    else this.mini.update(dt);
     // fps
-    const r = (ctx as unknown as { renderer?: { stats: { fps: number; particles: number } } }).renderer;
+    const r =(ctx as unknown as { renderer?: { stats: { fps: number; particles: number } } }).renderer;
     this.fps.style.display = ctx.settings.showFps ? '' : 'none';
     if (ctx.settings.showFps && r) setText(this.fps, `${r.stats.fps} FPS · ${r.stats.particles} part.`);
     void dt;

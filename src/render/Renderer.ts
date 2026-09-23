@@ -9,6 +9,7 @@ import { assets, flareDir } from './assets/AssetManager';
 import { Camera } from './Camera';
 import { FxService } from './fx/FxService';
 import { Lighting } from './lighting/Lighting';
+import { FogRenderer } from './fog/FogRenderer';
 import { tex } from './textures';
 import type { AvatarPreviewHandle, HoverInfo, RendererAPI, RenderStats } from './types';
 import { ActorView, frameAt } from './views/ActorView';
@@ -36,6 +37,7 @@ export class Renderer implements RendererAPI {
   private groundFx = new Graphics();
   private tiles = new TileLayer();
   private lighting = new Lighting();
+  private fog = new FogRenderer();
   private vignette!: Sprite;
   private actorViews = new Map<Actor, ActorView>();
   private projViews = new Map<Projectile, ProjView>();
@@ -71,7 +73,7 @@ export class Renderer implements RendererAPI {
     const st = this.app.stage;
     st.eventMode = 'none';
     this.worldLow.addChild(this.tiles.floor, this.fx.decalLayer, this.objects, this.fx.particles.normalLayer);
-    this.worldHigh.addChild(this.groundFx, this.fx.spriteLayer, this.fx.particles.addLayer, this.fx.beamLayer);
+    this.worldHigh.addChild(this.fog.sprite, this.groundFx, this.fx.spriteLayer, this.fx.particles.addLayer, this.fx.beamLayer);
     this.overlay.addChild(this.fx.textLayer);
     this.vignette = new Sprite(tex().vignette);
     this.fx.flashSprite.blendMode = 'add';
@@ -118,6 +120,7 @@ export class Renderer implements RendererAPI {
     for (const id of new Set(decor.map((d) => d.tileset))) await assets.loadTileset(id);
     this.tiles.addDecor(decor.map((d) => ({ ts: assets.getTileset(d.tileset), tile: d.tile, x: d.x, y: d.y })), this.objects);
     if (world.interactables.some((i) => i.kind === 'stash')) await assets.loadTileset('dungeon');
+    this.fog.setMap(world.map);
     this.lighting.ambient = biome.ambient.color;
     this.lighting.darkness = biome.ambient.darkness;
     this.fx.getActor = (id) => world.getActor(id);
@@ -136,6 +139,7 @@ export class Renderer implements RendererAPI {
     for (const v of this.interViews.values()) v.destroy();
     this.interViews.clear();
     this.tiles.clear(this.objects);
+    this.fog.clear();
     this.fx.clear();
     this.groundFx.clear();
     this.world = null;
@@ -370,6 +374,7 @@ export class Renderer implements RendererAPI {
     }
 
     this.fx.update(frameDt, z);
+    this.fog.update();
     this.renderLights(ctx, w);
     this.app.renderer.render(this.app.stage);
 

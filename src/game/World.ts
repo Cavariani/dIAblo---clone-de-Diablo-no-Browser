@@ -167,6 +167,13 @@ export class World implements WorldAPI {
     return this.ray(a, b, (x, y) => this.blocksSight(x, y));
   }
 
+  /** LOS that allows the final (target) cell to be blocking — used to reveal walls in fog of war. */
+  lineOfSightLoose(a: Vec2, b: Vec2): boolean {
+    const ex = Math.floor(b.x);
+    const ey = Math.floor(b.y);
+    return this.ray(a, b, (x, y) => (x !== ex || y !== ey) && this.blocksSight(x, y));
+  }
+
   /** Walkable straight line with a little clearance (for path smoothing). */
   clearWalk(a: Vec2, b: Vec2, radius = 0.25): boolean {
     const dx = b.x - a.x;
