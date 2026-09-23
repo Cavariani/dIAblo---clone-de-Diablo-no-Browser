@@ -72,6 +72,7 @@ export class Hud {
   private bossFrame = el('div', { class: 'boss-bar__frame' });
   private bossPct = el('span', { class: 'boss-bar__pct' });
   private bossActor: Actor | null = null;
+  private bossScan = 0;
   private zoneName = el('div', { class: 'zone-plate__name' });
   private zoneSub = el('div', { class: 'zone-plate__sub' });
   private buffs = el('div', { class: 'buffs' });
@@ -287,14 +288,19 @@ export class Hud {
       }
       this.targetBar.style.setProperty('--fill', String(t.life / t.maxLife));
     } else this.lastTargetKey = '';
-    // boss
+    // boss (re-acquire an engaged boss after returning by portal / respawn)
+    if (!this.bossActor && ++this.bossScan % 30 === 0) {
+      const eng = this.ctx.world.actors.find((a) => a.alive && a.monster?.rank === 'boss' && (a.ai as { aggro?: boolean } | undefined)?.aggro);
+      if (eng) this.setBoss(eng);
+    }
     const b = this.bossActor;
     if (b) {
       const f = Math.max(0, b.life / b.maxLife);
       this.bossFrame.style.setProperty('--fill', f.toFixed(4));
       this.bossFrame.style.setProperty('--lag', f.toFixed(4));
       setText(this.bossPct, `${Math.ceil(f * 100)}%`);
-      if (!b.alive) this.setBoss(null);
+      // hide when the boss dies or we left its zone (death, portal, waypoint)
+      if (!b.alive || !this.ctx.world.actors.includes(b)) this.setBoss(null);
     }
     // buffs
     let bk = '';
