@@ -1,4 +1,30 @@
-// STUB — to be filled by the content agent. Keep the export name and type.
+// Legendary items: each carries a build-changing power (src/game/items/powers/legendary.ts).
 import type { LegendaryDef } from '../schema';
 
-export const LEGENDARIES: LegendaryDef[] = [];
+const L = (d: Omit<LegendaryDef, 'randomAffixes' | 'weight'> & Partial<Pick<LegendaryDef, 'randomAffixes' | 'weight'>>): LegendaryDef => ({ randomAffixes: 3, weight: 10, ...d });
+
+export const LEGENDARIES: LegendaryDef[] = [
+  // ------------------------------------------------------------ generic
+  L({ id: 'leg_ember_blade', name: 'Brasa Eterna', baseId: 'sword_long', flavor: 'Forjada no último suspiro de uma estrela caída.', powerId: 'explode_on_hit', powerText: 'Acertos têm {v} de chance de desencadear uma explosão ígnea que causa 150% de dano de arma ao redor do alvo.', powerRange: [0.15, 0.25], powerFormat: 'pct', minLevel: 1, fixedAffixes: [{ affixId: 'dmgFire' }] }),
+  L({ id: 'leg_storm_ring', name: 'Anel do Clamor Tempestuoso', baseId: 'ring_gold', flavor: 'O trovão ainda ecoa dentro da pedra.', powerId: 'chain_on_hit', powerText: 'Acertos têm {v} de chance de lançar um raio que salta entre 4 inimigos, causando 120% de dano de arma.', powerRange: [0.12, 0.2], powerFormat: 'pct', minLevel: 5 }),
+  L({ id: 'leg_blood_heart', name: 'Coração Sanguinário', baseId: 'amulet_bone', flavor: 'Bate apenas quando outro coração para.', powerId: 'heal_on_kill', powerText: 'Abater um inimigo restaura {v} da sua vida máxima.', powerRange: [0.02, 0.04], powerFormat: 'pct1', minLevel: 1 }),
+  L({ id: 'leg_winter_plate', name: 'Couraça do Inverno Eterno', baseId: 'chest_chain', flavor: 'Nenhum fogo aquece quem a veste.', powerId: 'frost_retaliate', powerText: 'Ao ser atingido, congela inimigos próximos por 1,5s e causa {v} de dano de arma como Frio (a cada 6s).', powerRange: [1.5, 2.5], powerFormat: 'pct', minLevel: 12 }),
+  L({ id: 'leg_carnage_fists', name: 'Punhos da Carnificina', baseId: 'hands_leather', flavor: 'Quanto maior a multidão, maior a festa.', powerId: 'dmg_per_enemy', powerText: '+{v} de dano para cada inimigo a até 3 tiles (máx. 5).', powerRange: [0.05, 0.08], powerFormat: 'pct', minLevel: 8 }),
+  L({ id: 'leg_executioner', name: 'Machado do Último Suspiro', baseId: 'axe_battle', flavor: 'Nunca precisou de um segundo golpe.', powerId: 'execute', powerText: '+{v} de dano contra inimigos com menos de 35% de vida.', powerRange: [0.4, 0.8], powerFormat: 'pct', minLevel: 16 }),
+  L({ id: 'leg_ghost_steps', name: 'Passos do Fantasma', baseId: 'feet_leather', flavor: 'Deixa pegadas apenas na neve dos mortos.', powerId: 'haste_on_kill', powerText: 'Abates concedem +{v} de velocidade de ataque e de movimento por 3s.', powerRange: [0.15, 0.25], powerFormat: 'pct', minLevel: 8, fixedAffixes: [{ affixId: 'moveSpeed' }] }),
+  L({ id: 'leg_greed', name: 'Anel da Ganância Dourada', baseId: 'ring_iron', flavor: 'Ouro é o sangue da ambição.', powerId: 'gold_heal', powerText: 'Coletar ouro restaura {v} da vida máxima. +25% de ouro encontrado.', powerRange: [0.03, 0.05], powerFormat: 'pct1', minLevel: 1, fixedAffixes: [{ affixId: 'goldFind' }] }),
+  L({ id: 'leg_thorn_aegis', name: 'Égide Espinhosa', baseId: 'shield_kite', classId: 'berserker', flavor: 'Quem a golpeia sangra primeiro.', powerId: 'reflect', powerText: 'Reflete {v} do dano recebido aos atacantes.', powerRange: [0.5, 1], powerFormat: 'pct', minLevel: 16 }),
+  L({ id: 'leg_seer_crown', name: 'Coroa do Vidente', baseId: 'head_coif', flavor: 'Viu cada fim, e escolheu lutar mesmo assim.', powerId: 'crit_cdr', powerText: 'Acertos críticos reduzem todas as recargas em {v}s.', powerRange: [0.3, 0.6], powerFormat: 'dec1', minLevel: 10, fixedAffixes: [{ affixId: 'critChance' }] }),
+  // ------------------------------------------------------------ berserker
+  L({ id: 'leg_world_eater', name: 'Devoradora de Mundos', baseId: 'greataxe_1', classId: 'berserker', flavor: 'Tem fome. Sempre teve.', powerId: 'melee_shockwave', powerText: 'Habilidades corpo a corpo liberam uma onda de choque que causa {v} de dano de arma em linha.', powerRange: [1.2, 2], powerFormat: 'pct', minLevel: 16 }),
+  L({ id: 'leg_juggernaut_belt', name: 'Cinturão do Juggernaut', baseId: 'belt_heavy', classId: 'berserker', flavor: 'Correntes de guerra, forjadas para não parar.', powerId: 'fury_gen', powerText: 'Habilidades primárias geram +{v} de Fúria adicional.', powerRange: [4, 8], powerFormat: 'int', minLevel: 16 }),
+  // ------------------------------------------------------------ arcanist
+  L({ id: 'leg_archmage_staff', name: 'Cajado do Arquimago', baseId: 'staff_great', classId: 'arcanist', flavor: 'Onde uma seta basta, três são arte.', powerId: 'extra_projectile', powerText: 'Habilidades de projétil disparam +{v} projéteis.', powerRange: [1, 2], powerFormat: 'int', minLevel: 16 }),
+  L({ id: 'leg_storm_eye', name: 'Olho da Tempestade', baseId: 'orb_glass', classId: 'arcanist', flavor: 'Pisca uma vez a cada mil anos. Hoje piscou.', powerId: 'nova_on_spender', powerText: 'Habilidades que custam Mana liberam uma nova arcana que causa {v} de dano de arma.', powerRange: [1.5, 2.5], powerFormat: 'pct', minLevel: 5 }),
+  // ------------------------------------------------------------ stalker
+  L({ id: 'leg_thousand_barbs', name: 'Arco Mil Farpas', baseId: 'bow_long', classId: 'stalker', flavor: 'Cada farpa carrega um nome.', powerId: 'multishot_plus', powerText: 'Rajada dispara +{v} flechas e causa +40% de dano.', powerRange: [3, 5], powerFormat: 'int', minLevel: 8 }),
+  L({ id: 'leg_hunter_quiver', name: 'Aljava da Caçada Sem Fim', baseId: 'quiver_simple', classId: 'stalker', flavor: 'Nunca vazia. Nunca satisfeita.', powerId: 'pierce_all', powerText: 'Seus projéteis perfuram +{v} inimigos.', powerRange: [1, 3], powerFormat: 'int', minLevel: 5 }),
+  // ------------------------------------------------------------ bonemancer
+  L({ id: 'leg_legion_scepter', name: 'Cetro da Legião', baseId: 'rod_1', classId: 'bonemancer', flavor: 'Mil ossos obedecem a uma única vontade.', powerId: 'legion', powerText: '+{v} esqueletos máximos e lacaios causam +50% de dano.', powerRange: [2, 4], powerFormat: 'int', minLevel: 8 }),
+  L({ id: 'leg_tome_dead', name: 'Tomo dos Mortos Inquietos', baseId: 'grimoire_worn', classId: 'bonemancer', flavor: 'Escrito com tinta de medula.', powerId: 'spear_burst', powerText: 'Lança de Osso explode ao fim do trajeto causando {v} de dano de arma.', powerRange: [2, 3], powerFormat: 'pct', minLevel: 5 }),
+];

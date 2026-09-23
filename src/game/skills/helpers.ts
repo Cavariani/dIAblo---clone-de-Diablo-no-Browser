@@ -83,7 +83,7 @@ export function shoot(ctx: GameCtx, c: SkillCastInfo, o: ShootOpts): Projectile 
     trail: o.trail,
     impactParticles: o.impactParticles ?? ELEMENT_PARTICLES[type],
     impactFx: o.impactFx,
-    pierce: o.pierce,
+    pierce: o.pierce ?? c.params.pierce,
     explodeRadius: o.explode,
     homing: o.homing,
     targetId: o.targetId,
