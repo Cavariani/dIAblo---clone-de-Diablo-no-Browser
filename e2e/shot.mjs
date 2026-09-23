@@ -9,7 +9,19 @@ const logs = [];
 page.on('console', (m) => { if (m.type() === 'error' || m.type() === 'warning') logs.push(`[${m.type()}] ${m.text()}`); });
 page.on('pageerror', (e) => logs.push(`[pageerror] ${e.message}\n${e.stack}`));
 await page.goto(url);
-await page.waitForFunction(() => window.__game, null, { timeout: 60000 }).catch(() => logs.push('timeout waiting __game'));
+if (act.includes('menu')) {
+  await page.waitForSelector('.menu-stack', { timeout: 60000 });
+  await page.waitForTimeout(2500);
+  await page.screenshot({ path: out.replace('.png', '-menu.png') });
+  await page.click('text=Novo Personagem');
+  await page.waitForTimeout(2500);
+  await page.fill('.custom input', 'Aldebran');
+  await page.click('text=Ossomante');
+  await page.waitForTimeout(1500);
+  await page.screenshot({ path: out.replace('.png', '-create.png') });
+  await page.click('button.btn--primary:has-text("Criar")');
+}
+await page.waitForFunction(() => window.__game && window.__game.world && !window.__game.loading, null, { timeout: 60000 }).catch(() => logs.push('timeout waiting __game'));
 await page.waitForTimeout(2500);
 if (act.includes('walk')) {
   await page.mouse.move(1100, 600); await page.mouse.down(); await page.waitForTimeout(1500); await page.mouse.up();
@@ -33,7 +45,7 @@ if (act.includes('skills')) {
   for (let round = 0; round < 2; round++) {
     await page.evaluate((round) => {
       const g = window.__game; const c = g.character;
-      const skills = window.__classSkills;
+      const skills = window.__dbg.classSkills();
       const pick = skills.slice(round * 4, round * 4 + 4);
       c.hotbar.k1 = pick[0]; c.hotbar.k2 = pick[1]; c.hotbar.k3 = pick[2]; c.hotbar.k4 = pick[3];
       for (const s of skills) c.skillRanks[s] = 5;
