@@ -70,3 +70,10 @@ cd ../.. && npm run assets
 - Pedidos do usuário nesta sessão: UI de menu/criação mais polida (feito), scrollbars estilizadas (feito), animação de andar/câmera (feito — pedir feedback em GPU real).
 - Screenshots de UI: `VW=1887 VH=852 node e2e/ui-check.mjs` (resolução do usuário). NÃO editar CSS durante um teste Playwright (HMR recarrega a página).
 - FALTA (ordem): passivas + paragon UI; balanceamento (nível 1 → 1º chefe em 5–10 min); testes vitest de fórmulas; `npm run build` + `npm run lint` limpos; README/CREDITS/DECISIONS; vercel.json; smoke Playwright.
+
+## Status final da sessão 4
+- FEITO também: passivas (7/classe) + Paragon (painel P), diário de missões (J), escala de UI +9%, barra do chefe corrigida (some ao sair, volta ao reencontrar), lint 0 problemas, 14 testes vitest, build ok, README/CREDITS/DECISIONS (D-030..036), vercel.json.
+- Validado no build de produção (`npx vite preview --port 4199`): menu→criar→cidade→andar (`node e2e/shot.mjs <url> out.png menu,walk`), fenda maior (`node e2e/rift.mjs <url>`), biomas cave/forest/hell sem erros de console (`node e2e/prod-smoke.mjs <url> out.png`).
+- Balanceamento (`node e2e/balance.mjs berserker`): bot sem trocar equipamento chega ao andar 3 em ~3 min simulados (nível 3–4) e deixa o chefe em 12% antes de morrer 1x → com loot equipado + exploração real, 1º chefe em ~6–10 min. OK para a meta.
+- Testes headless: Google Fonts às vezes atrasam screenshots (usar `snap()` tolerante); não editar src durante testes (HMR).
+- Próximos passos possíveis: deploy na Vercel (usuário), bot que equipe loot, mais polimento de áudio/efeitos.

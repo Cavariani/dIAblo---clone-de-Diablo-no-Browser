@@ -8,17 +8,18 @@ const page = await browser.newPage({ viewport: { width: Number(process.env.VW ??
 const logs = [];
 page.on('console', (m) => { if (m.type() === 'error' || m.type() === 'warning') logs.push(`[${m.type()}] ${m.text()}`); });
 page.on('pageerror', (e) => logs.push(`[pageerror] ${e.message}\n${e.stack}`));
+const snap = (o) => page.screenshot({ timeout: 45000, ...o }).catch((e) => logs.push('[shot] ' + e.message.split(String.fromCharCode(10))[0]));
 await page.goto(url);
 if (act.includes('menu')) {
   await page.waitForSelector('.menu-stack', { timeout: 60000 });
   await page.waitForTimeout(2500);
-  await page.screenshot({ path: out.replace('.png', '-menu.png') });
-  await page.click('.menu-btn:has-text("Novo Herói")', { force: true });
+  await snap({ path: out.replace('.png', '-menu.png'), animations: 'disabled' });
+  await page.click('.menu-btn:has-text("Novo Herói")');
   await page.waitForTimeout(2500);
   await page.fill('.cs-input', 'Aldebran');
   await page.click('.class-tile:has-text("Ossomante")', { force: true });
   await page.waitForTimeout(1500);
-  await page.screenshot({ path: out.replace('.png', '-create.png') });
+  await snap({ path: out.replace('.png', '-create.png') });
   await page.click('.big-btn');
 }
 await page.waitForFunction(() => window.__game && window.__game.world && !window.__game.loading, null, { timeout: 60000 }).catch(() => logs.push('timeout waiting __game'));
@@ -57,7 +58,7 @@ if (act.includes('skills')) {
       if (target) await page.mouse.move(target.x, target.y - 30);
       await page.keyboard.down(key); await page.waitForTimeout(700); await page.keyboard.up(key); await page.waitForTimeout(300);
     }
-    await page.screenshot({ path: out.replace('.png', `-r${round}.png`) });
+    await snap({ path: out.replace('.png', `-r${round}.png`) });
   }
 }
 if (act.includes('panels')) {
@@ -81,7 +82,7 @@ if (act.includes('legend')) {
   await page.waitForTimeout(1600);
 }
 const info = await page.evaluate(() => { const g = window.__game; if (!g) return null; return { kills: g.character.stats.kills, gold: g.character.gold, items: g.world.groundItems.length, inv: g.character.inventory.length, fps: g.renderer.stats.fps, actors: g.world.actors.length, life: g.player.life, max: g.player.maxLife, lvl: g.character.level, xp: g.character.xp, pos: g.player.pos }; });
-await page.screenshot({ path: out });
+await snap({ path: out });
 console.log(JSON.stringify(info));
 console.log(logs.slice(0, 20).join('\n'));
 await browser.close();
