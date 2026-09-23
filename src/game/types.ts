@@ -544,6 +544,8 @@ export interface Settings {
   sfxVolume: number;
   uiVolume: number;
   screenShake: number; // 0..1
+  /** Interface size multiplier (0.8..1.5). */
+  uiScale: number;
   hitStop: boolean;
   damageNumbers: boolean;
   bloom: boolean;

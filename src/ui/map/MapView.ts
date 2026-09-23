@@ -78,7 +78,8 @@ export class MapView {
       if (!o.alive || !m.explored[Math.floor(o.pos.y) * m.width + Math.floor(o.pos.x)]) continue;
       const col =
         o.kind === 'waypoint' ? '#5ab0ff' : o.kind === 'portal' ? '#9ad8ff' : o.kind === 'stairsDown' || o.kind === 'dungeonEntrance' ? '#ff8a30' : o.kind === 'stairsUp' ? '#d8c090' : o.kind === 'shrine' ? '#ffe070' : o.kind === 'chest' ? (o.state === 'idle' ? '#c8a060' : '') : o.kind === 'stash' ? '#c8a060' : o.kind === 'riftObelisk' ? '#ff4aa0' : '#aaa';
-      if (col) dot(o.pos.x, o.pos.y, this.opts.big ? 5 : 3.5, col, true);
+      const exit = o.kind === 'dungeonEntrance' || o.kind === 'stairsDown';
+      if (col) dot(o.pos.x, o.pos.y, (this.opts.big ? 5 : 3.5) * (exit ? 1.7 : 1), col, true);
     }
     for (const a of w.actors) {
       if (!a.alive || a.kind === 'player') continue;

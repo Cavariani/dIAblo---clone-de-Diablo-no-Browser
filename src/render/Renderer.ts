@@ -1,6 +1,6 @@
 // Pixi renderer: camera, tile layers, actor views, projectiles, ground effects, items, interactables,
 // lighting, particles, overlays. Reads simulation state every frame (pull model).
-import { Application, Container, Graphics, Sprite, Texture } from 'pixi.js';
+import { Application, Container, Graphics, Sprite, Text, Texture } from 'pixi.js';
 import { worldToScreen, type Vec2 } from '../core/math';
 import { Data } from '../data';
 import type { GameCtx, WorldAPI } from '../game/api';
@@ -36,6 +36,10 @@ export class Renderer implements RendererAPI {
   private worldLow = new Container(); // under lighting
   private worldHigh = new Container(); // above lighting (emissive)
   private overlay = new Container(); // text above everything (same transform)
+  /** Screen-space objective pointer (new heroes: where the first dungeon is). */
+  private guide = new Container();
+  private guideArrow = new Graphics();
+  private guideText = new Text({ text: '', style: { fontFamily: 'Cinzel, Georgia, serif', fontSize: 20, fontWeight: '700', fill: 0xffd080, stroke: { color: 0x000000, width: 5 } }, resolution: 2 });
   private objects = new Container({ sortableChildren: true });
   private groundFx = new Graphics();
   private tiles = new TileLayer();
@@ -80,7 +84,10 @@ export class Renderer implements RendererAPI {
     this.overlay.addChild(this.fx.textLayer);
     this.vignette = new Sprite(tex().vignette);
     this.fx.flashSprite.blendMode = 'add';
-    st.addChild(this.worldLow, this.lighting.sprite, this.worldHigh, this.overlay, this.vignette, this.fx.flashSprite);
+    this.guideText.anchor.set(0.5);
+    this.guide.addChild(this.guideArrow, this.guideText);
+    this.guide.visible = false;
+    st.addChild(this.worldLow, this.lighting.sprite, this.worldHigh, this.overlay, this.vignette, this.guide, this.fx.flashSprite);
     this.resize();
     window.addEventListener('resize', () => this.resize());
   }
@@ -129,6 +136,43 @@ export class Renderer implements RendererAPI {
     this.lighting.ambient = biome.ambient.color;
     this.lighting.darkness = biome.ambient.darkness;
     this.fx.getActor = (id) => world.getActor(id);
+  }
+
+  /** Points new heroes to the first dungeon: arrow at the screen edge while the entrance is off-screen. */
+  private updateGuide(ctx: GameCtx, W: number, H: number): void {
+    const w = this.world;
+    const target = w?.info.isTown && !Object.keys(ctx.character.bossesKilled).length ? w.interactables.find((o) => o.kind === 'dungeonEntrance') : undefined;
+    if (!target) {
+      this.guide.visible = false;
+      return;
+    }
+    const s = this.worldToScreen(target.pos.x, target.pos.y);
+    const mx = 70;
+    const top = 70;
+    const bottom = H - 200; // keep clear of the action bar
+    const onScreen = s.x > mx && s.x < W - mx && s.y > top && s.y < bottom;
+    this.guide.visible = !onScreen;
+    if (onScreen) return;
+    const cx = W / 2;
+    const cy = H / 2;
+    const dx = s.x - cx;
+    const dy = s.y - cy;
+    // scale the direction vector so it touches the inner rectangle
+    const k = Math.min(Math.abs((dx > 0 ? W - mx - cx : mx - cx) / (dx || 1e-6)), Math.abs((dy > 0 ? bottom - cy : top - cy) / (dy || 1e-6)));
+    const ax = cx + dx * k;
+    const ay = cy + dy * k;
+    const ang = Math.atan2(dy, dx);
+    const bob = Math.sin(this.time * 5) * 6;
+    const g = this.guideArrow;
+    g.clear();
+    g.position.set(ax + Math.cos(ang) * bob, ay + Math.sin(ang) * bob);
+    g.rotation = ang;
+    g.poly([36, 0, 6, -20, 6, -8, -24, -8, -24, 8, 6, 8, 6, 20]).fill({ color: 0xffc860 }).stroke({ color: 0x000000, width: 3 });
+    g.circle(4, 0, 40).stroke({ color: 0xffb040, width: 2, alpha: 0.35 + Math.sin(this.time * 4) * 0.2 });
+    const dist = Math.round(Math.hypot(target.pos.x - ctx.player.pos.x, target.pos.y - ctx.player.pos.y));
+    this.guideText.text = `${target.name || 'Masmorra'} · ${dist} m`;
+    // label sits inward from the arrow
+    this.guideText.position.set(Math.min(W - 150, Math.max(150, ax - Math.cos(ang) * 90)), Math.min(bottom - 10, Math.max(top + 10, ay - Math.sin(ang) * 70)));
   }
 
   clearWorld(): void {
@@ -379,6 +423,7 @@ export class Renderer implements RendererAPI {
       this.fx.burst(biome.ambientParticles, { x: wx, y: wy }, { z: Math.random() * 2 });
     }
 
+    this.updateGuide(ctx, W, H);
     this.fx.update(frameDt, z);
     this.fog.update();
     this.renderLights(ctx, w);

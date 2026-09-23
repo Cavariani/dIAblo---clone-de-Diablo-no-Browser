@@ -50,5 +50,8 @@ registerInteractHandler('shrine', (ctx, o) => {
 onGameCreated((game) => {
   game.events.on('zoneEntered', ({ isTown }: { isTown: boolean }) => {
     if (isTown) refreshStock(game);
+    // first steps: tell new heroes where the first dungeon is (the renderer also draws a guide arrow)
+    if (isTown && !Object.keys(game.character.bossesKilled).length && !game.character.waypoints.some((w: string) => w.startsWith('crypt')))
+      setTimeout(() => game.ui.toast('Siga a seta dourada: a Cripta dos Reis Caídos fica a sudoeste da praça, junto ao guarda.', 'quest'), 1500);
   });
 });

@@ -37,7 +37,7 @@ function lookFor(o: Interactable, tileset: string): Look {
     case 'stash':
       return { tile: 145, tileset: 'dungeon', light: { radius: 2.2, color: 0xffd8a0, intensity: 0.6 } };
     case 'dungeonEntrance':
-      return { swirl: 0x3a1a0a, light: { radius: 3, color: 0xff7a30, intensity: 0.9 } };
+      return { swirl: 0x3a1a0a, light: { radius: 6, color: 0xff7a30, intensity: 1.7, flicker: 0.2 } };
     case 'riftObelisk':
       return { sheet: 'npc/return_obelisk1', swirl: 0xc02060, light: { radius: 4, color: 0xff3080, intensity: 1.3, flicker: 0.2 } };
     case 'difficultyAltar':
@@ -80,8 +80,13 @@ export class InteractableView {
       this.halo.blendMode = 'add';
       this.halo.tint = this.look.swirl;
       if (!pit) high.addChild(this.halo);
+      else if (obj.kind === 'dungeonEntrance') {
+        // zone exits get a tall ember beam so they read from across the map
+        this.halo.tint = 0xff6a20;
+        high.addChild(this.halo);
+      }
     }
-    this.label = new Text({ text: obj.name, style: { fontFamily: 'Cinzel, Georgia, serif', fontSize: 16, fill: 0xf0e0b0, fontWeight: '600', stroke: { color: 0x000000, width: 4 } }, resolution: 2 });
+    this.label = new Text({ text: obj.name, style: { fontFamily: 'Cinzel, Georgia, serif', fontSize: obj.kind === 'dungeonEntrance' ? 26 : 20, fill: obj.kind === 'dungeonEntrance' ? 0xffc070 : 0xf0e0b0, fontWeight: '600', stroke: { color: 0x000000, width: 4 } }, resolution: 2 });
     this.label.anchor.set(0.5, 1);
     this.label.visible = false;
     overlay.addChild(this.label);
@@ -132,7 +137,13 @@ export class InteractableView {
       if (stairs) {
         // dark descending pit with ember glow ring
         for (let i = 5; i >= 1; i--) g.ellipse(p.x, p.y, 20 * i + 8, 10 * i + 4).fill({ color: i === 5 ? 0x2a1810 : 0x000000, alpha: i === 5 ? 0.9 : 0.25 + (5 - i) * 0.15 });
-        g.ellipse(p.x, p.y, 108, 54).stroke({ color: o.kind === 'stairsDown' ? 0xff6020 : 0xd0c090, width: 3, alpha: 0.5 + Math.sin(time * 2) * 0.2 });
+        g.ellipse(p.x, p.y, 108, 54).stroke({ color: o.kind === 'stairsUp' ? 0xd0c090 : 0xff6020, width: 3, alpha: 0.5 + Math.sin(time * 2) * 0.2 });
+        if (o.kind === 'dungeonEntrance' && this.halo) {
+          this.halo.position.set(p.x, p.y - 150);
+          this.halo.scale.set(1.6, 7);
+          this.halo.alpha = 0.5 + Math.sin(time * 2.5) * 0.15;
+          if (Math.random() < 0.5) fx.burst('embers', o.pos, { count: 2 });
+        }
       } else {
         const n = 5;
         for (let i = 0; i < n; i++) {
@@ -149,9 +160,9 @@ export class InteractableView {
         if (Math.random() < 0.25) fx.burst('portal', o.pos, { count: 1, color: c, z: 0.5 });
       }
     }
-    const showLabel = hovered;
+    const showLabel = hovered || o.kind === 'dungeonEntrance';
     this.label.visible = showLabel;
-    if (showLabel) this.label.position.set(p.x, p.y - Math.max(90, -this.root.getLocalBounds().y) - 6);
+    if (showLabel) this.label.position.set(p.x, p.y - (o.kind === 'dungeonEntrance' ? 210 + Math.sin(time * 2) * 4 : Math.max(90, -this.root.getLocalBounds().y) + 6));
   }
 
   destroy(): void {

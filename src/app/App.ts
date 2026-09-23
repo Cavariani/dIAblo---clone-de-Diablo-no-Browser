@@ -117,6 +117,7 @@ export class App {
     const s = this.file.settings;
     this.renderer.applySettings(s);
     audio.applySettings(s);
+    document.documentElement.style.setProperty('--ui-scale', String(s.uiScale ?? 1));
   }
 
   private loop(): void {
@@ -496,6 +497,17 @@ export class App {
         };
         return el('div', { class: 'opt-row' }, el('label', label), i);
       };
+      const uiScaleRow = () => {
+        const val = el('b', { class: 'opt-val' }, `${Math.round((s.uiScale ?? 1) * 100)}%`);
+        const i = el('input', { type: 'range', min: '0.8', max: '1.5', step: '0.05', value: String(s.uiScale ?? 1) }) as HTMLInputElement;
+        // apply on release so the slider does not move under the cursor while dragging
+        i.oninput = () => (val.textContent = `${Math.round(Number(i.value) * 100)}%`);
+        i.onchange = () => {
+          s.uiScale = Number(i.value);
+          this.applySettings();
+        };
+        return el('div', { class: 'opt-row' }, el('label', 'Tamanho da interface'), el('div', { class: 'opt-scale' }, i, val));
+      };
       const q = el('select', { class: 'input', style: 'width:8rem;padding:.2rem' }, el('option', { value: 'high' }, 'Alta'), el('option', { value: 'low' }, 'Baixa')) as HTMLSelectElement;
       q.value = s.lightingQuality;
       q.onchange = () => {
@@ -508,6 +520,8 @@ export class App {
         slider('Música', 'musicVolume'),
         slider('Efeitos', 'sfxVolume'),
         slider('Interface', 'uiVolume'),
+        el('h3', { class: 'section-title' }, 'Interface'),
+        uiScaleRow(),
         el('h3', { class: 'section-title' }, 'Vídeo e efeitos'),
         slider('Tremor de tela', 'screenShake'),
         toggle('Congelamento de impacto (hit-stop)', 'hitStop'),

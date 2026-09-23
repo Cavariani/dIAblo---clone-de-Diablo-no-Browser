@@ -46,7 +46,7 @@ export class ItemView {
     private overlay: Container,
   ) {
     const { text, color } = itemLabel(item);
-    this.label = new Text({ text, style: { fontFamily: 'Cinzel, Georgia, serif', fontSize: 15, fill: color, fontWeight: '600' }, resolution: 2 });
+    this.label = new Text({ text, style: { fontFamily: 'Cinzel, Georgia, serif', fontSize: 18, fill: color, fontWeight: '600' }, resolution: 2 });
     this.label.anchor.set(0.5);
     this.labelBox.addChild(this.labelBg, this.label);
     const w = this.label.width + 14;

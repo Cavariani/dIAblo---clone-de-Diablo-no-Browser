@@ -262,3 +262,7 @@
 .hk__icon { font-size: calc(var(--slot) - 4px); }
 .hk__icon.ico--missing::after { content: attr(data-glyph); position: absolute; inset: 0; display: grid; place-items: center;
   font: 700 1.4rem/1 var(--f-title); color: var(--c-gold-2); text-shadow: 0 0 8px rgba(255,160,60,.6); }
+
+/* a right-side panel (inventory, stash, vendor…) covers the minimap area */
+#ui-root:has(.panel-slot--right > .ui-panel:not(.is-closing)) .minimap,
+#ui-root:has(.panel-slot--right > .ui-panel:not(.is-closing)) .rift-bar { visibility: hidden; }

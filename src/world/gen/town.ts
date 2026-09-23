@@ -42,6 +42,9 @@ export function generateTown(p: GeneratorParams): GeneratedLevel {
   // plaza + roads
   const cx = 18;
   const cy = 18;
+  /** Crypt entrance: on the south road, in plain view from the plaza (keep its surroundings clear). */
+  const entrance = { x: 18, y: 27 };
+  const nearEntrance = (x: number, y: number) => Math.hypot(x + 0.5 - entrance.x, y + 0.5 - entrance.y) < 3.5;
   for (let y = 3; y < H - 3; y++)
     for (let x = 3; x < W - 3; x++) {
       const d = Math.abs(x - cx) + Math.abs(y - cy);
@@ -139,7 +142,7 @@ export function generateTown(p: GeneratorParams): GeneratedLevel {
     const x = rng.int(4, W - 5);
     const y = rng.int(4, H - 5);
     const i = idx(m, x, y);
-    if (m.cells[i] === CellKind.Floor && m.object[i] < 0 && m.floor[i] < 32 && Math.abs(x - cx) + Math.abs(y - cy) > 6) m.object[i] = rng.pick([112, 113, 118, 119, 124, 125, 126, 127, 122]);
+    if (m.cells[i] === CellKind.Floor && m.object[i] < 0 && m.floor[i] < 32 && Math.abs(x - cx) + Math.abs(y - cy) > 6 && !nearEntrance(x, y)) m.object[i] = rng.pick([112, 113, 118, 119, 124, 125, 126, 127, 122]);
   }
 
   const interactables: InteractableSpawn[] = [
@@ -147,7 +150,7 @@ export function generateTown(p: GeneratorParams): GeneratedLevel {
     { kind: 'stash', pos: { x: 15.5, y: 21.5 }, name: 'Baú Compartilhado' },
     { kind: 'riftObelisk', pos: { x: 28.5, y: 15.5 } },
     { kind: 'difficultyAltar', pos: { x: 15.5, y: 8.5 } },
-    { kind: 'dungeonEntrance', pos: { x: 17.5, y: 31 }, name: 'Cripta dos Reis Caídos', data: { zoneId: 'crypt', floor: 1 } },
+    { kind: 'dungeonEntrance', pos: { ...entrance }, name: 'Cripta dos Reis Caídos', data: { zoneId: 'crypt', floor: 1 } },
   ];
   // keep interactable cells walkable around them
   const npcs: GeneratedLevel['npcs'] = [
@@ -157,7 +160,7 @@ export function generateTown(p: GeneratorParams): GeneratedLevel {
     { npcId: 'riftkeeper', pos: { x: 27.3, y: 17.2 }, facing: Math.PI * 0.9 },
     { npcId: 'villager_1', pos: { x: 23.5, y: 21.5 }, facing: Math.PI },
     { npcId: 'villager_2', pos: { x: 12.5, y: 19.8 }, facing: 0 },
-    { npcId: 'guard_1', pos: { x: 16.2, y: 30.5 }, facing: -Math.PI / 2 },
+    { npcId: 'guard_1', pos: { x: 15.8, y: 26.4 }, facing: -Math.PI / 2 },
     { npcId: 'guard_2', pos: { x: 19.8, y: 30.5 }, facing: -Math.PI / 2 },
   ];
   void p;

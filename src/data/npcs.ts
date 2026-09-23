@@ -45,7 +45,7 @@ export const QUESTS: QuestDef[] = [
     id: 'q_crypt_cleanse',
     name: 'Os Mortos Inquietos',
     giver: 'elder',
-    description: 'Elimine 30 mortos-vivos na Cripta dos Reis Caídos.',
+    description: 'Elimine 30 mortos-vivos na Cripta dos Reis Caídos (entrada a sudoeste da praça, junto ao guarda).',
     objective: { kind: 'kill', count: 30, zoneId: 'crypt' },
     reward: { xp: 400, gold: 150, item: { rarity: 'magic' } },
     acceptText: 'Os mortos saem das tumbas em números cada vez maiores. Reduza suas fileiras antes que cheguem aos nossos portões.',

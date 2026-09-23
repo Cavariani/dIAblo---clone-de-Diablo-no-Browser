@@ -11,6 +11,7 @@ export const defaultSettings = (): Settings => ({
   sfxVolume: 0.8,
   uiVolume: 0.7,
   screenShake: 1,
+  uiScale: 1,
   hitStop: true,
   damageNumbers: true,
   bloom: true,
